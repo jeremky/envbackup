@@ -14,7 +14,7 @@ fi
 if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
     if [ -d $dir/files ] ; then
         cd $dir/files
-        for file in $(ls -A) ; do
+        for file in "$(ls -1)" ; do
             cp -Rpv $file $HOME
             echo "Restauration effectuée"
             exit 0
