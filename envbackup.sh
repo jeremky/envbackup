@@ -22,7 +22,7 @@ else
     cd $HOME
     for file in $(cat $config | grep -v '#') ; do
         if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
-            cp -Rp $file $dir/files
+            cp -Rpv $file $dir/files
         fi
     done
 fi
