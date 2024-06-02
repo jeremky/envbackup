@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/home/jeremky/scripts'
-let g:netrw_dirhist_6='/home/jeremky/scripts/sysbackup'
-let g:netrw_dirhist_5='/home/jeremky/scripts/jdocker/.git'
-let g:netrw_dirhist_4='/home/jeremky/tmp/jdocker/.git'
-let g:netrw_dirhist_3='/home/jeremky/scripts/jdocker/cfg/ddclient'
-let g:netrw_dirhist_2='/opt/mcserver/plugins/spark'
-let g:netrw_dirhist_1='/home/jeremky/.vim'
