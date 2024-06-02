@@ -3,7 +3,6 @@
 ## Variables
 dir=$(dirname "$0")
 config="$dir/$(basename -s .sh $0).cfg"
-targz="$dir/$(basename -s .sh $0).tar.gz"
 
 ## Verification
 if [ "$USER" = "root" ] ; then
@@ -13,17 +12,17 @@ fi
 
 ## Copie des configurations OS
 if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
-    if [ -f $targz ] ; then
-        cd $HOME && tar xzf $targz
+    if [ -d $dir/files ] ; then
+        cd $dir/files
+        for file in $(ls -A) ; do
+            cp -Rpv $file $HOME
+        done
     fi
 else
     cd $HOME
-    cp /dev/null $dir/.envbackup.lst
     for file in $(cat $config | grep -v '#') ; do
         if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
-            echo $file >> $dir/.envbackup.lst
             cp -Rp $file $dir/files
         fi
     done
-    tar czvf $targz $(cat $dir/.envbackup.lst)
 fi
