@@ -22,7 +22,7 @@ fi
 alias l='ls -lh'
 alias la='ls -lhA'
 alias lr='ls -lLhR'
-alias lra='ls -lRha'
+alias lra='ls -lhRA'
 alias lrt='ls -lLhrt'
 alias lart='ls -lLhArt'
 alias grep='grep -i --color=auto'
@@ -107,11 +107,6 @@ gpgd() { for file in $* ; do gpg -o "$(basename "$file" .gpg)" -d "$file" ; done
 
 gencert() { read -p "Adresse mail : " mail ; $sudo certbot certonly --standalone --preferred-challenges http --email $mail -d $1 ;}
 rencert() { $sudo certbot -q renew ;}
-
-## Aliases spécifiques
-if [ -f $HOME/.bash_aliases.$(hostname) ] ; then
-    . $HOME/.bash_aliases.$(hostname)
-fi
 
 ## Scripts
 scripts=/home/jeremky/scripts

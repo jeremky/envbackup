@@ -16,17 +16,17 @@ if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
         cd $dir/files
         for file in "$(ls -A)" ; do
             cp -Rp $file $HOME
-            echo "Restauration effectuée"
-            exit 0
         done
+        echo "Restauration effectuée"
+            exit 0
     fi
 else
     cd $HOME
     for file in $(cat $config | grep -v '#') ; do
         if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
             cp -Rp $file $dir/files
-            echo "Sauvegarde effectuée"
-            exit 0
         fi
     done
+    echo "Sauvegarde effectuée"
+    exit 0
 fi
