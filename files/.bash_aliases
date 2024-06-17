@@ -87,7 +87,6 @@ fi
 if [ -f /usr/bin/docker ] ; then
     alias docker='$sudo docker'
     alias peer='docker exec -it wireguard /app/show-peer $1'
-    alias mccons='docker exec -it mcserver rcon-cli'
     alias ncclean='$sudo cp /dev/null /opt/nextcloud/data/nextcloud.log'
 fi
 
