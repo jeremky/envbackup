@@ -54,6 +54,7 @@ fi
 ## Top
 if [ -f /usr/bin/htop ] ; then
     alias top='htop'
+    alias topc='htop -C'
 fi
 
 ## Ncdu
