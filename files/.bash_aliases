@@ -38,7 +38,6 @@ alias md5='md5sum <<<'
 alias pubip='curl -s -4 ipecho.net/plain ; echo'
 alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 alias wget='wget --no-check-certificate'
-alias newuser='$sudo adduser --no-create-home -q --disabled-password --gecos ""'
 alias halt='$sudo halt -p'
 
 ## Ssh
@@ -88,6 +87,7 @@ if [ -f /usr/bin/docker ] ; then
     alias docker='$sudo docker'
     alias peer='docker exec -it wireguard /app/show-peer $1'
     alias mccons='docker exec -it mcserver rcon-cli'
+    alias ncclean='$sudo cp /dev/null /opt/nextcloud/data/nextcloud.log'
 fi
 
 ## Lazydocker
@@ -96,6 +96,7 @@ if [ -f /usr/bin/lazydocker ] ; then
 fi
 
 ## Fonctions
+newuser() { $sudo adduser --no-create-home -q --disabled-password --gecos "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 zip() { /usr/bin/zip -r "$(echo "$1" | rev | cut -d '/' -f 1 | cut -d '.' -f 2- | rev)".zip $* ;}
 
