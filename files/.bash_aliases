@@ -12,7 +12,7 @@ bind 'set completion-ignore-case on'
 
 ## Sudo
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
-    alias su='sudo -s'
+    alias su='sudo -i'
     sudo=sudo
 else
     alias su='su -'
