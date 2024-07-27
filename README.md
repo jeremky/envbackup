@@ -1,6 +1,8 @@
 # envbackup.sh
 
-Sauvegarde des fichiers de configuration d'environnement.
+Sauvegarde les fichiers de configuration d'environnement.
+
+la liste des fichiers et dossiers sauvegardés est à modifier dans le fichier envbackup.cfg
 
 - Exécuter le script sans paramètre sauvegarde les fichiers listés dans envbackup.cfg
 
