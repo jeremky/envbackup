@@ -75,7 +75,7 @@ fi
 
 ## Df
 if [ -f /usr/bin/duf ] ; then
-    alias df='duf --hide special'
+    alias df='duf /'
 fi
 
 ## Grep
