@@ -24,8 +24,29 @@ set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=                      " Désactive la souris par défaut
+set mouse=a                     " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
+
+"" Explorateur de fichiers
+let g:netrw_liststyle = 3       " Active le mode Treeview
+let g:netrw_sizestyle = "H"     " Active le mode human-readable
+let g:netrw_banner = 0          " Désactive la bannière
+let g:netrw_browse_split = 4    " Ouvre le fichier choisi dans un panel
+let g:netrw_altv = 1            " Ouvre en mode vertical
+let g:netrw_winsize = 15        " Définit la taille de l'explorateur
+
+"" Ouvre automatiquement l'explorateur
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+  autocmd VimEnter * wincmd w
+augroup END
+
+"" Ferme automatiquement l'explorateur
+aug netrw_close
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
+aug END
 
 "" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
