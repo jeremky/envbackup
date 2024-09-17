@@ -24,7 +24,7 @@ set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=a                     " Désactive la souris par défaut
+set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 
 "" Explorateur de fichiers

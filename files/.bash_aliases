@@ -96,7 +96,7 @@ if [ -f /usr/bin/lazydocker ] ; then
 fi
 
 ## Fonctions
-newuser() { $sudo adduser --no-create-home -q --disabled-password --gecos "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
+newuser() { $sudo adduser --no-create-home -q --disabled-password --comment "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
