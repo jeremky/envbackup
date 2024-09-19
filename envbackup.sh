@@ -12,8 +12,8 @@ fi
 
 ## Copie des configurations OS
 if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
-    if [ -d $dir/files ] ; then
-        cd $dir/files
+    if [ -d $dir/envfiles ] ; then
+        cd $dir/envfiles
         for file in "$(ls -A)" ; do
             cp -Rp $file $HOME
         done
@@ -24,7 +24,7 @@ else
     cd $HOME
     for file in $(cat $config | grep -v '#') ; do
         if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
-            cp -Rp $file $dir/files
+            cp -Rp $file $dir/envfiles
         fi
     done
     echo "Sauvegarde effectuée"
