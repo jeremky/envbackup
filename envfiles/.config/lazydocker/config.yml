@@ -33,7 +33,7 @@ logs:
   since: '' # set to '' to show all logs
   tail: '200' # set to 200 to show last 200 lines of logs
 commandTemplates:
-  dockerCompose: docker-compose
+  dockerCompose: podman-compose
   restartService: '{{ .DockerCompose }} restart {{ .Service.Name }}'
   up:  '{{ .DockerCompose }} up -d'
   down: '{{ .DockerCompose }} down'

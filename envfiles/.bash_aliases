@@ -12,7 +12,7 @@ bind 'set completion-ignore-case on'
 
 ## Sudo
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
-    alias su='sudo -i'
+    alias su='sudo -s'
     sudo=sudo
 else
     alias su='su -'
@@ -83,16 +83,16 @@ if [ -f /usr/bin/rg ] ; then
     alias rg='rg -i'
 fi
 
-## Docker
-if [ -f /usr/bin/docker ] ; then
-    alias docker='$sudo docker'
-    alias peer='docker exec -it wireguard /app/show-peer $1'
-    alias mccons='docker exec -it mcserver rcon-cli'
+## Podman
+if [ -f /usr/bin/podman ] ; then
+    alias podman='$sudo podman'
+    alias podman-compose='$sudo podman-compose'
+    alias peer='podman exec -it wireguard /app/show-peer $1'
 fi
 
 ## Lazydocker
 if [ -f /usr/bin/lazydocker ] ; then
-    alias lzd='$sudo lazydocker'
+    lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
 fi
 
 ## Fonctions
