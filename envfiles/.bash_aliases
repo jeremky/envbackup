@@ -109,6 +109,8 @@ gpgd() { for file in $* ; do gpg -o "$(basename "$file" .gpg)" -d "$file" ; done
 gencert() { read -p "Adresse mail : " mail ; $sudo certbot certonly --standalone --preferred-challenges http --email $mail -d $1 ;}
 rencert() { $sudo certbot -q renew ;}
 
+jsed() { sed -i "s,$1,$2,g" $3 ;}
+
 ## Scripts
 scripts=/home/jeremky/scripts
 if [ -d $scripts ] ; then
