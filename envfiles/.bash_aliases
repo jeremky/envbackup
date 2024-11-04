@@ -39,6 +39,7 @@ alias pubip='curl -s -4 ipecho.net/plain ; echo'
 alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 alias wget='wget --no-check-certificate'
 alias halt='$sudo halt -p'
+alias reboot='$sudo reboot'
 
 ## Ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
