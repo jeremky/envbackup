@@ -43,13 +43,16 @@ let g:netrw_winsize = 15        " Définit la taille de l'explorateur
 "augroup END
 
 "" Ferme automatiquement l'explorateur
-"aug netrw_close
-"  au!
-"  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
-"aug END
+aug netrw_close
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
+aug END
 
 "" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
+
+" Explorateur de fichiers
+nnoremap <F1> :Vexplore <CR>
 
 "" Correction orthographique (z= pour afficher les propositions)
 map <F2> :set spell!<CR>
