@@ -35,13 +35,6 @@ let g:netrw_browse_split = 4    " Ouvre le fichier choisi dans un panel
 let g:netrw_altv = 1            " Ouvre en mode vertical
 let g:netrw_winsize = 15        " Définit la taille de l'explorateur
 
-"" Ouvre automatiquement l'explorateur
-"augroup ProjectDrawer
-"  autocmd!
-"  autocmd VimEnter * :Vexplore
-"  autocmd VimEnter * wincmd w
-"augroup END
-
 "" Ferme automatiquement l'explorateur
 aug netrw_close
   au!
