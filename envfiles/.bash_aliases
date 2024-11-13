@@ -113,7 +113,7 @@ rencert() { $sudo certbot -q renew ;}
 jsed() { sed -i "s,$1,$2,g" $3 ;}
 
 # Authelia
-authpass() { $sudo podman run --rm docker.io/authelia/authelia:latest authelia crypto hash generate argon2 --password '$1' ;}
+authpass() { $sudo podman run --rm docker.io/authelia/authelia:latest authelia crypto hash generate argon2 --password $1 ;}
 
 ## Scripts
 scripts=/home/jeremky/scripts
