@@ -89,7 +89,8 @@ nnoremap <F7> :set list!<CR>
 "" Ajout du theme OneHalfDark
 if filereadable(expand("~/.vim/colors/onehalfdark.vim")) && $TERM == 'xterm-256color'
     set cursorline
-    colorscheme onehalfdark
+    colorscheme onehalflight
+    "colorscheme onehalfdark
     set termguicolors
 endif
 

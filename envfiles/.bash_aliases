@@ -86,6 +86,8 @@ fi
 
 ## Podman
 if [ -f /usr/bin/podman ] ; then
+    alias docker='$sudo podman'
+    alias docker-compose='$sudo podman-compose'
     alias podman='$sudo podman'
     alias podman-compose='$sudo podman-compose'
     alias peer='podman exec -it wireguard /app/show-peer $1'
