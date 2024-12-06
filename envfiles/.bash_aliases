@@ -114,7 +114,7 @@ rencert() { $sudo certbot -q renew ;}
 jsed() { sed -i "s,$1,$2,g" $3 ;}
 
 ## Scripts
-scripts=/home/jeremky/Scripts
+scripts=/home/jeremky/scripts
 if [ -d $scripts ] ; then
     for i in $(ls $scripts) ; do
         if [ -f $scripts/$i/$i.sh ] ; then
