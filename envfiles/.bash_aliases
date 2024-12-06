@@ -36,7 +36,6 @@ alias ss='ss -tunlH'
 alias ssp='ss -tunl | grep'
 alias md5='md5sum <<<'
 alias pubip='curl -s -4 ipecho.net/plain ; echo'
-alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 alias wget='wget --no-check-certificate'
 alias halt='$sudo halt -p'
 alias reboot='$sudo reboot'
@@ -45,6 +44,7 @@ alias reboot='$sudo reboot'
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
+alias sshjs='ssh -i ~/.ssh/id_jserv jeremky@jserv.jeremky.fr'
 
 ## Vi
 if [ -f /usr/bin/vim ] ; then
@@ -121,6 +121,13 @@ if [ -d $scripts ] ; then
             alias $i=''$scripts'/'$i'/'$i'.sh'
         fi
     done
+fi
+
+## Upgrade
+if [ -f /sbin/apk ] ; then
+    alias upgrade='$sudo apk update && $sudo apk upgrade'
+else
+    alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 fi
 
 ## Tmux
