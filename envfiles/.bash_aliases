@@ -48,8 +48,8 @@ alias copykey='ssh-copy-id'
 
 ## Vi
 if [ -f /usr/bin/vim ] ; then
-    alias vi='vi -nO'
-    alias view='vi -nRO'
+    alias vi='vim -nO'
+    alias view='vim -nRO'
 fi
 
 ## Top
@@ -114,11 +114,20 @@ rencert() { $sudo certbot -q renew ;}
 jsed() { sed -i "s,$1,$2,g" $3 ;}
 
 ## Scripts
-scripts=/home/jeremky/scripts
+scripts=/home/jeremky/Scripts
 if [ -d $scripts ] ; then
     for i in $(ls $scripts) ; do
         if [ -f $scripts/$i/$i.sh ] ; then
             alias $i=''$scripts'/'$i'/'$i'.sh'
         fi
     done
+fi
+
+## Tmux
+if [ -f /usr/bin/tmux ] && [ "$TERM" != "tmux-256color" ] && [ "$HOME" = "/home/abc" ] ; then
+    if [ -z $(pgrep tmux) ] ; then
+        exec tmux
+    else
+        exec tmux a
+    fi
 fi
