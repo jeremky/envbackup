@@ -125,7 +125,7 @@ fi
 
 ## Tmux
 if [ -f /usr/bin/tmux ] ; then
-    alias tm='tmux attach || tmux new'
+    alias tmux='tmux attach || tmux new'
     #if [ -z "$TMUX" ] && [ ${UID} != 0 ] ; then
     #    exec tmux new-session -A -s main
     #fi
