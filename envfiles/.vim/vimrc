@@ -1,39 +1,40 @@
 "" Paramétrage des couleurs
-syntax on                       " Active la colorisation syntaxique
-set hlsearch                    " Affiche en surbrillance les recherches
-set background=dark             " Optimise l'affiche pour un terminal sombre
+syntax on                         " Active la colorisation syntaxique
+set hlsearch                      " Affiche en surbrillance les recherches
+set background=dark               " Optimise l'affiche pour un terminal sombre
 
 "" Paramétrage d'affichage
-set nocompatible                " Utilisation de Vim par défaut
-set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en début de ligne
-set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set ruler                       " Affiche la position du curseur
-set tabstop=4                   " La largeur d'une tabulation est définie sur 4
-set shiftwidth=4                " Les retraits auront une largeur de 4
-set softtabstop=4               " Nombre de colonnes pour une tabulation
-set expandtab                   " Remplace les tab par des espaces
-set linebreak                   " Revient à la ligne sans couper les mots
+set nocompatible                  " Utilisation de Vim par défaut
+set smartindent                   " Indentation intelligente
+set smarttab                      " Gestion des espaces en début de ligne
+set autoindent                    " Conserve l'indentation sur une nouvelle ligne
+set ruler                         " Affiche la position du curseur
+set tabstop=4                     " La largeur d'une tabulation est définie sur 4
+set shiftwidth=4                  " Les retraits auront une largeur de 4
+set softtabstop=4                 " Nombre de colonnes pour une tabulation
+set expandtab                     " Remplace les tab par des espaces
+set linebreak                     " Revient à la ligne sans couper les mots
 
-filetype plugin indent on       " Permet l'indentation automatique : gg=G
+filetype plugin indent on         " Permet l'indentation automatique : gg=G
 
 "" Paramètres supplémentaires
-set showcmd                     " Afficher la commande dans la ligne d'etat
-set showmatch                   " Afficher les parentheses correspondantes
-set ignorecase                  " Ignorer la casse
-set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=                      " Désactive la souris par défaut
-set nobackup                    " Désactive les sauvegardes automatiques
+set showcmd                       " Afficher la commande dans la ligne d'etat
+set showmatch                     " Afficher les parentheses correspondantes
+set ignorecase                    " Ignorer la casse
+set smartcase                     " Faire un appariement intelligent
+set incsearch                     " Recherche incrémentielle
+set hidden                        " Cacher les tampons lorsqu'ils sont abandonnes
+set mouse=                        " Désactive la souris par défaut
+set nobackup                      " Désactive les sauvegardes automatiques
+set viminfofile=~/.vim/viminfo    " Change l'emplacement du fichier viminfo
 
 "" Explorateur de fichiers
-let g:netrw_liststyle = 3       " Active le mode Treeview
-let g:netrw_sizestyle = "H"     " Active le mode human-readable
-let g:netrw_banner = 0          " Désactive la bannière
-let g:netrw_browse_split = 4    " Ouvre le fichier choisi dans un panel
-let g:netrw_altv = 1            " Ouvre en mode vertical
-let g:netrw_winsize = 15        " Définit la taille de l'explorateur
+let g:netrw_liststyle = 3         " Active le mode Treeview
+let g:netrw_sizestyle = "H"       " Active le mode human-readable
+let g:netrw_banner = 0            " Désactive la bannière
+let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
+let g:netrw_altv = 1              " Ouvre en mode vertical
+let g:netrw_winsize = 15          " Définit la taille de l'explorateur
 
 "" Ferme automatiquement l'explorateur
 aug netrw_close
