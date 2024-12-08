@@ -103,3 +103,8 @@ autocmd BufNewFile,BufRead *.lpl set syntax=json
 if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
     packadd! youcompleteme
 endif
+
+"" Activation automatique de la souris sous tmux
+if $TERM == 'tmux-256color'
+    set mouse=a
+endif
