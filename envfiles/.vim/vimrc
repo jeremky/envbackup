@@ -92,12 +92,12 @@ if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
     set cursorline
     set t_Co=256
     colorscheme onehalfdark
-    let g:airline_theme='onehalfdark'
     set termguicolors
 endif
 
 "" Désactivation du status si besoin
 if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
+    let g:airline_theme='onedark'
     set laststatus=0
     set noshowmode
 endif
