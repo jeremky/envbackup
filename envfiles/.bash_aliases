@@ -39,6 +39,9 @@ alias pubip='curl -s -4 ipecho.net/plain ; echo'
 alias wget='wget --no-check-certificate'
 alias halt='$sudo halt -p'
 alias reboot='$sudo reboot'
+
+## Apt
+alias apt='$sudo apt'
 alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 
 ## Ssh
@@ -122,7 +125,7 @@ fi
 ## Tmux
 if [ -f /usr/bin/tmux ] ; then
     alias tmux='tmux attach || tmux new'
-    #if [ -z "$TMUX" ] && [ ${UID} != 0 ] ; then
+    #if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
     #    exec tmux new-session -A -s main
     #fi
 fi
