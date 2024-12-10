@@ -26,7 +26,6 @@ set incsearch                     " Recherche incrémentielle
 set hidden                        " Cacher les tampons lorsqu'ils sont abandonnes
 set mouse=                        " Désactive la souris par défaut
 set nobackup                      " Désactive les sauvegardes automatiques
-set viminfofile=~/.vim/viminfo    " Change l'emplacement du fichier viminfo
 
 "" Explorateur de fichiers
 let g:netrw_liststyle = 3         " Active le mode Treeview
@@ -98,6 +97,7 @@ endif
 "" Désactivation du status si besoin
 if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
     let g:airline_theme='onedark'
+    "let g:airline_statusline_ontop=1
     set laststatus=0
     set noshowmode
 endif

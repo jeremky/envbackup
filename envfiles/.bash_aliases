@@ -82,6 +82,11 @@ if [ -f /usr/bin/duf ] ; then
     alias df='duf /'
 fi
 
+## Ranger
+if [ -f /usr/bin/ranger ] ; then
+    alias r='ranger'
+fi
+
 ## Grep
 if [ -f /usr/bin/rg ] ; then
     alias rg='rg -i'
