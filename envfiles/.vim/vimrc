@@ -111,6 +111,6 @@ if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
 endif
 
 "" Activation automatique de la souris sous tmux
-"if $TERM == 'tmux-256color'
-"    set mouse=a
-"endif
+if $TERM == 'tmux-256color'
+    set mouse=a
+endif
