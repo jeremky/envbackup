@@ -50,7 +50,10 @@ alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
 ## Vi
-if [ -f /usr/bin/vim ] ; then
+if [ -f /usr/bin/nvim ] ; then
+    alias vi='nvim -nO'
+    alias view='nvim -nRO'
+elif [ -f /usr/bin/vim ] ; then
     alias vi='vim -nO'
     alias view='vim -nRO'
 fi
@@ -80,11 +83,6 @@ fi
 ## Df
 if [ -f /usr/bin/duf ] ; then
     alias df='duf /'
-fi
-
-## Ranger
-if [ -f /usr/bin/ranger ] ; then
-    alias r='ranger'
 fi
 
 ## Grep

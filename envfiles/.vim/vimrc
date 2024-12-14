@@ -37,8 +37,8 @@ let g:netrw_winsize = 15          " Définit la taille de l'explorateur
 
 "" Ferme automatiquement l'explorateur
 aug netrw_close
-  au!
-  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
+    au!
+    au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
 "" Mémoriser la dernière position du curseur
@@ -60,11 +60,11 @@ nnoremap <F4> :call ToggleSyntax()<CR>
 function! ToggleSyntax()
     if &syntax == ''
         syntax on
-        echo "Syntax enabled"
+        echo "Coloration syntaxique activée"
     else
         syntax off
         set syntax=
-        echo "Syntax disabled"
+        echo "Coloration syntaxique désactivée"
     endif
 endfunction
 
@@ -76,10 +76,10 @@ nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
     if &mouse == 'a'
         set mouse=
-        echo "Mouse usage disabled"
+        echo "Souris désactivée"
     else
         set mouse=a
-        echo "Mouse usage enabled"
+        echo "Souris activée"
     endif
 endfunction
 
@@ -88,16 +88,12 @@ nnoremap <F7> :set list!<CR>
 
 "" Ajout du theme OneHalfDark
 if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
-    set cursorline
-    set t_Co=256
     colorscheme onehalfdark
-    set termguicolors
 endif
 
 "" Désactivation du status si besoin
 if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
     let g:airline_theme='onedark'
-    set laststatus=0
     set noshowmode
 endif
 
