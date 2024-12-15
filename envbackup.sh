@@ -6,27 +6,27 @@ config="$dir/$(basename -s .sh $0).cfg"
 
 ## Verification
 if [ "$USER" = "root" ] ; then
-    echo "Ne pas lancer en tant que root !"
-    exit 0
+  echo "Ne pas lancer en tant que root !"
+  exit 0
 fi
 
 ## Copie des configurations OS
 if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
-    if [ -d $dir/envfiles ] ; then
-        cd $dir/envfiles
-        for file in "$(ls -A)" ; do
-            cp -Rp $file $HOME
-        done
-        echo "Restauration effectuée"
-            exit 0
-    fi
-else
-    cd $HOME
-    for file in $(cat $config | grep -v '#') ; do
-        if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
-            cp -Rp $file $dir/envfiles
-        fi
+  if [ -d $dir/envfiles ] ; then
+    cd $dir/envfiles
+    for file in "$(ls -A)" ; do
+      cp -Rp $file $HOME
     done
-    echo "Sauvegarde effectuée"
+    echo "Restauration effectuée"
     exit 0
+  fi
+else
+  cd $HOME
+  for file in $(cat $config | grep -v '#') ; do
+    if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
+      cp -Rp $file $dir/envfiles
+    fi
+  done
+  echo "Sauvegarde effectuée"
+  exit 0
 fi
