@@ -12,10 +12,10 @@ bind 'set completion-ignore-case on'
 
 ## Sudo
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
-    alias su='sudo -s'
-    sudo=sudo
+  alias su='sudo -s'
+  sudo=sudo
 else
-    alias su='su -'
+  alias su='su -'
 fi
 
 ## Aliases
@@ -51,56 +51,54 @@ alias copykey='ssh-copy-id'
 
 ## Vi
 if [ -f /usr/bin/nvim ] ; then
-    alias vi='nvim -nO'
-    alias view='nvim -nRO'
+  alias vi='nvim -p'
 elif [ -f /usr/bin/vim ] ; then
-    alias vi='vim -nO'
-    alias view='vim -nRO'
+  alias vi='vim -p'
 fi
 
 ## Top
 if [ -f /usr/bin/htop ] ; then
-    alias top='htop'
-    alias topc='htop -C'
+  alias top='htop'
+  alias topc='htop -C'
 fi
 
 ## Ncdu
 if [ -f /usr/bin/ncdu ] ; then
-    alias ncdu='ncdu --color dark'
+  alias ncdu='ncdu --color dark'
 fi
 
 ## Ufw
 if [ -f /usr/sbin/ufw ] ; then
-    alias ufw='$sudo ufw'
-    alias ufws='$sudo ufw status numbered'
+  alias ufw='$sudo ufw'
+  alias ufws='$sudo ufw status numbered'
 fi
 
 ## Diff
 if [ -f /usr/bin/colordiff ] ; then
-    alias diff='colordiff'
+  alias diff='colordiff'
 fi
 
 ## Df
 if [ -f /usr/bin/duf ] ; then
-    alias df='duf /'
+  alias df='duf /'
 fi
 
 ## Grep
 if [ -f /usr/bin/rg ] ; then
-    alias rg='rg -i'
+  alias rg='rg -i'
 fi
 
 ## Podman
 if [ -f /usr/bin/podman ] ; then
-    alias docker='$sudo podman'
-    alias docker-compose='$sudo podman-compose'
-    alias podman='$sudo podman'
-    alias podman-compose='$sudo podman-compose'
+  alias docker='$sudo podman'
+  alias docker-compose='$sudo podman-compose'
+  alias podman='$sudo podman'
+  alias podman-compose='$sudo podman-compose'
 fi
 
 ## Lazydocker
 if [ -f /usr/bin/lazydocker ] ; then
-    lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
+  lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
 fi
 
 ## Fonctions
@@ -118,17 +116,17 @@ jsed() { sed -i "s|$1|$2|g" $3 ;}
 ## Scripts
 scripts=/home/jeremky/scripts
 if [ -d $scripts ] ; then
-    for i in $(ls $scripts) ; do
-        if [ -f $scripts/$i/$i.sh ] ; then
-            alias $i=''$scripts'/'$i'/'$i'.sh'
-        fi
-    done
+  for i in $(ls $scripts) ; do
+    if [ -f $scripts/$i/$i.sh ] ; then
+      alias $i=''$scripts'/'$i'/'$i'.sh'
+    fi
+  done
 fi
 
 ## Tmux
 if [ -f /usr/bin/tmux ] ; then
-    alias tmux='tmux attach || tmux new'
-    #if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
-    #    exec tmux new-session -A -s main
-    #fi
+  alias tmux='tmux attach || tmux new'
+  #if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
+  #    exec tmux new-session -A -s main
+  #fi
 fi

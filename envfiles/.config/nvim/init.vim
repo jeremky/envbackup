@@ -2,8 +2,6 @@
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
-set laststatus=2                " Affiche en permanence la barre de status
-set nocompatible                " Utilisation de Vim par défaut
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -45,8 +43,9 @@ autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silen
 autocmd BufNewFile,BufRead *.txt set syntax=cfg
 autocmd BufNewFile,BufRead *.lpl set syntax=json
 
-"" Activation automatique de la souris sous tmux
+"" Configuration pour tmux
 if $TERM == 'tmux-256color'
+  set clipboard=unnamedplus
   set mouse=a
 endif
 
@@ -110,19 +109,12 @@ nnoremap <F7> :set list!<CR>
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
-"" Chargement des plugins
-if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-    packadd! youcompleteme
+"" Chargement du fichier de plugins
+if filereadable(expand("~/.config/nvim/plugins.vim"))
+  source ~/.config/nvim/plugins.vim
 endif
 
-"" Ajout du theme OneHalfDark
-if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
-    set cursorline
-    set t_Co=256
-    colorscheme onehalfdark
-    set termguicolors
-    if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
-        let g:airline_theme='onedark'
-        set noshowmode
-    endif
+"" Chargement du fichier de themes
+if filereadable(expand("~/.config/nvim/themes.vim"))
+  source ~/.config/nvim/themes.vim
 endif
