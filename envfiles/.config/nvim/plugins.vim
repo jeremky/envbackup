@@ -1,6 +1,6 @@
 "" Téléchargement de vim-plug si introuvable
-if empty(glob('~/.config/.nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/.nvim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -19,14 +19,13 @@ Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
-"" Chargement des plugins apt
-"if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-"  packadd! youcompleteme
-"endif
 
 "" Configuration de nerdtree
 if filereadable(expand("~/.local/share/nvim/plugged/nerdtree/autoload/nerdtree.vim"))
+  set modifiable
+  autocmd vimenter * if !argc() | NERDTree | endif
   nnoremap <C-o> :NERDTreeToggle <CR>
+  nnoremap <F1> :NERDTreeToggle <CR>
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
