@@ -69,9 +69,9 @@ endfunction
 "" Affichage des caractères en fin de ligne
 nnoremap <F7> :set list!<CR>
 
-"" Changement d'onglet
-nnoremap <TAB> :tabnext<CR>
-nnoremap <S-TAB> :tabprevious<CR>
+"" Changement d'onglet ou de document
+nnoremap <S-TAB> :tabnext<CR>
+nnoremap <TAB> <C-W>w 
 
 "" Chargement du fichier de plugins
 if filereadable(expand("~/.config/nvim/plugins.vim"))

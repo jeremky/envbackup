@@ -16,6 +16,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 

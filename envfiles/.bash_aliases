@@ -51,9 +51,9 @@ alias copykey='ssh-copy-id'
 
 ## Vi
 if [ -f /usr/bin/nvim ] ; then
-  alias vi='nvim -p'
+  alias vi='nvim -nO'
 elif [ -f /usr/bin/vim ] ; then
-  alias vi='vim -p'
+  alias vi='vim -nO'
 fi
 
 ## Top
