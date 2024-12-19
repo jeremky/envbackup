@@ -51,9 +51,9 @@ alias copykey='ssh-copy-id'
 
 ## Vi
 if [ -f /usr/bin/nvim ] ; then
-  alias vi='nvim -p'
+  alias vi='nvim -nO'
 elif [ -f /usr/bin/vim ] ; then
-  alias vi='vim -p'
+  alias vi='vim -nO'
 fi
 
 ## Top
@@ -126,7 +126,7 @@ fi
 ## Tmux
 if [ -f /usr/bin/tmux ] ; then
   alias tmux='tmux attach || tmux new'
-  #if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
-  #    exec tmux new-session -A -s main
-  #fi
+  if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
+      exec tmux new-session -A -s main
+  fi
 fi

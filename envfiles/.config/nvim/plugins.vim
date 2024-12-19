@@ -4,6 +4,11 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
+" Lance automatiquement PlugInstall
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 "" Liste des plugins
 call plug#begin()
 
@@ -16,6 +21,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
