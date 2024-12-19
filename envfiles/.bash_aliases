@@ -126,7 +126,7 @@ fi
 ## Tmux
 if [ -f /usr/bin/tmux ] ; then
   alias tmux='tmux attach || tmux new'
-  #if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
-  #    exec tmux new-session -A -s main
-  #fi
+  if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
+      exec tmux new-session -A -s main
+  fi
 fi

@@ -70,8 +70,8 @@ endfunction
 nnoremap <F7> :set list!<CR>
 
 "" Changement d'onglet ou de document
-nnoremap <S-TAB> :tabnext<CR>
-nnoremap <TAB> <C-W>w 
+nnoremap <TAB> :tabnext<CR>
+nnoremap <S-TAB> <C-W>w 
 
 "" Chargement du fichier de plugins
 if filereadable(expand("~/.config/nvim/plugins.vim"))
