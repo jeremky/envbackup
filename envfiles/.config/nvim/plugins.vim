@@ -12,14 +12,22 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 "" Liste des plugins
 call plug#begin()
 
-"Plug 'tpope/vim-sensible'
+"Theme
 Plug 'joshdick/onedark.vim'
+
+" Interface
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+
+"Code
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+
+" Completion
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
+
+"Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
