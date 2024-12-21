@@ -27,7 +27,6 @@ alias lrt='ls -lLhrt'
 alias lart='ls -lLhArt'
 alias grep='grep -i --color=auto'
 alias zgrep='zgrep -i --color=auto'
-alias df='df -h -x overlay -x tmpfs -x devtmpfs'
 alias psp='ps -eaf | grep -v grep | grep'
 alias iostat='iostat -m --human'
 alias ifconfig='ip -br -c addr | grep -v lo'
@@ -36,7 +35,7 @@ alias ss='ss -tunlH'
 alias ssp='ss -tunl | grep'
 alias md5='md5sum <<<'
 alias pubip='curl -s -4 ipecho.net/plain ; echo'
-alias wget='wget --no-check-certificate'
+#alias wget='wget --no-check-certificate'
 alias halt='$sudo halt -p'
 alias reboot='$sudo reboot'
 
@@ -49,22 +48,36 @@ alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-## Vi
-if [ -f /usr/bin/nvim ] ; then
-  alias vi='nvim -nO'
-elif [ -f /usr/bin/vim ] ; then
-  alias vi='vim -nO'
+## Df
+if [ -f /usr/bin/duf ] ; then
+  alias df='duf /'
+else
+  alias df='df -h -x overlay -x tmpfs -x devtmpfs'
 fi
 
-## Top
-if [ -f /usr/bin/htop ] ; then
-  alias top='htop'
-  alias topc='htop -C'
+## Diff
+if [ -f /usr/bin/colordiff ] ; then
+  alias diff='colordiff'
+fi
+
+## Grep
+if [ -f /usr/bin/rg ] ; then
+  alias rg='rg -i'
 fi
 
 ## Ncdu
 if [ -f /usr/bin/ncdu ] ; then
   alias ncdu='ncdu --color dark'
+fi
+
+## Tmux
+if [ -f /usr/bin/tmux ] ; then
+  alias tmux='tmux attach || tmux new'
+fi
+
+## Top
+if [ -f /usr/bin/htop ] ; then
+  alias top='htop'
 fi
 
 ## Ufw
@@ -73,19 +86,11 @@ if [ -f /usr/sbin/ufw ] ; then
   alias ufws='$sudo ufw status numbered'
 fi
 
-## Diff
-if [ -f /usr/bin/colordiff ] ; then
-  alias diff='colordiff'
-fi
-
-## Df
-if [ -f /usr/bin/duf ] ; then
-  alias df='duf /'
-fi
-
-## Grep
-if [ -f /usr/bin/rg ] ; then
-  alias rg='rg -i'
+## Vi
+if [ -f /usr/bin/nvim ] ; then
+  alias vi='nvim -nO'
+elif [ -f /usr/bin/vim ] ; then
+  alias vi='vim -nO'
 fi
 
 ## Podman
@@ -102,16 +107,12 @@ if [ -f /usr/bin/lazydocker ] ; then
 fi
 
 ## Fonctions
-newuser() { $sudo adduser --no-create-home -q --disabled-password --comment "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
-
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
-
-zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
-
+jsed() { sed -i "s|$1|$2|g" $3 ;}
+newuser() { $sudo adduser --no-create-home -q --disabled-password --comment "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
 tarc() { for file in $* ; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file ; done ;}
 tarx() { for file in $* ; do tar xzvf $file ; done ;}
-
-jsed() { sed -i "s|$1|$2|g" $3 ;}
+zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
 ## Scripts
 scripts=/home/jeremky/scripts
@@ -121,12 +122,4 @@ if [ -d $scripts ] ; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
-fi
-
-## Tmux
-if [ -f /usr/bin/tmux ] ; then
-  alias tmux='tmux attach || tmux new'
-  if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [ -z "$(pgrep tmux)" ] ; then
-      exec tmux new-session -A -s main
-  fi
 fi

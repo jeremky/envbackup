@@ -77,8 +77,3 @@ nnoremap <S-TAB> <C-W>w
 if filereadable(expand("~/.config/nvim/plugins.vim"))
   source ~/.config/nvim/plugins.vim
 endif
-
-"" Chargement du fichier de themes
-if filereadable(expand("~/.config/nvim/themes.vim"))
-  source ~/.config/nvim/themes.vim
-endif
