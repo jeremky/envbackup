@@ -15,13 +15,11 @@ let &listchars = "eol:$,space:\u00B7"
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
-inoremap ' ''<Esc>ha
 
 "" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
 "" Modification de certaines syntaxes
-autocmd BufNewFile,BufRead *.txt set syntax=cfg
 autocmd BufNewFile,BufRead *.lpl set syntax=json
 
 "" Configuration pour tmux
