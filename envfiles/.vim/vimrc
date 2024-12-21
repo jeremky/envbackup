@@ -35,7 +35,6 @@ let &t_EI = "\e[2 q"
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
-inoremap ' ''<Esc>ha
 
 "" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
@@ -63,8 +62,25 @@ aug netrw_close
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
+"" Chargement de YCM
+if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
+    packadd! youcompleteme
+endif
+
+"" Configuration du theme OneHalfDark
+if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
+    set cursorline
+    set t_Co=256
+    colorscheme onehalfdark
+    set termguicolors
+    if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
+        let g:airline_theme='onedark'
+        set noshowmode
+    endif
+endif
+
 " Explorateur de fichiers
-nnoremap <F1> :Vexplore <CR>
+nnoremap <F1> :Vexplore<CR>
 
 "" Activation de la numérotation
 nnoremap <F2> :set number!<CR>
@@ -102,26 +118,9 @@ function! ToggleMouse()
   endif
 endfunction
 
-"" Affichage des caractères en fin de ligne
+"" Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
 "" Changement d'onglet
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
-
-"" Chargement des plugins APT
-if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-    packadd! youcompleteme
-endif
-
-"" Ajout du theme OneHalfDark
-if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
-    set cursorline
-    set t_Co=256
-    colorscheme onehalfdark
-    set termguicolors
-    if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
-        let g:airline_theme='onedark'
-        set noshowmode
-    endif
-endif

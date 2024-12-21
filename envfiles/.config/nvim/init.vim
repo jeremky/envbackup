@@ -7,6 +7,7 @@ set linebreak                   " Revient à la ligne sans couper les mots
 set showmatch                   " Afficher les parentheses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
+set mouse=                      " Désactivation de la souris
 
 "" Définition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
@@ -64,7 +65,7 @@ function! ToggleMouse()
   endif
 endfunction
 
-"" Affichage des caractères en fin de ligne
+"" Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
 "" Changement d'onglet ou de document
