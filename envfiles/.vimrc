@@ -55,12 +55,7 @@ endif
 nnoremap <F1> :NERDTreeToggle <CR>
 
 "" Mode IDE
-nnoremap <F2> :call ModeIDE() <CR>
-function! ModeIDE()
-  set number!
-  IndentLinesToggle
-  GitGutterToggle
-endfunction
+nnoremap <F2> :set number! <bar> IndentLinesToggle <CR>
 
 "" Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
@@ -132,9 +127,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-"Code
-Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 
 " Completion

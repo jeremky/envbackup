@@ -87,9 +87,9 @@ if [ -f /usr/sbin/ufw ] ; then
 fi
 
 ## Vi
-#if [ -f /usr/bin/nvim ] ; then
-#  alias vi='nvim -nO'
-if [ -f /usr/bin/vim ] ; then
+if [ -f /usr/bin/nvim ] ; then
+  alias vi='nvim -nO'
+elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'
 fi
 
