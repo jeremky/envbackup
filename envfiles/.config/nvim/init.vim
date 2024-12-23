@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" Settings
+" Settings
 
-"" Paramétrage de base
+" Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -23,25 +23,30 @@ set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
+set spelllang=fr,en             " Spécifie les langues du dictionnaire
 
-"" Permet l'indentation automatique : gg=G
+" Permet l'indentation automatique : gg=G
 filetype plugin indent on
 
-"" Définition des caractères invisibles
+" Définition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
+
+"" Changement automatique du curseur en fonction du mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 "" Fermeture automatique des brackets
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 
-"" Mémoriser la dernière position du curseur
+" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
-"" Modification de certaines syntaxes
+" Modification de certaines syntaxes
 autocmd BufNewFile,BufRead *.lpl set syntax=json
 
-"" Configuration pour tmux
+" Configuration pour tmux
 if $TERM == 'tmux-256color'
   set clipboard=unnamedplus
   set mouse=a
@@ -49,20 +54,24 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" Mapping F*
+" Mapping
 
-"" Nerdtree
+" Nerdtree
 nnoremap <F1> :NERDTreeToggle <CR>
 
-"" Mode IDE
-nnoremap <F2> :set number! <bar> IndentLinesToggle <CR>
+" Mode IDE
+nnoremap <F2> :call ModeIDE() <CR>
+function! ModeIDE()
+  set number!
+  IndentLinesToggle
+  GitGutterToggle
+  echo "Mode IDE"
+endfunction
 
-"" Correction orthographique (z= pour afficher les propositions)
+" Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
-set spelllang=fr,en
-hi SpellBad ctermfg=Red ctermbg=NONE
 
-"" Coloration syntaxique
+" Coloration syntaxique
 nnoremap <F4> :call ToggleSyntax()<CR>
 function! ToggleSyntax()
   if &syntax == ''
@@ -75,10 +84,10 @@ function! ToggleSyntax()
   endif
 endfunction
 
-"" Indentation automatique
+" Indentation automatique
 nnoremap <F5> gg=G <CR>
 
-"" Souris
+" Souris
 nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
@@ -90,23 +99,23 @@ function! ToggleMouse()
   endif
 endfunction
 
-"" Affichage des caractères invisibles
+" Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
-"" Changement d'onglet ou de document
+" Changement d'onglet ou de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""" Plugins
+" Plugins
 
-"" Chargement de YCM
-if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-    packadd! youcompleteme
-endif
+" Chargement de YCM
+"if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
+"    packadd! youcompleteme
+"endif
 
-"" Téléchargement de vim-plug si introuvable
+" Téléchargement de vim-plug si introuvable
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -117,10 +126,10 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| PlugInstall --sync | source $MYVIMRC
       \| endif
 
-"" Liste des plugins
+" Liste des plugins
 call plug#begin()
 
-"Theme
+" Theme
 Plug 'joshdick/onedark.vim'
 
 " Interface
@@ -130,17 +139,17 @@ Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
 
 " Completion
-"Plug 'ervandew/supertab'
-"Plug 'vim-scripts/VimCompletesMe'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/VimCompletesMe'
 
-"Git
+" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 
-"" Configuration du thème OneDark
+" Configuration du thème OneDark
 if filereadable(expand("~/.local/share/nvim/plugged/onedark.vim/colors/onedark.vim"))
   let g:onedark_hide_endofbuffer = 1
   let g:onedark_terminal_italics = 0
@@ -149,14 +158,14 @@ if filereadable(expand("~/.local/share/nvim/plugged/onedark.vim/colors/onedark.v
   set termguicolors
 endif
 
-"" Configuration de lightline
+" Configuration de lightline
 if filereadable(expand("~/.local/share/nvim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
   let g:lightline = { 'colorscheme': 'onedark' , }
   set noshowmode
 endif
 
-"" Configuration de nerdtree
+" Configuration de nerdtree
 if filereadable(expand("~/.local/share/nvim/plugged/nerdtree/autoload/nerdtree.vim"))
   nnoremap <C-o> :NERDTreeToggle <CR>
   let NERDTreeMapOpenInTab='<TAB>'
@@ -164,18 +173,18 @@ if filereadable(expand("~/.local/share/nvim/plugged/nerdtree/autoload/nerdtree.v
   let NERDTreeQuitOnOpen=1
 endif
 
-"" Configuration de VimCompletesMe
+" Configuration de VimCompletesMe
 if filereadable(expand("~/.local/share/nvim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
   autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
 endif
 
-"" Configuration de gitgutter
+" Configuration de gitgutter
 if filereadable(expand("~/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
 
-"" Configuration de indentLine
+" Configuration de indentLine
 if filereadable(expand("~/.local/share/nvim/plugged/indentLine/after/plugin/indentLine.vim"))
   let g:indentLine_enabled = 0
   let g:indentLine_char = '▏'
