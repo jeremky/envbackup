@@ -1,5 +1,12 @@
 ###### Aliases ######
 
+## Prompt
+if [ "$USER" = root ] ; then
+  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+else
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+fi
+
 ## Variables
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
@@ -14,17 +21,16 @@ bind 'set completion-ignore-case on'
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
   alias su='sudo -s'
   sudo=sudo
-else
-  alias su='su -'
 fi
 
 ## Aliases
+alias ls='ls --color=auto'
 alias l='ls -lh'
 alias la='ls -lhA'
 alias lr='ls -lLhR'
 alias lra='ls -lhRA'
 alias lrt='ls -lLhrt'
-alias lart='ls -lLhArt'
+alias lrta='ls -lLhrtA'
 alias grep='grep -i --color=auto'
 alias zgrep='zgrep -i --color=auto'
 alias psp='ps -eaf | grep -v grep | grep'
@@ -35,24 +41,27 @@ alias ss='ss -tunlH'
 alias ssp='ss -tunl | grep'
 alias md5='md5sum <<<'
 alias pubip='curl -s -4 ipecho.net/plain ; echo'
-#alias wget='wget --no-check-certificate'
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'
 alias halt='$sudo halt -p'
 alias reboot='$sudo reboot'
-
-## Apt
-alias apt='$sudo apt'
-alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 
 ## Ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
+# Gestionnaire de paquets
+PKG="apt apk"
+case "$(command -v $PKG)" in
+  *apt)
+    alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove' ;;
+  *apk)
+    alias upgrade='$sudo apk update && $sudo apk upgrade' ;;
+esac
+
 ## Df
 if [ -f /usr/bin/duf ] ; then
-  alias df='duf /'
-else
-  alias df='df -h -x overlay -x tmpfs -x devtmpfs'
+  alias df='duf -hide special'
 fi
 
 ## Diff
