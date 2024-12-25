@@ -37,7 +37,6 @@ let &t_EI = "\e[2 q"
 
 " Fermeture automatique des brackets
 inoremap { {}<Esc>ha
-inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 
 " Mémoriser la dernière position du curseur
@@ -52,15 +51,29 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
+"" Explorateur de fichiers
+let g:netrw_liststyle = 3         " Active le mode Treeview
+let g:netrw_sizestyle = "H"       " Active le mode human-readable
+let g:netrw_banner = 0            " Désactive la bannière
+let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
+let g:netrw_altv = 1              " Ouvre en mode vertical
+let g:netrw_winsize = 15          " Définit la taille de l'explorateur
+
+"" Ferme automatiquement l'explorateur
+aug netrw_close
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
+aug END
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Nerdtree
-nnoremap <F1> :NERDTreeToggle <CR>
+" Explorateur de fichiers
+nnoremap <F1> :Vexplore<CR>
 
-" Mode IDE
-nnoremap <F2> :set number! <bar> IndentLinesToggle <CR>
+"" Activation de la numérotation
+nnoremap <F2> :set number!<CR>
 
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
@@ -102,84 +115,24 @@ nnoremap <S-TAB> <C-W>w
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Theme
+
+" OneHalfDark
+if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
+  set cursorline
+  set t_Co=256
+  colorscheme onehalfdark
+  set termguicolors
+  if filereadable(expand("/usr/share/vim-airline/plugin/airline.vim"))
+    let g:airline_theme='onedark'
+    set noshowmode
+  endif
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-" Chargement de YCM
+"" YouCompleteMe
 if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-    packadd! youcompleteme
-endif
-
-" Téléchargement de vim-plug si introuvable
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Lance automatiquement PlugInstall
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | source $MYVIMRC
-      \| endif
-
-" Liste des plugins
-call plug#begin()
-
-" Theme
-Plug 'joshdick/onedark.vim'
-
-" Interface
-Plug 'tpope/vim-sensible'
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
-Plug 'Yggdroot/indentLine'
-
-" Completion
-"Plug 'ervandew/supertab'
-"Plug 'vim-scripts/VimCompletesMe'
-
-" Git
-"Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
-
-call plug#end()
-
-
-" Configuration du thème OneDark
-if filereadable(expand("~/.vim/plugged/onedark.vim/colors/onedark.vim"))
-  let g:onedark_hide_endofbuffer = 1
-  let g:onedark_terminal_italics = 0
-  colorscheme onedark
-  set cursorline
-  set termguicolors
-endif
-
-" Configuration de lightline
-if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
-  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-  let g:lightline = { 'colorscheme': 'onedark' , }
-  set noshowmode
-endif
-
-" Configuration de nerdtree
-if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
-  nnoremap <C-o> :NERDTreeToggle <CR>
-  let NERDTreeMapOpenInTab='<TAB>'
-  let NERDTreeShowHidden=1
-  let NERDTreeQuitOnOpen=1
-endif
-
-" Configuration de VimCompletesMe
-if filereadable(expand("~/.vim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
-  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-endif
-
-" Configuration de gitgutter
-if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
-  nnoremap <C-g> :GitGutterToggle <CR>
-  let gitgutter_enabled = 0
-endif
-
-" Configuration de indentLine
-if filereadable(expand("~/.vim/plugged/indentLine/after/plugin/indentLine.vim"))
-  let g:indentLine_enabled = 0
-  let g:indentLine_char = '▏'
+  packadd! youcompleteme
 endif

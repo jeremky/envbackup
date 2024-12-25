@@ -37,7 +37,6 @@ let &t_EI = "\e[2 q"
 
 "" Fermeture automatique des brackets
 inoremap { {}<Esc>ha
-inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 
 " Mémoriser la dernière position du curseur
