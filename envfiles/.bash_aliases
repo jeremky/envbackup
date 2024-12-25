@@ -50,14 +50,11 @@ alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-# Gestionnaire de paquets
-PKG="apt apk"
-case "$(command -v $PKG)" in
-  *apt)
-    alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove' ;;
-  *apk)
-    alias upgrade='$sudo apk update && $sudo apk upgrade' ;;
-esac
+# Apt
+if [ -f /usr/bin/apt ] ; then
+  alias apt='$sudo apt'
+  alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
+fi
 
 ## Df
 if [ -f /usr/bin/duf ] ; then
