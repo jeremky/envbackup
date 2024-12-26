@@ -1,5 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Settings
+" Global vimrc config
+
+" Ne pas charger le fichier par défaut
+let g:skip_defaults_vim = 1
 
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
@@ -115,6 +118,15 @@ nnoremap <S-TAB> <C-W>w
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+
+"" YouCompleteMe
+if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
+  packadd! youcompleteme
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme
 
 " OneHalfDark
@@ -127,12 +139,4 @@ if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
     let g:airline_theme='onedark'
     set noshowmode
   endif
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-
-"" YouCompleteMe
-if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-  packadd! youcompleteme
 endif
