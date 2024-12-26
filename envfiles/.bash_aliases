@@ -67,7 +67,7 @@ if [ -f /usr/bin/colordiff ] ; then
   alias diff='colordiff'
 fi
 
-# duf : affiche les file system
+# duf : affiche les files systems
 if [ -f /usr/bin/duf ] ; then
   alias df='duf -hide special'
 fi
@@ -108,7 +108,7 @@ fi
 ##################################################################
 ## Fonctions
 
-# cpsave : copie un fichier avec .old
+# cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 
 # jsed : commande sed plus conviviale
