@@ -114,7 +114,7 @@ cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 # jsed : commande sed plus conviviale
 jsed() { sed -i "s|$1|$2|g" $3 ;}
 
-# newuser : créer un compte de service
+# newuser : créé un compte de service
 newuser() { $sudo adduser --no-create-home -q --disabled-password --comment "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
