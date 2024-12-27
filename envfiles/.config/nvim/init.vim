@@ -55,10 +55,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Copier / Coller
-vnoremap <C-c> "+y
-inoremap <C-v> <Esc> "+p
-
 " Nerdtree
 nnoremap <F1> :NERDTreeToggle <CR>
 

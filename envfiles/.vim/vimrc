@@ -91,10 +91,6 @@ set statusline+=\:%c
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Copier / Coller
-vnoremap <C-c> "+y
-inoremap <C-v> <Esc> "+p
-
 " Explorateur de fichiers
 nnoremap <F1> :Vexplore<CR>
 
