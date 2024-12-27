@@ -8,6 +8,7 @@ let g:skip_defaults_vim = 1
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
+set laststatus=2                " Affiche en permanence la barre de status
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -53,7 +54,11 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-"" Explorateur de fichiers
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Explorateur de fichiers
+
+" Configuration
 let g:netrw_liststyle = 3         " Active le mode Treeview
 let g:netrw_sizestyle = "H"       " Active le mode human-readable
 let g:netrw_banner = 0            " Désactive la bannière
@@ -61,11 +66,30 @@ let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
 let g:netrw_altv = 1              " Ouvre en mode vertical
 let g:netrw_winsize = 15          " Définit la taille de l'explorateur
 
-"" Ferme automatiquement l'explorateur
+" Ferme automatiquement l'explorateur
 aug netrw_close
   au!
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Barre de statut
+
+" Eléments à afficher
+set statusline+=%F
+set statusline+=\ %m
+set statusline+=%=
+set statusline+=%{&ff}
+set statusline+=\ \|
+set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
+set statusline+=\ \|
+set statusline+=\ %y
+set statusline+=\ \|
+set statusline+=\ %P
+set statusline+=\ \|
+set statusline+=\ %l
+set statusline+=\:%c
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
