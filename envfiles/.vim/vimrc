@@ -80,11 +80,7 @@ aug END
 set statusline+=%F
 set statusline+=\ %m
 set statusline+=%=
-set statusline+=%{&ff}
-set statusline+=\ \|
 set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
-set statusline+=\ \|
-set statusline+=\ %y
 set statusline+=\ \|
 set statusline+=\ %P
 set statusline+=\ \|
@@ -94,6 +90,10 @@ set statusline+=\:%c
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
+
+" Copier / Coller
+vnoremap <C-c> "+y
+inoremap <C-v> <Esc> "+p
 
 " Explorateur de fichiers
 nnoremap <F1> :Vexplore<CR>
@@ -150,7 +150,7 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Theme
+" Thème
 
 " OneHalfDark
 if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
