@@ -2,7 +2,7 @@
 ## Prompt
 
 ## Affichage
-if [ "$USER" = root ] ; then
+if [ $USER = root ] ; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -19,8 +19,9 @@ export VISUAL=$EDITOR
 bind 'set completion-ignore-case on'
 
 ## Sudo : utiliser la commande root pour...passer root :)
-if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
+if [ -f /usr/bin/sudo ] && [ $USER != root ] ; then
   alias root='sudo -i'
+  alias su='sudo -s'
   sudo=sudo
 fi
 
