@@ -139,7 +139,7 @@ fi
 
 # lazydocker : outil de monitoring
 if [ -f /usr/bin/lazydocker ] ; then
-  lzd() { if [ ! -e /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
+  lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
 fi
 
 ##################################################################
