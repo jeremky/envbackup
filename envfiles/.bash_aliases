@@ -15,8 +15,12 @@ export LC_ALL=$LANG
 export EDITOR=vi
 export VISUAL=$EDITOR
 
-## Tweaks
-bind 'set completion-ignore-case on'
+## Tweaks divers
+bind 'set visible-stats on'                           # Ajoute une indication visuelle des fichiers exécutables
+bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
+bind 'set completion-ignore-case on'                  # Ignorer la casse lors de la complétion
+bind 'set mark-symlinked-directories on'              # Meilleure gestion des liens symboliques
+bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
 
 ## Sudo : utiliser la commande root pour...passer root :)
 if [ -f /usr/bin/sudo ] && [ $USER != root ] ; then
