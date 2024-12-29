@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Global vimrc config
+" Configuration de Vim
 
 " Ne pas charger le fichier par défaut
 let g:skip_defaults_vim = 1

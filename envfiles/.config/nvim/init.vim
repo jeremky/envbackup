@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Settings
+" Configuration de NeoVim
 
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique

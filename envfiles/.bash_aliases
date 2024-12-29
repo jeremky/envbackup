@@ -14,6 +14,7 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vi
 export VISUAL=$EDITOR
+export TMOUT=1800
 
 ## Tweaks divers
 #bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
