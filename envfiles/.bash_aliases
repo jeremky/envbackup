@@ -16,7 +16,7 @@ export EDITOR=vi
 export VISUAL=$EDITOR
 
 ## Tweaks divers
-bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
+#bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
 bind 'set completion-ignore-case on'                  # Ignorer la casse lors de la complétion
 bind 'set mark-symlinked-directories on'              # Meilleure gestion des liens symboliques
 bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
