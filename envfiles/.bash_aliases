@@ -17,7 +17,7 @@ export VISUAL=$EDITOR
 export TMOUT=1800
 
 ## Tweaks divers
-#bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
+bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
 bind 'set completion-ignore-case on'                  # Ignorer la casse lors de la complétion
 bind 'set mark-symlinked-directories on'              # Meilleure gestion des liens symboliques
 bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
@@ -28,6 +28,7 @@ if [ -f /usr/bin/sudo ] && [ $USER != root ] ; then
   alias su='sudo -s'
   sudo=sudo
 fi
+
 
 ##################################################################
 ## Commandes
@@ -57,6 +58,7 @@ alias reboot='$sudo reboot'                           # Commande reboot avec sud
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
+
 
 ##################################################################
 ## Applications
@@ -106,9 +108,11 @@ fi
 # vim : Vi amélioré
 if [ -f /usr/bin/nvim ] ; then
   alias vi='nvim -nO'
+  alias vim='vim.tiny -nO -u ~/.vim/vimtiny'
 elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'
 fi
+
 
 ##################################################################
 ## Fonctions
@@ -131,6 +135,7 @@ tarx() { for file in $* ; do tar xzvf $file ; done ;}
 # zip : commande zip plus conviviale
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
+
 ##################################################################
 ## Docker
 
@@ -146,6 +151,7 @@ fi
 if [ -f /usr/bin/lazydocker ] ; then
   lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
 fi
+
 
 ##################################################################
 ## Scripts

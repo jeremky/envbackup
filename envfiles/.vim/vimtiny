@@ -1,0 +1,39 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configuration de Vim Tiny
+
+" Paramétrage de base
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set laststatus=2                " Affiche en permanence la barre de status
+set smartindent                 " Indentation intelligente
+set smarttab                    " Gestion des espaces en début de ligne
+set autoindent                  " Conserve l'indentation sur une nouvelle ligne
+set ruler                       " Affiche la position du curseur
+set tabstop=2                   " La largeur d'une tabulation est définie sur 2
+set shiftwidth=2                " Les retraits auront une largeur de 2
+set softtabstop=2               " Nombre de colonnes pour une tabulation
+set expandtab                   " Remplace les tab par des espaces
+set linebreak                   " Revient à la ligne sans couper les mots
+set showcmd                     " Afficher la commande dans la ligne d'etat
+set ignorecase                  " Ignorer la casse
+set smartcase                   " Faire un appariement intelligent
+set incsearch                   " Recherche incrémentielle
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
+set mouse=                      " Désactive la souris par défaut
+set nobackup                    " Désactive les sauvegardes automatiques
+
+" Fermeture automatique des brackets
+inoremap { {}<Esc>ha
+inoremap [ []<Esc>ha
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping
+
+"" Activation de la numérotation
+nnoremap <F2> :set number!<CR>
+
+" Affichage des caractères invisibles
+nnoremap <F7> :set list!<CR>
+
+" Changement de document
+nnoremap <S-TAB> <C-W>w
