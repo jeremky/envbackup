@@ -33,7 +33,6 @@ fi
 ##################################################################
 ## Commandes
 
-
 # Prompt
 alias ls='ls --color=auto'                            # Ajoute la couleur
 alias l='ls -lh'                                      # Liste détaillée
