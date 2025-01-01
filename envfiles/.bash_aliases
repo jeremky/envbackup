@@ -1,8 +1,8 @@
 ##################################################################
-## Prompt
+## Bash
 
 ## Affichage
-if [ $USER = root ] ; then
+if [ "$USER" = "root" ] ; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -23,7 +23,7 @@ bind 'set mark-symlinked-directories on'              # Meilleure gestion des li
 bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
 
 ## Sudo : utiliser la commande root pour...passer root :)
-if [ -f /usr/bin/sudo ] && [ $USER != root ] ; then
+if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
   alias root='sudo -i'
   alias su='sudo -s'
   sudo=sudo
@@ -33,6 +33,8 @@ fi
 ##################################################################
 ## Commandes
 
+
+# Prompt
 alias ls='ls --color=auto'                            # Ajoute la couleur
 alias l='ls -lh'                                      # Liste détaillée
 alias la='ls -lhA'                                    # Liste avec les fichiers cachés
@@ -54,7 +56,7 @@ alias df='df -h -x tmpfs -x devtmpfs -x overlay'      # Commande df en filtrant 
 alias halt='$sudo halt -p'                            # Arrête le système et le serveur
 alias reboot='$sudo reboot'                           # Commande reboot avec sudo
 
-## Ssh
+# ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'

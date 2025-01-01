@@ -15,12 +15,12 @@ set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
 set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'etat
-set showmatch                   " Afficher les parentheses correspondantes
+set showcmd                     " Afficher la commande dans la ligne d'état
+set showmatch                   " Afficher les parenthèses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
