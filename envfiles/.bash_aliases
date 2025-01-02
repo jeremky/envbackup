@@ -1,14 +1,14 @@
 ##################################################################
 ## Bash
 
-## Affichage
+# Affichage
 if [ "$USER" = "root" ] ; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
-## Variables
+# Variables
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
@@ -16,13 +16,13 @@ export EDITOR=vi
 export VISUAL=$EDITOR
 export TMOUT=1800
 
-## Tweaks divers
+# Tweaks divers
 bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
 bind 'set completion-ignore-case on'                  # Ignorer la casse lors de la complétion
 bind 'set mark-symlinked-directories on'              # Meilleure gestion des liens symboliques
 bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
 
-## Sudo : utiliser la commande root pour...passer root :)
+# Sudo : utiliser la commande root pour...passer root :)
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
   alias root='sudo -i'
   alias su='sudo -s'
@@ -109,7 +109,6 @@ fi
 # vim : Vi amélioré
 if [ -f /usr/bin/nvim ] ; then
   alias vi='nvim -nO'
-  alias vim='vim.tiny -nO -u ~/.vim/vimtiny'
 elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'
 fi
