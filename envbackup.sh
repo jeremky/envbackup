@@ -1,8 +1,8 @@
 #!/bin/dash
+set -e
 
-## Dossiers
 dir=$(dirname "$0")
-config="$dir/$(basename -s .sh $0).cfg"
+list="$dir/$(basename -s .sh $0).lst"
 
 ## Verification du user
 if [ "$USER" = "root" ] ; then

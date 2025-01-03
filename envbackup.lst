@@ -1,0 +1,7 @@
+## envbackup files
+.bash_aliases
+.hushlogin
+
+## envbackup directories
+.config/
+.vim/
