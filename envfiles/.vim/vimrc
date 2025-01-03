@@ -131,6 +131,20 @@ endfunction
 " Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
+" Réduction du code
+nnoremap <F8> :call ToggleFold()<CR>
+function! ToggleFold()
+  if &foldmethod == 'indent'
+    set foldmethod=syntax
+    echo "Mode Fold désactivé"
+  else
+    set foldmethod=indent
+    set foldlevel=1
+    set foldclose=all
+    echo "Mode Fold activé"
+  endif
+endfunction
+
 " Changement d'onglet ou de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w

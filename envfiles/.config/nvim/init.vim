@@ -5,7 +5,7 @@
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
-set laststatus=2                " Affiche en permanence la barre de status
+set laststatus=2                " Affiche en permanence la barre de statut
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -31,11 +31,11 @@ filetype plugin indent on
 " Définition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-"" Changement automatique du curseur en fonction du mode
+" Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-"" Fermeture automatique des brackets
+" Fermeture automatique des brackets
 inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
 
@@ -101,6 +101,20 @@ endfunction
 " Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
+" Réduction du code
+nnoremap <F8> :call ToggleFold()<CR>
+function! ToggleFold()
+  if &foldmethod == 'indent'
+    set foldmethod=syntax
+    echo "Mode Fold désactivé"
+  else
+    set foldmethod=indent
+    set foldlevel=1
+    set foldclose=all
+    echo "Mode Fold activé"
+  endif
+endfunction
+
 " Changement d'onglet ou de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
@@ -117,7 +131,7 @@ nnoremap <S-TAB> <C-W>w
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Lance automatiquement PlugInstall
