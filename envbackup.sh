@@ -1,10 +1,10 @@
 #!/bin/dash
 
-## Variables
+## Dossiers
 dir=$(dirname "$0")
 config="$dir/$(basename -s .sh $0).cfg"
 
-## Verification
+## Verification du user
 if [ "$USER" = "root" ] ; then
   echo "Ne pas lancer en tant que root !"
   exit 0
@@ -12,21 +12,17 @@ fi
 
 ## Copie des configurations OS
 if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
-  if [ -d $dir/envfiles ] ; then
-    cd $dir/envfiles
-    for file in "$(ls -A)" ; do
-      cp -Rp $file $HOME
-    done
+  if [ -d $dir/dotfiles ] ; then
+    cd $dir/dotfiles
+    cp -Rp $file $HOME
     echo "Restauration effectuée"
-    exit 0
   fi
 else
   cd $HOME
   for file in $(cat $config | grep -v '#') ; do
     if [ -f $HOME/$file ] || [ -d $HOME/$file ] ; then
-      cp -Rp $file $dir/envfiles
+      cp -Rp $file $dir/dotfiles
     fi
   done
   echo "Sauvegarde effectuée"
-  exit 0
 fi
