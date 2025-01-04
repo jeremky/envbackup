@@ -123,11 +123,6 @@ nnoremap <S-TAB> <C-W>w
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-" Chargement de YCM
-"if filereadable(expand("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim"))
-"    packadd! youcompleteme
-"endif
-
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs

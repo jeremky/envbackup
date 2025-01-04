@@ -102,7 +102,7 @@ map <F3> :set spell!<CR>
 
 " Coloration syntaxique
 nnoremap <F4> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
+TOTO! ToggleSyntax()
   if &syntax == ''
     syntax on
     echo "Coloration syntaxique activée"
@@ -111,14 +111,14 @@ function! ToggleSyntax()
     set syntax=
     echo "Coloration syntaxique désactivée"
   endif
-endfunction
+endTOTO
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
 
 " Souris
 nnoremap <F6> :call ToggleMouse()<CR>
-function! ToggleMouse()
+TOTO! ToggleMouse()
   if &mouse == 'a'
     set mouse=
     echo "Souris désactivée"
@@ -126,14 +126,14 @@ function! ToggleMouse()
     set mouse=a
     echo "Souris activée"
   endif
-endfunction
+endTOTO
 
 " Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
 " Réduction du code
 nnoremap <F8> :call ToggleFold()<CR>
-function! ToggleFold()
+TOTO! ToggleFold()
   if &foldmethod == 'indent'
     set foldmethod=syntax
     echo "Mode Fold désactivé"
@@ -143,7 +143,7 @@ function! ToggleFold()
     set foldclose=all
     echo "Mode Fold activé"
   endif
-endfunction
+endTOTO
 
 " Changement d'onglet ou de document
 nnoremap <TAB> :tabnext<CR>
@@ -153,7 +153,7 @@ nnoremap <S-TAB> <C-W>w
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-"" YouCompleteMe
+" YouCompleteMe
 if filereadable("/usr/share/vim-youcompleteme/plugin/youcompleteme.vim")
   packadd! youcompleteme
 endif
