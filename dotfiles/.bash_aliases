@@ -90,6 +90,13 @@ if [ -f /usr/bin/ncdu ] ; then
   alias ncdu='ncdu --color dark'
 fi
 
+# podman : remplaçant de docker
+if [ -f /usr/bin/podman ] ; then
+  alias podman='$sudo podman'
+  alias docker='$sudo podman'
+  alias lzd='$sudo lazydocker'
+fi
+
 # rg : plus performant que grep
 if [ -f /usr/bin/rg ] ; then
   alias rg='rg -i'
@@ -134,23 +141,6 @@ tarx() { for file in $* ; do tar xzvf $file ; done ;}
 
 # zip : commande zip plus conviviale
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
-
-
-##################################################################
-## Docker
-
-# podman : remplaçant de docker
-if [ -f /usr/bin/podman ] ; then
-  alias docker='$sudo podman'
-  alias docker-compose='$sudo podman-compose'
-  alias podman='$sudo podman'
-  alias podman-compose='$sudo podman-compose'
-fi
-
-# lazydocker : outil de monitoring
-if [ -f /usr/bin/lazydocker ] ; then
-  lzd() { if [ ! -h /var/run/docker.sock ] ; then $sudo ln -s /var/run/podman/podman.sock /var/run/docker.sock ; fi ; $sudo lazydocker ;}
-fi
 
 
 ##################################################################
