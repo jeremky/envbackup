@@ -34,7 +34,7 @@ filetype plugin indent on
 " Définition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-"" Changement automatique du curseur en fonction du mode
+" Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
@@ -94,7 +94,7 @@ set statusline+=\:%c
 " Explorateur de fichiers
 nnoremap <F1> :Vexplore<CR>
 
-"" Activation de la numérotation
+" Activation de la numérotation
 nnoremap <F2> :set number!<CR>
 
 " Correction orthographique (z= pour afficher les propositions)
@@ -102,48 +102,48 @@ map <F3> :set spell!<CR>
 
 " Coloration syntaxique
 nnoremap <F4> :call ToggleSyntax()<CR>
-TOTO! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endTOTO
+function! ToggleSyntax()
+if &syntax == ''
+  syntax on
+  echo "Coloration syntaxique activée"
+else
+  syntax off
+  set syntax=
+  echo "Coloration syntaxique désactivée"
+endif
+endfunction
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
 
 " Souris
 nnoremap <F6> :call ToggleMouse()<CR>
-TOTO! ToggleMouse()
-  if &mouse == 'a'
-    set mouse=
-    echo "Souris désactivée"
-  else
-    set mouse=a
-    echo "Souris activée"
-  endif
-endTOTO
+function! ToggleMouse()
+if &mouse == 'a'
+  set mouse=
+  echo "Souris désactivée"
+else
+  set mouse=a
+  echo "Souris activée"
+endif
+endfunction
 
 " Affichage des caractères invisibles
 nnoremap <F7> :set list!<CR>
 
 " Réduction du code
 nnoremap <F8> :call ToggleFold()<CR>
-TOTO! ToggleFold()
-  if &foldmethod == 'indent'
-    set foldmethod=syntax
-    echo "Mode Fold désactivé"
-  else
-    set foldmethod=indent
-    set foldlevel=1
-    set foldclose=all
-    echo "Mode Fold activé"
-  endif
-endTOTO
+function! ToggleFold()
+if &foldmethod == 'indent'
+  set foldmethod=syntax
+  echo "Mode Fold désactivé"
+else
+  set foldmethod=indent
+  set foldlevel=1
+  set foldclose=all
+  echo "Mode Fold activé"
+endif
+endfunction
 
 " Changement d'onglet ou de document
 nnoremap <TAB> :tabnext<CR>
@@ -169,11 +169,7 @@ if filereadable(expand("~/.vim/colors/onehalfdark.vim"))
   colorscheme onehalfdark
   set termguicolors
   if filereadable("/usr/share/vim-airline/plugin/airline.vim")
-    if filereadable(expand("~/.vim/autoload/airline/themes/onehalfdark.vim"))
-      let g:airline_theme='onehalfdark'
-    else
-      let g:airline_theme='onedark'
-    endif
+    let g:airline_theme='onedark'
     set noshowmode
   endif
 endif
