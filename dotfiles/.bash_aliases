@@ -80,6 +80,11 @@ if [ -f /usr/bin/duf ] ; then
   alias df='duf -hide special'
 fi
 
+# fzf : recherche avancée
+if [ -f /usr/bin/fzf ] ; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
 # htop : plus convivial que top
 if [ -f /usr/bin/htop ] ; then
   alias top='htop'
@@ -120,6 +125,12 @@ if [ -f /usr/bin/nvim ] ; then
   alias vi='nvim -nO'
 elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'
+fi
+
+# zoxide : cd amélioré
+if [ -f /usr/bin/zoxide ] ; then
+  eval "$(zoxide init bash)"
+  alias cd='z'
 fi
 
 
