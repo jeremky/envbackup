@@ -16,7 +16,6 @@ if [ ! -f $HOME/.*_aliases ] || [ "$1" = "r" ] ; then
     for file in $(cat $list | grep -v '#') ; do
       cp -Rp $dir/dotfiles/$file $HOME
     done
-    . $HOME/.bashrc
     echo "Restauration effectuée"
   fi
 else
