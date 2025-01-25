@@ -83,6 +83,11 @@ fi
 # fzf : recherche avancée
 if [ -f /usr/bin/fzf ] ; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
+  export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:-1,fg+:#dcdee3,bg:-1,bg+:#282c34
+  --color=hl:#73ade9,hl+:#73ade9,info:#afaf87,marker:#a0c180
+  --color=prompt:#d17277,spinner:#bb7bd7,pointer:#bb7bd7,header:#87afaf
+  --color=border:#5d677a,label:#aeaeae,query:#d9d9d9'
 fi
 
 # htop : plus convivial que top
