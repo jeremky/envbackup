@@ -141,6 +141,7 @@ call plug#begin()
 Plug 'joshdick/onedark.vim'
 
 " Interface
+"Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'

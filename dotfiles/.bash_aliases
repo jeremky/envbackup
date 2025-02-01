@@ -12,7 +12,7 @@ fi
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
-export EDITOR=vi
+export EDITOR=nvim
 export VISUAL=$EDITOR
 export TMOUT=1800
 
