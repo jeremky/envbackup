@@ -115,8 +115,7 @@ function! ToggleFold()
   endif
 endfunction
 
-" Changement d'onglet ou de document
-nnoremap <TAB> :tabnext<CR>
+" Changement d'onglet
 nnoremap <S-TAB> <C-W>w
 
 
