@@ -146,6 +146,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
 
+" Code
+Plug 'sheerun/vim-polyglot'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 " Completion
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
@@ -179,6 +184,12 @@ if filereadable(expand("~/.local/share/nvim/plugged/nerdtree/autoload/nerdtree.v
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
+endif
+
+" Configuration de Vim Markdown
+if filereadable(expand("~/.local/share/nvim/plugged/vim-markdown/syntax/markdown.vim"))
+  let g:vim_markdown_folding_disabled = 1
+  set conceallevel=2
 endif
 
 " Configuration de VimCompletesMe
