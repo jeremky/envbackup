@@ -117,6 +117,7 @@ endfunction
 
 " Changement d'onglet
 nnoremap <S-TAB> <C-W>w
+nnoremap <TAB> :tabnext<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
