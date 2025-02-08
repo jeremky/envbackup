@@ -115,7 +115,7 @@ function! ToggleFold()
   endif
 endfunction
 
-" Changement d'onglet
+" Changement de document
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
 
@@ -141,7 +141,7 @@ call plug#begin()
 Plug 'joshdick/onedark.vim'
 
 " Interface
-"Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
