@@ -12,7 +12,7 @@ fi
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
-export EDITOR=nvim
+export EDITOR=vim
 export VISUAL=$EDITOR
 export TMOUT=1800
 
@@ -126,7 +126,7 @@ if [ -f /usr/sbin/ufw ] ; then
 fi
 
 # vim : Vi amélioré
-if [ -f /usr/bin/nvim ] ; then
+if [ -f /opt/neovim/bin/nvim ] ; then
   alias vi='nvim -nO'
 elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'
@@ -165,7 +165,7 @@ zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 ## Scripts
 
 # Transforme en alias les scripts
-scripts=/home/jeremky/scripts
+scripts=/home/$(id -un 1000)/scripts
 if [ -d $scripts ] ; then
   for i in $(ls $scripts) ; do
     if [ -f $scripts/$i/$i.sh ] ; then

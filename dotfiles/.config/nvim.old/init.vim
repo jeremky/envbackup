@@ -6,7 +6,6 @@ syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set laststatus=2                " Affiche en permanence la barre de statut
-set noshowmode                  " Désactive les informations d'état
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -24,7 +23,7 @@ set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
-set spelllang=en,fr             " Spécifie les langues du dictionnaire
+set spelllang=fr,en             " Spécifie les langues du dictionnaire
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -56,15 +55,15 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Nvim-tree
-nnoremap <F1> :NvimTreeToggle <CR>
-nnoremap <C-o> :NvimTreeToggle <CR>
+" Nerdtree
+nnoremap <F1> :NERDTreeToggle <CR>
 
 " Mode IDE
 nnoremap <F2> :call ModeIDE() <CR>
 function! ModeIDE()
   set number!
-  IBLToggle
+  IndentLinesToggle
+  GitGutterToggle
   echo "Mode IDE"
 endfunction
 
@@ -118,6 +117,7 @@ endfunction
 
 " Changement de document
 nnoremap <S-TAB> <C-W>w
+nnoremap <TAB> :tabnext<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -138,34 +138,65 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 " Theme
-Plug 'navarasu/onedark.nvim'
+Plug 'joshdick/onedark.vim'
 
 " Interface
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-tree/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
 
 " Code
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
 
 " Completion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/VimCompletesMe'
 
 " Git
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
-" Chargement automatique des fichiers de config
-lua << EOF
-local plugin_path = vim.fn.stdpath("config") .. "/plugins"
 
-for _, file in ipairs(vim.fn.glob(plugin_path .. "/*.lua", true, true)) do
-    dofile(file)
-end
-EOF
+" Configuration du thème OneDark
+if filereadable(expand("~/.local/share/nvim/plugged/onedark.vim/colors/onedark.vim"))
+  let g:onedark_hide_endofbuffer = 1
+  let g:onedark_terminal_italics = 0
+  colorscheme onedark
+  set cursorline
+  set termguicolors
+endif
+
+" Configuration de lightline
+if filereadable(expand("~/.local/share/nvim/plugged/lightline.vim/autoload/lightline.vim"))
+  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+  let g:lightline = { 'colorscheme': 'onedark' , }
+  set noshowmode
+endif
+
+" Configuration de nerdtree
+if filereadable(expand("~/.local/share/nvim/plugged/nerdtree/autoload/nerdtree.vim"))
+  nnoremap <C-o> :NERDTreeToggle <CR>
+  let NERDTreeMapOpenInTab='<TAB>'
+  let NERDTreeShowHidden=1
+  let NERDTreeQuitOnOpen=1
+endif
+
+" Configuration de VimCompletesMe
+if filereadable(expand("~/.local/share/nvim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
+  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+endif
+
+" Configuration de gitgutter
+if filereadable(expand("~/.local/share/nvim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
+  nnoremap <C-g> :GitGutterToggle <CR>
+  let gitgutter_enabled = 0
+endif
+
+" Configuration de indentLine
+if filereadable(expand("~/.local/share/nvim/plugged/indentLine/after/plugin/indentLine.vim"))
+  let g:indentLine_enabled = 0
+  let g:indentLine_char = '▏'
+endif
