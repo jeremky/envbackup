@@ -118,6 +118,7 @@ endfunction
 
 " Changement de document
 nnoremap <S-TAB> <C-W>w
+nnoremap <TAB> :tabnext<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
