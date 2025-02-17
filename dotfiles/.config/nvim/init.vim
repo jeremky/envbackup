@@ -148,6 +148,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 " Code
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'kylechui/nvim-surround'
 
 " Completion
 Plug 'hrsh7th/nvim-cmp'
