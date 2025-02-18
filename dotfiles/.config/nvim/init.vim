@@ -72,18 +72,8 @@ endfunction
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
 
-" Coloration syntaxique
-nnoremap <F4> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endfunction
+" Terminal
+nnoremap <F4> :ToggleTerm<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
@@ -146,6 +136,7 @@ Plug 'navarasu/onedark.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'akinsho/toggleterm.nvim'
 
 " Code
 Plug 'nvim-treesitter/nvim-treesitter'
