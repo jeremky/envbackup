@@ -126,7 +126,7 @@ if [ -f /usr/sbin/ufw ] ; then
 fi
 
 # vim : Vi amélioré
-if [ -f /opt/neovim/bin/nvim ] ; then
+if [ -f ~/.local/bin/nvim/bin/nvim ] ; then
   alias vi='nvim -nO'
 elif [ -f /usr/bin/vim ] ; then
   alias vi='vim -nO'

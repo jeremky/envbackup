@@ -1,11 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de Vim
+" Configuration de NeoVim
 
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set laststatus=2                " Affiche en permanence la barre de statut
+set noshowmode                  " Désactive les informations d'état
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -23,7 +24,8 @@ set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
-set spelllang=fr,en             " Spécifie les langues du dictionnaire
+set number                      " Affiche les numéros de ligne
+set spelllang=en,fr             " Spécifie les langues du dictionnaire
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -55,33 +57,23 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Nerdtree
-nnoremap <F1> :NERDTreeToggle <CR>
+" Nvim-tree
+nnoremap <F1> :NvimTreeToggle <CR>
+nnoremap <C-o> :NvimTreeToggle <CR>
 
 " Mode IDE
 nnoremap <F2> :call ModeIDE() <CR>
 function! ModeIDE()
   set number!
-  IndentLinesToggle
-  GitGutterToggle
+  IBLToggle
   echo "Mode IDE"
 endfunction
 
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
 
-" Coloration syntaxique
-nnoremap <F4> :call ToggleSyntax()<CR>
-function! ToggleSyntax()
-  if &syntax == ''
-    syntax on
-    echo "Coloration syntaxique activée"
-  else
-    syntax off
-    set syntax=
-    echo "Coloration syntaxique désactivée"
-  endif
-endfunction
+" Terminal
+nnoremap <F4> :ToggleTerm<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
@@ -124,8 +116,8 @@ nnoremap <TAB> :tabnext<CR>
 " Plugins
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -138,66 +130,36 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 " Theme
-Plug 'joshdick/onedark.vim'
+Plug 'navarasu/onedark.nvim'
 
 " Interface
-Plug 'tpope/vim-sensible'
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'akinsho/toggleterm.nvim'
 
 " Code
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'kylechui/nvim-surround'
 
 " Completion
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/VimCompletesMe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 
 " Git
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
+" Chargement automatique des fichiers de config
+lua << EOF
+local plugin_path = vim.fn.stdpath("config") .. "/plugins"
 
-" Configuration du thème OneDark
-if filereadable(expand("~/.vim/plugged/onedark.vim/colors/onedark.vim"))
-  let g:onedark_hide_endofbuffer = 1
-  let g:onedark_terminal_italics = 0
-  colorscheme onedark
-  set cursorline
-  set termguicolors
-endif
-
-" Configuration de LightLine
-if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
-  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-  let g:lightline = { 'colorscheme': 'onedark' , }
-  set noshowmode
-endif
-
-" Configuration de NERDTree
-if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
-  set modifiable
-  nnoremap <C-o> :NERDTreeToggle <CR>
-  let NERDTreeMapOpenInTab='<TAB>'
-  let NERDTreeShowHidden=1
-  let NERDTreeQuitOnOpen=1
-endif
-
-" Configuration de IndentLine
-if filereadable(expand("~/.vim/plugged/indentLine/after/plugin/indentLine.vim"))
-  let g:indentLine_enabled = 0
-  let g:indentLine_char = '▏'
-endif
-
-" Configuration de VimCompletesMe
-if filereadable(expand("~/.vim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
-  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-endif
-
-" Configuration de GitGutter
-if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
-  nnoremap <C-g> :GitGutterToggle <CR>
-  let gitgutter_enabled = 0
-endif
+for _, file in ipairs(vim.fn.glob(plugin_path .. "/*.lua", true, true)) do
+    dofile(file)
+end
+EOF
