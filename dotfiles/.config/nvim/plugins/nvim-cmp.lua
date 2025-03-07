@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local lsp = require('cmp_nvim_lsp')
 
 cmp.setup({
   mapping = {

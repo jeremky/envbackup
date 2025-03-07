@@ -142,6 +142,8 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'kylechui/nvim-surround'
+Plug 'williamboman/mason.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 " Completion
 Plug 'hrsh7th/nvim-cmp'
