@@ -131,7 +131,7 @@ call plug#begin()
 
 " Theme
 Plug 'navarasu/onedark.nvim'
-"Plug 'catppuccin/nvim'
+Plug 'catppuccin/nvim'
 
 " Interface
 Plug 'nvim-lualine/lualine.nvim'
