@@ -131,6 +131,7 @@ call plug#begin()
 
 " Theme
 Plug 'navarasu/onedark.nvim'
+"Plug 'catppuccin/nvim'
 
 " Interface
 Plug 'nvim-lualine/lualine.nvim'
@@ -141,7 +142,6 @@ Plug 'akinsho/toggleterm.nvim'
 " Code
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'kylechui/nvim-surround'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'

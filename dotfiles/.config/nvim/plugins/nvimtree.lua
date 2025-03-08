@@ -38,3 +38,11 @@ require("nvim-tree").setup({
         dotfiles = false,
       },
     })
+
+-- Ouvrir NvimTree automatiquement si aucun fichier n'est ouvert
+vim.cmd([[
+  augroup OpenNvimTree
+    autocmd!
+    autocmd VimEnter * if !argc() | NvimTreeToggle | endif
+  augroup END
+]])
