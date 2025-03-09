@@ -111,6 +111,11 @@ if [ -f /usr/bin/rg ] ; then
   alias rg='rg -i'
 fi
 
+# tmux : émulateur de terminal
+if [ -f /usr/bin/tmux ] ; then
+  alias tmux='tmux attach || tmux new'
+fi
+
 # ufw : ajoute sudo
 if [ -f /usr/sbin/ufw ] ; then
   alias ufw='$sudo ufw'
