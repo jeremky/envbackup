@@ -28,14 +28,14 @@ set number                      " Affiche les numéros de ligne
 set spelllang=en,fr             " Spécifie les langues du dictionnaire
 
 " Permet l'indentation automatique : gg=G
-filetype plugin indent on
+"filetype plugin indent on
 
 " Définition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+"let &t_SI = "\e[6 q"
+"let &t_EI = "\e[2 q"
 
 " Fermeture automatique des brackets
 inoremap { {}<Esc>ha
@@ -130,7 +130,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 " Theme
-Plug 'navarasu/onedark.nvim'
+"Plug 'navarasu/onedark.nvim'
 Plug 'catppuccin/nvim'
 
 " Interface
@@ -138,6 +138,9 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'akinsho/toggleterm.nvim'
+Plug 'folke/noice.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
 
 " Code
 Plug 'nvim-treesitter/nvim-treesitter'
