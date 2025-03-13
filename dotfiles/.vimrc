@@ -67,7 +67,6 @@ function! ModeIDE()
   set number!
   IndentLinesToggle
   GitGutterToggle
-  echo "Mode IDE"
 endfunction
 
 " Correction orthographique (z= pour afficher les propositions)
@@ -103,20 +102,6 @@ endfunction
 
 " Affichage des caracteres invisibles
 nnoremap <F7> :set list!<CR>
-
-" Reduction du code
-nnoremap <F8> :call ToggleFold()<CR>
-function! ToggleFold()
-  if &foldmethod == 'indent'
-    set foldmethod=syntax
-    echo "Mode Fold desactive"
-  else
-    set foldmethod=indent
-    set foldlevel=1
-    set foldclose=all
-    echo "Mode Fold active"
-  endif
-endfunction
 
 " Changement de document
 nnoremap <S-TAB> <C-W>w
