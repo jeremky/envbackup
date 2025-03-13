@@ -11,16 +11,16 @@ if [[ "$USER" = "root" ]]; then
 fi
 
 ## Copie des configurations OS
-if [[ ! -f $HOME/.*_aliases ]] || [[ "$1" = "r" ]]; then
+if [[ ! -f $HOME/.bash_aliases ]] || [[ "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles ]]; then
-    for file in $(cat $list | grep -v '#') ; do
+    for file in $(cat $list | grep -v '#'); do
       cp -Rp $dir/dotfiles/$file $HOME
     done
     echo "Restauration effectuée"
   fi
 else
   cd $HOME
-  for file in $(cat $list | grep -v '#') ; do
+  for file in $(cat $list | grep -v '#'); do
     if [[ -f $HOME/$file ]] || [[ -d $HOME/$file ]]; then
       cp -Rp $file $dir/dotfiles
     fi

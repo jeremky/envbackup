@@ -2,7 +2,7 @@
 ## Bash
 
 # Affichage
-if [ "$USER" = "root" ] ; then
+if [ "$USER" = "root" ]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -17,155 +17,159 @@ export VISUAL=$EDITOR
 export TMOUT=1800
 
 # Tweaks divers
-bind 'set colored-stats on'                           # Affiche les couleurs lors de la complétion
-bind 'set completion-ignore-case on'                  # Ignorer la casse lors de la complétion
-bind 'set mark-symlinked-directories on'              # Meilleure gestion des liens symboliques
-bind 'set show-all-if-unmodified on'                  # Affiche les correspondances possibles immédiatement
+bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
+bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
+bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliques
+bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ] ; then
+if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ]; then
   alias root='sudo -i'
   alias su='sudo -s'
   sudo=sudo
 fi
 
-
 ##################################################################
 ## Commandes
 
 # Prompt
-alias ls='ls --color=auto'                            # Ajoute la couleur
-alias l='ls -lh'                                      # Liste détaillée
-alias la='ls -lhA'                                    # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                   # Liste en récursif
-alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                                 # Liste par date
-alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                     # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                      # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'          # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                                  # Afficher les ports d'écoute
-alias ssp='ss | grep'                                 # Chercher un port (ssp <port>)
-alias netstat='ss'                                    # Afficher les ports d'écoute (netstat n'existe plus)
-alias md5='md5sum <<<'                                # Facilite l'utilisation de la commande md5
-alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay'      # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                            # Arrête le système et le serveur
-alias reboot='$sudo reboot'                           # Commande reboot avec sudo
+alias ls='ls --color=auto'                       # Ajoute la couleur
+alias l='ls -lh'                                 # Liste détaillée
+alias la='ls -lhA'                               # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                              # Liste en récursif
+alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                            # Liste par date
+alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                 # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                             # Afficher les ports d'écoute
+alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
+alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
+alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
+alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
+alias halt='$sudo halt -p'                       # Arrête le système et le serveur
+alias reboot='$sudo reboot'                      # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-
 ##################################################################
 ## Applications
 
 # apt : gestionnaire de paquets
-if [ -f /usr/bin/apt ] ; then
+if [ -f /usr/bin/apt ]; then
   alias apt='$sudo apt'
   alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 fi
 
 # colordiff : diff avec couleur
-if [ -f /usr/bin/colordiff ] ; then
+if [ -f /usr/bin/colordiff ]; then
   alias diff='colordiff'
 fi
 
 # duf : affiche les files systems
-if [ -f /usr/bin/duf ] ; then
+if [ -f /usr/bin/duf ]; then
   alias df='duf -hide special'
 fi
 
+# fd : find amélioré
+if [[ -f /usr/bin/fdfind ]]; then
+  alias fd='fdfind'
+fi
+
 # fzf : recherche avancée
-if [ -f /usr/bin/fzf ] ; then
+if [ -f /usr/bin/fzf ]; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=bw'
 fi
 
 # htop : plus convivial que top
-if [ -f /usr/bin/htop ] ; then
+if [ -f /usr/bin/htop ]; then
   alias top='htop'
 fi
 
 # ncdu : équivalent à TreeSize
-if [ -f /usr/bin/ncdu ] ; then
+if [ -f /usr/bin/ncdu ]; then
   alias ncdu='ncdu --color dark'
 fi
 
 # podman : remplaçant de docker
-if [ -f /usr/bin/podman ] ; then
+if [ -f /usr/bin/podman ]; then
   alias podman='$sudo podman'
   alias docker='$sudo podman'
-  if [ -f /usr/bin/lazydocker ] ; then
+  if [ -f /usr/bin/lazydocker ]; then
     alias lzd='$sudo lazydocker'
   fi
 fi
 
 # rg : plus performant que grep
-if [ -f /usr/bin/rg ] ; then
+if [ -f /usr/bin/rg ]; then
   alias rg='rg -i'
 fi
 
 # tmux : émulateur de terminal
-if [ -f /usr/bin/tmux ] ; then
+if [ -f /usr/bin/tmux ]; then
   alias tmux='tmux attach || tmux new'
 fi
 
 # ufw : ajoute sudo
-if [ -f /usr/sbin/ufw ] ; then
+if [ -f /usr/sbin/ufw ]; then
   alias ufw='$sudo ufw'
   alias ufws='$sudo ufw status numbered'
 fi
 
 # vim : Vi amélioré
-if [ -f ~/.local/nvim/bin/nvim ] ; then
+if [ -f ~/.local/nvim/bin/nvim ]; then
   alias vi='nvim -nO'
-elif [ -f /usr/bin/vim ] ; then
+elif [ -f /usr/bin/vim ]; then
   alias vi='vim -nO'
 fi
 
 # zoxide : cd amélioré
-if [ -f /usr/bin/zoxide ] ; then
+if [ -f /usr/bin/zoxide ]; then
   eval "$(zoxide init bash)"
   alias cd='z'
 fi
-
 
 ##################################################################
 ## Fonctions
 
 # cpsave : copie un fichier ou un dossier avec .old
-cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
+cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
 # jsed : commande sed plus conviviale
-jsed() { sed -i "s|$1|$2|g" $3 ;}
+jsed() { sed -i "s|$1|$2|g" $3; }
 
 # newuser : créé un compte de service
-newuser() { $sudo adduser --no-create-home -q --disabled-password --comment "" $1 ; echo "Utilisateur $1 créé. ID : $(id -u $1)" ;}
+newuser() {
+  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  echo "Utilisateur $1 créé. ID : $(id -u $1)"
+}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in $* ; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file ; done ;}
+tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
 
 # tarx : décompresse une archive spécifiée
-tarx() { for file in $* ; do tar xzvf $file ; done ;}
+tarx() { for file in $*; do tar xzvf $file; done; }
 
 # zip : commande zip plus conviviale
-zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
-
+zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
 
 ##################################################################
 ## Scripts
 
 # Transforme en alias les scripts
 scripts=/home/$(id -un 1000)/scripts
-if [ -d $scripts ] ; then
-  for i in $(ls $scripts) ; do
-    if [ -f $scripts/$i/$i.sh ] ; then
+if [ -d $scripts ]; then
+  for i in $(ls $scripts); do
+    if [ -f $scripts/$i/$i.sh ]; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
