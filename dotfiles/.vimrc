@@ -126,7 +126,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 " Theme
-Plug 'joshdick/onedark.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+"Plug 'joshdick/onedark.vim'
 
 " Interface
 Plug 'tpope/vim-sensible'
@@ -149,10 +150,17 @@ call plug#end()
 
 
 " Configuration du theme OneDark
-if filereadable(expand("~/.vim/plugged/onedark.vim/colors/onedark.vim"))
-  let g:onedark_hide_endofbuffer = 1
-  let g:onedark_terminal_italics = 0
-  colorscheme onedark
+"if filereadable(expand("~/.vim/plugged/onedark.vim/colors/onedark.vim"))
+"  let g:onedark_hide_endofbuffer = 1
+"  let g:onedark_terminal_italics = 0
+"  colorscheme onedark
+"  set cursorline
+"  set termguicolors
+"endif
+
+" Configuration du theme Catppuccin
+if filereadable(expand("~/.vim/plugged/catppuccin/colors/catppuccin_macchiato.vim"))
+  colorscheme catppuccin_macchiato
   set cursorline
   set termguicolors
 endif
@@ -160,7 +168,7 @@ endif
 " Configuration de LightLine
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-  let g:lightline = { 'colorscheme': 'onedark' , }
+  let g:lightline = { 'colorscheme': 'catppuccin_macchiato' , }
   set noshowmode
 endif
 
