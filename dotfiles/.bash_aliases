@@ -2,7 +2,7 @@
 ## Bash
 
 # Affichage
-if [ "$USER" = "root" ]; then
+if [[ $USER = root ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -23,7 +23,7 @@ bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliqu
 bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ]; then
+if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
   alias root='sudo -i'
   alias su='sudo -s'
   sudo=sudo
@@ -63,18 +63,18 @@ alias copykey='ssh-copy-id'
 ## Applications
 
 # apt : gestionnaire de paquets
-if [ -f /usr/bin/apt ]; then
+if [[ -f /usr/bin/apt ]]; then
   alias apt='$sudo apt'
   alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
 fi
 
 # colordiff : diff avec couleur
-if [ -f /usr/bin/colordiff ]; then
+if [[ -f /usr/bin/colordiff ]]; then
   alias diff='colordiff'
 fi
 
 # duf : affiche les files systems
-if [ -f /usr/bin/duf ]; then
+if [[ -f /usr/bin/duf ]]; then
   alias df='duf -hide special'
 fi
 
@@ -84,56 +84,56 @@ if [[ -f /usr/bin/fdfind ]]; then
 fi
 
 # fzf : recherche avancée
-if [ -f /usr/bin/fzf ]; then
+if [[ -f /usr/bin/fzf ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=bw'
 fi
 
 # htop : plus convivial que top
-if [ -f /usr/bin/htop ]; then
+if [[ -f /usr/bin/htop ]]; then
   alias top='htop'
 fi
 
 # ncdu : équivalent à TreeSize
-if [ -f /usr/bin/ncdu ]; then
+if [[ -f /usr/bin/ncdu ]]; then
   alias ncdu='ncdu --color dark'
 fi
 
 # podman : remplaçant de docker
-if [ -f /usr/bin/podman ]; then
+if [[ -f /usr/bin/podman ]]; then
   alias podman='$sudo podman'
   alias docker='$sudo podman'
-  if [ -f /usr/bin/lazydocker ]; then
+  if [[ -f /usr/bin/lazydocker ]]; then
     alias lzd='$sudo lazydocker'
   fi
 fi
 
 # rg : plus performant que grep
-if [ -f /usr/bin/rg ]; then
+if [[ -f /usr/bin/rg ]]; then
   alias rg='rg -i'
 fi
 
 # tmux : émulateur de terminal
-if [ -f /usr/bin/tmux ]; then
+if [[ -f /usr/bin/tmux ]]; then
   alias tmux='tmux attach || tmux new'
 fi
 
 # ufw : ajoute sudo
-if [ -f /usr/sbin/ufw ]; then
+if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='$sudo ufw'
   alias ufws='$sudo ufw status numbered'
 fi
 
 # vim : Vi amélioré
-if [ -f ~/.local/nvim/bin/nvim ]; then
+if [[ -f ~/.local/nvim/bin/nvim ]]; then
   alias vi='nvim -nO'
-elif [ -f /usr/bin/vim ]; then
+elif [[ -f /usr/bin/vim ]]; then
   alias vi='vim -nO'
 fi
 
 # zoxide : cd amélioré
-if [ -f /usr/bin/zoxide ]; then
+if [[ -f /usr/bin/zoxide ]]; then
   eval "$(zoxide init bash)"
   alias cd='z'
 fi
@@ -167,9 +167,9 @@ zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
 
 # Transforme en alias les scripts
 scripts=/home/$(id -un 1000)/scripts
-if [ -d $scripts ]; then
+if [[ -d $scripts ]]; then
   for i in $(ls $scripts); do
-    if [ -f $scripts/$i/$i.sh ]; then
+    if [[ -f $scripts/$i/$i.sh ]]; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
