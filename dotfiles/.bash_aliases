@@ -109,7 +109,7 @@ fi
 if [[ -f /usr/bin/podman ]]; then
   alias podman='$sudo podman'
   alias docker='$sudo podman'
-  if [[ -f /usr/bin/lazydocker ]]; then
+  if [[ -f /usr/local/bin/lazydocker ]]; then
     alias lzd='$sudo lazydocker'
   fi
 fi
