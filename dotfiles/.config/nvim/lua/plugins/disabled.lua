@@ -8,4 +8,5 @@ return {
 	{ "folke/tokyonight.nvim", enabled = false },
 	{ "folke/trouble.nvim", enabled = false },
 	{ "folke/ts-comments.nvim", enabled = false },
+	{ "Saghen/blink.cmp", enabled = false },
 }
