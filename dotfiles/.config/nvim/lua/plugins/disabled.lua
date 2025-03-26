@@ -1,5 +1,6 @@
 return {
 	{ "windwp/nvim-ts-autotag", enabled = false },
+	{ "Saghen/blink.cmp", enabled = false },
 	{ "akinsho/bufferline.nvim", enabled = false },
 	{ "folke/flash.nvim", enabled = false },
 	{ "MagicDuck/grug-far.nvim", enabled = false },
