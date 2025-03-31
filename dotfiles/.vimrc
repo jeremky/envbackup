@@ -166,8 +166,8 @@ endif
 " Configuration de LightLine
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-  "let g:lightline = { 'colorscheme': 'onedark' , }
-  let g:lightline = { 'colorscheme': 'catppuccin_macchiato' , }
+  "let g:lightline = {'colorscheme': 'onedark'}
+  let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
   set noshowmode
 endif
 
