@@ -1,9 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
-" Ne pas charger le fichier par defaut
-let g:skip_defaults_vim = 1
-
 " Parametrage de base
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
@@ -169,6 +166,7 @@ endif
 " Configuration de LightLine
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+  "let g:lightline = { 'colorscheme': 'onedark' , }
   let g:lightline = { 'colorscheme': 'catppuccin_macchiato' , }
   set noshowmode
 endif
