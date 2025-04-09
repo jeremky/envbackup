@@ -148,7 +148,10 @@ fi
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
 # jsed : commande sed plus conviviale
-jsed() { sed -i "s|$1|$2|g" $3; }
+replace() { sed -i "s|$1|$2|g" $3; }
+
+# jsed : commande sed plus conviviale
+replaceall() { rg -sl $1 | xargs -d '\n' sed -i "s|$1|$2|g"; }
 
 # newuser : créé un compte de service
 newuser() {
