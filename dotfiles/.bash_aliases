@@ -107,9 +107,6 @@ fi
 if [[ -f /usr/bin/podman ]]; then
   alias podman='$sudo podman'
   alias docker='$sudo podman'
-  if [[ -f /usr/local/bin/lazydocker ]]; then
-    alias lzd='$sudo lazydocker'
-  fi
 fi
 
 # rg : plus performant que grep
