@@ -153,7 +153,7 @@ newuser() {
 # replace : commande sed plus conviviale
 replace() { sed -i "s|$1|$2|g" $3; }
 
-# replaceall : commande sed plus conviviale
+# replaceall : commande sed plus conviviale recursive
 replaceall() { rg -sl $1 | xargs sed -i "s|$1|$2|g"; }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
