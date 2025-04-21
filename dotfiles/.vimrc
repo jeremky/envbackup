@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de Vim
 
-" Parametrage de base
+" Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -10,7 +10,7 @@ set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en debut de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
 set ruler                       " Affiche la position du curseur
-set tabstop=2                   " La largeur d'une tabulation est definie sur 2
+set tabstop=2                   " La largeur d'une tabulation est définie sur 2
 set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
@@ -19,17 +19,17 @@ set showcmd                     " Afficher la commande dans la ligne d'etat
 set showmatch                   " Afficher les parentheses correspondantes
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrementielle
+set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=                      " Desactive la souris par defaut
-set nobackup                    " Desactive les sauvegardes automatiques
-set spelllang=fr,en             " Specifie les langues du dictionnaire
+set mouse=                      " Désactive la souris par défaut
+set nobackup                    " Désactive les sauvegardes automatiques
+set spelllang=fr,en             " Spécifie les langues du dictionnaire
 set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
 
-" Definition des caracteres invisibles
+" Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
@@ -40,7 +40,7 @@ let &t_EI = "\e[2 q"
 inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
 
-" Memoriser la derniere position du curseur
+" Memoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
 " Modification de certaines syntaxes
@@ -70,7 +70,7 @@ endfunction
 " Correction orthographique (z= pour afficher les propositions)
 map <F3> :set spell!<CR>
 
-" Affichage des caracteres invisibles
+" Affichage des caractères invisibles
 nnoremap <F4> :set list!<CR>
 
 " Indentation automatique
@@ -81,10 +81,10 @@ nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
     set mouse=
-    echo "Souris desactivee"
+    echo "Souris desactivée"
   else
     set mouse=a
-    echo "Souris activee"
+    echo "Souris activée"
   endif
 endfunction
 
@@ -93,11 +93,11 @@ nnoremap <F7> :call ToggleSyntax()<CR>
 function! ToggleSyntax()
   if &syntax == ''
     syntax on
-    echo "Coloration syntaxique activee"
+    echo "Coloration syntaxique activée"
   else
     syntax off
     set syntax=
-    echo "Coloration syntaxique desactivee"
+    echo "Coloration syntaxique desactivée"
   endif
 endfunction
 
@@ -109,7 +109,7 @@ nnoremap <TAB> :tabnext<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-" Telechargement de vim-plug si introuvable
+" Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
