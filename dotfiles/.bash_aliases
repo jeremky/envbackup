@@ -105,8 +105,7 @@ fi
 
 # podman : remplaçant de docker
 if [[ -f /usr/bin/podman ]]; then
-  alias podman='$sudo podman'
-  alias docker='$sudo podman'
+  alias docker='podman'
 fi
 
 # rg : plus performant que grep
@@ -148,6 +147,13 @@ cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 newuser() {
   $sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
+}
+
+changeid() {
+  userid=$(($(id -u $1)+99999))
+  $sudo usermod -u $userid $1
+  $sudo groupmod -g $userid $1
+  echo "ID de $1 modifié en $userid"
 }
 
 # replace : commande sed plus conviviale
