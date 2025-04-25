@@ -1,7 +1,9 @@
-## envbackup files
+# envbackup files
 .bash_aliases
 .hushlogin
 .vimrc
 
-## envbackup directories
-.config/
+# envbackup directories
+.config/htop
+.config/nvim
+.config/tmux

@@ -4,13 +4,13 @@ set -e
 dir=$(dirname "$0")
 list="$dir/envbackup.lst"
 
-## Verification du user
+# Verification du user
 if [[ "$USER" = "root" ]]; then
   echo "Ne pas lancer en tant que root !"
   exit 0
 fi
 
-## Copie des configurations OS
+# Copie des configurations OS
 if [[ ! -f $HOME/.bash_aliases ]] || [[ "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles ]]; then
     for file in $(cat $list | grep -v '#'); do
@@ -19,10 +19,11 @@ if [[ ! -f $HOME/.bash_aliases ]] || [[ "$1" = "r" ]]; then
     echo "Restauration effectuée"
   fi
 else
-  cd $HOME
+  #cd $HOME
   for file in $(cat $list | grep -v '#'); do
     if [[ -f $HOME/$file ]] || [[ -d $HOME/$file ]]; then
-      cp -Rp $file $dir/dotfiles
+      rm -fr $dir/dotfiles/$file
+      cp -Rp $HOME/$file $dir/dotfiles/$file
     fi
   done
   echo "Sauvegarde effectuée"
