@@ -149,6 +149,7 @@ newuser() {
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
 
+# changeid : change l'ID d'un compte de service pour podman rootless
 changeid() {
   userid=$(($(id -u $1)+99999))
   $sudo usermod -u $userid $1
