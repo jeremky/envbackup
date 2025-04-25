@@ -19,10 +19,10 @@ if [[ ! -f $HOME/.bash_aliases ]] || [[ "$1" = "r" ]]; then
     echo "Restauration effectuée"
   fi
 else
-  #cd $HOME
   for file in $(cat $list | grep -v '#'); do
-    if [[ -f $HOME/$file ]] || [[ -d $HOME/$file ]]; then
+    if [[ -f $HOME/$file || -d $HOME/$file ]]; then
       rm -fr $dir/dotfiles/$file
+      mkdir -p $(dirname $dir/dotfiles/$file)
       cp -Rp $HOME/$file $dir/dotfiles/$file
     fi
   done
