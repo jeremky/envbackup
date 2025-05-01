@@ -176,7 +176,7 @@ zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
 ## Scripts
 
 # Transforme en alias les scripts
-scripts=/home/$(id -un 1000)/scripts
+scripts=/home/jeremky/scripts
 if [[ -d $scripts ]]; then
   for i in $(ls $scripts); do
     if [[ -f $scripts/$i/$i.sh ]]; then

@@ -14,6 +14,7 @@ fi
 if [[ ! -f $HOME/.bash_aliases || "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles ]]; then
     cp -Rp $dir/dotfiles/.* $HOME
+    sed -i "s,^scripts=.*,scripts=$(dirname "$0" | rev | cut -d/ -f2- | rev)," ~/.bash_aliases
     echo "Restauration effectuée"
   fi
 else
