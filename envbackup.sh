@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/bin/bash -e
 
 dir=$(dirname "$0")
 list="$dir/envbackup.lst"
