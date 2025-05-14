@@ -4,6 +4,7 @@
 .vimrc
 
 # envbackup directories
+.config/btop
 .config/htop
 .config/nvim
 .config/tmux

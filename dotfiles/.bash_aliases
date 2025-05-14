@@ -14,7 +14,7 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-export TMOUT=1800
+#export TMOUT=1800
 
 # Tweaks divers
 bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
@@ -25,7 +25,6 @@ bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles
 # Sudo : utiliser la commande root pour...passer root :)
 if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
   alias root='sudo -i'
-  alias su='sudo -s'
   sudo=sudo
 fi
 
@@ -86,6 +85,7 @@ fi
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
+  # export FZF_DEFAULT_OPTS="--no-color"
   export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
@@ -147,14 +147,6 @@ cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 newuser() {
   $sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
-}
-
-# changeid : change l'ID d'un compte de service pour podman rootless
-changeid() {
-  userid=$(($(id -u $1)+99999))
-  $sudo usermod -u $userid $1
-  $sudo groupmod -g $userid $1
-  echo "ID de $1 modifié en $userid"
 }
 
 # replace : commande sed plus conviviale
