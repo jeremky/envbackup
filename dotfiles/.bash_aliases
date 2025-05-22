@@ -94,9 +94,7 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-if [[ -f /usr/bin/btop ]]; then
-  alias top='btop'
-elif [[ -f /usr/bin/htop ]]; then
+if [[ -f /usr/bin/htop ]]; then
   alias top='htop'
 fi
 
