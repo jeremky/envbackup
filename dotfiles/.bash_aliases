@@ -61,7 +61,7 @@ alias copykey='ssh-copy-id'
 ##################################################################
 ## Applications
 
-# apt : gestionnaire de paquets
+# apt : gestionnaire de paquets debian
 if [[ -f /usr/bin/apt ]]; then
   alias apt='$sudo apt'
   alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
@@ -70,6 +70,12 @@ fi
 # colordiff : diff avec couleur
 if [[ -f /usr/bin/colordiff ]]; then
   alias diff='colordiff'
+fi
+
+# dnf : gestionnaire de paquets fedora
+if [[ -f /usr/bin/dnf ]]; then
+  alias dnf='$sudo dnf'
+  alias upgrade='$sudo dnf -y upgrade'
 fi
 
 # duf : affiche les files systems
