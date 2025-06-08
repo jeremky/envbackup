@@ -75,7 +75,7 @@ fi
 # dnf : gestionnaire de paquets fedora
 if [[ -f /usr/bin/dnf ]]; then
   alias dnf='$sudo dnf'
-  alias upgrade='$sudo dnf -y upgrade && $sudo dnf clean all'
+  alias upgrade='$sudo dnf -y upgrade'
 fi
 
 # duf : affiche les files systems
