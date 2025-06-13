@@ -3,9 +3,14 @@
 dir=$(dirname "$0")
 list="$dir/envbackup.lst"
 
+# Couleurs
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+RESET='\033[0m'
+
 # Verification du user
 if [[ "$USER" = "root" ]]; then
-  echo "Ne pas lancer en tant que root !"
+  echo -e "${RED}Ne pas lancer en tant que root !${RESET}"
   exit 0
 fi
 
@@ -14,7 +19,7 @@ if [[ ! -f $HOME/.bash_aliases || "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles ]]; then
     cp -Rp $dir/dotfiles/.* $HOME
     sed -i "s,^scripts=.*,scripts=$(realpath "$0" | rev | cut -d/ -f3- | rev)," ~/.bash_aliases
-    echo "Restauration effectuée"
+    echo -e "${GREEN}Restauration effectuée${RESET}"
   fi
 else
   for file in $(cat $list | grep -v '#'); do
@@ -24,5 +29,5 @@ else
       cp -Rp $HOME/$file $dir/dotfiles/$file
     fi
   done
-  echo "Sauvegarde effectuée"
+  echo -e "${GREEN}Sauvegarde effectuée${RESET}"
 fi
