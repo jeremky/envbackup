@@ -139,7 +139,7 @@ zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
 ## Scripts
 
 # Transforme les scripts en alias
-scripts=/home/jeremky/Documents/scripts
+scripts=/var/home/jeremky/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in $(ls $scripts); do
     if [[ -f $scripts/$i/$i.sh ]]; then

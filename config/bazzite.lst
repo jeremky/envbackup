@@ -1,5 +1,6 @@
 # files
 .bash_aliases
+.bashrc
 .hidden
 .hushlogin
 .vimrc
