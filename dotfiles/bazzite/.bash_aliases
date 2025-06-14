@@ -13,7 +13,6 @@ export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_ANALYTICS=1
 export EDITOR=vim
 export VISUAL=$EDITOR
-export TMOUT=1800
 
 # Tweaks divers
 bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
@@ -24,7 +23,6 @@ bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles
 # Sudo : utiliser la commande root pour...passer root :)
 if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ]; then
   alias root='sudo -i'
-  alias su='sudo -s'
   sudo=sudo
 fi
 
