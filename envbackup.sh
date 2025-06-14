@@ -15,6 +15,12 @@ if [[ "$USER" = "root" ]]; then
   exit 0
 fi
 
+# Vérification du fichier de list
+if [[ ! -f $list ]]; then
+  echo -e "${RED}Fichier $list absent !${RESET}"
+  exit 0
+fi
+
 # Copie des configurations OS
 if [[ ! -f $HOME/.bash_aliases || "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles/$dist ]]; then
