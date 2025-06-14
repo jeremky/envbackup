@@ -1,0 +1,10 @@
+# files
+.bash_aliases
+.hushlogin
+.vimrc
+
+# directories
+.config/btop
+.config/htop
+.config/nvim
+.config/tmux

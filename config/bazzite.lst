@@ -1,9 +1,9 @@
-# envbackup files
+# files
 .bash_aliases
 .hushlogin
 .vimrc
 
-# envbackup directories
+# directories
 .config/btop
 .config/htop
 .config/nvim
