@@ -9,3 +9,4 @@
 .config/htop
 .config/systemd
 .config/tmux
+.vim

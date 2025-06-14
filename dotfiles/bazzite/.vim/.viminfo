@@ -1,0 +1,403 @@
+# Ce fichier viminfo a été généré par Vim 9.1.
+# Vous pouvez l'éditer, mais soyez prudent.
+
+# Viminfo version
+|1,4
+
+# 'encoding' dans lequel ce fichier a été écrit
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Dernier motif de recherche  :
+~MSle0~/upgr
+
+# Dernières chaînes de substitution :
+$
+
+# Historique ligne de commande (chronologie décroissante) :
+:wq
+|2,0,1749910829,,"wq"
+:q
+|2,0,1749910670,,"q"
+:w
+|2,0,1749909763,,"w"
+:q!
+|2,0,1749849811,,"q!"
+:qa
+|2,0,1747858511,,"qa"
+::q
+|2,0,1747858472,,":q"
+::wq
+|2,0,1744910072,,":wq"
+
+# Historique chaîne de recherche (chronologie décroissante) :
+?/upgr
+|2,1,1749910663,47,"upgr"
+? ^
+|2,1,1743245715,,"^"
+
+# Historique expression (chronologie décroissante) :
+
+# Historique ligne de saisie (chronologie décroissante) :
+
+# Historique Ligne de débogage (chronologie décroissante) :
+
+# Registres :
+"0	LINE	0
+	  syntax reset
+|3,0,0,1,1,0,1748785106,"  syntax reset"
+"1	LINE	0
+	  alias su='sudo -s'
+|3,0,1,1,1,0,1749909739,"  alias su='sudo -s'"
+"2	LINE	0
+	export TMOUT=1800
+|3,0,2,1,1,0,1749909733,"export TMOUT=1800"
+"3	LINE	0
+	.config/nvim
+|3,0,3,1,1,0,1749909646,".config/nvim"
+"4	LINE	0
+	.config/btop
+|3,0,4,1,1,0,1749909643,".config/btop"
+"5	LINE	0
+	.config/btop
+|3,0,5,1,1,0,1749909375,".config/btop"
+"6	LINE	0
+	.config/nvim
+|3,0,6,1,1,0,1749909362,".config/nvim"
+"7	LINE	0
+	
+|3,0,7,1,1,0,1748785098,""
+"8	LINE	0
+	
+|3,0,8,1,1,0,1748785098,""
+"9	LINE	0
+	
+|3,0,9,1,1,0,1747858505,""
+""-	CHAR	0
+	/
+|3,1,36,0,1,0,1749910828,"/"
+
+# Marques dans le fichier :
+'0  12  3  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,48,12,3,1749910829,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'1  53  6  ~/.bash_aliases
+|4,49,53,6,1749910670,"~/.bash_aliases"
+'2  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,50,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'3  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,51,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'4  4  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,52,4,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'5  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,53,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'6  4  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,54,4,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'7  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,55,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'8  5  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,56,5,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+'9  4  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,57,4,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+
+# Liste de sauts (le plus récent en premier) :
+-'  12  3  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,12,3,1749910829,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,0,1749910822,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  53  6  ~/.bash_aliases
+|4,39,53,6,1749910670,"~/.bash_aliases"
+-'  53  6  ~/.bash_aliases
+|4,39,53,6,1749910670,"~/.bash_aliases"
+-'  53  6  ~/.bash_aliases
+|4,39,53,6,1749910670,"~/.bash_aliases"
+-'  53  6  ~/.bash_aliases
+|4,39,53,6,1749910670,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749910663,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749910663,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749910663,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749910663,"~/.bash_aliases"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910176,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910171,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910171,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910171,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910171,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910171,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749910125,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  5  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,5,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  5  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,5,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  5  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,5,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  5  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,5,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  5  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,5,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  4  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,4,0,1749910106,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  3  6  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,3,6,1749909808,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  11  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,11,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  9  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,9,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  11  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,11,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  9  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,9,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  11  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,11,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  9  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,9,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  11  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,11,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  9  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,9,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  11  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,11,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  10  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,10,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  9  0  ~/Documents/scripts/envbackup/config/bazzite.lst
+|4,39,9,0,1749909802,"~/Documents/scripts/envbackup/config/bazzite.lst"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  130  0  ~/.bash_aliases
+|4,39,130,0,1749909764,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+-'  142  0  ~/.bash_aliases
+|4,39,142,0,1749909721,"~/.bash_aliases"
+
+# Historique des marques dans les fichiers (les plus récentes en premier) :
+
+> ~/Documents/scripts/envbackup/config/bazzite.lst
+	*	1749910828	0
+	"	12	3
+	^	12	5
+	.	12	4
+	+	13	0
+	+	10	12
+	+	10	0
+	+	13	0
+	+	11	14
+	+	5	6
+	+	4	6
+	+	3	6
+	+	12	4
+
+> ~/.bash_aliases
+	*	1749910663	0
+	"	53	6
+	^	142	32
+	.	26	0
+	+	8	18
+	+	149	1
+	+	142	31
+	+	16	0
+	+	26	0
+
+> ~/.ssh/id_github
+	*	1749909246	0
+	"	7	32
+	^	7	33
+	.	7	32
+	+	7	32
+
+> ~/.ssh/github
+	*	1749909219	0
+	"	5	30
+	^	5	31
+	.	5	30
+	+	5	30
+
+> ~/.gitconfig
+	*	1749909193	0
+	"	2	2
+	^	6	22
+	.	1	0
+	+	6	21
+	+	1	0
+
+> ~/.config/systemd/user/bluetooth-pairable.service
+	*	1749849832	0
+	"	11	22
+	^	11	23
+	.	11	22
+	+	21	22
+	+	11	22
+
+> ~/.vim/.netrwhist
+	*	1748785119	0
+	"	1	0
+
+> ~/.vim/.viminfo
+	*	1748785104	0
+	"	1	0
+
+> ~/.vim/vimrc
+	*	1748785081	0
+	"	1	0
+	^	144	5
+	.	143	0
+	+	143	0
+	+	139	51
+	+	143	12
+	+	143	22
+	+	144	4
+	+	140	0
+	+	141	0
+	+	143	0
+
+> ~/.vim/colors/catppuccin.vim
+	*	1748785070	0
+	"	1	0
+
+> ~/.hidden
+	*	1747922454	0
+	"	5	4
+	^	5	5
+	.	5	4
+	+	1	9
+	+	2	12
+	+	4	8
+	+	7	8
+	+	5	4
+
+> /usr/share/vim/vim91/doc/pi_netrw.txt
+	*	1747858470	0
+	"	1024	16
