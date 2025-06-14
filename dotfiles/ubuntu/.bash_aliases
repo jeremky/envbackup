@@ -14,7 +14,6 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-#export TMOUT=1800
 
 # Tweaks divers
 bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
@@ -106,6 +105,7 @@ fi
 # podman : remplaçant de docker
 if [[ -f /usr/bin/podman ]]; then
   alias docker='podman'
+  alias docker-compose='podman-compose'
 fi
 
 # rg : plus performant que grep
