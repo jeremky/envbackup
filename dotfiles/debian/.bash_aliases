@@ -78,7 +78,7 @@ if [[ -f /usr/bin/dnf ]]; then
   alias upgrade='$sudo dnf -y upgrade'
 fi
 
-# duf : affiche les files systems
+# duf : df amélioré
 if [[ -f /usr/bin/duf ]]; then
   alias df='duf -hide special'
 fi
