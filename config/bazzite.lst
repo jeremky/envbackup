@@ -4,7 +4,6 @@
 .vimrc
 
 # directories
-.config/btop
 .config/htop
-.config/nvim
+.config/systemd
 .config/tmux

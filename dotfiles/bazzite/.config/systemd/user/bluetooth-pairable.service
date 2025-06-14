@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth Pairable Mode at Startup
+After=bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/bluetoothctl discoverable on
+ExecStartPost=/usr/bin/bluetoothctl pairable on
+Type=oneshot
+
+[Install]
+WantedBy=default.target
