@@ -72,12 +72,6 @@ if [[ -f /usr/bin/colordiff ]]; then
   alias diff='colordiff'
 fi
 
-# dnf : gestionnaire de paquets fedora
-if [[ -f /usr/bin/dnf ]]; then
-  alias dnf='$sudo dnf'
-  alias upgrade='$sudo dnf -y upgrade'
-fi
-
 # duf : df amélioré
 if [[ -f /usr/bin/duf ]]; then
   alias df='duf -hide special'
@@ -90,11 +84,7 @@ fi
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
-  if [[ -f /usr/share/doc/fzf/examples/key-bindings.bash ]]; then
-    source /usr/share/doc/fzf/examples/key-bindings.bash
-  else
-    eval "$(fzf --bash)"
-  fi
+  source /usr/share/doc/fzf/examples/key-bindings.bash
   # export FZF_DEFAULT_OPTS="--no-color"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
