@@ -5,20 +5,20 @@ dist=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2,2)
 list="$dir/config/$dist.lst"
 
 # Messages colorisés
-error()    { echo -e "\033[0;31m$*\033[0m"; }
-message()  { echo -e "\033[0;32m$*\033[0m"; }
-warning()  { echo -e "\033[0;33m$*\033[0m"; }
+error()    { echo -e "\033[0;31m====> $*\033[0m" ;}
+message()  { echo -e "\033[0;32m====> $*\033[0m" ;}
+warning()  { echo -e "\033[0;33m====> $*\033[0m" ;}
 
 # Verification du user
 if [[ "$USER" = "root" ]]; then
   error "Ne pas lancer en tant que root !"
-  exit 0
+  exit 1
 fi
 
 # Vérification du fichier de list
 if [[ ! -f $list ]]; then
   error "Fichier $list absent !"
-  exit 0
+  exit 1
 fi
 
 # Copie des configurations OS
