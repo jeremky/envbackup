@@ -38,5 +38,3 @@ else
   done
   message "Sauvegarde effectuée"
 fi
-
-realpath $dir
