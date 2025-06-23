@@ -110,7 +110,7 @@ fi
 
 # rg : plus performant que grep
 if [[ -f /usr/bin/rg ]]; then
-  alias rg='rg -i'
+  alias rg='rg -i --no-ignore'
 fi
 
 # tmux : émulateur de terminal
