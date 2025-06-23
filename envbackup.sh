@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
-#dir=$(dirname "$0")
 dir=$(dirname "$(realpath "$0")")
 dist=$(cat /etc/os-release | grep "^ID=" | cut -d= -f2,2)
 list="$dir/config/$dist.lst"
