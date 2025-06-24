@@ -118,7 +118,7 @@ if [[ -f /usr/bin/tmux ]]; then
   alias tmux='tmux attach || tmux new'
 fi
 
-# ufw : ajoute sudo
+# ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='$sudo ufw'
   alias ufws='$sudo ufw status numbered'
