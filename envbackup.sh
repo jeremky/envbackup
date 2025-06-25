@@ -29,7 +29,7 @@ if [[ ! -f $HOME/.bash_aliases || "$1" = "r" ]]; then
     warning "Restauration effectuée"
   fi
 else
-  for file in $(cat $list | grep -v '#'); do
+  for file in $(grep -v '#' $list); do
     if [[ -f $HOME/$file || -d $HOME/$file ]]; then
       rm -fr $dir/dotfiles/$dist/$file
       mkdir -p $(dirname $dir/dotfiles/$dist/$file)
