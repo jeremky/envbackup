@@ -62,9 +62,7 @@ alias copykey='ssh-copy-id'
 ## Applications
 
 # colordiff : diff avec couleur
-if [[ -f /usr/bin/colordiff ]]; then
-  alias diff='colordiff'
-fi
+[[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
 
 # dnf : gestionnaire de paquets fedora
 if [[ -f /usr/bin/dnf ]]; then
@@ -72,15 +70,11 @@ if [[ -f /usr/bin/dnf ]]; then
   alias upgrade='$sudo dnf -y upgrade'
 fi
 
-# duf : affiche les files systems
-if [[ -f /usr/bin/duf ]]; then
-  alias df='duf -hide special'
-fi
+# duf : df amélioré
+[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fd : find amélioré
-if [[ -f /usr/bin/fdfind ]]; then
-  alias fd='fdfind'
-fi
+[[ -f /usr/bin/fdfind ]] && alias fd='fdfind'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
@@ -94,30 +88,19 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-if [[ -f /usr/bin/htop ]]; then
-  alias top='htop'
-fi
+[[ -f /usr/bin/htop ]] && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-if [[ -f /usr/bin/ncdu ]]; then
-  alias ncdu='ncdu --color dark'
-fi
+[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # podman : remplaçant de docker
-if [[ -f /usr/bin/podman ]]; then
-  alias docker='podman'
-  alias docker-compose='podman-compose'
-fi
+[[ -f /usr/bin/podman ]] && alias docker='podman'
 
 # rg : plus performant que grep
-if [[ -f /usr/bin/rg ]]; then
-  alias rg='rg -i'
-fi
+[[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
 # tmux : émulateur de terminal
-if [[ -f /usr/bin/tmux ]]; then
-  alias tmux='tmux attach || tmux new'
-fi
+[[ -f /usr/bin/tmux ]] && alias tmux='tmux attach || tmux new'
 
 # vim : vi amélioré
 if [[ -f /usr/bin/nvim ]]; then
@@ -143,12 +126,6 @@ newuser() {
   $sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
-
-# replace : commande sed plus conviviale
-replace() { sed -i "s|$1|$2|g" $3; }
-
-# replaceall : commande sed plus conviviale recursive
-replaceall() { rg -sl $1 | xargs sed -i "s|$1|$2|g"; }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
