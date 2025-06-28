@@ -22,10 +22,7 @@ bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliqu
 bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
-  alias root='sudo -i'
-  sudo=sudo
-fi
+[[ $USER != root ]] && alias root='sudo -i'
 
 ##################################################################
 ## Commandes
@@ -49,8 +46,8 @@ alias netstat='ss'                               # Afficher les ports d'écoute 
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                       # Arrête le système et le serveur
-alias reboot='$sudo reboot'                      # Commande reboot avec sudo
+alias halt='sudo halt -p'                       # Arrête le système et le serveur
+alias reboot='sudo reboot'                      # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
@@ -62,24 +59,18 @@ alias copykey='ssh-copy-id'
 
 # apt : gestionnaire de paquets
 if [[ -f /usr/bin/apt ]]; then
-  alias apt='$sudo apt'
-  alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
+  alias apt='sudo apt'
+  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
 # colordiff : diff avec couleur
-if [[ -f /usr/bin/colordiff ]]; then
-  alias diff='colordiff'
-fi
+[[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
 
-# duf : affiche les files systems
-if [[ -f /usr/bin/duf ]]; then
-  alias df='duf -hide special'
-fi
+# duf : df amélioré
+[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fd : find amélioré
-if [[ -f /usr/bin/fdfind ]]; then
-  alias fd='fdfind'
-fi
+[[ -f /usr/bin/fdfind ]] && alias fd='fdfind'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
@@ -93,35 +84,24 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-if [[ -f /usr/bin/htop ]]; then
-  alias top='htop'
-fi
+[[ -f /usr/bin/htop ]] && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-if [[ -f /usr/bin/ncdu ]]; then
-  alias ncdu='ncdu --color dark'
-fi
+[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # podman : remplaçant de docker
-if [[ -f /usr/bin/podman ]]; then
-  alias docker='podman'
-  alias docker-compose='podman-compose'
-fi
+[[ -f /usr/bin/podman ]] && alias docker='podman'
 
 # rg : plus performant que grep
-if [[ -f /usr/bin/rg ]]; then
-  alias rg='rg -i'
-fi
+[[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
 # tmux : émulateur de terminal
-if [[ -f /usr/bin/tmux ]]; then
-  alias tmux='tmux attach || tmux new'
-fi
+[[ -f /usr/bin/tmux ]] && alias tmux='tmux attach || tmux new'
 
-# ufw : ajoute sudo
+# ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
-  alias ufw='$sudo ufw'
-  alias ufws='$sudo ufw status numbered'
+  alias ufw='sudo ufw'
+  alias ufws='sudo ufw status numbered'
 fi
 
 # vim : vi amélioré
@@ -145,15 +125,9 @@ cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
 # newuser : créé un compte de service
 newuser() {
-  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
-
-# replace : commande sed plus conviviale
-replace() { sed -i "s|$1|$2|g" $3; }
-
-# replaceall : commande sed plus conviviale recursive
-replaceall() { rg -sl $1 | xargs sed -i "s|$1|$2|g"; }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
