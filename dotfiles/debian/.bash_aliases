@@ -109,7 +109,7 @@ if [[ -f /usr/sbin/ufw ]]; then
 fi
 
 # vim : vi amélioré
-if [[ -f ~/.local/nvim/bin/nvim || -f /usr/bin/nvim ]]; then
+if [[ -f ~/.local/nvim/bin/nvim ]]; then
   alias vi='nvim -nO'
 elif [[ -f /usr/bin/vim ]]; then
   alias vi='vim -nO'
@@ -132,12 +132,6 @@ newuser() {
   $sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
-
-# replace : commande sed plus conviviale
-replace() { sed -i "s|$1|$2|g" $3; }
-
-# replaceall : commande sed plus conviviale recursive
-replaceall() { rg -sl $1 | xargs sed -i "s|$1|$2|g"; }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
