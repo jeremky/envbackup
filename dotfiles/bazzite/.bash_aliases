@@ -2,7 +2,7 @@
 ## Bash
 
 # Affichage
-if [ "$USER" = "root" ]; then
+if [[ "$USER" = "root" ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -21,9 +21,8 @@ bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliqu
 bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [ -f /usr/bin/sudo ] && [ "$USER" != "root" ]; then
+if [[ "$USER" != "root" ]]; then
   alias root='sudo -i'
-  sudo=sudo
 fi
 
 ##################################################################
@@ -48,8 +47,6 @@ alias netstat='ss'                               # Afficher les ports d'écoute 
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                       # Arrête le système et le serveur
-alias reboot='$sudo reboot'                      # Commande reboot avec sudo
 alias upgrade='ujust update'                     # Mise à jour de Bazzite
 
 # ssh
@@ -60,20 +57,8 @@ alias copykey='ssh-copy-id'
 ##################################################################
 ## Applications
 
-# colordiff : diff avec couleur
-if [ -f /usr/bin/colordiff ]; then
-  alias diff='colordiff'
-fi
-
 # duf : affiche les files systems
-if [ -f /usr/bin/duf ]; then
-  alias df='duf -hide special'
-fi
-
-# fd : find amélioré
-if [[ -f /usr/bin/fdfind ]]; then
-  alias fd='fdfind'
-fi
+[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
@@ -86,45 +71,28 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-if [ -f /var/home/linuxbrew/.linuxbrew/bin/htop ]; then
-  alias top='htop'
-fi
+[[ -f /var/home/linuxbrew/.linuxbrew/bin/htop ]] && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-if [ -f /usr/bin/ncdu ]; then
-  alias ncdu='ncdu --color dark'
-fi
+[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-if [ -f /usr/bin/rg ]; then
-  alias rg='rg -i'
-fi
-
-# neovim : Vi amélioré
-if [ -d /usr/share/vim ]; then
-  alias vi='vim -nO'
-fi
+[[ -f /usr/bin/rg ]] && alias rg='rg -i'
 
 # zoxide : cd amélioré
-if [ -f /var/home/linuxbrew/.linuxbrew/bin/zoxide ]; then
+if [[ -f /var/home/linuxbrew/.linuxbrew/bin/zoxide ]]; then
   eval "$(zoxide init bash)"
   alias cd='z'
 fi
+
+# vim : Vi amélioré
+[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 ##################################################################
 ## Fonctions
 
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
-
-# jsed : commande sed plus conviviale
-jsed() { sed -i "s|$1|$2|g" $3; }
-
-# newuser : créé un compte de service
-newuser() {
-  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
-  echo "Utilisateur $1 créé. ID : $(id -u $1)"
-}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
