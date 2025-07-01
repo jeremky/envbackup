@@ -32,26 +32,26 @@ fi
 ## Commandes
 
 # Prompt
-alias ls='ls --color=auto'                       # Ajoute la couleur
-alias l='ls -lh'                                 # Liste détaillée
-alias la='ls -lhA'                               # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                              # Liste en récursif
-alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                            # Liste par date
-alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                 # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                             # Afficher les ports d'écoute
-alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
-alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
-alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
-alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                       # Arrête le système et le serveur
-alias reboot='$sudo reboot'                      # Commande reboot avec sudo
+alias ls='ls --color=auto'                         # Ajoute la couleur
+alias l='ls -lh'                                   # Liste détaillée
+alias la='ls -lhA'                                 # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                # Liste en récursif
+alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                              # Liste par date
+alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                   # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'       # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                               # Afficher les ports d'écoute
+alias ssp='ss | grep'                              # Chercher un port (ssp <port>)
+alias netstat='ss'                                 # Afficher les ports d'écoute (netstat n'existe plus)
+alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
+alias halt='$sudo halt -p'                         # Arrête le système et le serveur
+alias reboot='$sudo reboot'                        # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
@@ -124,8 +124,11 @@ fi
 ##################################################################
 ## Fonctions
 
+# cleanlog : ménage des logs de systemd
+cleanlog() { $sudo journalctl --vacuum-time=$1d ;}
+
 # cpsave : copie un fichier ou un dossier avec .old
-cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
+cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 
 # newuser : créé un compte de service
 newuser() {
@@ -134,13 +137,13 @@ newuser() {
 }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
+tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done ;}
 
 # tarx : décompresse une archive spécifiée
-tarx() { for file in $*; do tar xzvf $file; done; }
+tarx() { for file in $*; do tar xzvf $file; done ;}
 
 # zip : commande zip plus conviviale
-zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
+zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
 ##################################################################
 ## Scripts
