@@ -1,6 +1,7 @@
 # files
 .bash_aliases
 .hushlogin
+.selected_editor
 .vimrc
 
 # directories
