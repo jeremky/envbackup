@@ -23,10 +23,7 @@ bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliqu
 bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
-  alias root='sudo -i'
-  sudo=sudo
-fi
+[[ $USER != root ]] && alias root='sudo -i'
 
 ##################################################################
 ## Commandes
@@ -50,8 +47,8 @@ alias netstat='ss'                                 # Afficher les ports d'écout
 alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                         # Arrête le système et le serveur
-alias reboot='$sudo reboot'                        # Commande reboot avec sudo
+alias halt='sudo halt -p'                         # Arrête le système et le serveur
+alias reboot='sudo reboot'                        # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
@@ -63,8 +60,8 @@ alias copykey='ssh-copy-id'
 
 # apt : gestionnaire de paquets debian
 if [[ -f /usr/bin/apt ]]; then
-  alias apt='$sudo apt'
-  alias upgrade='$sudo apt update && $sudo apt full-upgrade && $sudo apt -y autoremove'
+  alias apt='sudo apt'
+  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
 # colordiff : diff avec couleur
@@ -101,8 +98,8 @@ fi
 
 # ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
-  alias ufw='$sudo ufw'
-  alias ufws='$sudo ufw status numbered'
+  alias ufw='sudo ufw'
+  alias ufws='sudo ufw status numbered'
 fi
 
 # vim : vi amélioré
@@ -122,14 +119,14 @@ fi
 ## Fonctions
 
 # cleanlog : ménage des logs de systemd
-cleanlog() { $sudo journalctl --vacuum-time=$1d ;}
+cleanlog() { sudo journalctl --vacuum-time=$1d ;}
 
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 
 # newuser : créé un compte de service
 newuser() {
-  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
 
