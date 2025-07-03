@@ -23,10 +23,7 @@ bind 'set mark-symlinked-directories on' # Meilleure gestion des liens symboliqu
 bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
 
 # Sudo : utiliser la commande root pour...passer root :)
-if [[ -f /usr/bin/sudo ]] && [[ $USER != root ]]; then
-  alias root='sudo -i'
-  sudo=sudo
-fi
+[[ $USER != root ]] && alias root='sudo -i'
 
 ##################################################################
 ## Commandes
@@ -50,8 +47,8 @@ alias netstat='ss'                               # Afficher les ports d'écoute 
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='$sudo halt -p'                       # Arrête le système et le serveur
-alias reboot='$sudo reboot'                      # Commande reboot avec sudo
+alias halt='sudo halt -p'                       # Arrête le système et le serveur
+alias reboot='sudo reboot'                      # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
@@ -66,8 +63,8 @@ alias copykey='ssh-copy-id'
 
 # dnf : gestionnaire de paquets fedora
 if [[ -f /usr/bin/dnf ]]; then
-  alias dnf='$sudo dnf'
-  alias upgrade='$sudo dnf -y upgrade'
+  alias dnf='sudo dnf'
+  alias upgrade='sudo dnf -y upgrade'
 fi
 
 # duf : df amélioré
@@ -123,7 +120,7 @@ cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
 # newuser : créé un compte de service
 newuser() {
-  $sudo adduser --no-create-home -q --disabled-password --comment "" $1
+  sudo adduser --no-create-home -q --disabled-password --comment "" $1
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
 
@@ -147,4 +144,17 @@ if [[ -d $scripts ]]; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
+fi
+
+###################################################################
+## Podman
+
+# base
+[[ -f /usr/bin/podman ]] && alias docker='podman'
+[[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
+
+# lazydocker
+if [[ -f ~/.local/bin/lazydocker ]]; then
+  export DOCKER_HOST=unix:///var/run/user/$(id -g)/podman/podman.sock
+  alias lzd='lazydocker'
 fi

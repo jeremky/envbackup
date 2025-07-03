@@ -6,5 +6,6 @@
 
 # directories
 .config/htop
+.config/lazydocker
 .config/nvim
 .config/tmux
