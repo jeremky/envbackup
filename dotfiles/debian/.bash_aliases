@@ -155,7 +155,7 @@ fi
 ###################################################################
 ## Podman
 
-# base
+# alias docker
 [[ -f /usr/bin/podman ]] && alias docker='podman'
 [[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
 
