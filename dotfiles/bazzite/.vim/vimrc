@@ -5,7 +5,6 @@
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
-set laststatus=2                " Affiche en permanence la barre de statut
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -52,7 +51,6 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Explorateur de fichiers
 
@@ -69,11 +67,13 @@ aug netrw_close
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Barre de statut
 
-" Éléments à afficher
+" Forcer l'affichage
+set laststatus=2
+
+" Eléments à afficher
 set statusline+=%F
 set statusline+=\ %m
 set statusline+=%=
@@ -83,7 +83,6 @@ set statusline+=\ %P
 set statusline+=\ \|
 set statusline+=\ %l
 set statusline+=\:%c
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping

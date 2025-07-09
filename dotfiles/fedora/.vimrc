@@ -5,7 +5,6 @@
 syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
-set laststatus=2                " Affiche en permanence la barre de statut
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en debut de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
