@@ -141,5 +141,5 @@ if filereadable(expand("~/.vim/colors/catppuccin.vim"))
   set statusline+=\ \|
   set statusline+=\ %l
   set statusline+=\:%c
-  set statusline+=\
+  set statusline+=\ 
 endif
