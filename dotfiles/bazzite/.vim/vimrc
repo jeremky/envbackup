@@ -137,8 +137,6 @@ if filereadable(expand("~/.vim/colors/catppuccin.vim"))
   set statusline+=\ \|
   set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
   set statusline+=\ \|
-  set statusline+=\ %Y
-  set statusline+=\ \|
   set statusline+=\ %P
   set statusline+=\ \|
   set statusline+=\ %l
