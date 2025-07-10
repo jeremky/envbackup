@@ -67,22 +67,6 @@ aug netrw_close
   au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw"|q|endif
 aug END
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Barre de statut
-
-" Forcer l'affichage
-set laststatus=2
-
-" Eléments à afficher
-set statusline+=%F
-set statusline+=\ %m
-set statusline+=%=
-set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
-set statusline+=\ \|
-set statusline+=\ %P
-set statusline+=\ \|
-set statusline+=\ %l
-set statusline+=\:%c
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
@@ -140,4 +124,14 @@ if filereadable(expand("~/.vim/colors/catppuccin.vim"))
   set termguicolors
   set noshowmode
   colorscheme catppuccin
+  set laststatus=2
+  set statusline+=%F
+  set statusline+=\ %m
+  set statusline+=%=
+  set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
+  set statusline+=\ \|
+  set statusline+=\ %P
+  set statusline+=\ \|
+  set statusline+=\ %l
+  set statusline+=\:%c
 endif
