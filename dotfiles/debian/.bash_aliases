@@ -124,6 +124,9 @@ cleanlog() { sudo journalctl --vacuum-time=$1d ;}
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old ;}
 
+# gencert : générer un certificat avec certbot
+gencert () { sudo certbot certonly --standalone -d $1 ;}
+
 # newuser : créé un compte de service
 newuser() {
   sudo adduser --no-create-home -q --disabled-password --comment "" $1
