@@ -74,7 +74,7 @@ fi
 [[ -f /var/home/linuxbrew/.linuxbrew/bin/htop ]] && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
+[[ -f /var/home/linuxbrew/.linuxbrew/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i'
