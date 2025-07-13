@@ -139,6 +139,9 @@ tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $f
 # tarx : décompresse une archive spécifiée
 tarx() { for file in $*; do tar xzvf $file; done ;}
 
+# testdisk
+testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct ; rm testfile ;}
+
 # zip : commande zip plus conviviale
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
