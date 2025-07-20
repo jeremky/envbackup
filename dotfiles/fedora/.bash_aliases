@@ -90,9 +90,6 @@ fi
 # ncdu : équivalent à TreeSize
 [[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
-# podman : remplaçant de docker
-[[ -f /usr/bin/podman ]] && alias docker='podman'
-
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
