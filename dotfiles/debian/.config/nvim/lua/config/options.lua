@@ -18,7 +18,7 @@ vim.opt.shiftwidth = 2     -- Les retraits auront une largeur de 2
 vim.opt.softtabstop = 2    -- Nombre de colonnes pour une tabulation
 vim.opt.expandtab = true   -- Remplace les tab par des espaces
 
--- Sytème
+-- Système
 vim.opt.ignorecase = true          -- Ignorer la casse
 vim.opt.mouse = ""                 -- Désactive la souris par défaut
 vim.opt.backup = false             -- Désactive les sauvegardes automatiques
