@@ -51,7 +51,6 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
@@ -103,7 +102,6 @@ endfunction
 " Changement de document
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
