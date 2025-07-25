@@ -2,7 +2,6 @@
 " Configuration de Vim
 
 " Paramétrage de base
-syntax on                       " Active la colorisation syntaxique
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set smartindent                 " Indentation intelligente
