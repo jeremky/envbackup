@@ -1,4 +1,5 @@
 # files
+.gitconfig
 .hidden
 .hushlogin
 .vimrc
