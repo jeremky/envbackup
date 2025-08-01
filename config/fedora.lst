@@ -1,11 +1,10 @@
 # files
-.bash_aliases
 .hidden
 .hushlogin
 .vimrc
 
 # directories
+.bashrc.d
 .config/htop
 .config/lazydocker
-.config/nvim
 .config/tmux

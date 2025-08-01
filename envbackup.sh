@@ -22,7 +22,7 @@ if [[ ! -f $list ]]; then
 fi
 
 # Copie des configurations OS
-if [[ ! -f $HOME/.bash_aliases || "$1" = "r" ]]; then
+if [[ "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles/$dist ]]; then
     cp -Rp $dir/dotfiles/$dist/.* $HOME
     sed -i "s,^scripts=.*,scripts=$(realpath $dir/..)," ~/.bash_aliases
