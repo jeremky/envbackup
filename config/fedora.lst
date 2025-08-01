@@ -6,5 +6,4 @@
 # directories
 .bashrc.d
 .config/htop
-.config/lazydocker
 .config/tmux
