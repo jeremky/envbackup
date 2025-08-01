@@ -71,7 +71,7 @@ fi
 [[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fd : find amélioré
-[[ -f /usr/bin/fdfind ]] && alias fd='fdfind'
+[[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
