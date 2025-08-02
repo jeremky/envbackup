@@ -6,4 +6,5 @@
 # directories
 .bashrc.d
 .config/htop
+.config/nvim
 .config/tmux
