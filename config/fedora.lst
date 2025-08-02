@@ -9,3 +9,4 @@
 .config/nvim
 .config/tmux
 .local/share/fonts
+.local/share/themes
