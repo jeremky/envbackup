@@ -77,7 +77,7 @@ fi
 [[ -f /var/home/linuxbrew/.linuxbrew/bin/ncdu ]] && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-[[ -f /usr/bin/rg ]] && alias rg='rg -i'
+[[ -f /var/home/linuxbrew/.linuxbrew/bin/rg ]] && alias rg='rg -i'
 
 # zoxide : cd amélioré
 if [[ -f /var/home/linuxbrew/.linuxbrew/bin/zoxide ]]; then
