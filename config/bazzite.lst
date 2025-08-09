@@ -1,11 +1,11 @@
-# files
+# fichiers
 .bash_aliases
 .bashrc
 .hidden
 .hushlogin
 .vimrc
 
-# directories
+# dossiers
 .config/htop
 .config/systemd
 .config/tmux
