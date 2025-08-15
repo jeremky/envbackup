@@ -75,7 +75,8 @@ fi
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
-  source /usr/share/doc/fzf/examples/key-bindings.bash
+  #source /usr/share/doc/fzf/examples/key-bindings.bash
+  eval "$(fzf --bash)"
   # export FZF_DEFAULT_OPTS="--no-color"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
