@@ -47,8 +47,8 @@ alias netstat='ss'                                 # Afficher les ports d'écout
 alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
-alias halt='sudo halt -p'                         # Arrête le système et le serveur
-alias reboot='sudo reboot'                        # Commande reboot avec sudo
+alias halt='sudo halt -p'                          # Arrête le système et le serveur
+alias reboot='sudo reboot'                         # Commande reboot avec sudo
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'
