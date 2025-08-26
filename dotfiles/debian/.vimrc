@@ -128,10 +128,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-" Code
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 
 " Completion
 Plug 'ervandew/supertab'
