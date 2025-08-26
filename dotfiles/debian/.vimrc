@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de Vim
+" Configuration de vim
 
 " Paramétrage de base
 set hlsearch                    " Affiche en surbrillance les recherches
