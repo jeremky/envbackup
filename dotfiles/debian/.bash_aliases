@@ -64,6 +64,9 @@ if [[ -f /usr/bin/apt ]]; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
+# bat : cat avec couleurs
+[[ -f /usr/bin/batcat ]] && alias cat='batcat'
+
 # colordiff : diff avec couleur
 [[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
 
