@@ -1,10 +1,9 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de Vim
+" Configuration de vim
 
 " Paramétrage de base
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
-set laststatus=2                " Affiche en permanence la barre de statut
 set smartindent                 " Indentation intelligente
 set smarttab                    " Gestion des espaces en debut de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
@@ -127,10 +126,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-" Code
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 
 " Completion
 Plug 'ervandew/supertab'
