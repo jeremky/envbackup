@@ -4,7 +4,5 @@
 .vimrc
 
 # directories
-.config/btop
 .config/htop
 .config/lazydocker
-.config/tmux
