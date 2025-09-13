@@ -7,6 +7,4 @@
 .bashrc.d
 .config/htop
 .config/nvim
-.config/tmux
 .local/share/fonts
-.local/share/themes
