@@ -75,7 +75,6 @@ fi
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
     eval "$(fzf --bash)"
-  # export FZF_DEFAULT_OPTS="--no-color"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
     --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
@@ -113,12 +112,6 @@ fi
 
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
-
-# newuser : créé un compte de service
-newuser() {
-  sudo adduser --no-create-home -q --disabled-password --comment "" $1
-  echo "Utilisateur $1 créé. ID : $(id -u $1)"
-}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in $*; do tar czvf "$(echo $file | cut -d '/' -f 1)".tar.gz $file; done; }
