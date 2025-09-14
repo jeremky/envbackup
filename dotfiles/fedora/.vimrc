@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de Vim
+" Configuration de vim
 
 " Paramétrage de base
 set hlsearch                    " Affiche en surbrillance les recherches
@@ -29,6 +29,9 @@ filetype plugin indent on
 
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
+
+" Desactivation des # au retour chariot
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
@@ -126,10 +129,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-" Code
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 
 " Completion
 Plug 'ervandew/supertab'
