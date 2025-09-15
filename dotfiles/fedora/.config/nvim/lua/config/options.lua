@@ -20,14 +20,8 @@ vim.opt.expandtab = true   -- Remplace les tab par des espaces
 
 -- Système
 vim.opt.ignorecase = true          -- Ignorer la casse
-vim.opt.mouse = ""                 -- Désactive la souris par défaut
 vim.opt.backup = false             -- Désactive les sauvegardes automatiques
 vim.opt.spelllang = { "en", "fr" } -- Spécifie les langues du dictionnaire
-
--- Configuration pour tmux
-if vim.env.TERM == "tmux-256color" then
-  vim.opt.mouse = "a"
-end
 
 -- Desactivation des # automatiques
 vim.api.nvim_create_autocmd("FileType", {
