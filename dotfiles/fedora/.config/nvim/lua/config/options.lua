@@ -28,3 +28,11 @@ vim.opt.spelllang = { "en", "fr" } -- Spécifie les langues du dictionnaire
 if vim.env.TERM == "tmux-256color" then
   vim.opt.mouse = "a"
 end
+
+-- Desactivation des # automatiques
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
