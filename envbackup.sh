@@ -25,7 +25,6 @@ fi
 if [[ "$1" = "r" ]]; then
   if [[ -d $dir/dotfiles/$dist ]]; then
     cp -Rp $dir/dotfiles/$dist/.* $HOME
-    sed -i "s,^scripts=.*,scripts=$(realpath $dir/..)," ~/.bash_aliases
     warning "Restauration effectuée"
   fi
 else
