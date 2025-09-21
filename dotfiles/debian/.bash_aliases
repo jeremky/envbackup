@@ -1,4 +1,4 @@
-##################################################################
+###############################################################
 ## Bash
 
 # Affichage
@@ -25,7 +25,7 @@ bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles
 # Sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -i'
 
-##################################################################
+###############################################################
 ## Commandes
 
 # Prompt
@@ -55,7 +55,7 @@ alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-##################################################################
+###############################################################
 ## Applications
 
 # apt : gestionnaire de paquets debian
@@ -106,7 +106,7 @@ elif [[ -f /usr/bin/vim ]]; then
   alias vi='vim -nO'
 fi
 
-##################################################################
+###############################################################
 ## Fonctions
 
 # cleanlog : ménage des logs de systemd
@@ -136,7 +136,7 @@ testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct ; rm testf
 # zip : commande zip plus conviviale
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $* ;}
 
-##################################################################
+###############################################################
 ## Scripts
 
 # Transforme les scripts en alias
@@ -149,7 +149,7 @@ if [[ -d $scripts ]]; then
   done
 fi
 
-##################################################################
+###############################################################
 ## Podman
 
 # alias docker
