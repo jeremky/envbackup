@@ -120,21 +120,16 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Liste des plugins
 call plug#begin()
 
-" Theme
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-
 " Interface
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 
 " Completion
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
-
-" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
