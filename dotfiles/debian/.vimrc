@@ -30,7 +30,7 @@ filetype plugin indent on
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-" Desactivation des # au retour chariot
+" Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Changement automatique du curseur en fonction du mode
@@ -126,7 +126,6 @@ call plug#begin()
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Interface
-Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
@@ -153,6 +152,7 @@ endif
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
   let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
+  set laststatus=2
   set noshowmode
 endif
 

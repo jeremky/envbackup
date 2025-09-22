@@ -100,11 +100,7 @@ if [[ -f /usr/sbin/ufw ]]; then
 fi
 
 # vim : vi amélioré
-if [[ -f ~/.local/nvim/bin/nvim ]]; then
-  alias vi='nvim -nO'
-elif [[ -f /usr/bin/vim ]]; then
-  alias vi='vim -nO'
-fi
+[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 ###############################################################
 ## Fonctions
