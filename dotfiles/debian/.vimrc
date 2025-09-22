@@ -30,7 +30,7 @@ filetype plugin indent on
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-" Désactivation des # au retour chariot
+" Desactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Changement automatique du curseur en fonction du mode
@@ -98,6 +98,12 @@ function! ToggleSyntax()
   endif
 endfunction
 
+" Mode lecture
+nnoremap <F8> :Goyo <CR>
+
+" Mode focus
+nnoremap <F9> :Limelight!! <CR>
+
 " Changement de document
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
@@ -125,7 +131,11 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 " Interface
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+
+" Edition
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Completion
 Plug 'ervandew/supertab'
