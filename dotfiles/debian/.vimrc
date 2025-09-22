@@ -1,33 +1,33 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de vim
 
-" Paramétrage de base
-set hlsearch                    " Affiche en surbrillance les recherches
-set background=dark             " Optimise l'affiche pour un terminal sombre
-set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en debut de ligne
-set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set ruler                       " Affiche la position du curseur
-set tabstop=2                   " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                " Les retraits auront une largeur de 2
-set softtabstop=2               " Nombre de colonnes pour une tabulation
-set expandtab                   " Remplace les tab par des espaces
-set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'etat
-set showmatch                   " Afficher les parentheses correspondantes
-set ignorecase                  " Ignorer la casse
-set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=                      " Désactive la souris par défaut
-set nobackup                    " Désactive les sauvegardes automatiques
-set spelllang=fr,en             " Spécifie les langues du dictionnaire
-set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
+" Parametrage de base
+set hlsearch                      " Affiche en surbrillance les recherches
+set background=dark               " Optimise l'affiche pour un terminal sombre
+set smartindent                   " Indentation intelligente
+set smarttab                      " Gestion des espaces en debut de ligne
+set autoindent                    " Conserve l'indentation sur une nouvelle ligne
+set ruler                         " Affiche la position du curseur
+set tabstop=2                     " La largeur d'une tabulation est definie sur 2
+set shiftwidth=2                  " Les retraits auront une largeur de 2
+set softtabstop=2                 " Nombre de colonnes pour une tabulation
+set expandtab                     " Remplace les tab par des espaces
+set linebreak                     " Revient à la ligne sans couper les mots
+set showcmd                       " Afficher la commande dans la ligne d'etat
+set showmatch                     " Afficher les parentheses correspondantes
+set ignorecase                    " Ignorer la casse
+set smartcase                     " Faire un appariement intelligent
+set incsearch                     " Recherche incrementielle
+set hidden                        " Cacher les tampons lorsqu'ils sont abandonnes
+set mouse=                        " Desactive la souris par defaut
+set nobackup                      " Desactive les sauvegardes automatiques
+set spelllang=fr,en               " Specifie les langues du dictionnaire
+set viminfofile=~/.vim/.viminfo   " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
 
-" Definition des caractères invisibles
+" Definition des caracteres invisibles
 let &listchars = "eol:$,space:\u00B7"
 
 " Desactivation des # au retour chariot
@@ -50,7 +50,7 @@ if $TERM == 'tmux-256color'
   set mouse=a
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
 " Nerdtree
@@ -98,20 +98,14 @@ function! ToggleSyntax()
   endif
 endfunction
 
-" Mode lecture
-nnoremap <F8> :Goyo <CR>
-
-" Mode focus
-nnoremap <F9> :Limelight!! <CR>
-
 " Changement de document
 nnoremap <S-TAB> <C-W>w
 nnoremap <TAB> :tabnext<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-" Téléchargement de vim-plug si introuvable
+" Telechargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -131,11 +125,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 " Interface
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-
-" Edition
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 " Completion
 Plug 'ervandew/supertab'
