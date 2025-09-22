@@ -44,9 +44,6 @@ inoremap [ []<Esc>ha
 " Memoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
-" Modification de certaines syntaxes
-autocmd BufNewFile,BufRead *.lpl set syntax=json
-
 " Configuration pour tmux
 if $TERM == 'tmux-256color'
   set clipboard=unnamedplus
