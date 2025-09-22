@@ -45,12 +45,6 @@ inoremap [ []<Esc>ha
 " Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
-" Configuration pour tmux
-if $TERM == 'tmux-256color'
-  set clipboard=unnamedplus
-  set mouse=a
-endif
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
