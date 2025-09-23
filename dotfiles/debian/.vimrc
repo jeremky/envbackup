@@ -93,6 +93,9 @@ function! ToggleSyntax()
   endif
 endfunction
 
+" Mode focus
+nnoremap <F8> :Goyo <CR>
+
 " Changement de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
@@ -117,6 +120,10 @@ call plug#begin()
 " Theme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+
+" Edition
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Interface
 Plug 'preservim/nerdtree'
@@ -169,4 +176,10 @@ endif
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
+endif
+
+" Configuration de Goyo
+if filereadable(expand("~/.vim/plugged/goyo.vim/autoload/goyo.vim"))
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 endif
