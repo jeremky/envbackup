@@ -17,10 +17,10 @@ export VISUAL=$EDITOR
 export TMOUT=1800
 
 # Tweaks divers
-bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
-bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
-bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
-bind 'set show-all-if-ambiguous on'      # Saisie automatique à partir des correspondances
+bind 'set colored-stats on'                       # Affiche les couleurs lors de la complétion
+bind 'set completion-ignore-case on'              # Ignorer la casse lors de la complétion
+bind 'set show-all-if-unmodified on'              # Affiche les correspondances possibles immédiatement
+bind 'set show-all-if-ambiguous on'               # Saisie automatique à partir des correspondances
 
 # Sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -i'
@@ -93,6 +93,9 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
+# tmux : émulateur de terminal
+[[ -f /usr/bin/tmux ]] && alias tmux='tmux attach || tmux new'
+
 # ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='sudo ufw'
@@ -101,6 +104,12 @@ fi
 
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
+
+# zoxide : cd amélioré
+if [ -f /usr/bin/zoxide ] ; then
+  eval "$(zoxide init bash)"
+  alias cd='z'
+fi
 
 ###############################################################
 ## Fonctions
