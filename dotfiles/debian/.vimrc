@@ -73,7 +73,7 @@ nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
     set mouse=
-    echo "Souris desactivée"
+    echo "Souris désactivée"
   else
     set mouse=a
     echo "Souris activée"
