@@ -1,28 +1,29 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Configuration de vim
 
 " Paramétrage de base
-set hlsearch                    " Affiche en surbrillance les recherches
-set background=dark             " Optimise l'affiche pour un terminal sombre
-set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en debut de ligne
-set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set ruler                       " Affiche la position du curseur
-set tabstop=2                   " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                " Les retraits auront une largeur de 2
-set softtabstop=2               " Nombre de colonnes pour une tabulation
-set expandtab                   " Remplace les tab par des espaces
-set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'etat
-set showmatch                   " Afficher les parentheses correspondantes
-set ignorecase                  " Ignorer la casse
-set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrémentielle
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnes
-set mouse=                      " Désactive la souris par défaut
-set nobackup                    " Désactive les sauvegardes automatiques
-set spelllang=fr,en             " Spécifie les langues du dictionnaire
-set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
+syntax on                         " Active la colorisation syntaxique
+set hlsearch                      " Affiche en surbrillance les recherches
+set background=dark               " Optimise l'affiche pour un terminal sombre
+set smartindent                   " Indentation intelligente
+set smarttab                      " Gestion des espaces en début de ligne
+set autoindent                    " Conserve l'indentation sur une nouvelle ligne
+set ruler                         " Affiche la position du curseur
+set tabstop=2                     " La largeur d'une tabulation est définie sur 2
+set shiftwidth=2                  " Les retraits auront une largeur de 2
+set softtabstop=2                 " Nombre de colonnes pour une tabulation
+set expandtab                     " Remplace les tab par des espaces
+set linebreak                     " Revient à la ligne sans couper les mots
+set showcmd                       " Afficher la commande dans la ligne d'état
+set showmatch                     " Afficher les parenthèses correspondantes
+set ignorecase                    " Ignorer la casse
+set smartcase                     " Faire un appariement intelligent
+set incsearch                     " Recherche incrémentielle
+set hidden                        " Cacher les tampons lorsqu'ils sont abandonnés
+set mouse=                        " Désactive la souris par défaut
+set nobackup                      " Désactive les sauvegardes automatiques
+set spelllang=fr,en               " Spécifie les langues du dictionnaire
+set viminfofile=~/.vim/.viminfo   " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -30,7 +31,7 @@ filetype plugin indent on
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-" Desactivation des # au retour chariot
+" Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Changement automatique du curseur en fonction du mode
@@ -41,19 +42,10 @@ let &t_EI = "\e[2 q"
 inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
 
-" Memoriser la dernière position du curseur
+" Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
-" Modification de certaines syntaxes
-autocmd BufNewFile,BufRead *.lpl set syntax=json
-
-" Configuration pour tmux
-if $TERM == 'tmux-256color'
-  set clipboard=unnamedplus
-  set mouse=a
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
 " Nerdtree
@@ -81,7 +73,7 @@ nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
     set mouse=
-    echo "Souris desactivée"
+    echo "Souris désactivée"
   else
     set mouse=a
     echo "Souris activée"
@@ -101,11 +93,14 @@ function! ToggleSyntax()
   endif
 endfunction
 
-" Changement de document
-nnoremap <S-TAB> <C-W>w
-nnoremap <TAB> :tabnext<CR>
+" Mode focus
+nnoremap <F8> :Goyo <CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Changement de document
+nnoremap <TAB> :tabnext<CR>
+nnoremap <S-TAB> <C-W>w
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
 " Téléchargement de vim-plug si introuvable
@@ -124,20 +119,20 @@ call plug#begin()
 
 " Theme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'itchyny/lightline.vim'
+
+" Edition
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Interface
-Plug 'tpope/vim-sensible'
-Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 
 " Completion
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
-
-" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -153,6 +148,7 @@ endif
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
   set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
   let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
+  set laststatus=2
   set noshowmode
 endif
 
@@ -180,4 +176,10 @@ endif
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
+endif
+
+" Configuration de Goyo
+if filereadable(expand("~/.vim/plugged/goyo.vim/autoload/goyo.vim"))
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 endif
