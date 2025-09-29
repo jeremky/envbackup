@@ -93,9 +93,6 @@ function! ToggleSyntax()
   endif
 endfunction
 
-" Mode focus
-nnoremap <F8> :Goyo <CR>
-
 " Changement de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
