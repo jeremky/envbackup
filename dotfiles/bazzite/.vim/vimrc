@@ -125,13 +125,7 @@ if filereadable(expand("~/.vim/colors/catppuccin.vim"))
   set noshowmode
   colorscheme catppuccin
   set laststatus=2
-
-  set statusline+=\ %#NormalC#%{(mode()=='n')?'\ NORMAL\ ':''}
-  set statusline+=%#InsertC#%{(mode()=='i')?'\ INSERT\ ':''}
-  set statusline+=%#VisualC#%{(mode()=='v')?'\ VISUAL\ ':''}
-
   set statusline+=%F
-  set statusline+=\ %m
   set statusline+=%=
   set statusline+=\ %{&fileformat}
   set statusline+=\ \|
@@ -141,5 +135,4 @@ if filereadable(expand("~/.vim/colors/catppuccin.vim"))
   set statusline+=\ \|
   set statusline+=\ %l
   set statusline+=\:%c
-  set statusline+=\ 
 endif
