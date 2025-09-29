@@ -121,10 +121,6 @@ call plug#begin()
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
-" Edition
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
 " Interface
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
@@ -176,10 +172,4 @@ endif
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
-endif
-
-" Configuration de Goyo
-if filereadable(expand("~/.vim/plugged/goyo.vim/autoload/goyo.vim"))
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
 endif
