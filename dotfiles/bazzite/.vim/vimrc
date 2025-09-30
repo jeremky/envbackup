@@ -107,7 +107,7 @@ inoremap [ []<Esc>ha
 " Theme Catppuccin
 
 if filereadable(expand("~/.vim/colors/catppuccin_macchiato.vim"))
+  colorscheme catppuccin_macchiato
   set cursorline
   set termguicolors
-  colorscheme catppuccin_macchiato
 endif
