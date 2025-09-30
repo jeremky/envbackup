@@ -31,47 +31,20 @@ filetype plugin indent on
 " Definition des caractères invisibles
 let &listchars = "eol:$,space:\u00B7"
 
-" Désactivation des # au retour chariot
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Changement automatique du curseur en fonction du mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" Fermeture automatique des brackets
-inoremap { {}<Esc>ha
-inoremap [ []<Esc>ha
-
 " Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mapping
+" Désactivation des # au retour chariot
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Nerdtree
-nnoremap <F1> :NERDTreeToggle <CR>
-
-" Mode IDE
-nnoremap <F2> :call ModeIDE() <CR>
-function! ModeIDE()
-  set number!
-  IndentLinesToggle
-  GitGutterToggle
-  silent call ToggleMouse()
-  echo "Mode IDE"
-endfunction
-
-" Correction orthographique (z= pour afficher les propositions)
-map <F3> :set spell!<CR>
-
-" Affichage des caractères invisibles
-nnoremap <F4> :set list!<CR>
-
-" Indentation automatique
-nnoremap <F5> gg=G <CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fonctions
 
 " Souris
-nnoremap <F6> :call ToggleMouse()<CR>
 function! ToggleMouse()
   if &mouse == 'a'
     set mouse=
@@ -82,9 +55,39 @@ function! ToggleMouse()
   endif
 endfunction
 
+" Mode IDE
+function! ModeIDE()
+  set number!
+  IndentLinesToggle
+  GitGutterToggle
+  silent call ToggleMouse()
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping
+
+" Nerdtree
+nnoremap <F1> :NERDTreeToggle <CR>
+
+" Mode IDE
+nnoremap <F2> :call ModeIDE() <CR>
+
+" Correction orthographique (z= pour afficher les propositions)
+map <F3> :set spell!<CR>
+
+" Affichage des caractères invisibles
+nnoremap <F4> :set list!<CR>
+
+" Indentation automatique
+nnoremap <F5> gg=G <CR>
+
 " Changement de document
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> <C-W>w
+
+" Fermeture automatique des brackets
+inoremap { {}<Esc>ha
+inoremap [ []<Esc>ha
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
