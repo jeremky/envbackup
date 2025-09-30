@@ -57,7 +57,8 @@ function! ModeIDE()
   set number!
   IndentLinesToggle
   GitGutterToggle
-  call ToggleMouse()
+  silent call ToggleMouse()
+  echo "Mode IDE"
 endfunction
 
 " Correction orthographique (z= pour afficher les propositions)
