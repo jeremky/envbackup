@@ -109,18 +109,5 @@ inoremap [ []<Esc>ha
 if filereadable(expand("~/.vim/colors/catppuccin_macchiato.vim"))
   set cursorline
   set termguicolors
-  set noshowmode
   colorscheme catppuccin_macchiato
-  set laststatus=2
-  set statusline+=%F
-  set statusline+=%m
-  set statusline+=%=
-  set statusline+=\ %{&fileformat}
-  set statusline+=\ \|
-  set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
-  set statusline+=\ \|
-  set statusline+=\ %P
-  set statusline+=\ \|
-  set statusline+=\ %l
-  set statusline+=\:%c
 endif

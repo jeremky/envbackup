@@ -161,3 +161,17 @@ let g:terminal_ansi_colors = [
   \ s:surface1, s:red, s:green, s:yellow, s:blue, s:pink, s:teal, s:subtext1,
   \ s:surface2, s:red, s:green, s:yellow, s:blue, s:pink, s:teal, s:subtext0
 \ ]
+
+" Statusline
+set laststatus=2
+set statusline+=%F
+set statusline+=%m
+set statusline+=%=
+set statusline+=\ %{&fileformat}
+set statusline+=\ \|
+set statusline+=\ %{strlen(&fenc)?&fenc:'none'}
+set statusline+=\ \|
+set statusline+=\ %P
+set statusline+=\ \|
+set statusline+=\ %l
+set statusline+=\:%c
