@@ -60,29 +60,29 @@ function! ModeIDE()
   set number!
   IndentLinesToggle
   GitGutterToggle
-  silent call ToggleMouse()
+  call ToggleMouse()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
 " Nerdtree
-nnoremap <F1> :NERDTreeToggle <CR>
+nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 
 " Mode IDE
-nnoremap <F2> :call ModeIDE() <CR>
+nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
 " Correction orthographique (z= pour afficher les propositions)
-map <F3> :set spell!<CR>
+map <F3> <Cmd>set spell!<CR>
 
 " Affichage des caractères invisibles
-nnoremap <F4> :set list!<CR>
+nnoremap <F4> <Cmd>set list!<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
 
 " Changement de document
-nnoremap <TAB> :tabnext<CR>
+nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 " Fermeture automatique des brackets
