@@ -73,7 +73,7 @@ nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
 " Correction orthographique (z= pour afficher les propositions)
-map <F3> <Cmd>set spell!<CR>
+nnoremap <F3> <Cmd>set spell!<CR>
 
 " Affichage des caractères invisibles
 nnoremap <F4> <Cmd>set list!<CR>
@@ -81,13 +81,17 @@ nnoremap <F4> <Cmd>set list!<CR>
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
 
+" Commentaire
+nnoremap <F6> <Plug>CommentaryLine
+xnoremap <F6> <Plug>Commentary
+
+" Alignement automatique
+nnoremap <F7> <Plug>(EasyAlign)
+xnoremap <F7> <Plug>(EasyAlign)
+
 " Changement de document
 nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
-
-" Fermeture automatique des brackets
-"inoremap { {}<Esc>ha
-"inoremap [ []<Esc>ha
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -114,11 +118,12 @@ Plug 'ryanoasis/vim-devicons'
 " Edition
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-commentary'
 
 " Interface
+Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 
 " Completion
 Plug 'ervandew/supertab'
