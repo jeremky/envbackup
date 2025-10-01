@@ -48,7 +48,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Fonctions
 
 " Souris
-function! ToggleMouse()
+function! MouseToggle()
   if &mouse == 'a'
     set mouse=
     echo "Souris désactivée"
@@ -63,7 +63,7 @@ function! ModeIDE()
   set number!
   IndentLinesToggle
   GitGutterToggle
-  call ToggleMouse()
+  call MouseToggle()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -157,7 +157,6 @@ endif
 " Configuration de NERDTree
 if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
   set modifiable
-  nnoremap <C-o> :NERDTreeToggle <CR>
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
@@ -169,14 +168,8 @@ if filereadable(expand("~/.vim/plugged/indentLine/after/plugin/indentLine.vim"))
   let g:indentLine_char = '▏'
 endif
 
-" Configuration de VimCompletesMe
-if filereadable(expand("~/.vim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
-  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-endif
-
 " Configuration de GitGutter
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
-  nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
 endif
 
