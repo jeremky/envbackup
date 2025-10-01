@@ -2,28 +2,28 @@
 " Configuration de vim
 
 " Paramétrage de base
-syntax on                         " Active la colorisation syntaxique
-set hlsearch                      " Affiche en surbrillance les recherches
-set background=dark               " Optimise l'affiche pour un terminal sombre
-set smartindent                   " Indentation intelligente
-set smarttab                      " Gestion des espaces en début de ligne
-set autoindent                    " Conserve l'indentation sur une nouvelle ligne
-set ruler                         " Affiche la position du curseur
-set tabstop=2                     " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                  " Les retraits auront une largeur de 2
-set softtabstop=2                 " Nombre de colonnes pour une tabulation
-set expandtab                     " Remplace les tab par des espaces
-set linebreak                     " Revient à la ligne sans couper les mots
-set showcmd                       " Afficher la commande dans la ligne d'état
-set showmatch                     " Afficher les parenthèses correspondantes
-set ignorecase                    " Ignorer la casse
-set smartcase                     " Faire un appariement intelligent
-set incsearch                     " Recherche incrémentielle
-set hidden                        " Cacher les tampons lorsqu'ils sont abandonnés
-set mouse=                        " Désactive la souris par défaut
-set nobackup                      " Désactive les sauvegardes automatiques
-set spelllang=fr,en               " Spécifie les langues du dictionnaire
-set viminfofile=~/.vim/.viminfo   " Change l'emplacement du fichier viminfo
+syntax on                       " Active la colorisation syntaxique
+set hlsearch                    " Affiche en surbrillance les recherches
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set smartindent                 " Indentation intelligente
+set smarttab                    " Gestion des espaces en début de ligne
+set autoindent                  " Conserve l'indentation sur une nouvelle ligne
+set ruler                       " Affiche la position du curseur
+set tabstop=2                   " La largeur d'une tabulation est définie sur 2
+set shiftwidth=2                " Les retraits auront une largeur de 2
+set softtabstop=2               " Nombre de colonnes pour une tabulation
+set expandtab                   " Remplace les tab par des espaces
+set linebreak                   " Revient à la ligne sans couper les mots
+set showcmd                     " Afficher la commande dans la ligne d'état
+set showmatch                   " Afficher les parenthèses correspondantes
+set ignorecase                  " Ignorer la casse
+set smartcase                   " Faire un appariement intelligent
+set incsearch                   " Recherche incrémentielle
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
+set mouse=                      " Désactive la souris par défaut
+set nobackup                    " Désactive les sauvegardes automatiques
+set spelllang=fr,en             " Spécifie les langues du dictionnaire
+set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -86,8 +86,8 @@ nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 " Fermeture automatique des brackets
-inoremap { {}<Esc>ha
-inoremap [ []<Esc>ha
+"inoremap { {}<Esc>ha
+"inoremap [ []<Esc>ha
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -109,6 +109,11 @@ call plug#begin()
 " Theme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+Plug 'ryanoasis/vim-devicons'
+
+" Edition
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
 
 " Interface
 Plug 'preservim/nerdtree'
@@ -131,7 +136,6 @@ endif
 
 " Configuration de LightLine
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
-  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
   let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
   let g:lightline.separator = { 'left': '', 'right': '' }
   let g:lightline.subseparator = { 'left': '', 'right': '' }
