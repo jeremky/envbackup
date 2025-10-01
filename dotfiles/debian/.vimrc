@@ -183,6 +183,6 @@ endif
 
 " Configuration de EasyAlign
 if filereadable(expand("~/.vim/plugged/vim-easy-align/autoload/easy_align.vim"))
-  nmap ga <Plug>(EasyAlign)
-  xmap ga <Plug>(EasyAlign)
+  nnoremap ga <Plug>(EasyAlign)
+  xnoremap ga <Plug>(EasyAlign)
 endif
