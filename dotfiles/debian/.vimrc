@@ -44,7 +44,7 @@ autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silen
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fonctions
 
 " Souris
@@ -100,7 +100,7 @@ nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
+" Installation des Plugins
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -132,42 +132,36 @@ Plug 'vim-scripts/VimCompletesMe'
 
 call plug#end()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Configuration des Plugins
 
-" Configuration du theme Catppuccin
-if filereadable(expand("~/.vim/plugged/catppuccin/colors/catppuccin_macchiato.vim"))
+if isdirectory(expand("~/.vim/plugged"))
+
+  " Catppuccin
   colorscheme catppuccin_macchiato
   set cursorline
   set termguicolors
-endif
 
-" Configuration de LightLine
-if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
+  " LightLine
   let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
   let g:lightline.separator = { 'left': '', 'right': '' }
   let g:lightline.subseparator = { 'left': '', 'right': '' }
   set laststatus=2
   set noshowmode
-endif
 
-" Configuration de NERDTree
-if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
+  " NERDTree
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
-endif
 
-" Configuration de IndentLine
-if filereadable(expand("~/.vim/plugged/indentLine/after/plugin/indentLine.vim"))
+  " IndentLine
   let g:indentLine_enabled = 0
   let g:indentLine_char = '▏'
-endif
 
-" Configuration de GitGutter
-if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
+  " GitGutter
   let gitgutter_enabled = 0
-endif
 
-" Configuration de AutoPairs
-if filereadable(expand("~/.vim/plugged/auto-pairs/plugin/auto-pairs.vim"))
+  " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
+
 endif
