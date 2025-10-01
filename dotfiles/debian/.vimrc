@@ -23,6 +23,7 @@ set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
+set clipboard=unnamedplus       " Paramètre le clipboard si compatible
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
 set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
@@ -34,8 +35,8 @@ filetype plugin indent on
 let &listchars = "eol:$,space:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
-"let &t_SI = "\e[6 q"
-"let &t_EI = "\e[2 q"
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 " Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
@@ -90,6 +91,9 @@ xnoremap <F6> <Plug>Commentary
 " Alignement automatique
 nnoremap <F7> <Plug>(EasyAlign)
 xnoremap <F7> <Plug>(EasyAlign)
+
+" MAJ des plugins
+nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Changement de document
 nnoremap <TAB> <Cmd>tabnext<CR>
@@ -179,10 +183,4 @@ endif
 " Configuration de AutoPairs
 if filereadable(expand("~/.vim/plugged/auto-pairs/plugin/auto-pairs.vim"))
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
-endif
-
-" Configuration de EasyAlign
-if filereadable(expand("~/.vim/plugged/vim-easy-align/autoload/easy_align.vim"))
-  nnoremap ga <Plug>(EasyAlign)
-  xnoremap ga <Plug>(EasyAlign)
 endif
