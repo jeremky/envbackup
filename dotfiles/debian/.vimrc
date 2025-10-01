@@ -116,23 +116,18 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Liste des plugins
 call plug#begin()
 
-" Theme
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-
 " Interface
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
-" Code
+" Edition
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
-
-" Completion
-Plug 'ervandew/supertab'
 Plug 'vim-scripts/VimCompletesMe'
 
 call plug#end()
@@ -156,7 +151,6 @@ endif
 
 " Configuration de NERDTree
 if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
-  set modifiable
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
