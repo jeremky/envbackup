@@ -3,6 +3,8 @@
 
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
+set nocompatible                " Désactive la compatibilité Vi
+set ttimeoutlen=10              " Désactive le timeout de changement de mode
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set smartindent                 " Indentation intelligente
@@ -32,8 +34,8 @@ filetype plugin indent on
 let &listchars = "eol:$,space:\u00B7"
 
 " Changement automatique du curseur en fonction du mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+"let &t_SI = "\e[6 q"
+"let &t_EI = "\e[2 q"
 
 " Mémoriser la dernière position du curseur
 autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silent exe "silent! normal g'\"zO" | endif
@@ -112,18 +114,18 @@ call plug#begin()
 
 " Theme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
 
-" Edition
+" Interface
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+
+" Code
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
-
-" Interface
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
-Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
 
 " Completion
 Plug 'ervandew/supertab'
@@ -172,4 +174,15 @@ endif
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
   nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
+endif
+
+" Configuration de AutoPairs
+if filereadable(expand("~/.vim/plugged/auto-pairs/plugin/auto-pairs.vim"))
+  let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
+endif
+
+" Configuration de EasyAlign
+if filereadable(expand("~/.vim/plugged/vim-easy-align/autoload/easy_align.vim"))
+  nmap ga <Plug>(EasyAlign)
+  xmap ga <Plug>(EasyAlign)
 endif

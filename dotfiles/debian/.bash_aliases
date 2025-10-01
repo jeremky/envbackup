@@ -13,14 +13,13 @@ export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
-junegunn/vim-easy-alignxport VISUAL=$EDITOR
 export TMOUT=1800
 
 # Tweaks divers
-bind 'set colored-stats on'                      # Affiche les couleurs lors de la complétion
-bind 'set completion-ignore-case on'             # Ignorer la casse lors de la complétion
-bind 'set show-all-if-unmodified on'             # Affiche les correspondances possibles immédiatement
-bind 'set show-all-if-ambiguous on'              # Saisie automatique à partir des correspondances
+bind 'set colored-stats on'                        # Affiche les couleurs lors de la complétion
+bind 'set completion-ignore-case on'               # Ignorer la casse lors de la complétion
+bind 'set show-all-if-unmodified on'               # Affiche les correspondances possibles immédiatement
+bind 'set show-all-if-ambiguous on'                # Saisie automatique à partir des correspondances
 
 # Sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -i'
@@ -29,31 +28,31 @@ bind 'set show-all-if-ambiguous on'              # Saisie automatique à partir 
 ## Commandes
 
 # Prompt
-alias ls='ls --color=auto'                       # Ajoute la couleur
-alias l='ls -lh'                                 # Liste détaillée
-alias la='ls -lhA'                               # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                              # Liste en récursif
-alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                            # Liste par date
-alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                 # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                             # Afficher les ports d'écoute
-alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
-alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
-alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
-alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='sudo halt -p'                        # Arrête le système et le serveur
-alias reboot='sudo reboot'                       # Commande reboot avec sudo
+alias ls='ls --color=auto'                         # Ajoute la couleur
+alias l='ls -lh'                                   # Liste détaillée
+alias la='ls -lhA'                                 # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                # Liste en récursif
+alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                              # Liste par date
+alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                   # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'       # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                               # Afficher les ports d'écoute
+alias ssp='ss | grep'                              # Chercher un port (ssp <port>)
+alias netstat='ss'                                 # Afficher les ports d'écoute (netstat n'existe plus)
+alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
+alias halt='sudo halt -p'                          # Arrête le système et le serveur
+alias reboot='sudo reboot'                         # Commande reboot avec sudo
 
 # ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
-alias copykey='ssh-copy-id'
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
+alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
 
 ###############################################################
 ## Applications
@@ -106,7 +105,7 @@ fi
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 # zoxide : cd amélioré
-if [ -f /usr/bin/zoxide ] ; then
+if [[ -f /usr/bin/zoxide ]]; then
   eval "$(zoxide init bash)"
   alias cd='z'
 fi
