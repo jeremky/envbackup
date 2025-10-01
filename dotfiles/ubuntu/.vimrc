@@ -2,28 +2,31 @@
 " Configuration de vim
 
 " Paramétrage de base
-syntax on                         " Active la colorisation syntaxique
-set hlsearch                      " Affiche en surbrillance les recherches
-set background=dark               " Optimise l'affiche pour un terminal sombre
-set smartindent                   " Indentation intelligente
-set smarttab                      " Gestion des espaces en début de ligne
-set autoindent                    " Conserve l'indentation sur une nouvelle ligne
-set ruler                         " Affiche la position du curseur
-set tabstop=2                     " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                  " Les retraits auront une largeur de 2
-set softtabstop=2                 " Nombre de colonnes pour une tabulation
-set expandtab                     " Remplace les tab par des espaces
-set linebreak                     " Revient à la ligne sans couper les mots
-set showcmd                       " Afficher la commande dans la ligne d'état
-set showmatch                     " Afficher les parenthèses correspondantes
-set ignorecase                    " Ignorer la casse
-set smartcase                     " Faire un appariement intelligent
-set incsearch                     " Recherche incrémentielle
-set hidden                        " Cacher les tampons lorsqu'ils sont abandonnés
-set mouse=                        " Désactive la souris par défaut
-set nobackup                      " Désactive les sauvegardes automatiques
-set spelllang=fr,en               " Spécifie les langues du dictionnaire
-set viminfofile=~/.vim/.viminfo   " Change l'emplacement du fichier viminfo
+syntax on                       " Active la colorisation syntaxique
+set nocompatible                " Désactive la compatibilité Vi
+set ttimeoutlen=10              " Désactive le timeout de changement de mode
+set hlsearch                    " Affiche en surbrillance les recherches
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set smartindent                 " Indentation intelligente
+set smarttab                    " Gestion des espaces en début de ligne
+set autoindent                  " Conserve l'indentation sur une nouvelle ligne
+set ruler                       " Affiche la position du curseur
+set tabstop=2                   " La largeur d'une tabulation est définie sur 2
+set shiftwidth=2                " Les retraits auront une largeur de 2
+set softtabstop=2               " Nombre de colonnes pour une tabulation
+set expandtab                   " Remplace les tab par des espaces
+set linebreak                   " Revient à la ligne sans couper les mots
+set showcmd                     " Afficher la commande dans la ligne d'état
+set showmatch                   " Afficher les parenthèses correspondantes
+set ignorecase                  " Ignorer la casse
+set smartcase                   " Faire un appariement intelligent
+set incsearch                   " Recherche incrémentielle
+set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
+set mouse=                      " Désactive la souris par défaut
+set clipboard=unnamedplus       " Paramètre le clipboard si compatible
+set nobackup                    " Désactive les sauvegardes automatiques
+set spelllang=fr,en             " Spécifie les langues du dictionnaire
+set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
@@ -45,7 +48,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Fonctions
 
 " Souris
-function! ToggleMouse()
+function! MouseToggle()
   if &mouse == 'a'
     set mouse=
     echo "Souris désactivée"
@@ -60,7 +63,7 @@ function! ModeIDE()
   set number!
   IndentLinesToggle
   GitGutterToggle
-  call ToggleMouse()
+  call MouseToggle()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,7 +76,7 @@ nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
 " Correction orthographique (z= pour afficher les propositions)
-map <F3> <Cmd>set spell!<CR>
+nnoremap <F3> <Cmd>set spell!<CR>
 
 " Affichage des caractères invisibles
 nnoremap <F4> <Cmd>set list!<CR>
@@ -81,13 +84,20 @@ nnoremap <F4> <Cmd>set list!<CR>
 " Indentation automatique
 nnoremap <F5> gg=G <CR>
 
+" Commentaire
+nnoremap <F6> <Plug>CommentaryLine
+xnoremap <F6> <Plug>Commentary
+
+" Alignement automatique
+nnoremap <F7> <Plug>(EasyAlign)
+xnoremap <F7> <Plug>(EasyAlign)
+
+" MAJ des plugins
+nnoremap <F8> <Cmd>PlugUpdate<CR>
+
 " Changement de document
 nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
-
-" Fermeture automatique des brackets
-inoremap { {}<Esc>ha
-inoremap [ []<Esc>ha
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -106,17 +116,18 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Liste des plugins
 call plug#begin()
 
-" Theme
+" Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
-
-" Interface
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
-" Completion
-Plug 'ervandew/supertab'
+" Edition
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-commentary'
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/VimCompletesMe'
 
 call plug#end()
@@ -131,16 +142,15 @@ endif
 
 " Configuration de LightLine
 if filereadable(expand("~/.vim/plugged/lightline.vim/autoload/lightline.vim"))
-  set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
   let g:lightline = {'colorscheme': 'catppuccin_macchiato'}
+  let g:lightline.separator = { 'left': '', 'right': '' }
+  let g:lightline.subseparator = { 'left': '', 'right': '' }
   set laststatus=2
   set noshowmode
 endif
 
 " Configuration de NERDTree
 if filereadable(expand("~/.vim/plugged/nerdtree/autoload/nerdtree.vim"))
-  set modifiable
-  nnoremap <C-o> :NERDTreeToggle <CR>
   let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
@@ -152,13 +162,12 @@ if filereadable(expand("~/.vim/plugged/indentLine/after/plugin/indentLine.vim"))
   let g:indentLine_char = '▏'
 endif
 
-" Configuration de VimCompletesMe
-if filereadable(expand("~/.vim/plugged/VimCompletesMe/plugin/VimCompletesMe.vim"))
-  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-endif
-
 " Configuration de GitGutter
 if filereadable(expand("~/.vim/plugged/vim-gitgutter/autoload/gitgutter.vim"))
-  nnoremap <C-g> :GitGutterToggle <CR>
   let gitgutter_enabled = 0
+endif
+
+" Configuration de AutoPairs
+if filereadable(expand("~/.vim/plugged/auto-pairs/plugin/auto-pairs.vim"))
+  let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
 endif

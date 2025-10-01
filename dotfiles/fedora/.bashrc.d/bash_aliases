@@ -1,4 +1,4 @@
-##################################################################
+###############################################################
 ## Bash
 
 # Affichage
@@ -24,7 +24,7 @@ bind 'set show-all-if-ambiguous on'               # Saisie automatique à partir
 # Sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -i'
 
-##################################################################
+###############################################################
 ## Commandes
 
 # Prompt
@@ -54,7 +54,7 @@ alias genkey='ssh-keygen -t ed25519 -a 100'
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 alias copykey='ssh-copy-id'
 
-##################################################################
+###############################################################
 ## Applications
 
 # colordiff : diff avec couleur
@@ -92,11 +92,7 @@ fi
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
 # vim : vi amélioré
-if [[ -f /usr/bin/nvim ]]; then
-  alias vi='nvim -nO'
-elif [[ -f /usr/bin/vim ]]; then
-  alias vi='vim -nO'
-fi
+[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 # zoxide : cd amélioré
 if [[ -f /usr/bin/zoxide ]]; then
