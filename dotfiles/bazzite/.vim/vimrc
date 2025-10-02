@@ -4,7 +4,6 @@
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
-set ttimeoutlen=10              " Désactive le timeout de changement de mode
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set smartindent                 " Indentation intelligente
@@ -48,11 +47,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Explorateur de fichiers
 
 " Configuration
-let g:netrw_liststyle = 3         " Active le mode Treeview
-let g:netrw_sizestyle = "H"       " Active le mode human-readable
-let g:netrw_banner = 0            " Désactive la bannière
-let g:netrw_browse_split = 4      " Ouvre le fichier choisi dans un panel
-let g:netrw_winsize = 15          " Définit la taille de l'explorateur
+let g:netrw_liststyle = 3       " Active le mode Treeview
+let g:netrw_sizestyle = "H"     " Active le mode human-readable
+let g:netrw_banner = 0          " Désactive la bannière
+let g:netrw_browse_split = 4    " Ouvre le fichier choisi dans un panel
+let g:netrw_winsize = 15        " Définit la taille de l'explorateur
 
 " Ferme automatiquement l'explorateur
 aug netrw_close
@@ -64,7 +63,7 @@ aug END
 " Fonctions
 
 " Souris
-function! ToggleMouse()
+function! MouseToggle()
   if &mouse == 'a'
     set mouse=
     echo "Souris désactivée"
@@ -77,7 +76,7 @@ endfunction
 " Mode IDE
 function! ModeIDE()
   set number!
-  call ToggleMouse()
+  call MouseToggle()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
