@@ -4,7 +4,6 @@
 " Paramétrage de base
 syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
-set ttimeoutlen=10              " Désactive le timeout de changement de mode
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set smartindent                 " Indentation intelligente
