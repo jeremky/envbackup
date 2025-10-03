@@ -3,11 +3,9 @@
 .bashrc
 .hidden
 .hushlogin
-.vimrc
 
 # dossiers
 .config/htop
 .config/systemd
 .config/tmux
-.local/share/fonts
 .vim
