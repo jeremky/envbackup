@@ -1,7 +1,7 @@
 # envbackup.sh
 
 Sauvegarde les fichiers de configuration d'environnement présents dans votre
-dossier home.Cette nouvelle version s'adapte à la distribution utilisée.
+dossier home. Cette nouvelle version s'adapte à la distribution utilisée.
 La liste des fichiers à sauvegarder peut être modifiée dans le fichier `lst`
 présent dans `config`. Son nom dépend de l'OS utilisé (debian, fedora, ubuntu...)
 
