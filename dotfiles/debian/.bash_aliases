@@ -92,9 +92,6 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
-# tmux : émulateur de terminal
-[[ -f /usr/bin/tmux ]] && alias tmux='tmux attach || tmux new'
-
 # ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='sudo ufw'

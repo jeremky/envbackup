@@ -1,9 +1,11 @@
+## Bazzite
+
 # fichiers
 .hidden
 .hushlogin
+.vimrc
 
 # dossiers
 .bashrc.d
 .config/htop
 .config/systemd/user
-.vim
