@@ -2,7 +2,6 @@
 " Configuration de vim
 
 " Paramétrage de base
-syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
@@ -22,10 +21,10 @@ set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
-set clipboard=unnamedplus       " Paramètre le clipboard si compatible
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
 set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
+syntax on                       " Active la colorisation syntaxique
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
