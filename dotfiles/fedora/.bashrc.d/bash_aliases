@@ -47,26 +47,20 @@ alias ssp='ss | grep'                             # Chercher un port (ssp <port>
 alias netstat='ss'                                # Afficher les ports d'écoute (netstat n'existe plus)
 alias md5='md5sum <<<'                            # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo'  # Pour obtenir l'adresse IP publique du serveur
+alias genkey='ssh-keygen -t ed25519 -a 100'       # Générer une clé ed25519
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'  # Commande df en filtrant les montages inutiles
 alias halt='sudo halt -p'                         # Arrête le système et le serveur
 alias reboot='sudo reboot'                        # Commande reboot avec sudo
 
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
-alias copykey='ssh-copy-id'
+# dnf : gestionnaire de paquets fedora
+alias dnf='sudo dnf'
+alias upgrade='sudo dnf -y upgrade'
 
 ###############################################################
-## Applications
+## Applications facultatives
 
 # colordiff : diff avec couleur
 [[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
-
-# dnf : gestionnaire de paquets fedora
-if [[ -f /usr/bin/dnf ]]; then
-  alias dnf='sudo dnf'
-  alias upgrade='sudo dnf -y upgrade'
-fi
 
 # duf : df amélioré
 [[ -f /usr/bin/duf ]] && alias df='duf -hide special'
@@ -128,17 +122,4 @@ if [[ -d $scripts ]]; then
       alias $i=''$scripts'/'$i'/'$i'.sh'
     fi
   done
-fi
-
-###################################################################
-## Podman
-
-# base
-[[ -f /usr/bin/podman ]] && alias docker='podman'
-[[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
-
-# lazydocker
-if [[ -f ~/.local/bin/lazydocker ]]; then
-  export DOCKER_HOST=unix:///var/run/user/$(id -g)/podman/podman.sock
-  alias lzd='lazydocker'
 fi

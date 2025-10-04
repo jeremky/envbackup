@@ -31,46 +31,38 @@ fi
 ## Commandes
 
 # Prompt
-alias ls='ls --color=auto'                       # Ajoute la couleur
-alias l='ls -lh'                                 # Liste détaillée
-alias la='ls -lhA'                               # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                              # Liste en récursif
-alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                            # Liste par date
-alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom process>)
-alias iostat='iostat -m --human'                 # Commande iostat lisible
-alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
-alias ss='ss -tunlH'                             # Afficher les ports d'écoute
-alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
-alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
-alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
-alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
-alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias upgrade='ujust update'                     # Mise à jour de Bazzite
-
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
-alias copykey='ssh-copy-id'
-
-##################################################################
-## Applications
-
-# duf : affiche les files systems
-[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
+alias ls='ls --color=auto'                         # Ajoute la couleur
+alias l='ls -lh'                                   # Liste détaillée
+alias la='ls -lhA'                                 # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                # Liste en récursif
+alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                              # Liste par date
+alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
+alias iostat='iostat -m --human'                   # Commande iostat lisible
+alias ifconfig='ip -br -c addr | grep -v lo'       # Afficher les adresses IP (ifconfig n'existe plus)
+alias ss='ss -tunlH'                               # Afficher les ports d'écoute
+alias ssp='ss | grep'                              # Chercher un port (ssp <port>)
+alias netstat='ss'                                 # Afficher les ports d'écoute (netstat n'existe plus)
+alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
+alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
+alias df='duf -hide special'                       # Affiche les files systems
+alias vi='vim -nO'                                 # Vim : vi amélioré
+alias upgrade='ujust update'                       # Mise à jour de Bazzite
 
 # fzf : recherche avancée
-if [[ -f /usr/bin/fzf ]]; then
-  source <(fzf --bash)
-  export FZF_DEFAULT_OPTS=" \
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
---color=border:#363a4f,label:#cad3f5"
-fi
+source <(fzf --bash)
+export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+  --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+  --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+  --color=border:#363a4f,label:#cad3f5"
+
+##################################################################
+## Applications facultatives
 
 # htop : plus convivial que top
 [[ -f /var/home/linuxbrew/.linuxbrew/bin/htop ]] && alias top='htop'
@@ -80,9 +72,6 @@ fi
 
 # rg : plus performant que grep
 [[ -f /var/home/linuxbrew/.linuxbrew/bin/rg ]] && alias rg='rg -i'
-
-# vim : Vi amélioré
-[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 ##################################################################
 ## Fonctions
@@ -101,16 +90,3 @@ testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct ; rm testf
 
 # zip : commande zip plus conviviale
 zip() { /usr/bin/zip -r "$(echo "$1" | cut -d '/' -f 1)".zip $*; }
-
-##################################################################
-## Scripts
-
-# Transforme les scripts en alias
-scripts=/var/home/jeremky/Documents/scripts
-if [[ -d $scripts ]]; then
-  for i in $(ls $scripts); do
-    if [[ -f $scripts/$i/$i.sh ]]; then
-      alias $i=''$scripts'/'$i'/'$i'.sh'
-    fi
-  done
-fi

@@ -56,14 +56,12 @@ alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
 alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
 
-###############################################################
-## Applications
-
 # apt : gestionnaire de paquets debian
-if [[ -f /usr/bin/apt ]]; then
-  alias apt='sudo apt'
-  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
-fi
+alias apt='sudo apt'
+alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
+
+###############################################################
+## Applications facultatives
 
 # colordiff : diff avec couleur
 [[ -f /usr/bin/colordiff ]] && alias diff='colordiff'

@@ -47,23 +47,17 @@ alias ssp='ss | grep'                              # Chercher un port (ssp <port
 alias netstat='ss'                                 # Afficher les ports d'écoute (netstat n'existe plus)
 alias md5='md5sum <<<'                             # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP publique du serveur
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
 alias halt='sudo halt -p'                          # Arrête le système et le serveur
 alias reboot='sudo reboot'                         # Commande reboot avec sudo
 
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
-alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
+# apt : gestionnaire de paquets debian
+alias apt='sudo apt'
+alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 
 ###############################################################
-## Applications
-
-# apt : gestionnaire de paquets debian
-if [[ -f /usr/bin/apt ]]; then
-  alias apt='sudo apt'
-  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
-fi
+## Applications facultatives
 
 # colordiff : diff avec couleur
 [[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
@@ -92,15 +86,6 @@ fi
 
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
-
-# tmux : émulateur de terminal
-[[ -f /usr/bin/tmux ]] && alias tmux='tmux attach || tmux new'
-
-# ufw : firewall simplifié
-if [[ -f /usr/sbin/ufw ]]; then
-  alias ufw='sudo ufw'
-  alias ufws='sudo ufw status numbered'
-fi
 
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
@@ -153,16 +138,3 @@ if [[ -d $scripts ]]; then
     fi
   done
 fi
-
-###############################################################
-## Podman
-
-# # alias docker
-# [[ -f /usr/bin/podman ]] && alias docker='podman'
-# [[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
-
-# # lazydocker
-# if [[ -f ~/.local/bin/lazydocker ]]; then
-#   export DOCKER_HOST=unix:///var/run/user/$(id -g)/podman/podman.sock
-#   alias lzd='lazydocker'
-# fi
