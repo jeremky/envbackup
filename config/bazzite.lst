@@ -1,11 +1,9 @@
 # fichiers
-.bash_aliases
-.bashrc
 .hidden
 .hushlogin
 
 # dossiers
+.bashrc.d
 .config/htop
-.config/systemd
-.config/tmux
+.config/systemd/user
 .vim
