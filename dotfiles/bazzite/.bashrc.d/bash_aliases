@@ -73,6 +73,9 @@ export FZF_DEFAULT_OPTS=" \
 # rg : plus performant que grep
 [[ -f /var/home/linuxbrew/.linuxbrew/bin/rg ]] && alias rg='rg -i'
 
+# zoxide : cd amélioré
+[[ -f /var/home/linuxbrew/.linuxbrew/bin/zoxide ]] && eval "$(zoxide init bash)"
+
 ##################################################################
 ## Fonctions
 
