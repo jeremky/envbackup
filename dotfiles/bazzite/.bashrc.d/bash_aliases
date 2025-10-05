@@ -76,6 +76,9 @@ export FZF_DEFAULT_OPTS=" \
 ##################################################################
 ## Fonctions
 
+# cleanlog : ménage des logs de systemd
+cleanlog() { sudo journalctl --vacuum-time=$1d ;}
+
 # cpsave : copie un fichier ou un dossier avec .old
 cpsave() { cp -Rp $1 "$(echo $1 | cut -d '/' -f 1)".old; }
 
