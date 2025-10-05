@@ -23,9 +23,6 @@ if [[ $- == *i* ]]; then
   bind 'set show-all-if-ambiguous on'      # Saisie automatique à partir des correspondances
 fi
 
-# Sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -i'
-
 ###############################################################
 ## Commandes
 
@@ -50,6 +47,9 @@ alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP p
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
 alias halt='sudo halt -p'                          # Arrête le système et le serveur
 alias reboot='sudo reboot'                         # Commande reboot avec sudo
+
+# sudo : utiliser la commande root pour...passer root :)
+[[ $USER != root ]] && alias root='sudo -i'
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
