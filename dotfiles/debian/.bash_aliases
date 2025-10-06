@@ -101,7 +101,7 @@ fi
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
-# zoxide : cd amélioré
+# zoxide : cd amélioré (utiliser la commande z)
 [[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
 
 ###############################################################
