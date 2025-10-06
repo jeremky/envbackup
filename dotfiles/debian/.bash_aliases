@@ -13,6 +13,7 @@ export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
+export EDITOR=$VISUAL
 export TMOUT=1800
 
 # Tweaks divers
