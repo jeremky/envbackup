@@ -68,7 +68,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Nerdtree
+" Explorateur de fichiers
 nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 
 " Mode IDE
