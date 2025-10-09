@@ -2,7 +2,7 @@
 ## Bash
 
 # Affichage
-if [[ "$USER" = "root" ]]; then
+if [[ $USER = root ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -20,11 +20,6 @@ if [[ $- == *i* ]]; then
   bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
   bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
   bind 'set show-all-if-ambiguous on'      # Saisie automatique à partir des correspondances
-fi
-
-# Sudo : utiliser la commande root pour...passer root :)
-if [[ "$USER" != "root" ]]; then
-  alias root='sudo -i'
 fi
 
 ##################################################################
@@ -52,6 +47,9 @@ alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
 alias df='duf -hide special'                       # Affiche les files systems
 alias vi='vim -nO'                                 # Vim : vi amélioré
 alias upgrade='ujust update'                       # Mise à jour de Bazzite
+
+# sudo : utiliser la commande root pour...passer root :)
+[[ $USER != root ]] && alias root='sudo -i'
 
 # fzf : recherche avancée
 source <(fzf --bash)
