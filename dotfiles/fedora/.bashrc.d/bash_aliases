@@ -92,7 +92,7 @@ fi
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
 # zoxide : cd amélioré
-[[ -f /usr/bin/zoxide ]] eval "$(zoxide init bash)"
+[[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
 
 ##################################################################
 ## Fonctions
