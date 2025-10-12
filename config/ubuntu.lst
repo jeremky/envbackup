@@ -1,10 +1,10 @@
-## Ubuntu
+# Ubuntu
 
 # files
 .bash_aliases
 .hidden
 .hushlogin
-.vimrc
+.vim/vimrc
 
 # directories
 .config/htop

@@ -3,7 +3,7 @@
 # files
 .bash_aliases
 .hushlogin
-.vimrc
+.vim/vimrc
 
 # directories
 .config/htop

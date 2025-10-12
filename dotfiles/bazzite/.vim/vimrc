@@ -25,7 +25,6 @@ set mouse=                      " Désactive la souris par défaut
 set clipboard=unnamedplus       " Paramètre le clipboard si compatible
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
-set viminfofile=~/.vim/.viminfo " Change l'emplacement du fichier viminfo
 syntax sync minlines=256        " Limite la zone de rescan de la coloration
 
 " Permet l'indentation automatique : gg=G

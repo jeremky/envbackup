@@ -3,7 +3,7 @@
 # files
 .hidden
 .hushlogin
-.vimrc
+.vim/vimrc
 
 # directories
 .bashrc.d
