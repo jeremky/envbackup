@@ -16,7 +16,7 @@ if [[ "$USER" = "root" ]]; then
 fi
 
 # Vérification du fichier de list
-if [[ ! -f $list ]]; then
+if [[ ! -f "$list" ]]; then
   error "Fichier $list absent !"
   exit 1
 fi
