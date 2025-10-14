@@ -23,8 +23,6 @@ set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
-syntax on                       " Active la colorisation syntaxique
-syntax sync minlines=256        " Limite la zone de rescan de la coloration
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
