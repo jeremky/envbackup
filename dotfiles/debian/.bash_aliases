@@ -152,12 +152,12 @@ fi
 ###############################################################
 ## Podman
 
-# # alias docker
-# [[ -f /usr/bin/podman ]] && alias docker='podman'
-# [[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
+# alias docker
+[[ -f /usr/bin/podman ]] && alias docker='podman'
+[[ -f /usr/bin/podman-compose ]] && alias docker-compose='podman-compose'
 
-# # lazydocker
-# if [[ -f ~/.local/bin/lazydocker ]]; then
-#   export DOCKER_HOST=unix:///var/run/user/$(id -g)/podman/podman.sock
-#   alias lzd='lazydocker'
-# fi
+# lazydocker
+if [[ -f ~/.local/bin/lazydocker ]]; then
+  export DOCKER_HOST=unix:///var/run/user/$(id -g)/podman/podman.sock
+  alias lzd='lazydocker'
+fi
