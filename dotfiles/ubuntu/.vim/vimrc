@@ -143,7 +143,6 @@ if isdirectory(expand("~/.vim/plugged"))
   set noshowmode
 
   " NERDTree
-  let NERDTreeMapOpenInTab='<TAB>'
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
 
