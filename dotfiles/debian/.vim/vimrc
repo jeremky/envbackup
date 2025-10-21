@@ -58,7 +58,6 @@ endfunction
 function! ModeIDE()
   set number!
   IndentLinesToggle
-  GitGutterToggle
   call MouseToggle()
 endfunction
 
@@ -117,7 +116,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 
 " Edition
 Plug 'jiangmiao/auto-pairs'
@@ -152,9 +150,6 @@ if isdirectory(expand("~/.vim/plugged"))
   " IndentLine
   let g:indentLine_enabled = 0
   let g:indentLine_char = '▏'
-
-  " GitGutter
-  let gitgutter_enabled = 0
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}

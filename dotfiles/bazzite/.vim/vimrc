@@ -3,7 +3,6 @@
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
-set ttimeoutlen=10              " Désactive le timeout de changement de mode
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
 set smartindent                 " Indentation intelligente
@@ -22,7 +21,6 @@ set smartcase                   " Faire un appariement intelligent
 set incsearch                   " Recherche incrémentielle
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set mouse=                      " Désactive la souris par défaut
-set clipboard=unnamedplus       " Paramètre le clipboard si compatible
 set nobackup                    " Désactive les sauvegardes automatiques
 set spelllang=fr,en             " Spécifie les langues du dictionnaire
 
@@ -42,7 +40,7 @@ autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silen
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fonctions
 
 " Souris
@@ -60,14 +58,13 @@ endfunction
 function! ModeIDE()
   set number!
   IndentLinesToggle
-  GitGutterToggle
   call MouseToggle()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Nerdtree
+" Explorateur de fichiers
 nnoremap <F1> <Cmd>NERDTreeToggle<CR>
 
 " Mode IDE
@@ -119,7 +116,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 
 " Edition
 Plug 'jiangmiao/auto-pairs'
@@ -154,9 +150,6 @@ if isdirectory(expand("~/.vim/plugged"))
   " IndentLine
   let g:indentLine_enabled = 0
   let g:indentLine_char = '▏'
-
-  " GitGutter
-  let gitgutter_enabled = 0
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
