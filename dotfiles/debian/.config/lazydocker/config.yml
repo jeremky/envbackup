@@ -19,7 +19,7 @@ gui:
   containerStatusHealthStyle: long
   border: ""
 logs:
-  since: 60m
+  since: 1440m
 commandTemplates:
   restartService: '{{ .DockerCompose }} restart {{ .Service.Name }}'
   startService: '{{ .DockerCompose }} start {{ .Service.Name }}'
