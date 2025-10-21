@@ -20,7 +20,6 @@ if [[ $- == *i* ]]; then
   bind 'set colored-stats on'              # Affiche les couleurs lors de la complétion
   bind 'set completion-ignore-case on'     # Ignorer la casse lors de la complétion
   bind 'set show-all-if-unmodified on'     # Affiche les correspondances possibles immédiatement
-  bind 'set show-all-if-ambiguous on'      # Saisie automatique à partir des correspondances
 fi
 
 ###############################################################
