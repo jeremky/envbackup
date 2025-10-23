@@ -44,22 +44,22 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fonctions
 
-" Souris
-function! MouseToggle()
-  if &mouse == 'a'
-    set mouse=
-    echo "Souris désactivée"
-  else
-    set mouse=a
-    echo "Souris activée"
-  endif
-endfunction
-
-" Mode IDE
 function! ModeIDE()
-  set number!
-  IndentLinesToggle
-  call MouseToggle()
+  if get(g:, 'modeIDE_enabled', 0)
+    let g:modeIDE_enabled = 0
+    for w in range(1, winnr('$'))
+      execute w . 'wincmd w'
+      set nonumber mouse=
+    endfor
+    echo "Mode IDE désactivé"
+  else
+    let g:modeIDE_enabled = 1
+    for w in range(1, winnr('$'))
+      execute w . 'wincmd w'
+      set number mouse=a
+    endfor
+    echo "Mode IDE activé"
+  endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,13 +116,15 @@ call plug#begin()
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-Plug 'Yggdroot/indentLine'
 
 " Edition
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
+
+" Code
+" Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -146,10 +148,6 @@ if isdirectory(expand("~/.vim/plugged"))
   " NERDTree
   let NERDTreeShowHidden=1
   let NERDTreeQuitOnOpen=1
-
-  " IndentLine
-  let g:indentLine_enabled = 0
-  let g:indentLine_char = '▏'
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
