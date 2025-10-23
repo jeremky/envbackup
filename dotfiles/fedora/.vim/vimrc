@@ -114,8 +114,8 @@ call plug#begin()
 
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
 
 " Edition
 Plug 'jiangmiao/auto-pairs'
