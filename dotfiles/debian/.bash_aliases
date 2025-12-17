@@ -14,6 +14,7 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
+export HISTTIMEFORMAT="%F %T "
 export TMOUT=1800
 
 # Tweaks divers
