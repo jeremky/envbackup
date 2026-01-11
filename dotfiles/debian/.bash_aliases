@@ -50,7 +50,7 @@ alias halt='sudo halt -p'                          # Arrête le système et le s
 alias reboot='sudo reboot'                         # Commande reboot avec sudo
 
 # sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -i'
+[[ $USER != root ]] && alias root='sudo -s'
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
@@ -93,12 +93,6 @@ fi
 
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
-
-# ufw : firewall simplifié
-if [[ -f /usr/sbin/ufw ]]; then
-  alias ufw='sudo ufw'
-  alias ufws='sudo ufw status numbered'
-fi
 
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
