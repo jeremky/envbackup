@@ -94,6 +94,9 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
+# tty-clock : horloge en cli
+[[ -f /usr/bin/tty-clock ]] && alias clock='tty-clock -c -f %d/%m/%Y'
+
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
