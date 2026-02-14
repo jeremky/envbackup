@@ -35,6 +35,7 @@ alias lr='ls -lLhR'                                # Liste en récursif
 alias lra='ls -lhRA'                               # Liste en récursif avec les fichiers cachés
 alias lrt='ls -lLhrt'                              # Liste par date
 alias lrta='ls -lLhrtA'                            # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                    # Tri de fichiers et dossiers par taille
 alias grep='grep -i --color=auto'                  # Grep sans la sensibilité à la casse
 alias zgrep='zgrep -i --color=auto'                # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'          # Chercher un process (psp <nom process>)
