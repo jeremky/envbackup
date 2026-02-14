@@ -1,0 +1,13 @@
+## ChimeraOS
+
+# files
+.hidden
+.hushlogin
+.profile
+.bashrc
+.bash_aliases
+.vim/vimrc
+
+# directories
+.config/htop
+.config/systemd/user
