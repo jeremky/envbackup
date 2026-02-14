@@ -8,6 +8,9 @@ Son nom dépend de l'OS utilisé (debian, fedora, ubuntu...)
 
 ## Utilisation
 
+- Créer un fichier `config/<votre_os>.lst` et ajouter les fichiers/dossiers
+    de votre dossier `home` à sauveggarder
+
 - Exécuter le script sans paramètre sauvegarde les fichiers listés dans
     `config/<votre_os>.lst`
 
