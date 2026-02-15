@@ -65,9 +65,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Explorateur de fichiers
-nnoremap <F1> <Cmd>NERDTreeToggle<CR>
-
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
@@ -144,10 +141,6 @@ if isdirectory(expand("~/.vim/plugged"))
   let g:lightline.subseparator = { 'left': '', 'right': '' }
   set laststatus=2
   set noshowmode
-
-  " NERDTree
-  let NERDTreeShowHidden=1
-  let NERDTreeQuitOnOpen=1
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
