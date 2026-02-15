@@ -5,7 +5,7 @@
 if [[ $USER = root ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
-  PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+  PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
 # Variables
@@ -62,7 +62,12 @@ alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS="--color=bw"
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
+    --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
+    --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
+    --color=selected-bg:#494D64 \
+    --color=border:#6E738D,label:#CAD3F5"
 fi
 
 # htop : plus convivial que top
@@ -91,16 +96,3 @@ testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=pro
 
 # zip : commande zip plus conviviale
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
-
-###############################################################
-## Scripts
-
-# Transforme en alias les scripts
-scripts=/home/gamer/Documents/scripts
-if [[ -d $scripts ]]; then
-  for i in $(ls $scripts) ; do
-    if [[ -f $scripts/$i/$i.sh ]]; then
-      alias $i=''$scripts'/'$i'/'$i'.sh'
-    fi
-  done
-fi

@@ -11,3 +11,4 @@
 # directories
 .config/htop
 .config/systemd/user
+.local/share/fonts
