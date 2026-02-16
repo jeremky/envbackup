@@ -64,9 +64,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
 
-" Explorateur de fichiers
-nnoremap <F1> <Cmd>NERDTreeToggle<CR>
-
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
@@ -91,7 +88,6 @@ xnoremap <F7> <Plug>(EasyAlign)
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Changement de document
-nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

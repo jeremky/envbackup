@@ -89,7 +89,6 @@ xnoremap <F7> <Plug>(EasyAlign)
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Changement de document
-nnoremap <TAB> <Cmd>tabnext<CR>
 nnoremap <S-TAB> <C-W>w
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
