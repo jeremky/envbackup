@@ -49,16 +49,16 @@ function! ModeIDE()
     for w in range(1, winnr('$'))
       execute w . 'wincmd w'
       set nonumber mouse=
-      GitGutterDisable
     endfor
+    GitGutterDisable
     echo "Mode IDE désactivé"
   else
     let g:modeIDE_enabled = 1
     for w in range(1, winnr('$'))
       execute w . 'wincmd w'
       set number mouse=a
-      GitGutterEnable
     endfor
+    GitGutterEnable
     echo "Mode IDE activé"
   endif
 endfunction
