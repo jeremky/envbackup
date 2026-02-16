@@ -145,7 +145,7 @@ if isdirectory(expand("~/.vim/plugged"))
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
 
-  " Git Gutter
+  " GitGutter
   let g:gitgutter_enabled = 0
 
 endif
