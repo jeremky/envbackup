@@ -82,9 +82,8 @@ nnoremap <F5> gg=G <CR>
 nnoremap <F6> <Plug>CommentaryLine
 xnoremap <F6> <Plug>Commentary
 
-" Alignement automatique
-nnoremap <F7> <Plug>(EasyAlign)
-xnoremap <F7> <Plug>(EasyAlign)
+" GitGutter
+nnoremap <F7> <Plug>GitGutterBufferToggle
 
 " MAJ des plugins
 nnoremap <F8> <Cmd>PlugUpdate<CR>
@@ -115,7 +114,6 @@ Plug 'itchyny/lightline.vim'
 
 " Edition
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 
