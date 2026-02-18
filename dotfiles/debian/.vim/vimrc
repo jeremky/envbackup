@@ -82,7 +82,7 @@ nnoremap <F5> gg=G <CR>
 nnoremap <F6> <Plug>CommentaryLine
 xnoremap <F6> <Plug>Commentary
 
-" GitGutter
+" Ménage des plugins
 nnoremap <F7> <Cmd>PlugClean<CR>
 
 " MAJ des plugins
