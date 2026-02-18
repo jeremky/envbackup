@@ -83,7 +83,7 @@ nnoremap <F6> <Plug>CommentaryLine
 xnoremap <F6> <Plug>Commentary
 
 " GitGutter
-nnoremap <F7> <Plug>GitGutterBufferToggle
+nnoremap <F7> <Cmd>PlugClean<CR>
 
 " MAJ des plugins
 nnoremap <F8> <Cmd>PlugUpdate<CR>
