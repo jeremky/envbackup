@@ -76,7 +76,7 @@ nnoremap <F3> <Cmd>set spell!<CR>
 nnoremap <F4> <Cmd>set list!<CR>
 
 " Indentation automatique
-nnoremap <F5> gg=G <CR>
+nnoremap <F5> gg=G<CR>
 
 " Commentaire
 nnoremap <F6> <Plug>CommentaryLine
