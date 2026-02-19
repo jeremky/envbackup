@@ -65,8 +65,8 @@ endfunction
 " Mapping
 
 " Commentaire
-nnoremap <F6> <Plug>CommentaryLine
-xnoremap <F6> <Plug>Commentary
+nnoremap <F1> <Plug>CommentaryLine
+xnoremap <F1> <Plug>Commentary
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
