@@ -118,7 +118,7 @@ zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file" ; done ;}
 ##################################################################
 ## Scripts
 
-# Transforme les scripts en alias                                                                                                                                                                                             
+# Transforme les scripts en alias
 scripts=/home/jeremky/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in $(ls $scripts); do
