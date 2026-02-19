@@ -50,7 +50,6 @@ function! ModeIDE()
       execute w . 'wincmd w'
       set nonumber mouse=
     endfor
-    GitGutterDisable
     echo "Mode IDE désactivé"
   else
     let g:modeIDE_enabled = 1
@@ -58,13 +57,16 @@ function! ModeIDE()
       execute w . 'wincmd w'
       set number mouse=a
     endfor
-    GitGutterEnable
     echo "Mode IDE activé"
   endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mapping
+
+" Commentaire
+nnoremap <F6> <Plug>CommentaryLine
+xnoremap <F6> <Plug>Commentary
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -77,10 +79,6 @@ nnoremap <F4> <Cmd>set list!<CR>
 
 " Indentation automatique
 nnoremap <F5> gg=G<CR>
-
-" Commentaire
-nnoremap <F6> <Plug>CommentaryLine
-xnoremap <F6> <Plug>Commentary
 
 " Ménage des plugins
 nnoremap <F7> <Cmd>PlugClean<CR>
@@ -113,13 +111,12 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
 " Edition
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 
 " Code
+Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -142,8 +139,5 @@ if isdirectory(expand("~/.vim/plugged"))
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
-
-  " GitGutter
-  let g:gitgutter_enabled = 0
 
 endif

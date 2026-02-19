@@ -61,6 +61,7 @@ alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
+  export FZF_DEFAULT_OPTS="--color=bw"
 fi
 
 # htop : plus convivial que top
