@@ -5,7 +5,7 @@
 if [[ $USER = root ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
-  PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
 # Variables
@@ -15,7 +15,6 @@ export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
 export HISTTIMEFORMAT="%F %T "
-export TMOUT=1800
 
 # Tweaks divers
 if [[ $- == *i* ]]; then
@@ -62,12 +61,6 @@ alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
-    --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
-    --color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
-    --color=selected-bg:#494D64 \
-    --color=border:#6E738D,label:#CAD3F5"
 fi
 
 # htop : plus convivial que top
