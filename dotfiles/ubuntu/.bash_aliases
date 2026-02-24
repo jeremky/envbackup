@@ -88,6 +88,11 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
+# ufw : firewall simplifié
+if [[ -f /usr/sbin/ufw ]]; then
+  alias ufw='sudo ufw'
+  alias ufws='sudo ufw status numbered'
+
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
