@@ -92,6 +92,7 @@ fi
 if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='sudo ufw'
   alias ufws='sudo ufw status numbered'
+fi
 
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
