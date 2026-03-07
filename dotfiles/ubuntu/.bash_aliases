@@ -50,7 +50,7 @@ alias halt='sudo halt -p'                          # Arrête le système et le s
 alias reboot='sudo reboot'                         # Commande reboot avec sudo
 
 # sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -i'
+[[ $USER != root ]] && alias root='sudo -s'
 
 # apt : gestionnaire de paquets debian
 alias apt='sudo apt'
