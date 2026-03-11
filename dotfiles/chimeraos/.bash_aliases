@@ -73,10 +73,7 @@ fi
 ###############################################################
 ## Fonctions
 
-# cleanlog : ménage des logs de systemd
-cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d ;}
-
-# cpsave : copie un fichier ou un dossier avec .old
+# cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
@@ -85,7 +82,7 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done ;}
 # tarx : décompresse une archive spécifiée
 tarx() { for file in "$@"; do tar xzvf "$file"; done ;}
 
-# testdisk
+# testdisk : tester la vitesse d'écriture du disque
 testdisk() { dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress ; rm testfile ;}
 
 # zip : commande zip plus conviviale
