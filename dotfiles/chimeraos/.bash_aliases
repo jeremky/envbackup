@@ -50,11 +50,6 @@ alias reboot='sudo reboot'                         # Commande reboot avec sudo
 # sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -s'
 
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
-alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
-
 ###############################################################
 ## Applications facultatives
 
