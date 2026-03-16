@@ -109,15 +109,6 @@ cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d ;}
 # cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old" ;}
 
-# gencert : générer un certificat avec certbot
-gencert () { sudo certbot certonly --standalone -d "$1" ;}
-
-# newuser : créer un compte de service
-newuser() {
-  sudo adduser --no-create-home -q --disabled-password --comment "" $1
-  echo "Utilisateur $1 créé. ID : $(id -u $1)"
-}
-
 # tarc : créer une archive pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done ;}
 
