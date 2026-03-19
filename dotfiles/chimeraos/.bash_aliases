@@ -2,11 +2,7 @@
 ## Bash
 
 # Affichage
-if [[ $USER = root ]]; then
-  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-else
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-fi
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 
 # Variables
 export LANG=fr_FR.UTF-8
@@ -46,9 +42,6 @@ alias pubip='curl -s -4 ipecho.net/plain ; echo'   # Pour obtenir l'adresse IP p
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'   # Commande df en filtrant les montages inutiles
 alias halt='sudo halt -p'                          # Arrête le système et le serveur
 alias reboot='sudo reboot'                         # Commande reboot avec sudo
-
-# sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -s'
 
 ###############################################################
 ## Applications facultatives
