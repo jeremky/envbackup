@@ -1,0 +1,9 @@
+[Unit]
+Description=Force CPU performance
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'echo "gamer" | sudo -S /usr/bin/cpupower frequency-set -g performance'
+
+[Install]
+WantedBy=default.target
