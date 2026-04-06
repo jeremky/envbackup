@@ -5,9 +5,9 @@ dist=$(grep "^ID=" /etc/os-release | cut -d= -f2,2 | tr -d '"')
 list="$dir/config/$dist.cfg"
 
 # Messages en couleur
-error()    { echo -e "\033[0;31m====> $*\033[0m" ;}
-message()  { echo -e "\033[0;32m====> $*\033[0m" ;}
-warning()  { echo -e "\033[0;33m====> $*\033[0m" ;}
+error() { echo -e "\033[0;31m====> $*\033[0m"; }
+message() { echo -e "\033[0;32m====> $*\033[0m"; }
+warning() { echo -e "\033[0;33m====> $*\033[0m"; }
 
 # Verification du user
 if [[ "$USER" = "root" ]]; then
