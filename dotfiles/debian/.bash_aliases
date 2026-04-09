@@ -128,10 +128,10 @@ newuser() {
 }
 
 # tarc : créer une archive pour chaque fichier / dossier spécifié
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" -- "$file"; done; }
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
 # tarx : décompresser une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf -- "$file"; done; }
+tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
 # testdisk : tester la vitesse d'écriture du disque
 testdisk() {
