@@ -14,6 +14,7 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
+export HISTTIMEFORMAT="%F %T "
 
 # Tweaks divers
 if [[ $- == *i* ]]; then
@@ -71,6 +72,7 @@ alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremov
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
+  #export FZF_DEFAULT_OPTS="--color=bw"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
     --color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
