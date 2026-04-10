@@ -141,3 +141,16 @@ testdisk() {
 
 # zip : commande zip plus conviviale
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+
+##################################################################
+## Scripts
+
+# Transforme les scripts en alias
+scripts=/home/jeremky/scripts
+if [[ -d $scripts ]]; then
+  for i in $(ls $scripts); do
+    if [[ -f $scripts/$i/$i.sh ]]; then
+      alias $i=''$scripts'/'$i'/'$i'.sh'
+    fi
+  done
+fi
