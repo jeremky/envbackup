@@ -17,11 +17,3 @@ Son nom dépend de l'OS utilisé (debian, ubuntu...)
 ./envbackup.sh        # pour sauvegarder
 ./envbackup.sh r      # pour restaurer
 ```
-
-## Installation
-
-Il est possible de créer un lien symbolique pour vous permettre d'appeler la commande `envbackup` de n'importe où. Pour cela :
-
-```bash
-make install
-```
