@@ -30,6 +30,7 @@ alias lr='ls -lLhR'                              # Liste en récursif
 alias lra='ls -lhRA'                             # Liste en récursif avec les fichiers cachés
 alias lrt='ls -lLhrt'                            # Liste par date
 alias lrta='ls -lLhrtA'                          # Liste par date avec les fichiers cachés
+alias dus='du -sh * | sort -hr'                  # Tri de fichiers et dossiers par taille
 alias grep='grep -i --color=auto'                # Grep sans la sensibilité à la casse
 alias zgrep='zgrep -i --color=auto'              # Grep dans les fichiers compressés
 alias dus='du -sh * | sort -hr'                  # Tri de fichiers et dossiers par taille
@@ -37,6 +38,7 @@ alias psp='ps -eaf | grep -v grep | grep'        # Chercher un process (psp <nom
 alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
 alias ss='ss -tunlH'                             # Afficher les ports d'écoute
 alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
+alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
@@ -64,11 +66,11 @@ fi
 # cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 
-# tarc : créer une archive pour chaque fichier / dossier spécifié
+# tarc : créer une archive tar.gz pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresse une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+# tarx : décompresse une archive tar spécifiée
+tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
 # testdisk : tester la vitesse d'écriture du disque
 testdisk() {
@@ -76,5 +78,5 @@ testdisk() {
   rm testfile
 }
 
-# zip : commande zip plus conviviale
+# zip : créer une archive zip pour chaque fichier / dossier spécifié
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
