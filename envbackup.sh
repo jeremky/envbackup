@@ -9,7 +9,7 @@ error() { echo -e "\033[0;31m====> $*\033[0m"; }
 message() { echo -e "\033[0;32m====> $*\033[0m"; }
 warning() { echo -e "\033[0;33m====> $*\033[0m"; }
 
-# Verification du user
+# Vérification du user
 if [[ "$USER" = "root" ]]; then
   error "Ne pas lancer en tant que root !"
   exit 1
