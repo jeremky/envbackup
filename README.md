@@ -1,22 +1,20 @@
 # envbackup.sh
 
-Sauvegarde les fichiers de configuration d'environnement présents dans votre dossier home.
-Cette nouvelle version s'adapte à la distribution utilisée.
-La liste des fichiers à sauvegarder peut être modifiée dans le fichier `<votreos>.config` présent dans le dossier `config`.
+Sauvegarde les fichiers de configuration d'environnement de votre utilisateur.
 
-Pour obtenir le nom exact de votre distribution, exécutez la commande suivante dans votre terminal :
+## Utilisation
+
+- Récupérez le nom exact de votre distribution. Pour cela, exécutez la commande suivante dans votre terminal :
 
 ```bash
 grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"'
 ```
 
-## Utilisation
+- Créez un fichier `config/<votre_os>.config` et ajoutez les fichiers/dossiers de votre dossier `home` à sauvegarder (chemins relatifs à votre dossier `home`, un par ligne)
 
-- Créer un fichier `config/<votre_os>.config` et ajouter les fichiers/dossiers de votre dossier `home` à sauvegarder
+- Exécutez le script sans paramètre pour sauvegarder les fichiers listés dans `config/<votre_os>.config`
 
-- Exécuter le script sans paramètre sauvegarde les fichiers listés dans `config/<votre_os>.config`
-
-- Avec le paramètre `r`, le script restaure les fichiers depuis le dossier `dotfiles/<votre_os>`, en écrasant les versions existantes
+- Avec le paramètre `r`, le script restaure les fichiers depuis le dossier `dotfiles/<votre_os>`. Attention, cela va écraser les fichiers s'ils sont présents
 
 ```bash
 ./envbackup.sh        # pour sauvegarder
