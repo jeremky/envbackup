@@ -110,7 +110,7 @@ fi
 [[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
 
 # zed : éditeur de texte
-[[ -f $HOME/.local/zed.app/bin ]]; && export ZED_ALLOW_EMULATED_GPU=1
+[[ -f $HOME/.local/zed.app/bin/zed ]]; && export ZED_ALLOW_EMULATED_GPU=1
 
 ###############################################################
 ## Fonctions
