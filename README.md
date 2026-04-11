@@ -2,8 +2,13 @@
 
 Sauvegarde les fichiers de configuration d'environnement présents dans votre dossier home.
 Cette nouvelle version s'adapte à la distribution utilisée.
-La liste des fichiers à sauvegarder peut être modifiée dans le fichier `.config` présent dans le dossier `config`.
-Son nom dépend de l'OS utilisé (debian, ubuntu...)
+La liste des fichiers à sauvegarder peut être modifiée dans le fichier `<votreos>.config` présent dans le dossier `config`.
+
+Pour obtenir le nom exact de votre distribution, exécutez la commande suivante dans votre terminal :
+
+```bash
+grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"'
+```
 
 ## Utilisation
 
