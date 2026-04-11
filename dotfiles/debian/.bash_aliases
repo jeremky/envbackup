@@ -43,6 +43,7 @@ alias iostat='iostat -m --human'                 # Commande iostat lisible
 alias ifconfig='ip -br -c addr | grep -v lo'     # Afficher les adresses IP (ifconfig n'existe plus)
 alias ss='ss -tunlH'                             # Afficher les ports d'écoute
 alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
+alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
@@ -55,7 +56,6 @@ alias reboot='sudo reboot'                       # Commande reboot avec sudo
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
-alias copykey='ssh-copy-id'                        # Copier la clé ssh vers un serveur
 
 # apt : gestionnaire de paquets debian
 alias apt='sudo apt'
@@ -127,11 +127,11 @@ newuser() {
   echo "Utilisateur $1 créé. ID : $(id -u $1)"
 }
 
-# tarc : créer une archive pour chaque fichier / dossier spécifié
+# tarc : créer une archive tar.gz pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresser une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+# tarx : décompresse une archive tar spécifiée
+tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
 # testdisk : tester la vitesse d'écriture du disque
 testdisk() {
@@ -139,7 +139,7 @@ testdisk() {
   rm testfile
 }
 
-# zip : commande zip plus conviviale
+# zip : créer une archive zip pour chaque fichier / dossier spécifié
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
 ##################################################################

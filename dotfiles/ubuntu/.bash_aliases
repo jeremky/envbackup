@@ -15,6 +15,7 @@ export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
 export HISTTIMEFORMAT="%F %T "
+#export TMOUT=3600
 
 # Tweaks divers
 if [[ $- == *i* ]]; then
@@ -45,13 +46,16 @@ alias ssp='ss | grep'                            # Chercher un port (ssp <port>)
 alias netstat='ss'                               # Afficher les ports d'écoute (netstat n'existe plus)
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
-alias genkey='ssh-keygen -t ed25519 -a 100'      # Générer une clé ed25519
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
 alias halt='sudo halt -p'                        # Arrête le système et le serveur
 alias reboot='sudo reboot'                       # Commande reboot avec sudo
 
 # sudo : utiliser la commande root pour...passer root :)
 [[ $USER != root ]] && alias root='sudo -s'
+
+# ssh
+alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
 
 # apt : gestionnaire de paquets debian
 alias apt='sudo apt'
@@ -90,6 +94,9 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
+# tty-clock : horloge en cli
+[[ -f /usr/bin/tty-clock ]] && alias clock='tty-clock -c -f %d/%m/%Y'
+
 # ufw : firewall simplifié
 if [[ -f /usr/sbin/ufw ]]; then
   alias ufw='sudo ufw'
@@ -111,11 +118,11 @@ cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d; }
 # cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 
-# tarc : créer une archive pour chaque fichier / dossier spécifié
+# tarc : créer une archive tar.gz pour chaque fichier / dossier spécifié
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresser une archive spécifiée
-tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+# tarx : décompresse une archive tar spécifiée
+tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
 # testdisk : tester la vitesse d'écriture du disque
 testdisk() {
@@ -123,5 +130,5 @@ testdisk() {
   rm testfile
 }
 
-# zip : commande zip plus conviviale
+# zip : créer une archive zip pour chaque fichier / dossier spécifié
 zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
