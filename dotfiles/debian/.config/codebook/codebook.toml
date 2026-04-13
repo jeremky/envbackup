@@ -7,5 +7,6 @@ words = [
     "jeremky",
     "podman",
     "tmux",
+    "ufw",
     "zoxide",
 ]
