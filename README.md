@@ -10,7 +10,7 @@ Sauvegarde les fichiers de configuration d'environnement de votre utilisateur.
    grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"'
    ```
 
-2. Créez un fichier `config/<votre_os>.config` et ajoutez les fichiers/dossiers de votre dossier `home` à sauvegarder (chemins relatifs à votre dossier `home`, un par ligne)
+2. Créez un fichier `config/<votre_os>.cfg` et ajoutez les fichiers/dossiers de votre dossier `home` à sauvegarder (chemins relatifs à votre dossier `home`, un par ligne)
 
 3. Exécutez le script :
 
