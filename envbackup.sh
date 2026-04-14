@@ -29,7 +29,7 @@ if [[ "$1" = "r" ]]; then
   fi
 else
   for file in $(grep -v '#' $list); do
-    if [[ -f $HOME/$file || -d $HOME/$file ]]; then
+    if [[ -e "$HOME/$file" ]]; then
       rm -fr $dir/dotfiles/$dist/$file
       mkdir -p $(dirname $dir/dotfiles/$dist/$file)
       cp -Rp $HOME/$file $dir/dotfiles/$dist/$file
