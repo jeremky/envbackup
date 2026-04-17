@@ -30,12 +30,7 @@
   },
   "agent": {
     "enable_feedback": false,
-    "enabled": true,
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-haiku-4.5",
-      "enable_thinking": false,
-    },
+    "enabled": false,
   },
 
   // Themes
@@ -50,12 +45,11 @@
   "title_bar": { "show_sign_in": false },
   "ui_font_size": 16.0,
   "ui_font_family": "JetBrains Mono NL",
-  "tab_bar": { "show_nav_history_buttons": false },
+  "tab_bar": { "show_nav_history_buttons": true },
   "preview_tabs": { "enabled": true },
 
   // Status Bar
   "collaboration_panel": { "button": false },
-  "notification_panel": { "button": false },
   "outline_panel": { "button": false },
   "debugger": { "button": false },
 
@@ -101,6 +95,11 @@
         },
       },
     },
+  },
+
+  // Filetypes
+  "file_types": {
+    "Shell Script": ["cfg"],
   },
 
   // Extensions
