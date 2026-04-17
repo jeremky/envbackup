@@ -1,2 +1,5 @@
+# Double quote alert
 disable=SC2086
+
+# External variable alert
 disable=SC2154

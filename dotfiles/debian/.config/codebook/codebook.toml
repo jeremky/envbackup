@@ -6,6 +6,7 @@ words = [
     "jdocker",
     "jeremky",
     "podman",
+    "shellcheck",
     "tmux",
     "ufw",
     "zoxide",
