@@ -30,9 +30,9 @@ if [[ "$1" = "r" ]]; then
 else
   for file in $(grep -v '#' $list); do
     if [[ -e "$HOME/$file" ]]; then
-      rm -fr $dir/dotfiles/$dist/$file
-      mkdir -p $(dirname $dir/dotfiles/$dist/$file)
-      cp -Rp $HOME/$file $dir/dotfiles/$dist/$file
+      rm -fr "$dir/dotfiles/$dist/$file"
+      mkdir -p "$(dirname $dir/dotfiles/$dist/$file)"
+      cp -Rp "$HOME/$file" "$dir/dotfiles/$dist/$file"
     fi
   done
   message "Sauvegarde effectuée"
