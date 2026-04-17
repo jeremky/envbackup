@@ -2,7 +2,7 @@
 ## Bash
 
 # Affichage
-if [[ $USER = root ]]; then
+if [[ "$EUID" -eq 0 ]]; then
   PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 else
   PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -51,7 +51,7 @@ alias halt='sudo halt -p'                        # Arrête le système et le ser
 alias reboot='sudo reboot'                       # Commande reboot avec sudo
 
 # sudo : utiliser la commande root pour...passer root :)
-[[ $USER != root ]] && alias root='sudo -s'
+[[ "$EUID" -ne 0 ]] && alias root='sudo -s'
 
 # ssh
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Générer une clé ed25519
@@ -148,9 +148,11 @@ zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 # Transforme les scripts en alias
 scripts=/home/jeremky/scripts
 if [[ -d $scripts ]]; then
-  for i in $(ls $scripts); do
-    if [[ -f $scripts/$i/$i.sh ]]; then
-      alias $i=''$scripts'/'$i'/'$i'.sh'
+  for i in "$scripts"/*; do
+    scr=$(basename $i)
+    if [[ -f "$scripts/$scr/$scr.sh" ]]; then
+      # shellcheck disable=SC2139
+      alias $scr="$scripts/$scr/$scr.sh"
     fi
   done
 fi
