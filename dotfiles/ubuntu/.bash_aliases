@@ -15,7 +15,6 @@ export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
 export HISTTIMEFORMAT="%F %T "
-#export TMOUT=3600
 
 # Tweaks divers
 if [[ $- == *i* ]]; then

@@ -51,7 +51,7 @@ alias reboot='sudo reboot'                       # Commande reboot avec sudo
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS="--color=bw"
+  export FZF_DEFAULT_OPTS="--no-color"
 fi
 
 # htop : plus convivial que top
