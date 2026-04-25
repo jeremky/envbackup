@@ -46,8 +46,6 @@ alias netstat='ss'                               # Afficher les ports d'écoute 
 alias md5='md5sum <<<'                           # Facilite l'utilisation de la commande md5
 alias pubip='curl -s -4 ipecho.net/plain ; echo' # Pour obtenir l'adresse IP publique du serveur
 alias df='df -h -x tmpfs -x devtmpfs -x overlay' # Commande df en filtrant les montages inutiles
-alias halt='sudo halt -p'                        # Arrête le système et le serveur
-alias reboot='sudo reboot'                       # Commande reboot avec sudo
 
 # sudo : utiliser la commande root pour...passer root :)
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
@@ -92,15 +90,6 @@ fi
 # rg : plus performant que grep
 [[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
 
-# tty-clock : horloge en cli
-[[ -f /usr/bin/tty-clock ]] && alias clock='tty-clock -c -f %d/%m/%Y'
-
-# ufw : firewall simplifié
-if [[ -f /usr/sbin/ufw ]]; then
-  alias ufw='sudo ufw'
-  alias ufws='sudo ufw status numbered'
-fi
-
 # vim : vi amélioré
 [[ -f /usr/bin/vim ]] && alias vi='vim -nO'
 
@@ -127,6 +116,3 @@ testdisk() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
-
-# zip : créer une archive zip pour chaque fichier / dossier spécifié
-zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
