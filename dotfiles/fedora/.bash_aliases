@@ -68,7 +68,7 @@ alias upgrade='sudo dnf upgrade && sudo dnf -y autoremove'
 [[ -f /usr/bin/duf ]] && alias df='duf -hide special'
 
 # fd : find amélioré
-[[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
+[[ -f /usr/bin/fd ]] && alias fd='fd -HI'
 
 # fzf : recherche avancée
 if [[ -f /usr/bin/fzf ]]; then
