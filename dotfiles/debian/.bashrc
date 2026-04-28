@@ -3,7 +3,7 @@
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
-  *) return;;
+  *) return ;;
 esac
 
 # don't put duplicate lines
@@ -19,18 +19,12 @@ HISTFILESIZE=2000
 # check the window size after each command
 shopt -s checkwinsize
 
-# set variable identifying the chroot you work in
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-  debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-  xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  xterm* | rxvt*)
+    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
     ;;
-  *)
-    ;;
+  *) ;;
 esac
 
 # enable color support of ls and also add handy aliases
