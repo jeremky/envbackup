@@ -56,7 +56,7 @@ alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
 
 # dnf : gestionnaire de paquets fedora
 alias dnf='sudo dnf'
-alias upgrade='sudo dnf upgrade && sudo dnf -y autoremove'
+alias upgrade='sudo dnf -y upgrade && sudo dnf -y autoremove'
 
 ###############################################################
 ## Applications facultatives
