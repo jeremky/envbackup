@@ -56,7 +56,7 @@ alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Générer une clé RSA
 
 # apt : gestionnaire de paquets debian
 alias apt='sudo apt'
-alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
+alias upgrade='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove'
 
 ###############################################################
 ## Applications facultatives
