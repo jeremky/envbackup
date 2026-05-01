@@ -19,6 +19,11 @@ HISTFILESIZE=2000
 # check the window size after each command
 shopt -s checkwinsize
 
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
   xterm* | rxvt*)
@@ -26,8 +31,3 @@ case "$TERM" in
     ;;
   *) ;;
 esac
-
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
