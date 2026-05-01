@@ -116,3 +116,6 @@ testdisk() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
+
+# zip : créer une archive zip pour chaque fichier / dossier spécifié
+zip() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
