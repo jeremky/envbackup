@@ -1,0 +1,15 @@
+// Zed settings
+
+{
+  // Languages
+  "languages": {
+    "Shell Script": {
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["-i", "2", "-ci", "-"]
+        }
+      }
+    }
+  }
+}
