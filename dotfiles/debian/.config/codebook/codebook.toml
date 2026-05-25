@@ -1,0 +1,15 @@
+dictionaries = [
+    "fr",
+    "en_us",
+]
+words = [
+    "flathub",
+    "jdocker",
+    "jerem",
+    "jeremky",
+    "podman",
+    "shellcheck",
+    "tmux",
+    "ufw",
+    "zoxide",
+]
