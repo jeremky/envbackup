@@ -1,30 +1,24 @@
-# ~/.bashrc
+## ~/.bashrc
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 case $- in
   *i*) ;;
   *) return ;;
 esac
 
-# don't put duplicate lines
+# history
 HISTCONTROL=ignoreboth
-
-# append to the history file
-shopt -s histappend
-
-# for setting history length
 HISTSIZE=1000
 HISTFILESIZE=2000
+shopt -s histappend
 
-# check the window size after each command
+# options
 shopt -s checkwinsize
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
+# aliases
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
-# If this is an xterm set the title to user@host:dir
+# prompt
 case "$TERM" in
   xterm* | rxvt*)
     PS1="\[\e]0;\u@\h: \w\a\]$PS1"
