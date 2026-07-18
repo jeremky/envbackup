@@ -4,7 +4,6 @@ Description=Force CPU performance
 [Service]
 Type=oneshot
 ExecStart=/bin/bash -c 'echo "gamer" | sudo -S /usr/bin/cpupower frequency-set -g performance'
-ExecStart=/bin/rm -f %h/.xsession-errors
 
 [Install]
 WantedBy=default.target
