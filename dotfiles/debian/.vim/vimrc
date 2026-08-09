@@ -1,5 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration de vim
+"" ~/.vim/vimrc
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
@@ -40,8 +39,7 @@ autocmd BufReadPost * if (line("'\"") > 1) && (line("'\"") <= line("$")) | silen
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fonctions
+" ─── fonctions ────────────────────────────────────────────────
 
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
@@ -55,8 +53,7 @@ function! ModeIDE()
   endif
 endfunction
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mapping
+" ─── mapping ──────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -80,8 +77,7 @@ nnoremap <F8> <Cmd>PlugUpdate<CR>
 " Changement de document
 nnoremap <S-TAB> <C-W>w
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Installation des Plugins
+" ─── plugins ──────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -111,8 +107,6 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Configuration des Plugins
 
 if isdirectory(expand("~/.vim/plugged"))
 
