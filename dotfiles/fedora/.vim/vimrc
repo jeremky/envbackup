@@ -1,4 +1,4 @@
-"" ~/.vim/vimrc
+" ─── vimrc ────────────────────────────────────────────────────
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
