@@ -1,4 +1,4 @@
-## ~/.bash_aliases
+# ─── .bash_aliases ────────────────────────────────────────────
 
 # prompt
 if [[ "$EUID" -eq 0 ]]; then
