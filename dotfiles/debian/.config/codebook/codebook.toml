@@ -13,3 +13,10 @@ words = [
     "ufw",
     "zoxide",
 ]
+
+ignore_paths = [
+  "**/*.cfg",
+  "**/*.comp",
+  "**/*.cron",
+  "**/*.sh",
+]
