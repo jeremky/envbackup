@@ -17,10 +17,7 @@ words = [
   "vimrc",
 ]
 
-ignore_paths = [
-  "**/*.bashrc"
-  "**/*.cfg",
-  "**/*.comp",
-  "**/*.cron",
-  "**/*.sh",
+include_paths = [
+  "**/*.md",
+  "**/*.txt",
 ]
