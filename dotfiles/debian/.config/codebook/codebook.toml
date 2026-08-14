@@ -7,10 +7,12 @@ words = [
     "jdocker",
     "jerem",
     "jeremky",
+    "nginx",
     "podman",
     "shellcheck",
     "tmux",
     "ufw",
+    "vimrc",
     "zoxide",
 ]
 
