@@ -1,22 +1,24 @@
 dictionaries = [
-    "fr",
-    "en_us",
+  "fr",
+  "en_us",
 ]
 words = [
-    "flathub",
-    "jdocker",
-    "jerem",
-    "jeremky",
-    "nginx",
-    "podman",
-    "shellcheck",
-    "tmux",
-    "ufw",
-    "vimrc",
-    "zoxide",
+  "codeberg",
+  "cron",
+  "homebrew",
+  "hytale",
+  "jerem",
+  "jeremky",
+  "keymaps",
+  "podman",
+  "shellcheck",
+  "tmux",
+  "ufw",
+  "vimrc",
 ]
 
 ignore_paths = [
+  "**/*.bashrc"
   "**/*.cfg",
   "**/*.comp",
   "**/*.cron",
