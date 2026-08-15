@@ -2,6 +2,12 @@ dictionaries = [
   "fr",
   "en_us",
 ]
+
+include_paths = [
+  "**/*.md",
+  "**/*.txt",
+]
+
 words = [
   "codeberg",
   "cron",
@@ -15,9 +21,4 @@ words = [
   "tmux",
   "ufw",
   "vimrc",
-]
-
-include_paths = [
-  "**/*.md",
-  "**/*.txt",
 ]
