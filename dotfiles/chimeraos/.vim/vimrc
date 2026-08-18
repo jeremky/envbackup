@@ -75,7 +75,7 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Changement de document
-nnoremap <S-TAB> <C-W>w
+nnoremap <S-TAB> <C-w>w
 
 " ─── plugins ──────────────────────────────────────────────────
 
@@ -96,8 +96,10 @@ call plug#begin()
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-startify'
 
 " Edition
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 
@@ -123,5 +125,22 @@ if isdirectory(expand("~/.vim/plugged"))
 
   " AutoPairs
   let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'"}
+
+  " Startify
+  let g:startify_custom_header = []
+  let g:startify_files_number = 9
+  let g:startify_custom_indices = map(range(1, 9), 'string(v:val)')
+
+  let g:startify_lists = [
+        \ { 'type': 'bookmarks', 'header': ['  ──── Bookmarks'] },
+        \ { 'type': 'files',     'header': ['  ──── Historique'] },
+        \ ]
+
+  let g:startify_bookmarks = [
+        \ { 'a': '~/.bash_aliases' },
+        \ { 'r': '~/.bashrc' },
+        \ { 's': '~/.ssh/config' },
+        \ { 'v': '~/.vim/vimrc' },
+        \ ]
 
 endif
