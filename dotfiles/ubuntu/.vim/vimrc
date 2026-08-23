@@ -1,4 +1,4 @@
-" ─── vimrc ────────────────────────────────────────────────────
+" ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
 set nocompatible                " Désactive la compatibilité Vi
@@ -42,7 +42,7 @@ autocmd BufReadPost *
 " Désactivation des # au retour chariot
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" ─── fonctions ────────────────────────────────────────────────
+" ─── fonctions ───────────────────────────────────────────────────────────────
 
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
@@ -56,7 +56,7 @@ function! ModeIDE()
   endif
 endfunction
 
-" ─── mapping ──────────────────────────────────────────────────
+" ─── mapping ─────────────────────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -80,7 +80,7 @@ nnoremap <F8> <Cmd>PlugUpdate<CR>
 " Changement de document
 nnoremap <S-TAB> <C-w>w
 
-" ─── plugins ──────────────────────────────────────────────────
+" ─── plugins ─────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -112,7 +112,7 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" ─── plugins config ───────────────────────────────────────────
+" ─── plugins config ──────────────────────────────────────────────────────────
 
 if isdirectory(expand("~/.vim/plugged"))
 
