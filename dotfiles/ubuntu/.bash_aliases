@@ -1,4 +1,4 @@
-# ─── .bash_aliases ────────────────────────────────────────────
+# ─── .bash_aliases ───────────────────────────────────────────────────────────
 
 # prompt
 if [[ "$EUID" -eq 0 ]]; then
@@ -23,7 +23,7 @@ if [[ $- == *i* ]]; then
   bind 'set show-all-if-unmodified on' # Affiche les correspondances possibles immédiatement
 fi
 
-# ─── aliases ──────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto'                        # Ajoute la couleur
 alias l='ls -lh'                                  # Liste détaillée
@@ -55,19 +55,19 @@ alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Cé RSA
 alias apt='sudo apt'
 alias upgrade='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove'
 
-# ─── applications facultatives ────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────────
 
 # colordiff : diff avec couleur
-[[ -f /usr/bin/colordiff ]] && alias diff='colordiff'
+command -v colordiff &>/dev/null && alias diff='colordiff'
 
 # duf : df amélioré
-[[ -f /usr/bin/duf ]] && alias df='duf -hide special'
+command -v duf &>/dev/null && alias df='duf -hide special'
 
 # fd : find amélioré
-[[ -f /usr/bin/fdfind ]] && alias fd='fdfind -HI'
+command -v fdfind &>/dev/null && alias fd='fdfind -HI'
 
 # fzf : recherche avancée
-if [[ -f /usr/bin/fzf ]]; then
+if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
@@ -78,21 +78,21 @@ if [[ -f /usr/bin/fzf ]]; then
 fi
 
 # htop : plus convivial que top
-[[ -f /usr/bin/htop ]] && alias top='htop'
+command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
-[[ -f /usr/bin/ncdu ]] && alias ncdu='ncdu --color dark'
+command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
 # rg : plus performant que grep
-[[ -f /usr/bin/rg ]] && alias rg='rg -i --no-ignore'
+command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 
 # vim : vi amélioré
-[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -nO'
 
 # zoxide : cd amélioré
-[[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────────
 
 # cleanlog : nettoyer les logs de systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d; }
