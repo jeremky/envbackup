@@ -1,4 +1,4 @@
-# ─── .bash_aliases ────────────────────────────────────────────
+# ─── .bash_aliases ───────────────────────────────────────────────────────────
 
 # prompt
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
@@ -18,7 +18,7 @@ if [[ $- == *i* ]]; then
   bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
 fi
 
-# ─── aliases ──────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto'                        # Ajoute la couleur
 alias l='ls -lh'                                  # Liste détaillée
@@ -41,21 +41,21 @@ alias df='df -h -x tmpfs -x devtmpfs -x overlay'  # df sans montages inutiles
 alias halt='sudo halt -p'                         # Arrêt système
 alias reboot='sudo reboot'                        # Redémarrage
 
-# ─── applications facultatives ────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────────
 
 # fzf : recherche avancée
-if [[ -f /usr/bin/fzf ]]; then
+if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS="--no-color"
 fi
 
 # htop : plus convivial que top
-[[ -f /usr/bin/htop ]] && alias top='htop'
+command -v htop &>/dev/null && alias top='htop'
 
 # vim : vi amélioré
-[[ -f /usr/bin/vim ]] && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -nO'
 
-# ─── fonctions ────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────────
 
 # cpsave : copier un fichier ou un dossier avec .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
