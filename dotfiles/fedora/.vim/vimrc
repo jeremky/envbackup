@@ -1,6 +1,7 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
 " Paramétrage de base
+syntax on                       " Active la colorisation syntaxique
 set nocompatible                " Désactive la compatibilité Vi
 set hlsearch                    " Affiche en surbrillance les recherches
 set background=dark             " Optimise l'affiche pour un terminal sombre
