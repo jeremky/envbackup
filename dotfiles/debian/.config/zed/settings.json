@@ -1,15 +1,22 @@
-// Zed settings
+// ─── Zed settings ───────────────────────────────────────
 
 {
-  // Languages
   "languages": {
+    "Markdown": {
+      "show_edit_predictions": false
+    },
+
+    "Make": {
+      "hard_tabs": true,
+    },
+
     "Shell Script": {
       "formatter": {
         "external": {
           "command": "shfmt",
-          "arguments": ["-i", "2", "-ci", "-"]
-        }
-      }
-    }
-  }
+          "arguments": ["-i", "2", "-ci", "-"],
+        },
+      },
+    },
+  },
 }
