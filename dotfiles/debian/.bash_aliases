@@ -66,6 +66,9 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 # duf : df amélioré
 command -v duf &>/dev/null && alias df='duf -hide special'
 
+# dust : du amélioré
+command -v dust &>/dev/null && alias d='dust -r'
+
 # fd : find amélioré
 command -v fdfind &>/dev/null && alias fd='fdfind -HI'
 
@@ -85,6 +88,9 @@ command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+
+# procs : ps amélioré
+command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
