@@ -63,7 +63,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 command -v duf &>/dev/null && alias df='duf -hide special'
 
 # dust : du amélioré
-command -v dust &>/dev/null && alias d='dust -r'
+command -v dust &>/dev/null && alias d='dust -rb'
 
 # fd : find amélioré
 command -v fd &>/dev/null && alias fd='fd -HI'
