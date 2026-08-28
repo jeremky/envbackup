@@ -90,7 +90,7 @@ nnoremap <F7> <Cmd>PlugClean<CR>
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
 " Retour à l'écran d'accueil (split si fichier ouvert)
-nnoremap <F10> <Cmd>call OpenStartify()<CR>
+nnoremap <F9> <Cmd>call OpenStartify()<CR>
 
 " Changement de document
 nnoremap <S-TAB> <C-w>w
