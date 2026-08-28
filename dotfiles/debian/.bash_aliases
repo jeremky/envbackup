@@ -148,7 +148,7 @@ zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 # ─── scripts ─────────────────────────────────────────────────────────────────
 
 # Transforme les scripts en alias
-scripts=/home/jeremky/scripts
+scripts=~/scripts
 if [[ -d $scripts ]]; then
   for i in "$scripts"/*; do
     scr=$(basename "$i")
