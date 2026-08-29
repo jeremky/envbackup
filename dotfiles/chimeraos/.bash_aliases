@@ -53,7 +53,7 @@ fi
 command -v htop &>/dev/null && alias top='htop'
 
 # vim : vi amélioré
-command -v vim &>/dev/null && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -O'
 
 # ─── fonctions ───────────────────────────────────────────────────────────────
 

@@ -92,7 +92,7 @@ command -v procs &>/dev/null && alias psp='procs'
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 
 # vim : vi amélioré
-command -v vim &>/dev/null && alias vi='vim -nO'
+command -v vim &>/dev/null && alias vi='vim -O'
 
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
