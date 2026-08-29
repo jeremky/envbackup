@@ -13,7 +13,6 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-export HISTTIMEFORMAT="%F %T "
 
 # options
 if [[ $- == *i* ]]; then

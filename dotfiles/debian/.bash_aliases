@@ -13,8 +13,6 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-export HISTTIMEFORMAT="%F %T "
-export LESSHISTFILE=/dev/null
 export TMOUT=3600
 
 # options
