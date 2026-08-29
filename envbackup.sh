@@ -34,12 +34,10 @@ if [[ "$1" = "r" ]]; then
     warning "Restauration effectuée"
   fi
 else
-  grep -v '^ *#' "$list" | while read -r line; do
-    if [[ -n "$line" && -e "$HOME/$line" ]]; then
-      rm -fr "$dir/dotfiles/$dist/$line"
-      mkdir -p "$(dirname "$dir/dotfiles/$dist/$line")"
-      cp -Rp "$HOME/$line" "$dir/dotfiles/$dist/$line"
-    fi
-  done
+  while read -r line; do
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    mkdir -p "$(dirname "$dir/dotfiles/$dist/$line")"
+    cp -Rp "$HOME/$line" "$dir/dotfiles/$dist/$line"
+  done <"$list"
   message "Sauvegarde effectuée"
 fi
