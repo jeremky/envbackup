@@ -1,4 +1,4 @@
-## ~/.bashrc
+# ─── .bashrc ─────────────────────────────────────────────
 
 # if not running interactively, don't do anything
 case $- in
@@ -8,15 +8,17 @@ esac
 
 # history
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=10000
 shopt -s histappend
 
 # options
+shopt -s autocd
 shopt -s checkwinsize
+shopt -s globstar
 
 # aliases
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
 # prompt
 case "$TERM" in
