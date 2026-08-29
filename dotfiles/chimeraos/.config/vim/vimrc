@@ -1,30 +1,40 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────────
 
-" Paramétrage de base
-syntax on                       " Active la coloration syntaxique
+" Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
-set hlsearch                    " Affiche en surbrillance les recherches
-set background=dark             " Optimise l'affiche pour un terminal sombre
+syntax on                       " Active la coloration syntaxique
+
+" Indentation & tabulations
 set smartindent                 " Indentation intelligente
-set smarttab                    " Gestion des espaces en début de ligne
 set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set ruler                       " Affiche la position du curseur
+set smarttab                    " Gestion des espaces en début de ligne
 set tabstop=2                   " La largeur d'une tabulation est définie sur 2
 set shiftwidth=2                " Les retraits auront une largeur de 2
 set softtabstop=2               " Nombre de colonnes pour une tabulation
 set expandtab                   " Remplace les tab par des espaces
 set linebreak                   " Revient à la ligne sans couper les mots
-set showcmd                     " Afficher la commande dans la ligne d'état
-set showmatch                   " Afficher les parenthèses correspondantes
+
+" Recherche
+set hlsearch                    " Affiche en surbrillance les recherches
+set incsearch                   " Recherche incrémentielle
 set ignorecase                  " Ignorer la casse
 set smartcase                   " Faire un appariement intelligent
-set incsearch                   " Recherche incrémentielle
+
+" Interface & affichage
+set background=dark             " Optimise l'affiche pour un terminal sombre
+set ruler                       " Affiche la position du curseur
+set showcmd                     " Afficher la commande dans la ligne d'état
+set showmatch                   " Afficher les parenthèses correspondantes
 set wildmenu                    " Menu de complétion pour la ligne de commande
 set wildoptions=pum             " Menu de complétion en popup vertical
+
+" Fenêtres, buffers & navigation
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
 set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
 set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
+
+" Comportement divers
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
 
