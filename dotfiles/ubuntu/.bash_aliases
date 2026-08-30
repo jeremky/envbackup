@@ -55,6 +55,9 @@ alias upgrade='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autore
 
 # ─── applications facultatives ───────────────────────────────────────────────
 
+# btop : top amélioré
+command -v btop &>/dev/null && alias top='btop'
+
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
