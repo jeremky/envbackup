@@ -2,10 +2,6 @@
 
 {
   "languages": {
-    "Markdown": {
-      "show_edit_predictions": false
-    },
-
     "Make": {
       "hard_tabs": true,
     },
