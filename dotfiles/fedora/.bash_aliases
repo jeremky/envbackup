@@ -55,6 +55,9 @@ alias upgrade='sudo dnf -y upgrade && sudo dnf -y autoremove'
 
 # ─── applications facultatives ───────────────────────────────────────────────
 
+# btop : top amélioré
+command -v btop &>/dev/null && alias top='btop'
+
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
