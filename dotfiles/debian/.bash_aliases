@@ -58,6 +58,13 @@ alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremov
 
 # ─── applications facultatives ───────────────────────────────────────────────
 
+# btop / htop : top amélioré
+if command -v btop &>/dev/null; then
+  alias top='btop'
+elif command -v htop &>/dev/null; then
+  alias top='htop'
+fi
+
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
@@ -80,9 +87,6 @@ if command -v fzf &>/dev/null; then
     --color=selected-bg:#45475A \
     --color=border:#6C7086,label:#CDD6F4"
 fi
-
-# htop : plus convivial que top
-command -v htop &>/dev/null && alias top='htop'
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
