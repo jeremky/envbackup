@@ -116,8 +116,8 @@ nnoremap <S-TAB> <C-w>w
 " ─── plugins ──────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -127,7 +127,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| endif
 
 " Liste des plugins
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
@@ -162,7 +162,7 @@ augroup END
 
 " ─── plugins config ───────────────────────────────────────────────────────────
 
-if isdirectory(expand("~/.config/vim/plugged"))
+if isdirectory(expand("~/.vim/plugged"))
 
   " Catppuccin
   silent! colorscheme catppuccin_mocha
