@@ -1,4 +1,4 @@
-# ─── .bash_aliases ───────────────────────────────────────────────────────────
+# ─── .bash_aliases ────────────────────────────────────────────────────────────
 
 # prompt
 if [[ "$EUID" -eq 0 ]]; then
@@ -13,15 +13,16 @@ export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
+# export TMOUT=3600
 
 # options
 if [[ $- == *i* ]]; then
-  bind 'set colored-stats on'          # Affiche les couleurs lors de la complétion
+  bind 'set colored-stats on'          # Couleurs lors de la complétion
   bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
-  bind 'set show-all-if-unmodified on' # Affiche les correspondances possibles immédiatement
+  bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
 fi
 
-# ─── aliases ─────────────────────────────────────────────────────────────────
+# ─── aliases ──────────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto'                               # Ajoute la couleur
 alias l='ls -lh'                                         # Liste détaillée
@@ -35,12 +36,12 @@ alias grep='grep -i --color=auto'                        # Grep sans sensibilit�
 alias zgrep='zgrep -i --color=auto'                      # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'                # Chercher un process (psp <nom>)
 alias iostat='iostat -m --human'                         # iostat lisible
-alias ifconfig='ip -br -c addr | grep -vw lo'            # Adresses IP (ifconfig obsolète)
-alias ss='ss -tunlH'                                     # Ports d'écoute
-alias ssp='ss | grep'                                    # Chercher un port (ssp <port>)
-alias netstat='ss'                                       # Alias netstat obsolète → ss
+alias ifcg='ip -br -c addr | grep -vw lo'                # Adresses IP (ifconfig obsolète)
+alias ssp='ss -tunlH | grep'                             # Chercher un port (ssp <port>)
 alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # IP publique
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inutiles
+alias halt='sudo halt -p'                                # Arrêt système
+alias reboot='sudo reboot'                               # Redémarrage
 
 # sudo
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
@@ -49,11 +50,13 @@ alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inut
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
 
-# dnf
-alias dnf='sudo dnf'
-alias upgrade='sudo dnf -y upgrade && sudo dnf -y autoremove'
+# ─── applications facultatives ────────────────────────────────────────────────
 
-# ─── applications facultatives ───────────────────────────────────────────────
+# apt : gestionnaire de paquets deb
+if command -v apt &>/dev/null; then
+  alias apt='sudo apt'
+  alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
+fi
 
 # btop / htop : top amélioré
 if command -v btop &>/dev/null; then
@@ -65,16 +68,26 @@ fi
 # colordiff : diff avec couleur
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
+# dnf : gestionnaire de paquets rpm
+if command -v dnf &>/dev/null; then
+  alias dnf='sudo dnf'
+  alias upgrade='sudo dnf -y upgrade && sudo dnf -y autoremove'
+fi
+
 # duf : df amélioré
-command -v duf &>/dev/null && alias df='duf -hide special'
+command -v duf &>/dev/null && alias duf='duf -hide special'
 
 # dust : du amélioré
-command -v dust &>/dev/null && alias d='dust -rb'
+command -v dust &>/dev/null && alias dus='dust -rb'
 
 # fd : find amélioré
-command -v fd &>/dev/null && alias fd='fd -HI'
+if command -v fdfind &>/dev/null; then
+  alias fd='fdfind -HI'
+elif command -v fd &>/dev/null; then
+  alias fd='fd -HI'
+fi
 
-# fzf : recherche avancée
+# fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS=" \
@@ -94,31 +107,55 @@ command -v procs &>/dev/null && alias psp='procs'
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 
+# tty-clock : horloge en CLI
+command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
+
+# ufw : firewall simplifié
+if command -v ufw &>/dev/null; then
+  alias ufw='sudo ufw'
+  alias ufws='sudo ufw status numbered'
+fi
+
 # vim : vi amélioré
 command -v vim &>/dev/null && alias vi='vim -O'
 
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ───────────────────────────────────────────────────────────────
+# ─── fonctions ────────────────────────────────────────────────────────────────
 
-# cleanlog : nettoyer les logs de systemd
-cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time=${1}d; }
+# cleanlog : nettoyer les logs systemd
+cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 
-# cpsave : copier un fichier ou un dossier avec .old
+# cpsave : copier un fichier ou dossier avec suffixe .old
 cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
 
-# tarc : créer une archive tar.gz pour chaque fichier / dossier spécifié
+# md5 : MD5 d'une chaîne
+md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
+
+# tarc : créer une archive tar.gz
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresse une archive tar spécifiée
+# tarx : décompresser une archive tar
 tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
-# diskbench : tester la vitesse d'écriture du disque
+# diskbench : tester la vitesse d'écriture disque
 diskbench() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
 
-# zipd : créer une archive zip pour chaque fichier / dossier spécifié
+# zipd : créer une archive zip par dossier/fichier donné
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+
+# ─── scripts ──────────────────────────────────────────────────────────────────
+
+# Transforme les scripts en alias
+scripts=~/Documents/scripts
+if [[ -d $scripts ]]; then
+  for i in "$scripts"/*; do
+    scr=${i##*/}
+    # shellcheck disable=SC2139,SC2086
+    [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
+  done
+fi

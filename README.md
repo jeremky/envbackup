@@ -19,5 +19,10 @@ Sauvegarde les fichiers de configuration d'environnement de votre utilisateur.
    ./envbackup.sh r      # pour restaurer
    ```
 
-> Avec le paramètre `r`, le script restaure les fichiers depuis le dossier `dotfiles/<votre_os>`.
+> Le script ne traite que les fichiers listés dans `config/<votre_os>.cfg`.
+> Avec le paramètre `r`, le script restaure les fichiers depuis `dotfiles/`.
 > Attention, cela va écraser les fichiers s'ils sont présents
+
+`dotfiles/` est un dossier commun. Un fichier n'est
+sauvegardé/restauré que s'il est listé dans le `config/<votre_os>.cfg` de la
+distribution courante.
