@@ -29,15 +29,24 @@ fi
 
 # Copie des configurations OS
 if [[ "$1" = "r" ]]; then
-  if [[ -d "$dir/dotfiles/$dist" ]]; then
-    find "$dir/dotfiles/$dist" -mindepth 1 -maxdepth 1 -exec cp -Rp {} "$HOME" \;
-    warning "Restauration effectuée"
-  fi
+  while read -r line; do
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    src="$dir/dotfiles/$line"
+    [[ -e "$src" ]] || continue
+    mkdir -p "$(dirname "$HOME/$line")"
+    cp -Rp "$src" "$HOME/$line"
+  done <"$list"
+  warning "Restauration effectuée"
 else
   while read -r line; do
     [[ -z "$line" || "$line" == \#* ]] && continue
-    mkdir -p "$(dirname "$dir/dotfiles/$dist/$line")"
-    cp -Rp "$HOME/$line" "$dir/dotfiles/$dist/$line"
+    if [[ ! -e "$HOME/$line" ]]; then
+      warning "Fichier $HOME/$line non présent"
+      continue
+    fi
+    dest="$dir/dotfiles/$line"
+    mkdir -p "$(dirname "$dest")"
+    cp -Rp "$HOME/$line" "$dest"
   done <"$list"
   message "Sauvegarde effectuée"
 fi
