@@ -26,7 +26,6 @@ set ruler                       " Affiche la position du curseur
 set showcmd                     " Afficher la commande dans la ligne d'état
 set showmatch                   " Afficher les parenthèses correspondantes
 set wildmenu                    " Menu de complétion pour la ligne de commande
-set wildoptions=pum             " Menu de complétion en popup vertical
 
 " Fenêtres, buffers & navigation
 set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
