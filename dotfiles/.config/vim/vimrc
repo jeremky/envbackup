@@ -1,4 +1,4 @@
-" ─── vimrc ───────────────────────────────────────────────────────────────────
+" ─── vimrc ────────────────────────────────────────────────────────────────────
 
 " Compatibilité & syntaxe
 set nocompatible                " Désactive la compatibilité Vi
@@ -49,7 +49,7 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
 
-" ─── fonctions ───────────────────────────────────────────────────────────────
+" ─── fonctions ────────────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
@@ -86,7 +86,7 @@ function! s:listCwd()
   return map(files, "{'line': v:val, 'path': cwd . '/' . v:val}")
 endfunction
 
-" ─── mapping ─────────────────────────────────────────────────────────────────
+" ─── mapping ──────────────────────────────────────────────────────────────────
 
 " Mode IDE
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
@@ -113,7 +113,7 @@ nnoremap <F9> <Cmd>call OpenStartify()<CR>
 " Changement de document
 nnoremap <S-TAB> <C-w>w
 
-" ─── plugins ─────────────────────────────────────────────────────────────────
+" ─── plugins ──────────────────────────────────────────────────────────────────
 
 " Téléchargement de vim-plug si introuvable
 if empty(glob('~/.config/vim/autoload/plug.vim'))
@@ -144,7 +144,7 @@ Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" ─── autocmds ────────────────────────────────────────────────────────────────
+" ─── autocmds ─────────────────────────────────────────────────────────────────
 
 augroup vimrc
   autocmd!
@@ -160,7 +160,7 @@ augroup vimrc
 
 augroup END
 
-" ─── plugins config ──────────────────────────────────────────────────────────
+" ─── plugins config ───────────────────────────────────────────────────────────
 
 if isdirectory(expand("~/.config/vim/plugged"))
 
