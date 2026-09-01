@@ -17,9 +17,6 @@ shopt -s autocd
 shopt -s checkwinsize
 shopt -s globstar
 
-# aliases
-[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
-
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
@@ -27,6 +24,14 @@ case "$TERM" in
     ;;
   *) ;;
 esac
+
+# color support
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# aliases
+[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
 # completion
 if ! shopt -oq posix; then
