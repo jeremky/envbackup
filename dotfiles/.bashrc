@@ -6,6 +6,11 @@ case $- in
   *) return ;;
 esac
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
 # history
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
@@ -17,6 +22,14 @@ shopt -s autocd
 shopt -s checkwinsize
 shopt -s globstar
 
+# colors
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# aliases
+[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
+
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
@@ -24,14 +37,6 @@ case "$TERM" in
     ;;
   *) ;;
 esac
-
-# color support
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
-
-# aliases
-[[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
 # completion
 if ! shopt -oq posix; then
