@@ -1,24 +1,10 @@
 # ─── .bash_aliases ────────────────────────────────────────────────────────────
 
-# prompt
-if [[ "$EUID" -eq 0 ]]; then
-  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-else
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-fi
-
 # ls colors
 hidden=".gitignore .env .viminfo"
-for file in $hidden ; do
+for file in $hidden; do
   export LS_COLORS="$LS_COLORS:*$file=00;90"
 done
-
-# variables
-export LANG=fr_FR.UTF-8
-export LANGUAGE=$LANG
-export LC_ALL=$LANG
-export EDITOR=vim
-export VISUAL=$EDITOR
 
 # options
 if [[ $- == *i* ]]; then
@@ -26,6 +12,20 @@ if [[ $- == *i* ]]; then
   bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
   bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
 fi
+
+# prompt
+if [[ "$EUID" -eq 0 ]]; then
+  PS1='\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+else
+  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
+fi
+
+# variables
+export LANG=fr_FR.UTF-8
+export LANGUAGE=$LANG
+export LC_ALL=$LANG
+export EDITOR=vim
+export VISUAL=$EDITOR
 
 # ─── aliases ──────────────────────────────────────────────────────────────────
 
