@@ -7,13 +7,18 @@ else
   PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 fi
 
+# ls colors
+hidden=".gitignore .env .viminfo"
+for file in $hidden ; do
+  export LS_COLORS="$LS_COLORS:*$file=00;90"
+done
+
 # variables
 export LANG=fr_FR.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
-# export TMOUT=3600
 
 # options
 if [[ $- == *i* ]]; then
