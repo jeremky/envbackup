@@ -50,7 +50,7 @@ else
     fi
     dest="$dir/dotfiles/$line"
     mkdir -p "$(dirname "$dest")"
-    cp -Rp "$HOME/$line" "$dest"
+    cp -Rpv "$HOME/$line" "$dest"
   done <"$list"
   message "Sauvegarde effectuée"
   echo
