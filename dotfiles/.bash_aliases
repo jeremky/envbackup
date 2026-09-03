@@ -117,6 +117,11 @@ command -v procs &>/dev/null && alias psp='procs'
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 
+# tmux : émulateur de terminal
+if command -v rg &>/dev/null; then
+  alias tm='tmux attach || tmux new'
+fi
+
 # tty-clock : horloge en CLI
 command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
 
