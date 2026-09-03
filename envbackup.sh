@@ -28,6 +28,7 @@ if [[ ! -f "$list" ]]; then
 fi
 
 # Copie des configurations OS
+echo
 if [[ "$1" = "r" ]]; then
   warning "Restauration des fichiers"
   while read -r line; do
@@ -39,6 +40,7 @@ if [[ "$1" = "r" ]]; then
   done <"$list"
   message "Restauration effectuée"
 else
+  warning "Sauvegarde des fichiers"
   while read -r line; do
     [[ -z "$line" || "$line" == \#* ]] && continue
     if [[ ! -e "$HOME/$line" ]]; then
