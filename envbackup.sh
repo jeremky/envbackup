@@ -39,6 +39,7 @@ if [[ "$1" = "r" ]]; then
     cp -Rpv "$src" "$HOME/$line"
   done <"$list"
   message "Restauration effectuée"
+  echo
 else
   warning "Sauvegarde des fichiers"
   while read -r line; do
@@ -52,4 +53,5 @@ else
     cp -Rp "$HOME/$line" "$dest"
   done <"$list"
   message "Sauvegarde effectuée"
+  echo
 fi
