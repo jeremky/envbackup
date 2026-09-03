@@ -54,17 +54,23 @@ if has('patch-8.2.4325') | set wildoptions=pum | endif
 " Gestion de tmux
 if !empty($TMUX) | set mouse=a | set clipboard=unnamed | if has('mouse_sgr') | set ttymouse=sgr | endif | endif
 
-" ─── fonctions ────────────────────────────────────────────────────────────────
+" ─── fonctions ───────────────────────────────────────────────────────────────
 
 " Ajout des numéros de ligne et gestion de la souris
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
-    let g:modeIDE_enabled = 0 | windo set nonumber
-    if empty($TMUX) | windo set mouse= | endif
+    let g:modeIDE_enabled = 0
+    windo set nonumber
+    if empty($TMUX)
+      windo set mouse=
+    endif
     echo "Mode IDE désactivé"
   else
-    let g:modeIDE_enabled = 1 | windo set number
-    if empty($TMUX) | windo set mouse=a | endif
+    let g:modeIDE_enabled = 1
+    windo set number
+    if empty($TMUX)
+      windo set mouse=a
+    endif
     echo "Mode IDE activé"
   endif
 endfunction
