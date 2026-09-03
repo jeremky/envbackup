@@ -41,7 +41,7 @@ alias grep='grep -i --color=auto'                        # Grep sans sensibilit�
 alias zgrep='zgrep -i --color=auto'                      # Grep dans les fichiers compressés
 alias psp='ps -eaf | grep -v grep | grep'                # Chercher un process (psp <nom>)
 alias iostat='iostat -m --human'                         # iostat lisible
-alias ifcg='ip -br -c addr | grep -vw lo'                # Adresses IP (ifconfig obsolète)
+alias ifc='ip -br -c addr | grep -vw lo'                 # Adresses IP (ifconfig obsolète)
 alias ssp='ss -tunlH | grep'                             # Chercher un port (ssp <port>)
 alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # IP publique
 alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inutiles
