@@ -1,7 +1,7 @@
 # ─── .bash_aliases ────────────────────────────────────────────────────────────
 
 # ls colors
-hidden=".gitignore .env .viminfo known_hosts"
+hidden=".gitignore .history .hushlogin .viminfo known_hosts"
 for file in $hidden; do
   export LS_COLORS="$LS_COLORS:*$file=00;90"
 done
