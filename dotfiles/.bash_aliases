@@ -120,6 +120,7 @@ command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
 # tmux : émulateur de terminal
 if command -v rg &>/dev/null; then
   alias tm='tmux attach || tmux new'
+  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
 fi
 
 # tty-clock : horloge en CLI
