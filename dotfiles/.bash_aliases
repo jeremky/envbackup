@@ -144,7 +144,7 @@ command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 
 # cpsave : copier un fichier ou dossier avec suffixe .old
-cpsave() { cp -Rp "$1" "${1%/}.$(date +%Y%m%d).old"; }
+cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
 # md5 : MD5 d'une chaîne
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
