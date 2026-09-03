@@ -29,14 +29,15 @@ fi
 
 # Copie des configurations OS
 if [[ "$1" = "r" ]]; then
+  warning "Restauration des fichiers"
   while read -r line; do
     [[ -z "$line" || "$line" == \#* ]] && continue
     src="$dir/dotfiles/$line"
     [[ -e "$src" ]] || continue
     mkdir -p "$(dirname "$HOME/$line")"
-    cp -Rp "$src" "$HOME/$line"
+    cp -Rpv "$src" "$HOME/$line"
   done <"$list"
-  warning "Restauration effectuée"
+  message "Restauration effectuée"
 else
   while read -r line; do
     [[ -z "$line" || "$line" == \#* ]] && continue
