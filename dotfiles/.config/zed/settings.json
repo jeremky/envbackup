@@ -108,6 +108,7 @@
   },
 
   "languages": {
+
     "Make": {
       "hard_tabs": true,
     },
@@ -134,6 +135,22 @@
     },
   },
 
+  // ─── SSH ───────────────────────────────────────────────────────────────────
+
+  // "ssh_connections": [
+  //   {
+  //     "host": "host",
+  //     "args": [],
+  //     "projects": [
+  //       {
+  //         "paths": ["/home/dir"],
+  //       },
+  //     ],
+  //   },
+  // ],
+
+  // ─── Extensions ────────────────────────────────────────────────────────────
+
   "auto_install_extensions": {
     "catppuccin": true,
     "catppuccin-icons": true,
@@ -144,6 +161,7 @@
     "ghostty": true,
     "git-firefly": true,
     "html": true,
+    "ini": true,
     "log": true,
     "make": true,
     "markdownlint": true,
