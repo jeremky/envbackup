@@ -1,0 +1,51 @@
+{
+  "Bash bloc": {
+    "prefix": "bash",
+    "body": ["```bash", "${1:}", "```", ""],
+    "description": "Bloc bash"
+  },
+
+  "Code bloc": {
+    "prefix": "code",
+    "body": ["```${1:code}", "${2:}", "```", ""],
+    "description": "Bloc texte"
+  },
+
+  "Image bloc": {
+    "prefix": "img",
+    "body": ["![${1:alt}](${1:}.webp)"],
+    "description": "Bloc image"
+  },
+
+  "Info bloc": {
+    "prefix": "info",
+    "body": ["> [!${1:IMPORTANT}]", "> ${2:}", ""],
+    "description": "Bloc infos"
+  },
+
+  "URL bloc": {
+    "prefix": "url",
+    "body": ["[${1:text}](${2:})", ""],
+    "description": "Bloc URL"
+  },
+
+  "Code bloc Hugo": {
+    "prefix": "hugo codefile",
+    "body": ["```${1:code} {filename=\"${2:file}\"}", "${3:}", "```", ""],
+    "description": "Bloc fichier dans Hugo"
+  },
+
+  "Card Hugo": {
+    "prefix": "hugo card",
+    "body": [
+      "{{< card link=\"${1:}\" title=\"${1:}\" icon=\"${2:document}\" >}}"
+    ],
+    "description": "Bloc de cards pour un blog avec Hugo"
+  },
+
+  "Videos Hugo": {
+    "prefix": "hugo video",
+    "body": ["{{< youtube ${1:shorturl} >}}", ""],
+    "description": "Bloc de vidéo pour un blog avec Hugo"
+  }
+}
