@@ -88,8 +88,10 @@ command -v dust &>/dev/null && alias dus='dust -rb'
 # fd : find amélioré
 if command -v fdfind &>/dev/null; then
   alias fd='fdfind -HI'
+  export FZF_DEFAULT_COMMAND='fdfind -HI'
 elif command -v fd &>/dev/null; then
   alias fd='fd -HI'
+  export FZF_DEFAULT_COMMAND='fd -HI'
 fi
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
@@ -101,12 +103,10 @@ if command -v fzf &>/dev/null; then
     --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
     --color=selected-bg:#45475A \
     --color=border:#6C7086,label:#CDD6F4"
-  if command -v fdfind &>/dev/null; then
-    export FZF_DEFAULT_COMMAND='fdfind -HI'
-  elif command -v fd &>/dev/null; then
-    export FZF_DEFAULT_COMMAND='fd -HI'
-  fi
 fi
+
+# icdiff : diff amélioré
+command -v icdiff &>/dev/null && alias diff='icdiff'
 
 # ncdu : équivalent à TreeSize
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
