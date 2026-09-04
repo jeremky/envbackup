@@ -9,14 +9,21 @@ include_paths = [
 ]
 
 words = [
+  "Catppuccin",
   "codeberg",
   "cron",
+  "flathub",
+  "flatpak",
+  "fzf",
   "homebrew",
   "hytale",
+  "jerem",
+  "jeremky",
   "keymaps",
   "podman",
   "shellcheck",
   "tmux",
   "ufw",
+  "vimscript",
   "vimrc",
 ]
