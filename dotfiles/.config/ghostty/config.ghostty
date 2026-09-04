@@ -1,6 +1,7 @@
 # ─── Ghostty ──────────────────────────────────────────────────
 
 # general
+auto-update = off
 confirm-close-surface = false
 bell-features = no-attention,no-title,no-audio,no-system
 shell-integration-features = no-cursor,ssh-env
