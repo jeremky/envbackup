@@ -1,4 +1,4 @@
-# ─── .bash_aliases ────────────────────────────────────────────────────────────
+# ─── .bash_aliases ───────────────────────────────────────────────────────
 
 # ls colors
 hidden=".gitignore .history .old"
@@ -27,7 +27,7 @@ export LC_ALL=$LANG
 export EDITOR=vim
 export VISUAL=$EDITOR
 
-# ─── aliases ──────────────────────────────────────────────────────────────────
+# ─── aliases ─────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto'                               # Ajoute la couleur
 alias l='ls -lh'                                         # Liste détaillée
@@ -55,7 +55,7 @@ alias reboot='sudo reboot'                               # Redémarrage
 alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
 alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
 
-# ─── applications facultatives ────────────────────────────────────────────────
+# ─── applications facultatives ───────────────────────────────────────────
 
 # apt : gestionnaire de paquets deb
 if command -v apt &>/dev/null; then
@@ -138,7 +138,7 @@ command -v vim &>/dev/null && alias vi='vim -O'
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
-# ─── fonctions ────────────────────────────────────────────────────────────────
+# ─── fonctions ───────────────────────────────────────────────────────────
 
 # cleanlog : nettoyer les logs systemd
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
@@ -164,7 +164,7 @@ diskbench() {
 # zipd : créer une archive zip par dossier/fichier donné
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
-# ─── scripts ──────────────────────────────────────────────────────────────────
+# ─── scripts ─────────────────────────────────────────────────────────────
 
 # Transforme les scripts en alias
 scripts=~/Documents/scripts
