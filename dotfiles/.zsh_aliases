@@ -1,0 +1,140 @@
+# ─── .zsh_aliases ────────────────────────────────────────────────────────
+
+# variables
+export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="$HOME/.local/bin:$PATH"
+export LANG=fr_FR.UTF-8
+export LC_ALL=fr_FR.UTF-8
+export EDITOR=vim
+export LESSHISTFILE=/dev/null
+
+# homebrew
+if command -v brew &>/dev/null; then
+  export HOMEBREW_NO_ENV_HINTS=1
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_ASK=1
+  alias upgrade='brew update && brew upgrade -g && brew cleanup'
+fi
+
+# ─── aliases ─────────────────────────────────────────────────────────────
+
+alias l='ls -lh'                                      # Liste détaillée
+alias la='ls -lhA'                                    # Liste avec les fichiers cachés
+alias lr='ls -lLhR'                                   # Liste en récursif
+alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
+alias lrt='ls -lLhrt'                                 # Liste par date
+alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
+alias grep='grep -i --color=auto'                     # Grep sans sensibilité à la casse
+alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
+alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom>)
+alias genkey='ssh-keygen -t ed25519 -a 100'           # Générer une clé ed25519
+alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Afficher l'adresse IP publique
+alias df='df -PlH'                                    # df en filtrant les montages inutiles
+alias rmds='find . -name ".DS_Store" -type f -delete' # Supprimer les .DS_Store récursivement
+alias rmdot="find . -name '._*' -type f -delete"      # Supprimer les ._ récursivement
+alias top='top -o cpu -U $(whoami)'                   # top filtré pour le user courant
+alias vi='vim -O'                                     # vim avec ouverture multiple
+alias speedtest='networkQuality'                      # Speedtest Apple
+alias locate='mdfind -name'                           # Recherche via Spotlight
+
+# ─── applications facultatives ───────────────────────────────────────────
+
+# btop / htop : top amélioré
+if command -v btop &>/dev/null; then
+  alias top='btop'
+elif command -v htop &>/dev/null; then
+  alias top='htop'
+fi
+
+# colordiff : diff avec couleur
+command -v colordiff &>/dev/null && alias diff='colordiff'
+
+# duf : affiche les filesystems
+command -v duf &>/dev/null && alias df='duf -hide special'
+
+# dust : du amlérioré
+command -v dust &>/dev/null && alias du='dust -rb'
+
+# fzf : recherche avancée avec thème Catppuccin Mocha
+if command -v fzf &>/dev/null; then
+  # shellcheck source=/opt/homebrew/bin/fzf
+  source <(fzf --zsh)
+  if command -v fd &>/dev/null; then
+    export FZF_DEFAULT_COMMAND='fd'
+  fi
+  export FZF_DEFAULT_OPTS=" \
+    --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+    --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+    --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+    --color=selected-bg:#45475A \
+    --color=border:#6C7086,label:#CDD6F4"
+fi
+
+# icdiff : diff amélioré
+command -v icdiff &>/dev/null && alias diff='icdiff'
+
+# ncdu : équivalent à TreeSize
+command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+
+# procs : ps amélioré
+command -v procs &>/dev/null && alias psp='procs'
+
+# rg : plus performant que grep
+command -v rg &>/dev/null && alias rg='rg -i'
+
+# tmux : émulateur de terminal
+if command -v rg &>/dev/null ; then
+  alias tm='tmux attach || tmux new'
+  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
+fi
+
+# zoxide : cd amélioré
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
+
+# ─── fonctions ───────────────────────────────────────────────────────────
+
+# cpsave : copie un fichier ou dossier avec un suffixe .old
+cpsave() { cp -Rp "$1" "${1%/}.old"; }
+
+# tarc : créer une archive pour chaque fichier/dossier spécifié
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+
+# tarx : décompresser une archive
+tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+
+# zipd : créer une archive zip par fichier
+zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+
+# convweb : convertir des fichiers png en webp
+convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
+
+# netinfo : affiche les informations réseau
+netinfo() { for service in "Ethernet" "Wi-Fi"; do
+  echo "==> $service"
+  networksetup -getinfo "$service"
+  echo
+done; }
+
+# jback : backup local vers disque externe
+jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
+
+# e : ouvrir le(s) fichiers(s) en paramètre avec zed
+e() {
+  zed "$@"
+}
+
+# ─── scripts ─────────────────────────────────────────────────────────────
+
+# transforme en alias les scripts
+scripts=~/Documents/scripts
+if [[ -d $scripts ]]; then
+  for i in ggit sysbackup; do
+    # shellcheck disable=SC2139
+    [[ -f $scripts/$i/$i.sh ]] && alias $i="$scripts/$i/$i.sh"
+  done
+fi
+
+# hugo
+sitedir=~/Documents/website
+# shellcheck disable=SC2139
+[[ -f $sitedir/hugo.sh ]] && alias hugo="$sitedir/hugo.sh"
