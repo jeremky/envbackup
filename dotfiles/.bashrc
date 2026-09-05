@@ -23,6 +23,13 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # colors
+case "$TERM" in
+  *-256color)
+    export COLORTERM=truecolor
+    ;;
+esac
+
+# ls colors
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
