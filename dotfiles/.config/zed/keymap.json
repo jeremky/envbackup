@@ -13,11 +13,12 @@
   {
     "bindings": {
       "f1": "command_palette::Toggle",
-      "alt-shift-a": "workspace::ToggleZoom",
-      "alt-shift-e": "project_panel::ToggleFocus",
-      "alt-shift-g": "git_panel::ToggleFocus",
-      "alt-shift-c": "multi_workspace::ToggleWorkspaceSidebar",
-      "alt-shift-x": "zed::Extensions",
+      "alt-b": "workspace::ToggleLeftDock",
+      "alt-r": "workspace::ToggleRightDock",
+      "alt-a": "workspace::ToggleZoom",
+      "alt-e": "project_panel::ToggleFocus",
+      "alt-g": "git_panel::ToggleFocus",
+      "alt-c": "multi_workspace::ToggleWorkspaceSidebar",
     },
   },
 ]
