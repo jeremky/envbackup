@@ -58,6 +58,7 @@
   "buffer_font_size": 13,
   "ui_font_size": 14,
   "agent_ui_font_size": 14,
+  "agent_buffer_font_size": 13,
   "markdown_preview_font_size": 14,
 
   "debugger": { "button": false },
