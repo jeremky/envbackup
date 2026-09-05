@@ -1,5 +1,7 @@
 # ─── .zshrc ──────────────────────────────────────────────────────────────
 
+# shellcheck disable=all
+
 # options
 setopt AUTO_CD            # Naviguer sans 'cd'
 setopt HIST_IGNORE_DUPS   # Ignore les doublons dans l'historique
