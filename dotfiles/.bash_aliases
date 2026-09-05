@@ -161,6 +161,12 @@ diskbench() {
   rm testfile
 }
 
+# webi : gestionnaire de paquets
+webinstall() {
+  curl -sS https://webi.sh/webi | sh
+  source "$HOME/.config/envman/PATH.env"
+}
+
 # zipd : créer une archive zip par dossier/fichier donné
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
