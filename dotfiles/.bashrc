@@ -27,6 +27,9 @@ if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
+# envman
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
@@ -49,6 +52,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
