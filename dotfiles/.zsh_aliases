@@ -128,7 +128,7 @@ e() {
 # transforme en alias les scripts
 scripts=~/Documents/scripts
 if [[ -d $scripts ]]; then
-  for i in ggit sysbackup; do
+  for i in envbackup ggit; do
     # shellcheck disable=SC2139
     [[ -f $scripts/$i/$i.sh ]] && alias $i="$scripts/$i/$i.sh"
   done
