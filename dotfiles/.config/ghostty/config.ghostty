@@ -10,6 +10,10 @@ shell-integration-features = no-cursor,ssh-env
 window-theme = ghostty
 gtk-titlebar = true
 
+# macos
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = tabs
+
 # window
 window-width = 98
 window-height = 26
@@ -24,7 +28,7 @@ adjust-cell-height = 10%
 # font
 font-family = JetBrains Mono NL
 font-thicken = false
-font-size = 12
+font-size = 14
 
 # mouse
 mouse-scroll-multiplier = discrete:1
@@ -33,3 +37,19 @@ mouse-hide-while-typing = true
 # clipboard
 copy-on-select = clipboard
 right-click-action = copy-or-paste
+
+# quick terminal
+quick-terminal-position = center
+quick-terminal-size = 800px,500px
+
+# ─── keybinds ────────────────────────────────────────────────────────────
+
+# general
+keybind = global:super+shift+space=toggle_quick_terminal
+keybind = super+shift+#=toggle_window_float_on_top
+
+# split
+keybind = super+shift+left=goto_split:left
+keybind = super+shift+down=goto_split:bottom
+keybind = super+shift+up=goto_split:top
+keybind = super+shift+right=goto_split:right

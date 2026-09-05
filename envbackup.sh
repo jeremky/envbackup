@@ -7,12 +7,16 @@ error() { echo -e "\033[0;36m──────────\033[0m\n\033[0;31m�
 message() { echo -e "\033[0;36m──────────\033[0m\n\033[0;32m❱ $*\033[0m"; }
 warning() { echo -e "\033[0;33m❱ $*\033[0m\n\033[0;36m──────────\033[0m"; }
 
-# Vérification de la détection de distribution
-if [[ ! -f /etc/os-release ]]; then
-  error "Fichier /etc/os-release absent, impossible de détecter la distribution !"
-  exit 1
+# Vérification de la détection de l'OS/distribution
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  dist="macos"
+else
+  if [[ ! -f /etc/os-release ]]; then
+    error "Fichier /etc/os-release absent, impossible de détecter la distribution !"
+    exit 1
+  fi
+  dist=$(grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"')
 fi
-dist=$(grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"')
 list="$dir/config/$dist.cfg"
 
 # Vérification du user
