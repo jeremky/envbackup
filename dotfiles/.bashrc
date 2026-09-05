@@ -1,12 +1,12 @@
 # ─── .bashrc ─────────────────────────────────────────────────────────────
 
-# if not running interactively, don't do anything
+# if not interactive
 case $- in
   *i*) ;;
   *) return ;;
 esac
 
-# Source global definitions
+# global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
@@ -46,3 +46,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# solus
+[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
+
+# envman
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
