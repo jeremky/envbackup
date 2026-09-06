@@ -85,6 +85,12 @@ command -v duf &>/dev/null && alias duf='duf -hide special'
 # dust : du amélioré
 command -v dust &>/dev/null && alias dus='dust -rb'
 
+# eopkg : gestionnaire de paquets solus
+if command -v eopkg &>/dev/null; then
+  alias eo='sudo eopkg'
+  alias upgrade='sudo eopkg up && sudo eopkg rmo'
+fi
+
 # fd : find amélioré
 if command -v fdfind &>/dev/null; then
   alias fd='fdfind -HI'
