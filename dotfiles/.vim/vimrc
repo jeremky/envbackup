@@ -33,12 +33,10 @@ set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du 
 set splitbelow                  " Nouveau split horizontal en dessous
 set splitright                  " Nouveau split vertical à droite
 
-" Comportement divers
+" Comportements divers
+set spelllang=en,fr             " Correction orthographique
 set mouse=                      " Désactive la souris par défaut
 set nobackup                    " Désactive les sauvegardes automatiques
-
-" Correction orthographique
-set spelllang=en,fr
 
 " Permet l'indentation automatique : gg=G
 filetype plugin indent on
