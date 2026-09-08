@@ -107,7 +107,6 @@
   "file_types": {
     "env": ["cfg","conf","cron"],
     "Shell Script": ["comp"],
-
   },
 
   "languages": {
