@@ -88,6 +88,9 @@ if command -v rg &>/dev/null ; then
   alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
 fi
 
+# zed : éditeur de code
+command -v zed &>/dev/null && alias e='zed'
+
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
@@ -117,11 +120,6 @@ done; }
 
 # jback : backup local vers disque externe
 jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
-
-# e : ouvrir le(s) fichiers(s) en paramètre avec zed
-e() {
-  zed "$@"
-}
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
