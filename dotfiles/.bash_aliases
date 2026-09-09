@@ -141,6 +141,13 @@ fi
 # vim : vi amélioré
 command -v vim &>/dev/null && alias vi='vim -O'
 
+# zed : éditeur de code
+if command -v zed &>/dev/null; then
+  alias e='zed'
+elif command -v zedit &>/dev/null; then
+  alias e='zedit'
+fi
+
 # zoxide : cd amélioré
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
