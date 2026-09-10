@@ -11,11 +11,11 @@ warning() { echo -e "\033[0;33m❯ $*\033[0m\n\033[0;36m────────
 if [[ "$(uname -s)" == "Darwin" ]]; then
   dist="macos"
 else
-  if [[ ! -f /etc/os-release ]]; then
+  if ! . /etc/os-release 2>/dev/null; then
     error "Fichier /etc/os-release absent, impossible de détecter la distribution !"
     exit 1
   fi
-  dist=$(grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"')
+  dist="$ID"
 fi
 list="$dir/config/$dist.cfg"
 
