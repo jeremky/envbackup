@@ -52,8 +52,17 @@
 
   // ─── Interface ────────────────────────────────────────────────────────
 
-  "theme": "Catppuccin Mocha",
-  "icon_theme": "Catppuccin Mocha",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+
   "buffer_font_family": "JetBrains Mono NL",
   "buffer_font_size": 13,
   "ui_font_size": 14,
