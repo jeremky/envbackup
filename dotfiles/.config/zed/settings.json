@@ -10,7 +10,7 @@
   },
 
   "title_bar": {
-    "show_sign_in": false,
+    "show_sign_in": true,
     "show_branch_name": false,
     "show_worktree_name": false,
   },
@@ -24,16 +24,16 @@
     "enabled": true,
     "dock": "right",
 
-    "inline_assistant_model": {
-      "provider": "google",
-      "model": "gemini-3.6-flash",
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
     },
 
-    "default_model": {
-      "effort": "medium",
-      "enable_thinking": true,
-      "provider": "google",
-      "model": "gemini-3.6-flash",
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
     },
   },
 
@@ -105,7 +105,7 @@
   // ─── Code ─────────────────────────────────────────────────────────────
 
   "file_types": {
-    "env": ["cfg","conf","cron"],
+    "env": ["cfg", "conf", "cron"],
     "Shell Script": ["comp"],
   },
 
@@ -119,24 +119,6 @@
         "external": {
           "command": "shfmt",
           "arguments": ["-i", "2", "-ci", "-"],
-        },
-      },
-    },
-
-    "Vimscript": {
-      "formatter": {
-        "external": {
-          "command": "vim",
-          "arguments": [
-            "-Nes",
-            "-u",
-            "NONE",
-            "-i",
-            "NONE",
-            "-c",
-            "set ft=vim | runtime! indent/vim.vim | set expandtab shiftwidth=2 | execute \"normal! gg=G\" | wq! /dev/stdout",
-            "/dev/stdin",
-          ],
         },
       },
     },
