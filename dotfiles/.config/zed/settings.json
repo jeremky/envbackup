@@ -105,7 +105,7 @@
   // ─── Code ─────────────────────────────────────────────────────────────
 
   "file_types": {
-    "env": ["cfg", "conf", "cron"],
+    "env": ["cfg","conf","cron"],
     "Shell Script": ["comp"],
   },
 
@@ -162,7 +162,6 @@
     "ghostty": true,
     "git-firefly": true,
     "html": true,
-    "ini": true,
     "log": true,
     "make": true,
     "markdownlint": true,
