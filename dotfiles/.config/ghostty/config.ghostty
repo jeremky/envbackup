@@ -38,10 +38,14 @@ mouse-hide-while-typing = true
 copy-on-select = clipboard
 right-click-action = paste
 
+# quick terminal
+quick-terminal-position = center
+quick-terminal-size = 800px,500px
+
 # ─── keybinds ────────────────────────────────────────────────────────────
 
 # general
-keybind = ctrl+shift+A=toggle_window_float_on_top
+keybind = global:super+shift+space=toggle_quick_terminal
 
 # split
 keybind = ctrl+shift+left=goto_split:left
