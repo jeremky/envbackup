@@ -80,7 +80,7 @@ if command -v dnf &>/dev/null; then
 fi
 
 # duf : df amélioré
-command -v duf &>/dev/null && alias duf='duf -hide special'
+command -v duf &>/dev/null && alias duf='duf -hide special --hide-mp /boot'
 
 # dust : du amélioré
 command -v dust &>/dev/null && alias dus='dust -rb'
