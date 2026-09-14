@@ -45,10 +45,12 @@ export LS_COLORS="di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;16
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # keybindings
-bindkey -e
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-bindkey "\e[3~" delete-char
+if [[ -o interactive ]]; then
+  bindkey -e
+  bindkey "\e[H" beginning-of-line
+  bindkey "\e[F" end-of-line
+  bindkey "\e[3~" delete-char
+fi
 
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"

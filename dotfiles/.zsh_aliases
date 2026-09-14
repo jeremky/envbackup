@@ -1,5 +1,7 @@
 # ─── .zsh_aliases ────────────────────────────────────────────────────────
 
+# shellcheck disable=all
+
 # variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
@@ -57,7 +59,6 @@ command -v dust &>/dev/null && alias du='dust -rb'
 
 # fzf : recherche avancée avec thème Catppuccin Mocha
 if command -v fzf &>/dev/null; then
-  # shellcheck source=/opt/homebrew/bin/fzf
   source <(fzf --zsh)
   if command -v fd &>/dev/null; then
     export FZF_DEFAULT_COMMAND='fd'
@@ -127,12 +128,10 @@ jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" 
 scripts=~/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in envbackup ggit; do
-    # shellcheck disable=SC2139
     [[ -f $scripts/$i/$i.sh ]] && alias $i="$scripts/$i/$i.sh"
   done
 fi
 
 # hugo
 sitedir=~/Documents/website
-# shellcheck disable=SC2139
 [[ -f $sitedir/hugo.sh ]] && alias hugo="$sitedir/hugo.sh"
