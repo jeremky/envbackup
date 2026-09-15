@@ -1,0 +1,45 @@
+[[language]]
+name = "bash"
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-"] }
+auto-format = true
+
+[[language]]
+name = "css"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "html"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "javascript"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "json"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "lua"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "markdown"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "python"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "toml"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "typescript"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = "  " }
