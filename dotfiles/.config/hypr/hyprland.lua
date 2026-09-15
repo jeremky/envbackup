@@ -7,27 +7,6 @@ hl.monitor({
   scale    = "2",              -- mise à l'échelle HiDPI
 })
 
--- composition
-hl.config({
-    render = {
-        direct_scanout = true,
-    },
-})
-
--- vrr
-hl.config({
-    misc = {
-        vrr = 2,
-    },
-})
-
--- tearing
-hl.config({
-    general = {
-        allow_tearing = true,
-    },
-})
-
 -- ─── applications ────────────────────────────────────────────────────────
 
 local terminal    = "ghostty"                         -- terminal par défaut
@@ -78,7 +57,7 @@ hl.config({
     },
 
     resize_on_border = true,  -- permet de redimensionner en tirant les bordures
-    allow_tearing = false,    -- désactive le tearing (déchirement d'image)
+    allow_tearing = true,    -- désactive le tearing (déchirement d'image)
     layout = "dwindle",       -- disposition des fenêtres (dwindle)
   },
 
@@ -158,10 +137,15 @@ hl.config({
 -- ─── divers ─────────────────────────────────────────────────────────────
 
 hl.config({
+  render = {
+    direct_scanout = true, -- passage direct du buffer client à l'écran (réduit la latence en plein écran)
+  },
+
   misc = {
     force_default_wallpaper  = -1,     -- mettre 0 ou 1 pour désactiver les fonds d'écran par défaut
     disable_hyprland_logo    = false,  -- si true, désactive le logo Hyprland / fond d'écran par défaut
     disable_splash_rendering = true,   -- désactive le texte de démarrage affiché au lancement
+    vrr                      = 2,      -- taux de rafraîchissement variable (0=off, 1=on, 2=fullscreen only)
   },
 })
 
