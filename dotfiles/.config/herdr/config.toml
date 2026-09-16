@@ -38,6 +38,7 @@ previous_tab = "ctrl+w"
 next_tab = "ctrl+x"
 previous_workspace = "ctrl+up"
 next_workspace = "ctrl+down"
+new_workspace = "ctrl+shift+space"
 
 [[keys.command]]
 key = "prefix+&"
