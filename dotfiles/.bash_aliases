@@ -70,9 +70,6 @@ elif command -v htop &>/dev/null; then
   alias top='htop'
 fi
 
-# colordiff : diff avec couleur
-command -v colordiff &>/dev/null && alias diff='colordiff'
-
 # dnf : gestionnaire de paquets rpm
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -80,10 +77,14 @@ if command -v dnf &>/dev/null; then
 fi
 
 # duf : df amélioré
-command -v duf &>/dev/null && alias df='duf -hide special --hide-mp /boot'
+if command -v duf &>/dev/null; then
+  alias df='duf -hide special --hide-mp /boot'
+fi
 
 # dust : du amélioré
-command -v dust &>/dev/null && alias dus='dust -rb'
+if command -v dust &>/dev/null; then
+  alias dus='dust -rb'
+fi
 
 # eopkg : gestionnaire de paquets solus
 if command -v eopkg &>/dev/null; then
@@ -118,19 +119,31 @@ if command -v herdr &>/dev/null; then
 fi
 
 # icdiff : diff amélioré
-command -v icdiff &>/dev/null && alias diff='icdiff'
+if command -v icdiff &>/dev/null; then
+  alias diff='icdiff -N'
+elif command -v colordiff &>/dev/null; then
+  alias diff='colordiff'
+fi
 
 # ncdu : équivalent à TreeSize
-command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
+if command -v ncdu &>/dev/null; then
+  alias ncdu='ncdu --color dark'
+fi
 
 # procs : ps amélioré
-command -v procs &>/dev/null && alias psp='procs'
+if command -v procs &>/dev/null; then
+  alias psp='procs'
+fi
 
 # rg : plus performant que grep
-command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
+if command -v rg &>/dev/null; then
+  alias rg='rg -i --no-ignore'
+fi
 
 # tty-clock : horloge en CLI
-command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
+if command -v tty-clock &>/dev/null; then
+  alias clock='tty-clock -c -f %d/%m/%Y'
+fi
 
 # ufw : firewall simplifié
 if command -v ufw &>/dev/null; then
@@ -139,7 +152,9 @@ if command -v ufw &>/dev/null; then
 fi
 
 # vim : vi amélioré
-command -v vim &>/dev/null && alias vi='vim -O'
+if command -v vim &>/dev/null; then
+  alias vi='vim -O'
+fi
 
 # zed : éditeur de code
 if command -v zed &>/dev/null; then
@@ -149,7 +164,9 @@ elif command -v zedit &>/dev/null; then
 fi
 
 # zoxide : cd amélioré
-command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
 
 # ─── fonctions ───────────────────────────────────────────────────────────
 
