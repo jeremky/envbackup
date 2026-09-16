@@ -8,13 +8,6 @@ name = "catppuccin"
 [update]
 version_check = false
 
-[keys]
-prefix = "ctrl+space"
-previous_tab = "ctrl+w"
-next_tab = "ctrl+x"
-previous_workspace = "ctrl+up"
-next_workspace = "ctrl+down"
-
 [ui]
 mouse_capture = true
 copy_on_select = true
@@ -38,6 +31,31 @@ position = "bottom-center"
 
 [ui.sound]
 enabled = true
+
+[keys]
+prefix = "ctrl+space"
+previous_tab = "ctrl+w"
+next_tab = "ctrl+x"
+previous_workspace = "ctrl+up"
+next_workspace = "ctrl+down"
+
+[[keys.command]]
+key = "prefix+&"
+type = "shell"
+command = 'herdr workspace create --cwd $PWD'
+description = "Nouveau workspace shell"
+
+[[keys.command]]
+key = "prefix+é"
+type = "shell"
+command = 'pid=$(herdr workspace create --cwd $PWD --label btop | jq -r .result.root_pane.pane_id) && sleep 0.3 && herdr pane run "$pid" btop'
+description = "Nouveau workspace monitoring"
+
+[[keys.command]]
+key = 'prefix+"'
+type = "shell"
+command = 'pid=$(herdr workspace create --cwd $PWD --label claude | jq -r .result.root_pane.pane_id) && herdr pane run "$pid" claude'
+description = "Nouveau workspace Claude"
 
 [session]
 resume_agents_on_restore = true
