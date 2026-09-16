@@ -9,32 +9,20 @@ name = "catppuccin"
 version_check = false
 
 [keys]
-prefix = "ctrl+space"
-next_tab = "ctrl+shift+space"
+prefix = "ctrl+x"
+next_tab = "ctrl+space"
 switch_tab = "ctrl+shift+1..9"
+previous_workspace = "ctrl+up"
+next_workspace = "ctrl+down"
 
 [ui]
 mouse_capture = true
 copy_on_select = true
 prompt_new_tab_name = false
 prompt_new_workspace_name = false
-
-# Draw borders along the outside edge of the pane area.
-# Disable for tmux-style internal splitters without an outside frame.
-# pane_outer_borders = true
-
-# Draw interactive scrollbars beside terminal panes.
-# Set false to reclaim the scrollbar column and keep it out of terminal-native selections.
 pane_scrollbars = false
-
-# Keep split panes visually separated instead of sharing divider borders.
 pane_gaps = false
-
-# Show detected/reported agent labels in split pane borders when no manual pane name is set.
 show_agent_labels_on_pane_borders = false
-
-# Hide the tab row when a workspace has exactly one tab.
-# New tabs can still be created with the configured keybinding.
 hide_tab_bar_when_single_tab = true
 
 # Title Herdr writes to the terminal it runs in, which is what window managers
@@ -43,13 +31,8 @@ hide_tab_bar_when_single_tab = true
 # The title renders on the Herdr server, so {hostname} names the host the panes
 # run on even when attaching from a remote client.
 # Set to "" to leave the outer terminal title alone.
-window_title = "{hostname}" 
+# window_title = "{hostname}" 
 
-# Accent color for highlights, borders, and navigation UI.
-# Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
-accent = "blue"
-
-# Background notification popup delivery
 [ui.toast]
 delivery = "herdr"
 delay_seconds = 1
