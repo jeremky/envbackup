@@ -112,7 +112,10 @@ if command -v fzf &>/dev/null; then
 fi
 
 # herdr : émulateur de terminal
-command -v herdr &>/dev/null && alias hr='herdr'
+if command -v herdr &>/dev/null; then
+  alias hr='herdr'
+  alias hrstop='herdr session stop default'
+fi
 
 # icdiff : diff amélioré
 command -v icdiff &>/dev/null && alias diff='icdiff'
@@ -125,12 +128,6 @@ command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i --no-ignore'
-
-# tmux : émulateur de terminal
-if command -v tmux &>/dev/null; then
-  alias tm='tmux attach || tmux new'
-  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
-fi
 
 # tty-clock : horloge en CLI
 command -v tty-clock &>/dev/null && alias clock='tty-clock -c -f %d/%m/%Y'
