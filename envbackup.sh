@@ -34,7 +34,7 @@ fi
 copy() {
   local src="$1" dest="$2" missing="$3"
   if [[ ! -e "$src" ]]; then
-    [[ "$missing" == 1 ]] && warning "Fichier $src non présent"
+    [[ "$missing" == 1 ]] && error "Fichier $src non présent"
     return
   fi
   mkdir -p "$(dirname "$dest")"
