@@ -111,6 +111,9 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# herdr : émulateur de terminal
+command -v herdr &>/dev/null && alias hr='herdr'
+
 # icdiff : diff amélioré
 command -v icdiff &>/dev/null && alias diff='icdiff'
 
