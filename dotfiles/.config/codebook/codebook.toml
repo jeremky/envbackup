@@ -22,7 +22,6 @@ words = [
   "keymaps",
   "podman",
   "shellcheck",
-  "tmux",
   "ufw",
   "vimscript",
   "vimrc",

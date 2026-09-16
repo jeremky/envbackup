@@ -71,6 +71,12 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# herdr : émulateur de terminal
+if command -v herdr &>/dev/null; then
+  alias hr='herdr'
+  alias hrstop='herdr session stop default'
+fi
+
 # icdiff : diff amélioré
 command -v icdiff &>/dev/null && alias diff='icdiff'
 
@@ -82,12 +88,6 @@ command -v procs &>/dev/null && alias psp='procs'
 
 # rg : plus performant que grep
 command -v rg &>/dev/null && alias rg='rg -i'
-
-# tmux : émulateur de terminal
-if command -v rg &>/dev/null ; then
-  alias tm='tmux attach || tmux new'
-  alias tmr='tmux source-file ~/.config/tmux/tmux.conf'
-fi
 
 # zed : éditeur de code
 command -v zed &>/dev/null && alias e='zed'
