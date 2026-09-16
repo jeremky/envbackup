@@ -9,11 +9,11 @@ name = "catppuccin"
 version_check = false
 
 [keys]
-prefix = "ctrl+x"
-next_tab = "ctrl+space"
-switch_tab = "ctrl+shift+1..9"
-previous_workspace = "ctrl+up"
-next_workspace = "ctrl+down"
+prefix = "ctrl+space"
+previous_tab = "ctrl+w"
+next_tab = "ctrl+x"
+previous_workspace = "ctrl+q"
+next_workspace = "ctrl+s"
 
 [ui]
 mouse_capture = true
@@ -24,14 +24,6 @@ pane_scrollbars = false
 pane_gaps = false
 show_agent_labels_on_pane_borders = false
 hide_tab_bar_when_single_tab = true
-
-# Title Herdr writes to the terminal it runs in, which is what window managers
-# show in title, tab, and group bars. Tokens are {hostname}, {workspace}, {tab},
-# {pane}, and {terminal_title}; {{ and }} are literal braces.
-# The title renders on the Herdr server, so {hostname} names the host the panes
-# run on even when attaching from a remote client.
-# Set to "" to leave the outer terminal title alone.
-# window_title = "{hostname}" 
 
 [ui.toast]
 delivery = "herdr"
