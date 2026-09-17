@@ -36,27 +36,9 @@ enabled = true
 prefix = "ctrl+space"
 previous_tab = "ctrl+w"
 next_tab = "ctrl+x"
-previous_workspace = "ctrl+a"
-next_workspace = "ctrl+q"
+previous_workspace = "ctrl+q"
+next_workspace = "ctrl+s"
 new_workspace = "ctrl+shift+space"
-
-[[keys.command]]
-key = "prefix+&"
-type = "shell"
-command = 'herdr workspace create --cwd $PWD'
-description = "workspace shell"
-
-[[keys.command]]
-key = "prefix+é"
-type = "shell"
-command = 'pid=$(herdr workspace create --cwd $PWD --label btop | jq -r .result.root_pane.pane_id) && sleep 0.3 && herdr pane run "$pid" btop'
-description = "workspace monitoring"
-
-[[keys.command]]
-key = 'prefix+"'
-type = "shell"
-command = 'pid=$(herdr workspace create --cwd $PWD --label claude | jq -r .result.root_pane.pane_id) && herdr pane run "$pid" claude'
-description = "workspace claude"
 
 [session]
 resume_agents_on_restore = true
