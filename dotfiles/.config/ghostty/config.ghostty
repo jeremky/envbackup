@@ -15,8 +15,8 @@ macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = tabs
 
 # window
-window-width =100
-window-height = 28
+window-width = 110
+window-height = 30
 window-padding-x = 15
 window-padding-y = 15
 
