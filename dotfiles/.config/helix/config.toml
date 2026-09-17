@@ -24,7 +24,7 @@ wrap-indicator = ""
 hidden = false
 
 [editor.lsp]
-display-inlay-hints = true
+enable = false
 
 [keys.normal]
 "del" = "delete_char_forward"
