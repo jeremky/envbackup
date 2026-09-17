@@ -36,8 +36,8 @@ enabled = true
 prefix = "ctrl+space"
 previous_tab = "ctrl+w"
 next_tab = "ctrl+x"
-previous_workspace = "ctrl+up"
-next_workspace = "ctrl+down"
+previous_workspace = "ctrl+a"
+next_workspace = "ctrl+q"
 new_workspace = "ctrl+shift+space"
 
 [[keys.command]]
