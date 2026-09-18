@@ -8,7 +8,7 @@ shell-integration-features = no-cursor,ssh-env
 
 # linux
 window-theme = ghostty
-gtk-titlebar = true
+gtk-titlebar = false
 
 # macos
 macos-titlebar-proxy-icon = hidden
