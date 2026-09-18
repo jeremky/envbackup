@@ -44,7 +44,7 @@ copy() {
 # Exécution
 echo
 warning "Synchronisation des fichiers"
-while read -r line; do
+while read -r line || [[ -n "$line" ]]; do
   [[ -z "$line" || "$line" == \#* ]] && continue
   dotfile="$dir/dotfiles/$line"
   home="$HOME/$line"
