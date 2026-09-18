@@ -63,17 +63,11 @@ if !empty($TMUX) | set mouse=a | set clipboard=unnamed | if has('mouse_sgr') | s
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
     let g:modeIDE_enabled = 0
-    windo set nonumber
-    if empty($TMUX)
-      windo set mouse=
-    endif
+    windo set nonumber mouse=
     echo "Mode IDE désactivé"
   else
     let g:modeIDE_enabled = 1
-    windo set number
-    if empty($TMUX)
-      windo set mouse=a
-    endif
+    windo set number mouse=a
     echo "Mode IDE activé"
   endif
 endfunction
