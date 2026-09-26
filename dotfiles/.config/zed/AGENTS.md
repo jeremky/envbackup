@@ -22,7 +22,7 @@ Follow Git best practices:
 
 ## General responses
 
-Still avoid overly generic replies (like "ok" or "sure"). In that case, add short details about elements of your choice instead.
+Avoid overly generic replies (like "ok" or "sure"); add a few short, relevant details instead.
 
 When you suggest creating files, prefer giving me only complete files.
 
