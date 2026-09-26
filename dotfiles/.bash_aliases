@@ -8,9 +8,9 @@ done
 
 # options
 if [[ $- == *i* ]]; then
-  bind 'set colored-stats on'          # Couleurs lors de la complétion
-  bind 'set completion-ignore-case on' # Ignorer la casse lors de la complétion
-  bind 'set show-all-if-unmodified on' # Affiche les correspondances immédiatement
+  bind 'set colored-stats on'          # Colors during completion
+  bind 'set completion-ignore-case on' # Ignore case during completion
+  bind 'set show-all-if-unmodified on' # Show matches immediately
 fi
 
 # prompt
@@ -21,7 +21,7 @@ else
 fi
 
 # variables
-export LANG=fr_FR.UTF-8
+export LANG=en_US.UTF-8
 export LANGUAGE=$LANG
 export LC_ALL=$LANG
 export EDITOR=vim
@@ -29,70 +29,70 @@ export VISUAL=$EDITOR
 
 # ─── aliases ─────────────────────────────────────────────────────────────
 
-alias ls='ls --color=auto'                               # Ajoute la couleur
-alias l='ls -lh'                                         # Liste détaillée
-alias la='ls -lhA'                                       # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                      # Liste en récursif
-alias lra='ls -lhRA'                                     # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                                    # Liste par date
-alias lrta='ls -lLhrtA'                                  # Liste par date avec les fichiers cachés
-alias dus='du -sh * | sort -hr'                          # Tri par taille
-alias grep='grep -i --color=auto'                        # Grep sans sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                      # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'                # Chercher un process (psp <nom>)
-alias iostat='iostat -m --human'                         # iostat lisible
-alias ifc='ip -br -c addr | grep -vw lo'                 # Adresses IP (ifconfig obsolète)
-alias ssp='ss -tunlH | grep'                             # Chercher un port (ssp <port>)
-alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # IP publique
-alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df sans montages inutiles
-alias halt='sudo halt -p'                                # Arrêt système
-alias reboot='sudo reboot'                               # Redémarrage
+alias ls='ls --color=auto'                               # Add color
+alias l='ls -lh'                                         # Detailed list
+alias la='ls -lhA'                                       # List including hidden files
+alias lr='ls -lLhR'                                      # Recursive list
+alias lra='ls -lhRA'                                     # Recursive list including hidden files
+alias lrt='ls -lLhrt'                                    # List by date
+alias lrta='ls -lLhrtA'                                  # List by date including hidden files
+alias dus='du -sh * | sort -hr'                          # Sort by size
+alias grep='grep -i --color=auto'                        # Case-insensitive grep
+alias zgrep='zgrep -i --color=auto'                      # Grep in compressed files
+alias psp='ps -eaf | grep -v grep | grep'                # Search for a process (psp <name>)
+alias iostat='iostat -m --human'                         # Human-readable iostat
+alias ifc='ip -br -c addr | grep -vw lo'                 # IP addresses (ifconfig is deprecated)
+alias ssp='ss -tunlH | grep'                             # Search for a port (ssp <port>)
+alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # Public IP
+alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df without irrelevant mounts
+alias halt='sudo halt -p'                                # System shutdown
+alias reboot='sudo reboot'                               # Reboot
 
 # sudo
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
 
-# ssh
-alias genkey='ssh-keygen -t ed25519 -a 100'        # Clé ed25519
-alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100' # Clé RSA
+# ssh keygen
+alias genkey='ssh-keygen -t ed25519 -a 100'
+alias genkeyrsa='ssh-keygen -t rsa -b 4096 -a 100'
 
-# ─── applications facultatives ───────────────────────────────────────────
+# ─── optional applications ───────────────────────────────────────────────
 
-# apt : gestionnaire de paquets deb
+# apt: deb package manager
 if command -v apt &>/dev/null; then
   alias apt='sudo apt'
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
-# btop / htop : top amélioré
+# btop / htop: enhanced top
 if command -v btop &>/dev/null; then
   alias top='btop'
 elif command -v htop &>/dev/null; then
   alias top='htop'
 fi
 
-# dnf : gestionnaire de paquets rpm
+# dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
   alias upgrade='sudo dnf -y upgrade && sudo dnf -y autoremove'
 fi
 
-# duf : df amélioré
+# duf: enhanced df
 if command -v duf &>/dev/null; then
   alias df='duf -hide special --hide-mp /boot'
 fi
 
-# dust : du amélioré
+# dust: enhanced du
 if command -v dust &>/dev/null; then
   alias dus='dust -rb'
 fi
 
-# eopkg : gestionnaire de paquets solus
+# eopkg: Solus package manager
 if command -v eopkg &>/dev/null; then
   alias eo='sudo eopkg'
   alias upgrade='sudo eopkg up && sudo eopkg rmo'
 fi
 
-# fd : find amélioré
+# fd: enhanced find
 if command -v fdfind &>/dev/null; then
   alias fd='fdfind -HI'
   export FZF_DEFAULT_COMMAND='fdfind -HI'
@@ -101,7 +101,7 @@ elif command -v fd &>/dev/null; then
   export FZF_DEFAULT_COMMAND='fd -HI'
 fi
 
-# fzf : recherche avancée avec thème Catppuccin Mocha
+# fzf: fuzzy finder with Catppuccin Mocha theme
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS=" \
@@ -112,97 +112,97 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr : émulateur de terminal
+# herdr: terminal emulator
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'
 fi
 
-# icdiff : diff amélioré
+# icdiff: enhanced diff
 if command -v icdiff &>/dev/null; then
   alias diff='icdiff -N'
 elif command -v colordiff &>/dev/null; then
   alias diff='colordiff'
 fi
 
-# ncdu : équivalent à TreeSize
+# ncdu: TreeSize equivalent
 if command -v ncdu &>/dev/null; then
   alias ncdu='ncdu --color dark'
 fi
 
-# procs : ps amélioré
+# procs: enhanced ps
 if command -v procs &>/dev/null; then
   alias psp='procs'
 fi
 
-# rg : plus performant que grep
+# rg: faster than grep
 if command -v rg &>/dev/null; then
   alias rg='rg -i --no-ignore'
 fi
 
-# tty-clock : horloge en CLI
+# tty-clock: CLI clock
 if command -v tty-clock &>/dev/null; then
   alias clock='tty-clock -c -f %d/%m/%Y'
 fi
 
-# ufw : firewall simplifié
+# ufw: uncomplicated firewall
 if command -v ufw &>/dev/null; then
   alias ufw='sudo ufw'
   alias ufws='sudo ufw status numbered'
 fi
 
-# vim : vi amélioré
+# vim: vi improved
 if command -v vim &>/dev/null; then
   alias vi='vim -O'
 fi
 
-# zed : éditeur de code
+# zed: code editor
 if command -v zed &>/dev/null; then
   alias e='zed'
 elif command -v zedit &>/dev/null; then
   alias e='zedit'
 fi
 
-# zoxide : cd amélioré
+# zoxide: enhanced cd
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
 
-# ─── fonctions ───────────────────────────────────────────────────────────
+# ─── functions ───────────────────────────────────────────────────────────
 
-# cleanlog : nettoyer les logs systemd
+# cleanlog: clean up systemd logs (cleanlog <days>)
 cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 
-# cpsave : copier un fichier ou dossier avec suffixe .old
+# cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
-# md5 : MD5 d'une chaîne
+# md5: MD5 hash of a string
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
-# tarc : créer une archive tar.gz
+# tarc: create a tar.gz archive
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresser une archive tar
+# tarx: extract a tar archive
 tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
-# diskbench : tester la vitesse d'écriture disque
+# diskbench: test disk write speed
 diskbench() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
   rm testfile
 }
 
-# webi : gestionnaire de paquets
+# webi: package manager
 webinstall() {
   curl -sS https://webi.sh/webi | sh
   source "$HOME/.config/envman/PATH.env"
 }
 
-# zipd : créer une archive zip par dossier/fichier donné
+# zipd: create one zip archive per given file/directory
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
-# Transforme les scripts en alias
+# Turn scripts into aliases
 scripts=~/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in "$scripts"/*; do
