@@ -3,11 +3,11 @@
 # shellcheck disable=all
 
 # options
-setopt AUTO_CD            # Naviguer sans 'cd'
-setopt HIST_IGNORE_DUPS   # Ignore les doublons dans l'historique
-setopt HIST_FIND_NO_DUPS  # Ignore les doublons lors de la recherche
-setopt HIST_IGNORE_SPACE  # Ignore les commandes précédées d'un espace
-setopt SHARE_HISTORY      # Partage l'historique entre les sessions
+setopt AUTO_CD            # Navigate without 'cd'
+setopt HIST_IGNORE_DUPS   # Ignore duplicates in history
+setopt HIST_FIND_NO_DUPS  # Ignore duplicates when searching
+setopt HIST_IGNORE_SPACE  # Ignore commands starting with a space
+setopt SHARE_HISTORY      # Share history between sessions
 
 # history
 HISTSIZE=10000

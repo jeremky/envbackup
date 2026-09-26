@@ -1,75 +1,75 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
-" Compatibilité & syntaxe
-set nocompatible                " Désactive la compatibilité Vi
-syntax on                       " Active la coloration syntaxique
+" Compatibility & syntax
+set nocompatible                " Disable Vi compatibility
+syntax on                       " Enable syntax highlighting
 
-" Indentation & tabulations
-set smartindent                 " Indentation intelligente
-set autoindent                  " Conserve l'indentation sur une nouvelle ligne
-set smarttab                    " Gestion des espaces en début de ligne
-set tabstop=2                   " La largeur d'une tabulation est définie sur 2
-set shiftwidth=2                " Les retraits auront une largeur de 2
-set softtabstop=2               " Nombre de colonnes pour une tabulation
-set expandtab                   " Remplace les tab par des espaces
-set linebreak                   " Revient à la ligne sans couper les mots
+" Indentation & tabs
+set smartindent                 " Smart indentation
+set autoindent                  " Keep indentation on a new line
+set smarttab                    " Handle leading whitespace
+set tabstop=2                   " Tab width is set to 2
+set shiftwidth=2                " Indents are 2 wide
+set softtabstop=2               " Number of columns for a tab
+set expandtab                   " Replace tabs with spaces
+set linebreak                   " Wrap lines without breaking words
 
-" Recherche
-set hlsearch                    " Affiche en surbrillance les recherches
-set incsearch                   " Recherche incrémentielle
-set ignorecase                  " Ignorer la casse
-set smartcase                   " Faire un appariement intelligent
+" Search
+set hlsearch                    " Highlight search results
+set incsearch                   " Incremental search
+set ignorecase                  " Ignore case
+set smartcase                   " Smart case matching
 
-" Interface & affichage
-set background=dark             " Optimise l'affiche pour un terminal sombre
-set ruler                       " Affiche la position du curseur
-set showcmd                     " Afficher la commande dans la ligne d'état
-set showmatch                   " Afficher les parenthèses correspondantes
-set wildmenu                    " Menu de complétion pour la ligne de commande
+" Interface & display
+set background=dark             " Optimize display for a dark terminal
+set ruler                       " Show cursor position
+set showcmd                     " Show command in status line
+set showmatch                   " Show matching brackets
+set wildmenu                    " Command-line completion menu
 
-" Fenêtres, buffers & navigation
-set hidden                      " Cacher les tampons lorsqu'ils sont abandonnés
-set scrolloff=8                 " Garde 8 lignes de contexte visibles autour du curseur
-set splitbelow                  " Nouveau split horizontal en dessous
-set splitright                  " Nouveau split vertical à droite
+" Windows, buffers & navigation
+set hidden                      " Hide buffers when abandoned
+set scrolloff=8                 " Keep 8 lines of context around the cursor
+set splitbelow                  " Open horizontal splits below
+set splitright                  " Open vertical splits to the right
 
-" Comportement divers
-set mouse=                      " Désactive la souris par défaut
-set nobackup                    " Désactive les sauvegardes automatiques
+" Miscellaneous behavior
+set mouse=                      " Disable mouse by default
+set nobackup                    " Disable automatic backups
 
-" Correction orthographique
+" Spell checking
 set spelllang=en,fr
 
-" Permet l'indentation automatique : gg=G
+" Enable automatic indentation: gg=G
 filetype plugin indent on
 
-" Definition des caractères invisibles
+" Invisible characters definition
 let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 
-" Changement automatique du curseur en fonction du mode
+" Change cursor shape based on mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
 
-" Menu de complétion en popup vertical
+" Vertical popup completion menu
 if has('patch-8.2.4325') | set wildoptions=pum | endif
 
-" ─── fonctions ───────────────────────────────────────────────────────────
+" ─── functions ───────────────────────────────────────────────────────────
 
-" Ajout des numéros de ligne et gestion de la souris
+" Toggle line numbers and mouse
 function! ModeIDE()
   if get(g:, 'modeIDE_enabled', 0)
     let g:modeIDE_enabled = 0
     windo set nonumber mouse=
-    echo "Mode IDE désactivé"
+    echo "IDE mode disabled"
   else
     let g:modeIDE_enabled = 1
     windo set number mouse=a
-    echo "Mode IDE activé"
+    echo "IDE mode enabled"
   endif
 endfunction
 
-" Réindentation sans déplacement du curseur
+" Reindent without moving the cursor
 function! ReindentFile()
   let l:view = winsaveview()
   normal! gg=G
@@ -78,55 +78,55 @@ endfunction
 
 " ─── mapping ─────────────────────────────────────────────────────────────
 
-" Corrrecteur orthographique
+" Spell checker
 nnoremap <F1> <Cmd>set spell!<CR>
 
-" Mode IDE
+" IDE mode
 nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
-" Affichage des caractères invisibles
+" Show invisible characters
 nnoremap <F3> <Cmd>set list!<CR>
 
-" Commentaire
+" Comment
 nmap <F4> <Plug>CommentaryLine
 xmap <F4> <Plug>Commentary
 
-" Indentation automatique
+" Automatic indentation
 nnoremap <F5> <Cmd>call ReindentFile()<CR>
 
-" Ménage des plugins
+" Clean plugins
 nnoremap <F7> <Cmd>PlugClean<CR>
 
-" MAJ des plugins
+" Update plugins
 nnoremap <F8> <Cmd>PlugUpdate<CR>
 
-" Changement de document
+" Switch document
 nnoremap <S-TAB> <C-w>w
 
-" Désactivation de la surbrillance de la recherche
+" Clear search highlighting
 nnoremap <silent> <CR> <Cmd>nohlsearch<CR><CR>
 
 " ─── plugins ─────────────────────────────────────────────────────────────
 
-" Téléchargement de vim-plug si introuvable
+" Download vim-plug if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" Lance automatiquement PlugInstall
+" Run PlugInstall automatically
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| PlugInstall --sync | source $MYVIMRC
       \| endif
 
-" Liste des plugins
+" Plugin list
 call plug#begin('~/.vim/plugged')
 
 " Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
-" Edition
+" Editing
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/VimCompletesMe'
 Plug 'sheerun/vim-polyglot'
@@ -138,13 +138,13 @@ call plug#end()
 augroup vimrc
   autocmd!
 
-  " Mémoriser la dernière position du curseur
+  " Remember last cursor position
   autocmd BufReadPost *
         \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
         \ |   silent exe "silent! normal g'\"zO"
         \ | endif
 
-  " Désactivation des # au retour chariot
+  " Disable comment continuation on newline
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 augroup END
