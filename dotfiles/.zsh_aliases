@@ -36,7 +36,7 @@ alias rmds='find . -name ".DS_Store" -type f -delete' # Recursively delete .DS_S
 alias rmdot="find . -name '._*' -type f -delete"      # Recursively delete ._ files
 alias top='top -o cpu -U $(whoami)'                   # top filtered to the current user
 alias vi='vim -O'                                     # vim with multiple files side by side
-alias speedtest='networkQuality'                      # Speedtest Apple
+alias speedtest='networkQuality'                      # Apple speed test
 alias locate='mdfind -name'                           # Search via Spotlight
 
 # ─── optional applications ───────────────────────────────────────────────
@@ -71,7 +71,7 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr: terminal emulator
+# herdr: terminal multiplexer
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'

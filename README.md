@@ -4,7 +4,7 @@ Backs up your user's environment configuration files.
 
 ## Usage
 
-1. Get the exact name of your distribution. To do so, run the following command in your terminal:
+1. Get your distribution's ID. To do so, run the following command in your terminal:
 
    ```bash
    grep "^ID=" /etc/os-release | cut -d= -f2 | tr -d '"'
