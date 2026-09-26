@@ -20,44 +20,44 @@ fi
 
 # ─── aliases ─────────────────────────────────────────────────────────────
 
-alias l='ls -lh'                                      # Liste détaillée
-alias la='ls -lhA'                                    # Liste avec les fichiers cachés
-alias lr='ls -lLhR'                                   # Liste en récursif
-alias lra='ls -lhRA'                                  # Liste en récursif avec les fichiers cachés
-alias lrt='ls -lLhrt'                                 # Liste par date
-alias lrta='ls -lLhrtA'                               # Liste par date avec les fichiers cachés
-alias grep='grep -i --color=auto'                     # Grep sans sensibilité à la casse
-alias zgrep='zgrep -i --color=auto'                   # Grep dans les fichiers compressés
-alias psp='ps -eaf | grep -v grep | grep'             # Chercher un process (psp <nom>)
-alias genkey='ssh-keygen -t ed25519 -a 100'           # Générer une clé ed25519
-alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Afficher l'adresse IP publique
-alias df='df -PlH'                                    # df en filtrant les montages inutiles
-alias rmds='find . -name ".DS_Store" -type f -delete' # Supprimer les .DS_Store récursivement
-alias rmdot="find . -name '._*' -type f -delete"      # Supprimer les ._ récursivement
-alias top='top -o cpu -U $(whoami)'                   # top filtré pour le user courant
-alias vi='vim -O'                                     # vim avec ouverture multiple
+alias l='ls -lh'                                      # Detailed list
+alias la='ls -lhA'                                    # List including hidden files
+alias lr='ls -lLhR'                                   # Recursive list
+alias lra='ls -lhRA'                                  # Recursive list including hidden files
+alias lrt='ls -lLhrt'                                 # List by date
+alias lrta='ls -lLhrtA'                               # List by date including hidden files
+alias grep='grep -i --color=auto'                     # Case-insensitive grep
+alias zgrep='zgrep -i --color=auto'                   # Grep in compressed files
+alias psp='ps -eaf | grep -v grep | grep'             # Search for a process (psp <name>)
+alias genkey='ssh-keygen -t ed25519 -a 100'           # Generate an ed25519 key
+alias pubip='curl -s -4 ipecho.net/plain ; echo'      # Show public IP address
+alias df='df -PlH'                                    # df without irrelevant mounts
+alias rmds='find . -name ".DS_Store" -type f -delete' # Recursively delete .DS_Store files
+alias rmdot="find . -name '._*' -type f -delete"      # Recursively delete ._ files
+alias top='top -o cpu -U $(whoami)'                   # top filtered to the current user
+alias vi='vim -O'                                     # vim with multiple files side by side
 alias speedtest='networkQuality'                      # Speedtest Apple
-alias locate='mdfind -name'                           # Recherche via Spotlight
+alias locate='mdfind -name'                           # Search via Spotlight
 
-# ─── applications facultatives ───────────────────────────────────────────
+# ─── optional applications ───────────────────────────────────────────────
 
-# btop / htop : top amélioré
+# btop / htop: enhanced top
 if command -v btop &>/dev/null; then
   alias top='btop'
 elif command -v htop &>/dev/null; then
   alias top='htop'
 fi
 
-# colordiff : diff avec couleur
+# colordiff: diff with color
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
-# duf : affiche les filesystems
+# duf: show filesystems
 command -v duf &>/dev/null && alias df='duf -hide special'
 
-# dust : du amlérioré
+# dust: enhanced du
 command -v dust &>/dev/null && alias du='dust -rb'
 
-# fzf : recherche avancée avec thème Catppuccin Mocha
+# fzf: fuzzy finder with Catppuccin Mocha theme
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
   if command -v fd &>/dev/null; then
@@ -71,60 +71,60 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr : émulateur de terminal
+# herdr: terminal emulator
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'
 fi
 
-# icdiff : diff amélioré
+# icdiff: enhanced diff
 command -v icdiff &>/dev/null && alias diff='icdiff'
 
-# ncdu : équivalent à TreeSize
+# ncdu: TreeSize equivalent
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
-# procs : ps amélioré
+# procs: enhanced ps
 command -v procs &>/dev/null && alias psp='procs'
 
-# rg : plus performant que grep
+# rg: faster than grep
 command -v rg &>/dev/null && alias rg='rg -i'
 
-# zed : éditeur de code
+# zed: code editor
 command -v zed &>/dev/null && alias e='zed'
 
-# zoxide : cd amélioré
+# zoxide: enhanced cd
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
-# ─── fonctions ───────────────────────────────────────────────────────────
+# ─── functions ───────────────────────────────────────────────────────────
 
-# cpsave : copie un fichier ou dossier avec un suffixe .old
+# cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
-# tarc : créer une archive pour chaque fichier/dossier spécifié
+# tarc: create an archive for each given file/directory
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 
-# tarx : décompresser une archive
+# tarx: extract an archive
 tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
-# zipd : créer une archive zip par fichier
+# zipd: create one zip archive per file
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
-# convweb : convertir des fichiers png en webp
+# convweb: convert png files to webp
 convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
-# netinfo : affiche les informations réseau
+# netinfo: show network information
 netinfo() { for service in "Ethernet" "Wi-Fi"; do
   echo "==> $service"
   networksetup -getinfo "$service"
   echo
 done; }
 
-# jback : backup local vers disque externe
+# jback: local backup to an external drive
 jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
-# transforme en alias les scripts
+# Turn scripts into aliases
 scripts=~/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in envbackup ggit; do
