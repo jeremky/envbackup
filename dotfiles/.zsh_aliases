@@ -38,6 +38,8 @@ alias top='top -o cpu -U $(whoami)'                   # top filtered to the curr
 alias vi='vim -O'                                     # vim with multiple files side by side
 alias speedtest='networkQuality'                      # Apple speed test
 alias locate='mdfind -name'                           # Search via Spotlight
+alias hide='chflags hidden'                           # Hide folder in Finder
+alias unhide='chflags nohidden'                       # Unhide folder in Finder
 
 # ─── optional applications ───────────────────────────────────────────────
 
