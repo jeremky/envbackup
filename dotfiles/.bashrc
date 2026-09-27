@@ -8,7 +8,7 @@ esac
 
 # global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # history
@@ -34,14 +34,15 @@ if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
 # solus
 [[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
+
+# envman
+unset ENVMAN_LOAD
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # prompt
 case "$TERM" in
