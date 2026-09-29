@@ -35,7 +35,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # envman
-unset ENVMAN_LOAD
 [[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
 
 # aliases
