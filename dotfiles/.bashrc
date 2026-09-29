@@ -40,6 +40,9 @@ fi
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
+# solus
+[[ -f "/usr/share/defaults/etc/profile.d/50-prompt.sh" ]] && . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
+
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
