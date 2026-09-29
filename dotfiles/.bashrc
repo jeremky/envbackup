@@ -40,6 +40,9 @@ fi
 # solus
 [[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
 
+# steamos
+declare -F __steamos_prompt_command >/dev/null && __steamos_prompt_command() { :; }
+
 # envman
 unset ENVMAN_LOAD
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
