@@ -34,18 +34,12 @@ if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# path
-[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+# envman
+unset ENVMAN_LOAD
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
 
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
-
-# solus
-[[ -f /usr/share/defaults/etc/profile ]] && source /usr/share/defaults/etc/profile
-
-# envman
-unset ENVMAN_LOAD
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # prompt
 case "$TERM" in
