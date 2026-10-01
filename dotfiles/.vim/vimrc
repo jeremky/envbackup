@@ -36,6 +36,7 @@ set splitright                  " Open vertical splits to the right
 " Miscellaneous behavior
 set mouse=                      " Disable mouse by default
 set nobackup                    " Disable automatic backups
+set noswapfile                  " Disable swap files
 
 " Spell checking
 set spelllang=en,fr
@@ -88,8 +89,8 @@ nnoremap <F2> <Cmd>call ModeIDE()<CR>
 nnoremap <F3> <Cmd>set list!<CR>
 
 " Comment
-nmap <F4> <Plug>CommentaryLine
-xmap <F4> <Plug>Commentary
+nmap <F4> gcc
+xmap <F4> gc
 
 " Automatic indentation
 nnoremap <F5> <Cmd>call ReindentFile()<CR>
@@ -127,9 +128,11 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
 
 " Editing
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/VimCompletesMe'
-Plug 'sheerun/vim-polyglot'
+
+" Commentary (built-in comment plugin on Vim 9.1+)
+try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
 
 call plug#end()
 
