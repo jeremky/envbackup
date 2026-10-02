@@ -121,12 +121,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Plugin list
 call plug#begin('~/.vim/plugged')
 
-" Interface
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
-
-" Editing
-Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/VimCompletesMe'
 
 " Comments (built-in comment plugin on Vim 9.1+)
