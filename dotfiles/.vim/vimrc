@@ -37,9 +37,7 @@ set splitright                  " Open vertical splits to the right
 set mouse=                      " Disable mouse by default
 set nobackup                    " Disable automatic backups
 set noswapfile                  " Disable swap files
-
-" Spell checking
-set spelllang=en,fr
+set spelllang=en,fr             " Spell checking
 
 " Enable automatic indentation: gg=G
 filetype plugin indent on
@@ -131,7 +129,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/VimCompletesMe'
 
-" Commentary (built-in comment plugin on Vim 9.1+)
+" Comments (built-in comment plugin on Vim 9.1+)
 try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
 
 call plug#end()
