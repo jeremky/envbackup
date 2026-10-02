@@ -3,9 +3,10 @@
 " Compatibility & syntax
 set nocompatible                " Disable Vi compatibility
 syntax on                       " Enable syntax highlighting
+set ttimeout                    " Time out on key codes
+set ttimeoutlen=50              " Esc has no noticeable delay
 
 " Indentation & tabs
-set smartindent                 " Smart indentation
 set autoindent                  " Keep indentation on a new line
 set smarttab                    " Handle leading whitespace
 set tabstop=2                   " Tab width is set to 2
@@ -13,6 +14,7 @@ set shiftwidth=2                " Indents are 2 wide
 set softtabstop=2               " Number of columns for a tab
 set expandtab                   " Replace tabs with spaces
 set linebreak                   " Wrap lines without breaking words
+set breakindent                 " Wrapped lines keep their indentation
 
 " Search
 set hlsearch                    " Highlight search results
@@ -49,6 +51,7 @@ let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 let &t_SR = "\e[4 q"
+let &t_te .= "\e[0 q"
 
 " Vertical popup completion menu
 if has('patch-8.2.4325') | set wildoptions=pum | endif
@@ -57,15 +60,12 @@ if has('patch-8.2.4325') | set wildoptions=pum | endif
 
 " Toggle line numbers and mouse
 function! ModeIDE()
-  if get(g:, 'modeIDE_enabled', 0)
-    let g:modeIDE_enabled = 0
-    windo set nonumber mouse=
-    echo "IDE mode disabled"
-  else
-    let g:modeIDE_enabled = 1
-    windo set number mouse=a
-    echo "IDE mode enabled"
-  endif
+  let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
+  let &mouse = g:modeIDE_enabled ? 'a' : ''
+  let l:win = win_getid()
+  windo let &l:number = g:modeIDE_enabled
+  call win_gotoid(l:win)
+  echo 'IDE mode ' . (g:modeIDE_enabled ? 'enabled' : 'disabled')
 endfunction
 
 " Reindent without moving the cursor
