@@ -13,7 +13,7 @@ gtk-titlebar = false
 
 # macos
 macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
+macos-titlebar-style = transparent
 
 # window
 window-width = 110
