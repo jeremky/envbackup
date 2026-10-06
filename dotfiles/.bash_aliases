@@ -110,12 +110,6 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr: terminal multiplexer
-if command -v herdr &>/dev/null; then
-  alias hr='herdr'
-  alias hrstop='herdr session stop default'
-fi
-
 # htop: better top
 if command -v htop &>/dev/null; then
   alias top='htop'
