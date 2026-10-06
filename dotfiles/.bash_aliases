@@ -63,11 +63,9 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
-# btop / htop: enhanced top
+# btop: monitoring
 if command -v btop &>/dev/null; then
-  alias top='btop'
-elif command -v htop &>/dev/null; then
-  alias top='htop'
+  alias bt='btop'
 fi
 
 # dnf: rpm package manager
@@ -116,6 +114,11 @@ fi
 if command -v herdr &>/dev/null; then
   alias hr='herdr'
   alias hrstop='herdr session stop default'
+fi
+
+# htop: better top
+if command -v htop &>/dev/null; then
+  alias top='htop'
 fi
 
 # icdiff: enhanced diff
