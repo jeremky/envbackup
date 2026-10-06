@@ -1,7 +1,7 @@
 # ─── .bash_aliases ───────────────────────────────────────────────────────
 
 # ls colors
-hidden=".gitignore .history .old"
+hidden=".gitignore .old"
 for file in $hidden; do
   export LS_COLORS="$LS_COLORS:*$file=00;90"
 done
