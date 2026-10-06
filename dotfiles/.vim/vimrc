@@ -34,8 +34,7 @@ silent! set mouse=              " Mouse off by default
 silent! set nobackup            " No backup files
 silent! set noswapfile          " No swap files
 
-" Basic mappings (plain ":" commands, no <Cmd> needed)
-nnoremap <F3> :set list!<CR>
+" Basic mappings
 nnoremap <S-Tab> <C-w>w
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
@@ -84,11 +83,23 @@ if 1
 
   " ─── mappings ──────────────────────────────────────────────────────────
 
+  " Spell checker
   nnoremap <F1> <Cmd>set spell!<CR>
+
+  " IDE Mode
   nnoremap <F2> <Cmd>call ModeIDE()<CR>
+
+  " Show invisible characters
+  nnoremap <F3> :set list!<CR>
+
+  " Commentary
   nmap <F4> gcc
   xmap <F4> gc
+
+  " Automatic indentation
   nnoremap <F5> <Cmd>call ReindentFile()<CR>
+
+  " Manage plugins
   nnoremap <F7> <Cmd>PlugClean<CR>
   nnoremap <F8> <Cmd>PlugUpdate<CR>
 
@@ -112,7 +123,7 @@ if 1
   Plug 'itchyny/lightline.vim'
   Plug 'vim-scripts/VimCompletesMe'
 
-  " Commenting: built-in plugin on Vim 9.1+, vim-commentary otherwise
+  " Built-in commentary plugin on Vim 9.1+, vim-commentary otherwise
   try
     packadd! comment
   catch
