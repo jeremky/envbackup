@@ -63,11 +63,6 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
-# btop: monitoring
-if command -v btop &>/dev/null; then
-  alias bt='btop'
-fi
-
 # dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
