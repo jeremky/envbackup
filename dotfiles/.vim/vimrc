@@ -1,164 +1,156 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
-" Compatibility & syntax
-set nocompatible                " Disable Vi compatibility
-syntax on                       " Enable syntax highlighting
-set ttimeout                    " Time out on key codes
-set ttimeoutlen=50              " Esc has no noticeable delay
+silent! set nocompatible        " No Vi compatibility
+silent! set ttimeout            " Time out on key codes
+silent! set ttimeoutlen=50      " No noticeable Esc delay
 
 " Indentation & tabs
-set autoindent                  " Keep indentation on a new line
-set smarttab                    " Handle leading whitespace
-set tabstop=2                   " Tab width is set to 2
-set shiftwidth=2                " Indents are 2 wide
-set softtabstop=2               " Number of columns for a tab
-set expandtab                   " Replace tabs with spaces
-set linebreak                   " Wrap lines without breaking words
-set breakindent                 " Wrapped lines keep their indentation
+silent! set autoindent          " Keep indentation on new line
+silent! set smarttab            " Smart leading whitespace
+silent! set tabstop=2           " Tab width
+silent! set shiftwidth=2        " Indent width
+silent! set softtabstop=2       " Columns per Tab keypress
+silent! set expandtab           " Tabs become spaces
 
 " Search
-set hlsearch                    " Highlight search results
-set incsearch                   " Incremental search
-set ignorecase                  " Ignore case
-set smartcase                   " Smart case matching
+silent! set hlsearch            " Highlight matches
+silent! set incsearch           " Search while typing
+silent! set ignorecase          " Ignore case...
+silent! set smartcase           " ...unless an uppercase letter is typed
 
-" Interface & display
-set background=dark             " Optimize display for a dark terminal
-set ruler                       " Show cursor position
-set showcmd                     " Show command in status line
-set showmatch                   " Show matching brackets
-set wildmenu                    " Command-line completion menu
+" Interface
+silent! set ruler               " Show cursor position
+silent! set showcmd             " Show pending command
+silent! set showmatch           " Flash matching bracket
 
-" Windows, buffers & navigation
-set hidden                      " Hide buffers when abandoned
-set scrolloff=8                 " Keep 8 lines of context around the cursor
-set splitbelow                  " Open horizontal splits below
-set splitright                  " Open vertical splits to the right
+" Buffers & navigation
+silent! set hidden              " Allow hidden modified buffers
+silent! set scrolloff=8         " Context lines around cursor
+silent! set splitbelow          " Horizontal splits go below
+silent! set splitright          " Vertical splits go right
 
-" Miscellaneous behavior
-set mouse=                      " Disable mouse by default
-set nobackup                    " Disable automatic backups
-set noswapfile                  " Disable swap files
-set spelllang=en,fr             " Spell checking
+" Misc
+silent! set mouse=              " Mouse off by default
+silent! set nobackup            " No backup files
+silent! set noswapfile          " No swap files
 
-" Enable automatic indentation: gg=G
-filetype plugin indent on
+" Basic mappings (plain ":" commands, no <Cmd> needed)
+nnoremap <F3> :set list!<CR>
+nnoremap <S-Tab> <C-w>w
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
-" Invisible characters definition
-let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
+" ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
+if 1
 
-" Change cursor shape based on mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-let &t_SR = "\e[4 q"
-let &t_te .= "\e[0 q"
+  " Syntax & filetypes
+  syntax on
+  filetype plugin indent on
 
-" Vertical popup completion menu
-if has('patch-8.2.4325') | set wildoptions=pum | endif
+  " Display
+  silent! set linebreak         " Wrap at word boundaries
+  silent! set breakindent       " Wrapped lines keep indentation
+  silent! set background=dark   " Dark terminal
+  silent! set wildmenu          " Command-line completion menu
+  silent! set wildoptions=pum   " Vertical completion popup (Vim 8.2.4325+)
+  silent! set spelllang=en,fr   " Spell checking languages
 
-" ─── functions ───────────────────────────────────────────────────────────
+  " Invisible characters (shown with F3)
+  let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
 
-" Toggle line numbers and mouse
-function! ModeIDE()
-  let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
-  let &mouse = g:modeIDE_enabled ? 'a' : ''
-  let l:win = win_getid()
-  windo let &l:number = g:modeIDE_enabled
-  call win_gotoid(l:win)
-  echo 'IDE mode ' . (g:modeIDE_enabled ? 'enabled' : 'disabled')
-endfunction
+  " Cursor shape per mode (insert, normal, replace)
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+  let &t_SR = "\e[4 q"
+  let &t_te .= "\e[0 q"
 
-" Reindent without moving the cursor
-function! ReindentFile()
-  let l:view = winsaveview()
-  normal! gg=G
-  call winrestview(l:view)
-endfunction
+  " ─── functions ─────────────────────────────────────────────────────────
 
-" ─── mapping ─────────────────────────────────────────────────────────────
+  " Toggle line numbers and mouse in all windows
+  function! ModeIDE()
+    let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
+    let &mouse = g:modeIDE_enabled ? 'a' : ''
+    let l:win = win_getid()
+    windo let &l:number = g:modeIDE_enabled
+    call win_gotoid(l:win)
+    echo 'IDE mode ' . (g:modeIDE_enabled ? 'enabled' : 'disabled')
+  endfunction
 
-" Spell checker
-nnoremap <F1> <Cmd>set spell!<CR>
+  " Reindent the whole file, keep cursor position
+  function! ReindentFile()
+    let l:view = winsaveview()
+    normal! gg=G
+    call winrestview(l:view)
+  endfunction
 
-" IDE mode
-nnoremap <F2> <Cmd>call ModeIDE()<CR>
+  " ─── mappings ──────────────────────────────────────────────────────────
 
-" Show invisible characters
-nnoremap <F3> <Cmd>set list!<CR>
+  nnoremap <F1> <Cmd>set spell!<CR>
+  nnoremap <F2> <Cmd>call ModeIDE()<CR>
+  nmap <F4> gcc
+  xmap <F4> gc
+  nnoremap <F5> <Cmd>call ReindentFile()<CR>
+  nnoremap <F7> <Cmd>PlugClean<CR>
+  nnoremap <F8> <Cmd>PlugUpdate<CR>
 
-" Comment
-nmap <F4> gcc
-xmap <F4> gc
+  " ─── plugins (vim-plug) ────────────────────────────────────────────────
 
-" Automatic indentation
-nnoremap <F5> <Cmd>call ReindentFile()<CR>
+  " Download vim-plug if missing
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
 
-" Clean plugins
-nnoremap <F7> <Cmd>PlugClean<CR>
+  " Install missing plugins at startup, then reload
+  autocmd VimEnter *
+        \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+        \|  PlugInstall --sync | source $MYVIMRC
+        \| endif
 
-" Update plugins
-nnoremap <F8> <Cmd>PlugUpdate<CR>
+  call plug#begin('~/.vim/plugged')
 
-" Switch document
-nnoremap <S-TAB> <C-w>w
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plug 'itchyny/lightline.vim'
+  Plug 'vim-scripts/VimCompletesMe'
 
-" Clear search highlighting
-nnoremap <silent> <CR> <Cmd>nohlsearch<CR><CR>
+  " Commenting: built-in plugin on Vim 9.1+, vim-commentary otherwise
+  try
+    packadd! comment
+  catch
+    Plug 'tpope/vim-commentary'
+  endtry
 
-" ─── plugins ─────────────────────────────────────────────────────────────
+  call plug#end()
 
-" Download vim-plug if missing
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
+  " ─── autocmds ──────────────────────────────────────────────────────────
 
-" Run PlugInstall automatically
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | source $MYVIMRC
-      \| endif
+  augroup vimrc
+    autocmd!
 
-" Plugin list
-call plug#begin('~/.vim/plugged')
+    " Restore last cursor position
+    autocmd BufReadPost *
+          \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
+          \ |   silent exe "silent! normal g'\"zO"
+          \ | endif
 
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'itchyny/lightline.vim'
-Plug 'vim-scripts/VimCompletesMe'
+    " No automatic comment continuation on new lines
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  augroup END
 
-" Comments (built-in comment plugin on Vim 9.1+)
-try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
+  " ─── plugin settings (only once plugins are installed) ─────────────────
 
-call plug#end()
+  if isdirectory(expand("~/.vim/plugged"))
 
-" ─── autocmds ────────────────────────────────────────────────────────────
+    " Theme
+    silent! colorscheme catppuccin_mocha
+    set cursorline
+    set termguicolors
 
-augroup vimrc
-  autocmd!
+    " Statusline (put your Nerd Font separator glyphs back if you use them)
+    let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+    let g:lightline.separator = { 'left': '', 'right': '' }
+    set laststatus=2
+    set noshowmode
 
-  " Remember last cursor position
-  autocmd BufReadPost *
-        \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
-        \ |   silent exe "silent! normal g'\"zO"
-        \ | endif
-
-  " Disable comment continuation on newline
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-augroup END
-
-" ─── plugins config ──────────────────────────────────────────────────────
-
-if isdirectory(expand("~/.vim/plugged"))
-
-  " Catppuccin
-  silent! colorscheme catppuccin_mocha
-  set cursorline
-  set termguicolors
-
-  " LightLine
-  let g:lightline = {'colorscheme': 'catppuccin_mocha'}
-  let g:lightline.separator = { 'left': '', 'right': '' }
-  set laststatus=2
-  set noshowmode
+  endif
 
 endif
