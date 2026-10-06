@@ -5,7 +5,7 @@ default-yank-register = "+"
 cursorline = true
 true-color = true
 color-modes = true
-scrolloff = 8
+scrolloff = 4
 bufferline = "multiple"
 idle-timeout = 400
 
