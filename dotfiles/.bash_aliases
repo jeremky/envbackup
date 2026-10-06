@@ -156,6 +156,11 @@ if command -v vim &>/dev/null; then
   alias vi='vim -O'
 fi
 
+# vim.tiny
+if command -v vim.tiny &>/dev/null; then
+  alias v='vim.tiny -O'
+fi
+
 # zed: code editor
 if command -v zed &>/dev/null; then
   alias e='zed'
