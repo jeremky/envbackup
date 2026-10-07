@@ -124,11 +124,7 @@ if 1
   Plug 'vim-scripts/VimCompletesMe'
 
   " Built-in commentary plugin on Vim 9.1+, vim-commentary otherwise
-  try
-    packadd! comment
-  catch
-    Plug 'tpope/vim-commentary'
-  endtry
+  try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
 
   call plug#end()
 
