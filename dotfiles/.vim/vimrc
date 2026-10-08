@@ -1,12 +1,10 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
-silent! set nocompatible        " No Vi compatibility
 silent! set ttimeout            " Time out on key codes
 silent! set ttimeoutlen=50      " No noticeable Esc delay
 
 " Indentation & tabs
 silent! set autoindent          " Keep indentation on new line
-silent! set smarttab            " Smart leading whitespace
 silent! set tabstop=2           " Tab width
 silent! set shiftwidth=2        " Indent width
 silent! set softtabstop=2       " Columns per Tab keypress
@@ -66,12 +64,12 @@ if 1
 
   " Toggle line numbers and mouse in all windows
   function! ModeIDE()
-    let g:modeIDE_enabled = !get(g:, 'modeIDE_enabled', 0)
-    let &mouse = g:modeIDE_enabled ? 'a' : ''
-    let l:win = win_getid()
-    windo let &l:number = g:modeIDE_enabled
-    call win_gotoid(l:win)
-    echo 'IDE mode ' . (g:modeIDE_enabled ? 'enabled' : 'disabled')
+    let l:on = empty(&mouse)
+    let &mouse = l:on ? 'a' : ''
+    for l:w in range(1, winnr('$'))
+      call setwinvar(l:w, '&number', l:on)
+    endfor
+    echo 'IDE mode ' . (l:on ? 'enabled' : 'disabled')
   endfunction
 
   " Reindent the whole file, keep cursor position
@@ -90,7 +88,7 @@ if 1
   nnoremap <F2> <Cmd>call ModeIDE()<CR>
 
   " Show invisible characters
-  nnoremap <F3> :set list!<CR>
+  nnoremap <F3> <Cmd>set list!<CR>
 
   " Commentary
   nmap <F4> gcc
@@ -111,12 +109,6 @@ if 1
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   endif
 
-  " Install missing plugins at startup, then reload
-  autocmd VimEnter *
-        \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-        \|  PlugInstall --sync | source $MYVIMRC
-        \| endif
-
   call plug#begin('~/.vim/plugged')
 
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
@@ -136,10 +128,16 @@ if 1
     " Restore last cursor position
     autocmd BufReadPost *
           \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
-          \ |   silent exe "silent! normal g'\"zO"
+          \ |   exe "silent! normal! g'\"zO"
           \ | endif
 
-    " No automatic comment continuation on new lines
+    " Install missing plugins at startup, then reload
+    autocmd VimEnter *
+          \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+          \|  PlugInstall --sync | source $MYVIMRC
+          \| endif
+
+    " No comment continuation on new lines (r, o) or auto-wrapping of comments (c)
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   augroup END
 
