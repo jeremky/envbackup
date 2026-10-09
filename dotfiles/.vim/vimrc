@@ -1,8 +1,5 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
-silent! set ttimeout            " Time out on key codes
-silent! set ttimeoutlen=50      " No noticeable Esc delay
-
 " Indentation & tabs
 silent! set autoindent          " Keep indentation on new line
 silent! set tabstop=2           " Tab width
@@ -28,6 +25,8 @@ silent! set splitbelow          " Horizontal splits go below
 silent! set splitright          " Vertical splits go right
 
 " Misc
+silent! set ttimeout            " Time out on key codes
+silent! set ttimeoutlen=50      " No noticeable Esc delay
 silent! set mouse=              " Mouse off by default
 silent! set nobackup            " No backup files
 silent! set noswapfile          " No swap files
@@ -58,7 +57,10 @@ if 1
   let &t_SI = "\e[6 q"
   let &t_EI = "\e[2 q"
   let &t_SR = "\e[4 q"
-  let &t_te .= "\e[0 q"
+
+  " Block cursor at startup, reset on exit
+  if stridx(&t_ti, "\e[2 q") < 0 | let &t_ti .= "\e[2 q" | endif
+  if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
 
   " ─── functions ─────────────────────────────────────────────────────────
 
@@ -66,8 +68,9 @@ if 1
   function! ModeIDE()
     let l:on = empty(&mouse)
     let &mouse = l:on ? 'a' : ''
-    for l:w in range(1, winnr('$'))
-      call setwinvar(l:w, '&number', l:on)
+    let &g:number = l:on
+    for l:w in getwininfo()
+      call setwinvar(l:w.winid, '&number', l:on)
     endfor
     echo 'IDE mode ' . (l:on ? 'enabled' : 'disabled')
   endfunction
@@ -75,7 +78,7 @@ if 1
   " Reindent the whole file, keep cursor position
   function! ReindentFile()
     let l:view = winsaveview()
-    normal! gg=G
+    keepjumps normal! gg=G
     call winrestview(l:view)
   endfunction
 
@@ -127,7 +130,7 @@ if 1
 
     " Restore last cursor position
     autocmd BufReadPost *
-          \ if (line("'\"") > 1) && (line("'\"") <= line("$"))
+          \ if &ft !~# 'commit' && (line("'\"") > 1) && (line("'\"") <= line("$"))
           \ |   exe "silent! normal! g'\"zO"
           \ | endif
 
@@ -146,9 +149,9 @@ if 1
   if isdirectory(expand("~/.vim/plugged"))
 
     " Theme
-    silent! colorscheme catppuccin_mocha
     set cursorline
     set termguicolors
+    silent! colorscheme catppuccin_mocha
 
     " Statusline
     let g:lightline = {'colorscheme': 'catppuccin_mocha'}
