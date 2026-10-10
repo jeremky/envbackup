@@ -1,0 +1,33 @@
+# ─── herdr ───────────────────────────────────────────────────────────────
+
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+[update]
+version_check = false
+
+[ui]
+mouse_capture = true
+copy_on_select = true
+prompt_new_tab_name = false
+hide_tab_bar_when_single_tab = true
+pane_scrollbars = false
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = true
+
+[keys]
+prefix = "ctrl+space"
+previous_tab = "ctrl+w"
+next_tab = "ctrl+x"
+previous_workspace = "ctrl+q"
+next_workspace = "ctrl+s"
+new_workspace = "ctrl+shift+space"
+
+[session]
+resume_agents_on_restore = true
