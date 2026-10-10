@@ -4,6 +4,16 @@ formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-"] }
 auto-format = true
 
 [[language]]
+name = "docker-compose"
+formatter = { command = "deno", args = ["fmt", "--ext", "yaml", "-"] }
+auto-format = true
+
+[[language]]
 name = "markdown"
 formatter = { command = "deno", args = ["fmt", "--ext", "md", "-"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "deno", args = ["fmt", "--ext", "yaml", "-"] }
 auto-format = true
