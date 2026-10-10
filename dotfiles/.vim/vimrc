@@ -154,7 +154,7 @@ if 1
     " Theme
     set cursorline
     set termguicolors
-    silent! colorscheme catppuccin_mocha
+    colorscheme catppuccin_mocha
 
     " Statusline
     let g:lightline = {'colorscheme': 'catppuccin_mocha'}
