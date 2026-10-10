@@ -1,5 +1,8 @@
 " ─── vimrc ───────────────────────────────────────────────────────────────
 
+" Started as 'vi', the system vimrc forces 'compatible'
+if &compatible | set nocompatible | endif
+
 " Indentation & tabs
 silent! set autoindent          " Keep indentation on new line
 silent! set tabstop=2           " Tab width
