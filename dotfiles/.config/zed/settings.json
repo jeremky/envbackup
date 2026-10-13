@@ -20,9 +20,11 @@
   "agent": {
     "default_profile": "ask",
     "enable_feedback": false,
-    "sidebar_side": "right",
     "enabled": true,
     "dock": "right",
+    "threads_sidebar": {
+      "position": "right",
+    },
 
     "default_model": {
       "effort": "high",
@@ -114,7 +116,7 @@
   // ─── Code ─────────────────────────────────────────────────────────────
 
   "file_types": {
-    "env": ["cfg","conf","cron"],
+    "env": ["cfg", "conf", "cron"],
     "Shell Script": ["comp"],
   },
 
