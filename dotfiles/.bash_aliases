@@ -99,7 +99,7 @@ elif command -v fd &>/dev/null; then
   export FZF_DEFAULT_COMMAND='fd -HI'
 fi
 
-# fzf: fuzzy finder with Catppuccin Mocha theme
+# fzf: fuzzy finder
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS="--no-color"
