@@ -37,6 +37,7 @@ mouse-hide-while-typing = true
 # clipboard
 copy-on-select = clipboard
 right-click-action = paste
+app-notifications = no-clipboard-copy
 
 # quick terminal
 quick-terminal-position = center
