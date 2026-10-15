@@ -63,6 +63,11 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
+# colordiff : diff with color
+if command -v colordiff &>/dev/null; then
+  alias diff='colordiff'
+fi
+
 # dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -105,22 +110,9 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
-# herdr: terminal multiplexer
-if command -v herdr &>/dev/null; then
-  alias hr='herdr'
-  alias hrstop='herdr session stop default'
-fi
-
 # htop: better top
 if command -v htop &>/dev/null; then
   alias top='htop'
-fi
-
-# icdiff: enhanced diff
-if command -v icdiff &>/dev/null; then
-  alias diff='icdiff -N'
-elif command -v colordiff &>/dev/null; then
-  alias diff='colordiff'
 fi
 
 # ncdu: TreeSize equivalent
@@ -160,9 +152,7 @@ if command -v vim.tiny &>/dev/null; then
 fi
 
 # zed: code editor
-if command -v zed &>/dev/null; then
-  alias e='zed'
-elif command -v zedit &>/dev/null; then
+if command -v zedit &>/dev/null; then
   alias e='zedit'
 fi
 
