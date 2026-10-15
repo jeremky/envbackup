@@ -63,6 +63,11 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
+# colordiff: diff with color 
+if command -v colordiff &>/dev/null; then
+  alias diff='colordiff'
+fi
+
 # dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -114,13 +119,6 @@ fi
 # htop: better top
 if command -v htop &>/dev/null; then
   alias top='htop'
-fi
-
-# icdiff: enhanced diff
-if command -v icdiff &>/dev/null; then
-  alias diff='icdiff -N'
-elif command -v colordiff &>/dev/null; then
-  alias diff='colordiff'
 fi
 
 # ncdu: TreeSize equivalent
@@ -202,6 +200,9 @@ webinstall() {
 
 # zipd: create one zip archive per given file/directory
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+
+# convweb: convert png files to webp
+convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
