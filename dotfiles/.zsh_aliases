@@ -106,6 +106,3 @@ netinfo() { for service in "Ethernet" "Wi-Fi"; do
   networksetup -getinfo "$service"
   echo
 done; }
-
-# jback: local backup to an external drive
-jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
