@@ -12,7 +12,7 @@ gtk-titlebar = false
 
 # macos
 macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
+macos-titlebar-style = transparent
 
 # window
 window-width = 160
@@ -23,7 +23,7 @@ window-padding-y = 15
 # appearance
 theme = Catppuccin Mocha
 unfocused-split-opacity = 1
-adjust-cell-height = 20%
+adjust-cell-height = 15%
 
 # font
 font-family = JetBrains Mono NL
