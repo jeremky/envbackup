@@ -106,3 +106,15 @@ netinfo() { for service in "Ethernet" "Wi-Fi"; do
   networksetup -getinfo "$service"
   echo
 done; }
+
+# ─── scripts ─────────────────────────────────────────────────────────────
+
+# Turn scripts into aliases
+scripts=~/Applications/scripts
+if [[ -d $scripts ]]; then
+  for i in "$scripts"/*; do
+    scr=${i##*/}
+    # shellcheck disable=SC2139,SC2086
+    [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
+  done
+fi
