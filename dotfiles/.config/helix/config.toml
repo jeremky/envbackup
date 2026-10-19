@@ -13,8 +13,8 @@ bufferline = "multiple"
 idle-timeout = 400
 
 [editor.auto-save]
-focus-lost = true
-after-delay.enable = false
+after-delay.enable = true
+after-delay.timeout = 5000
 
 [editor.cursor-shape]
 insert = "bar"
