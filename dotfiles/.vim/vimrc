@@ -150,12 +150,15 @@ if 1
     " No comment continuation on new lines (r, o) or auto-wrapping of comments (c)
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+    " syntax color for .lpl files
+    autocmd BufRead,BufNewFile *.lpl setfiletype json
+
   augroup END
 
   " ─── plugin settings (only once plugins are installed) ─────────────────
 
   if isdirectory(expand("~/.vim/plugged"))
-
+    
     " Theme
     set cursorline
     set termguicolors
@@ -166,9 +169,6 @@ if 1
     let g:lightline.separator = { 'left': '', 'right': '' }
     set laststatus=2
     set noshowmode
-
-    " Auto-pairs
-    let g:AutoPairs = {'(':')', '[':']', '{':'}', '`':'`', '```':'```'}
 
   endif
 
