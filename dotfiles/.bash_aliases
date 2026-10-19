@@ -68,6 +68,11 @@ if command -v colordiff &>/dev/null; then
   alias diff='colordiff'
 fi
 
+# curlie : better curl
+if command -v curlie &>/dev/null; then
+  alias curl='curlie'
+fi
+
 # dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -173,6 +178,12 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 # tarx: extract a tar archive
 tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
+# gz / gu: create / extract a tar.gz archive with pigz (parallel gzip)
+if command -v pigz &>/dev/null; then
+  gz() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
+  gu() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+fi
+
 # diskbench: test disk write speed
 diskbench() {
   dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
@@ -186,10 +197,14 @@ webinstall() {
 }
 
 # zipd: create one zip archive per given file/directory
-zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+if [[ -x /usr/bin/zip ]]; then
+  zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
+fi
 
 # convweb: convert png files to webp
-convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
+if command -v cwebp &>/dev/null; then
+  convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
+fi
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
