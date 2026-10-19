@@ -178,7 +178,7 @@ tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 # tarx: extract a tar archive
 tarx() { for file in "$@"; do tar xvf "$file"; done; }
 
-# gz / gu: create / extract a tar.gz archive with pigz (parallel gzip)
+# pigz: parallel gzip
 if command -v pigz &>/dev/null; then
   gz() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
   gu() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
