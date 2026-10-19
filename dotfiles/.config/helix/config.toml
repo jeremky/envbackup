@@ -1,6 +1,7 @@
 theme = "catppuccin_mocha"
 
 [editor]
+continue-comments = false
 default-yank-register = "+"
 cursorline = true
 true-color = true
