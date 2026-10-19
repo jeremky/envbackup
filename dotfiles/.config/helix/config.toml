@@ -39,7 +39,6 @@ enable = true
 "G" = "goto_last_line"
 "$" = "goto_line_end"
 "0" = "goto_line_start"
-
 "F2" = ":toggle mouse"
 "F4" = "toggle_comments"
 "F5" = ":format"
