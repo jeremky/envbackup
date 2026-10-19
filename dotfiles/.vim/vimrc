@@ -145,6 +145,7 @@ if 1
 
     " No comment continuation on new lines (r, o) or auto-wrapping of comments (c)
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
   augroup END
 
   " ─── plugin settings (only once plugins are installed) ─────────────────
