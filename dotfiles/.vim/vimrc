@@ -116,9 +116,12 @@ if 1
   endif
 
   call plug#begin('~/.vim/plugged')
-
+  
+  " Interface
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
+
+  " Editor
   Plug 'jiangmiao/auto-pairs'
   Plug 'vim-scripts/VimCompletesMe'
 
