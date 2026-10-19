@@ -119,6 +119,7 @@ if 1
 
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'vim-scripts/VimCompletesMe'
 
   " Built-in commentary plugin on Vim 9.1+, vim-commentary otherwise
@@ -162,6 +163,9 @@ if 1
     let g:lightline.separator = { 'left': '', 'right': '' }
     set laststatus=2
     set noshowmode
+
+    " Auto-pairs
+    let g:AutoPairs = {'(':')', '[':']', '{':'}', '`':'`', '```':'```'}
 
   endif
 
