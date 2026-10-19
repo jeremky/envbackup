@@ -107,9 +107,10 @@
     },
   },
 
+  "helix_mode": false,
   "vim_mode": false,
   "vim": {
-    "use_system_clipboard": "never",
+    "use_system_clipboard": "on_yank",
     "use_smartcase_find": true,
   },
 
@@ -117,6 +118,7 @@
 
   "file_types": {
     "env": ["cfg", "conf", "cron"],
+    "JSON": ["lpl"],
     "Shell Script": ["comp"],
   },
 
