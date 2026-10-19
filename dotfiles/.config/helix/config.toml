@@ -12,6 +12,10 @@ scrolloff = 4
 bufferline = "multiple"
 idle-timeout = 400
 
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = false
+
 [editor.cursor-shape]
 insert = "bar"
 select = "underline"
