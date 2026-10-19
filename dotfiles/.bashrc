@@ -43,6 +43,9 @@ fi
 # solus
 [[ -f "/usr/share/defaults/etc/profile.d/50-prompt.sh" ]] && . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
 
+# steamos
+__steamos_prompt_command() { return; }
+
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
