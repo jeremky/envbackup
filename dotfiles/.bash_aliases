@@ -172,16 +172,13 @@ cpsave() { cp -Rp "$1" "${1%/}.old"; }
 # md5: MD5 hash of a string
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
-# tarc: create a tar.gz archive
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-
-# tarx: extract a tar archive
-tarx() { for file in "$@"; do tar xvf "$file"; done; }
-
-# pigz: parallel gzip
+# tarc/tarx: create/extract tar.gz archives (pigz if available)
 if command -v pigz &>/dev/null; then
-  gz() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
-  gu() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+else
+  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 fi
 
 # diskbench: test disk write speed
