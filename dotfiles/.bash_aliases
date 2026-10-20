@@ -174,11 +174,11 @@ md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
 # tarc/tarx: create/extract tar.gz archives (pigz if available)
 if command -v pigz &>/dev/null; then
-  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
-  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+  tarc() { for file in "$@"; do tar -I pigz -cf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar -I pigz -xf "$file"; done; }
 else
-  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+  tarc() { for file in "$@"; do tar czf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar xzf "$file"; done; }
 fi
 
 # diskbench: test disk write speed
