@@ -65,7 +65,7 @@ if 1
   if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
 
   " Automatic nohlsearch disable
-  try | packadd! nohlsearch | endtry
+  try | packadd! nohlsearch | catch | endtry
 
   " ─── functions ─────────────────────────────────────────────────────────
 
