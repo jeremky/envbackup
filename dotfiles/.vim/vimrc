@@ -36,7 +36,6 @@ silent! set noswapfile          " No swap files
 
 " Basic mappings
 nnoremap <S-Tab> <C-w>w
-nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 " ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
 if 1
@@ -65,9 +64,12 @@ if 1
   if stridx(&t_ti, "\e[2 q") < 0 | let &t_ti .= "\e[2 q" | endif
   if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
 
+  " Automatic nohlsearch disable
+  try | packadd! nohlsearch | endtry
+
   " ─── functions ─────────────────────────────────────────────────────────
 
-  " Toggle line numbers and mouse in all windows
+  " Toggle line numbers and mouse
   function! ModeIDE()
     let l:on = empty(&mouse)
     let &mouse = l:on ? 'a' : ''
@@ -116,7 +118,7 @@ if 1
   endif
 
   call plug#begin('~/.vim/plugged')
-  
+
   " Interface
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
@@ -158,11 +160,11 @@ if 1
   " ─── plugin settings (only once plugins are installed) ─────────────────
 
   if isdirectory(expand("~/.vim/plugged"))
-    
+
     " Theme
     set cursorline
     set termguicolors
-    colorscheme catppuccin_mocha
+    silent! colorscheme catppuccin_mocha
 
     " Statusline
     let g:lightline = {'colorscheme': 'catppuccin_mocha'}
