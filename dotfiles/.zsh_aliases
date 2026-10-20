@@ -88,11 +88,14 @@ command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 # cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
-# tarc: create an archive for each given file/directory
-tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-
-# tarx: extract an archive
-tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+# tarc/tarx: create/extract tar.gz archives (pigz if available)
+if command -v pigz &>/dev/null; then
+  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
+else
+  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
+fi
 
 # zipd: create one zip archive per file
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
