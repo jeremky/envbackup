@@ -41,12 +41,14 @@ app-notifications = no-clipboard-copy
 
 # ─── keybinds ────────────────────────────────────────────────────────────
 
-# split
+# split pane
 keybind = ctrl+shift+D=new_split
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+down=goto_split:bottom
 keybind = ctrl+shift+up=goto_split:top
 keybind = ctrl+shift+right=goto_split:right
+
+# resize pane
 keybind = alt+shift+left=resize_split:left,20
 keybind = alt+shift+down=resize_split:down,20
 keybind = alt+shift+up=resize_split:up,20
