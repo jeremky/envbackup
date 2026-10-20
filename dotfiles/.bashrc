@@ -40,7 +40,7 @@ fi
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
-case "$(hostname)" in
+case "$(cat /etc/hostname)" in
   jpi)
     PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
     ;;
