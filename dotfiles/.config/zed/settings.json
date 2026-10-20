@@ -107,7 +107,7 @@
     },
   },
 
-  "helix_mode": false,
+  "helix_mode": true,
   "vim_mode": false,
   "vim": {
     "use_system_clipboard": "on_yank",
