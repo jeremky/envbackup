@@ -1,3 +1,5 @@
+# ─── Helix Languages ─────────────────────────────────────────────────────
+
 [[language]]
 name = "bash"
 formatter = { command = "shfmt", args = ["-i", "2", "-ci", "-"] }
