@@ -187,6 +187,9 @@ diskbench() {
   rm testfile
 }
 
+# gencert: get let'encrypt certificate
+gencert() { sudo certbot --nginx -d "$1"; }
+
 # webi: package manager
 webinstall() {
   curl -sS https://webi.sh/webi | sh
