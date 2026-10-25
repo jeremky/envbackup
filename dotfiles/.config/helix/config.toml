@@ -35,10 +35,11 @@ enable = true
 
 [keys.normal]
 "del" = "delete_char_forward"
-"D" = ["select_mode", "goto_line_end", "delete_selection"]
-"G" = "goto_last_line"
-"$" = "goto_line_end"
-"0" = "goto_line_start"
-"F2" = ":toggle mouse"
-"F4" = "toggle_comments"
-"F5" = ":format"
+"d"   = "delete_selection_noyank"
+"D"   = ["select_mode", "goto_line_end", "delete_selection"]
+"G"   = "goto_last_line"
+"$"   = "goto_line_end"
+"0"   = "goto_line_start"
+"F2"  = ":toggle mouse"
+"F4"  = "toggle_comments"
+"F5"  = ":format"
