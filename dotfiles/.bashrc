@@ -48,7 +48,7 @@ case "$(cat /etc/hostname)" in
     . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
     ;;
   jsteam)
-    __steamos_prompt_command() { return; }
+    __holo_prompt_command() { return; }
     PS1='\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
     ;;
 esac
