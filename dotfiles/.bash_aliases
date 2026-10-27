@@ -120,11 +120,6 @@ if command -v ncdu &>/dev/null; then
   alias ncdu='ncdu --color dark'
 fi
 
-# procs: enhanced ps
-if command -v procs &>/dev/null; then
-  alias psp='procs'
-fi
-
 # rg: faster than grep
 if command -v rg &>/dev/null; then
   alias rg='rg -i --no-ignore'

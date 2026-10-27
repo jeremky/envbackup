@@ -1,6 +1,6 @@
 [user]
   name = JeremKy
-  email = jeremky@noreply.codeberg.org
+  email = jeremky@noreply.codeberg.org 
 
 [init]
   defaultBranch = main
