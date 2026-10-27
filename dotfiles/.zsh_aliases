@@ -108,10 +108,13 @@ netinfo() { for service in "Ethernet" "Wi-Fi"; do
   echo
 done; }
 
+# jback: local backup to an external drive
+jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
+
 # ─── scripts ─────────────────────────────────────────────────────────────
 
 # Turn scripts into aliases
-scripts=~/Applications/scripts
+scripts=~/Documents/scripts
 if [[ -d $scripts ]]; then
   for i in "$scripts"/*; do
     scr=${i##*/}
