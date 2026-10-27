@@ -26,6 +26,7 @@ alias lr='ls -lLhR'                                   # Recursive list
 alias lra='ls -lhRA'                                  # Recursive list including hidden files
 alias lrt='ls -lLhrt'                                 # List by date
 alias lrta='ls -lLhrtA'                               # List by date including hidden files
+alias dus='du -sh * | sort -hr'                       # Sort by size
 alias grep='grep -i --color=auto'                     # Case-insensitive grep
 alias zgrep='zgrep -i --color=auto'                   # Grep in compressed files
 alias psp='ps -eaf | grep -v grep | grep'             # Search for a process (psp <name>)
@@ -55,7 +56,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 command -v duf &>/dev/null && alias df='duf -hide special'
 
 # dust: enhanced du
-command -v dust &>/dev/null && alias du='dust -rb'
+command -v dust &>/dev/null && alias dust='dust -rb'
 
 # fzf: fuzzy finder with Catppuccin Mocha theme
 if command -v fzf &>/dev/null; then
