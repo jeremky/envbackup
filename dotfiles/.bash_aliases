@@ -86,7 +86,7 @@ fi
 
 # dust: enhanced du
 if command -v dust &>/dev/null; then
-  alias dus='dust -rb'
+  alias dust='dust -rb'
 fi
 
 # eopkg: Solus package manager
