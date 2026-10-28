@@ -3,7 +3,6 @@
 # shellcheck disable=all
 
 # options
-setopt AUTO_CD            # Navigate without 'cd'
 setopt HIST_IGNORE_DUPS   # Ignore duplicates in history
 setopt HIST_FIND_NO_DUPS  # Ignore duplicates when searching
 setopt HIST_IGNORE_SPACE  # Ignore commands starting with a space
@@ -18,20 +17,15 @@ HISTFILE="$HOME/.local/share/zsh/history"
 PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
 
 # homebrew
-if [[ -z $HOMEBREW_PREFIX ]] && [[ -d /opt/homebrew ]]; then
-  export HOMEBREW_PREFIX=/opt/homebrew
-fi
-
 if [[ -n $HOMEBREW_PREFIX ]]; then
   FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
-
-  # zsh-autosuggestions
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 fi
 
 # completion
-[[ -d "$HOME/.local/share/zsh" ]] || mkdir -p "$HOME/.local/share/zsh"
+mkdir -p "$HOME/.local/share/zsh"
 autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
+zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.local/share/zsh/zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
