@@ -3,7 +3,8 @@
 {
   "auto_update": true,
   "disable_ai": false,
-
+  "suggest_extensions": false,
+  
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
