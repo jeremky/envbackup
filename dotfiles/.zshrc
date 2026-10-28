@@ -55,12 +55,3 @@ fi
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
 
-# zsh-syntax-highlighting
-if [[ -n $HOMEBREW_PREFIX ]] && source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2>/dev/null; then
-  source "$HOME/.config/zsh/catppuccin.zsh"
-  ZSH_HIGHLIGHT_STYLES[path]=none
-  ZSH_HIGHLIGHT_STYLES[path_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-  ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=none
-  ZSH_HIGHLIGHT_STYLES[precommand]=none
-fi
