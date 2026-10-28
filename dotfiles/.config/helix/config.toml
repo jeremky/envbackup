@@ -13,7 +13,7 @@ bufferline = "multiple"
 idle-timeout = 400
 
 [editor.auto-save]
-after-delay.enable = true
+after-delay.enable = false
 after-delay.timeout = 5000
 
 [editor.cursor-shape]
