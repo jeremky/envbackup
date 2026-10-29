@@ -34,8 +34,8 @@ silent! set mouse=              " Mouse off by default
 silent! set nobackup            " No backup files
 silent! set noswapfile          " No swap files
 
-" Basic mappings
-nnoremap <S-Tab> <C-w>w
+" History & marks in the config dir
+silent! set viminfofile=~/.config/vim/.viminfo
 
 " ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
 if 1
@@ -170,7 +170,7 @@ if 1
   " Build the statusline (active window gets mode + colors)
   function! StatusLine() abort
     if g:statusline_winid != win_getid()
-      return ' %<%f%( %m%r%)%= %l:%v '
+      return ' %<%f%( %m%r%)%= %3l:%-2v '
     endif
     let [l:label, l:hl] = get(s:modes, mode(), ['NORMAL', 'StlNormal'])
     let [l:left, l:right] = s:sep
@@ -179,11 +179,11 @@ if 1
           \ . '%#StlFile# %<%f%( %m%r%) '
           \ . '%#StlFileSep#' . l:left
           \ . '%*%='
-          \ . '%( %{&filetype} %#StlDim#·%*%) %{&fenc !=# "" ? &fenc : &enc} %#StlDim#·%* %{&ff} '
-          \ . '%#StlFileSep#' . l:right
-          \ . '%#StlFile# %3p%% '
-          \ . '%#' . l:hl . 'Sep#' . l:right
-          \ . '%#' . l:hl . '# %l:%v '
+          \ . '%( %{&filetype} ·%) %{&fenc !=# "" ? &fenc : &enc} · %{&ff} '
+          \ . '%#StlPctSep#' . l:right
+          \ . '%#StlPct# %3p%% '
+          \ . '%#StlPosSep#' . l:right
+          \ . '%#StlPos# %3l:%-2v '
   endfunction
 
   " Mode colors per group [gui, cterm] (Catppuccin Mocha)
@@ -204,13 +204,18 @@ if 1
     for [l:group, l:c] in items(s:mode_colors)
       " Mode block, and its separator blending into the file block
       exe printf('hi %s guifg=#1e1e2e guibg=%s gui=bold ctermfg=0 ctermbg=%d cterm=bold', l:group, l:c[0], l:c[1])
-      exe printf('hi %sSep guifg=%s guibg=#45475a gui=NONE ctermfg=%d ctermbg=8 cterm=NONE', l:group, l:c[0], l:c[1])
+      exe printf('hi %sSep guifg=%s guibg=#1e1e2e gui=NONE ctermfg=%d ctermbg=234 cterm=NONE', l:group, l:c[0], l:c[1])
     endfor
-    hi StlFile    guifg=#cdd6f4 guibg=#45475a gui=NONE ctermfg=15 ctermbg=8 cterm=NONE
-    hi StlFileSep guifg=#45475a guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
-    hi StlDim     guifg=#6c7086 guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
-    hi StatusLine   guifg=#cdd6f4 guibg=#313244 gui=NONE ctermfg=15 ctermbg=236 cterm=NONE
-    hi StatusLineNC guifg=#6c7086 guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
+    " Blue text: center (surface1), file block (base) and percent block (surface0)
+    hi StatusLine   guifg=#89b4fa guibg=#45475a gui=NONE ctermfg=4 ctermbg=8 cterm=NONE
+    hi StatusLineNC guifg=#7f849c guibg=#45475a gui=NONE ctermfg=245 ctermbg=8 cterm=NONE
+    hi StlFile      guifg=#89b4fa guibg=#1e1e2e gui=NONE ctermfg=4 ctermbg=234 cterm=NONE
+    hi StlFileSep   guifg=#1e1e2e guibg=#45475a gui=NONE ctermfg=234 ctermbg=8 cterm=NONE
+    hi StlPct       guifg=#89b4fa guibg=#313244 gui=NONE ctermfg=4 ctermbg=236 cterm=NONE
+    hi StlPctSep    guifg=#313244 guibg=#45475a gui=NONE ctermfg=236 ctermbg=8 cterm=NONE
+    " Line:column block on Mocha's base background
+    hi StlPos       guifg=#7f849c guibg=#1e1e2e gui=NONE ctermfg=245 ctermbg=234 cterm=NONE
+    hi StlPosSep    guifg=#1e1e2e guibg=#313244 gui=NONE ctermfg=234 ctermbg=236 cterm=NONE
   endfunction
   call s:StatusSetup()
 
