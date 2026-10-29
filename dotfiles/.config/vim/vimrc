@@ -1,0 +1,228 @@
+" ─── vimrc ───────────────────────────────────────────────────────────────
+
+" Started as 'vi', the system vimrc forces 'compatible'
+if &compatible | set nocompatible | endif
+
+" Indentation & tabs
+silent! set autoindent          " Keep indentation on new line
+silent! set tabstop=2           " Tab width
+silent! set shiftwidth=2        " Indent width
+silent! set softtabstop=2       " Columns per Tab keypress
+silent! set expandtab           " Tabs become spaces
+
+" Search
+silent! set hlsearch            " Highlight matches
+silent! set incsearch           " Search while typing
+silent! set ignorecase          " Ignore case...
+silent! set smartcase           " ...unless an uppercase letter is typed
+
+" Interface
+silent! set ruler               " Show cursor position
+silent! set showcmd             " Show pending command
+silent! set showmatch           " Flash matching bracket
+
+" Buffers & navigation
+silent! set hidden              " Allow hidden modified buffers
+silent! set scrolloff=8         " Context lines around cursor
+silent! set splitbelow          " Horizontal splits go below
+silent! set splitright          " Vertical splits go right
+
+" Misc
+silent! set ttimeout            " Time out on key codes
+silent! set ttimeoutlen=50      " No noticeable Esc delay
+silent! set mouse=              " Mouse off by default
+silent! set nobackup            " No backup files
+silent! set noswapfile          " No swap files
+
+" Basic mappings
+nnoremap <S-Tab> <C-w>w
+
+" ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
+if 1
+
+  " Syntax & filetypes
+  syntax on
+  filetype plugin indent on
+
+  " Display
+  silent! set linebreak         " Wrap at word boundaries
+  silent! set breakindent       " Wrapped lines keep indentation
+  silent! set background=dark   " Dark terminal
+  silent! set wildmenu          " Command-line completion menu
+  silent! set wildoptions=pum   " Vertical completion popup (Vim 8.2.4325+)
+  silent! set spelllang=en,fr   " Spell checking languages
+
+  " Completion
+  silent! set autocomplete                        " Popup menu while typing (Vim 9.1+)
+  silent! set completeopt=menuone,noselect,popup  " No auto-insert, preview in popup
+  silent! set complete=.,w,b,u,t                  " Sources: buffers, windows, tags
+
+  " Invisible characters (shown with F3)
+  let &listchars = "eol:$,space:\u00B7,tab:\u25B8\ ,trail:\u00B7"
+
+  " Cursor shape per mode (insert, normal, replace)
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+  let &t_SR = "\e[4 q"
+
+  " Block cursor at startup, reset on exit
+  if stridx(&t_ti, "\e[2 q") < 0 | let &t_ti .= "\e[2 q" | endif
+  if stridx(&t_te, "\e[0 q") < 0 | let &t_te .= "\e[0 q" | endif
+
+  " Automatic nohlsearch disable
+  try | packadd! nohlsearch | catch | endtry
+
+  " Built-in commentary plugin on Vim 9.1+
+  try | packadd! comment | catch | endtry
+
+  " ─── functions ─────────────────────────────────────────────────────────
+
+  " Toggle line numbers and mouse
+  function! ModeIDE()
+    let l:on = empty(&mouse)
+    let &mouse = l:on ? 'a' : ''
+    let &g:number = l:on
+    for l:w in getwininfo()
+      call setwinvar(l:w.winid, '&number', l:on)
+    endfor
+    echo 'IDE mode ' . (l:on ? 'enabled' : 'disabled')
+  endfunction
+
+  " Keep cursor position when indent
+  function! ReindentFile()
+    let l:view = winsaveview()
+    keepjumps normal! gg=G
+    call winrestview(l:view)
+  endfunction
+
+  " ─── mappings ──────────────────────────────────────────────────────────
+
+  " Spell checker
+  nnoremap <F1> <Cmd>set spell!<CR>
+
+  " IDE Mode
+  nnoremap <F2> <Cmd>call ModeIDE()<CR>
+
+  " Show invisible characters
+  nnoremap <F3> <Cmd>set list!<CR>
+
+  " Commentary
+  nmap <F4> gcc
+  xmap <F4> gc
+
+  " Automatic indentation
+  nnoremap <F5> <Cmd>call ReindentFile()<CR>
+
+  " Switch between panes
+  nnoremap <S-Tab> <C-w>w
+
+  " Browse completion items when the menu is open
+  inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  " ─── autocmds ──────────────────────────────────────────────────────────
+
+  augroup vimrc
+    autocmd!
+
+    " Restore last cursor position
+    autocmd BufReadPost *
+          \ if &ft !~# 'commit' && (line("'\"") > 1) && (line("'\"") <= line("$"))
+          \ |   exe "silent! normal! g'\"zO"
+          \ | endif
+
+    " No comment continuation on new lines (r, o) or auto-wrapping of comments (c)
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+    " syntax color for .lpl files
+    autocmd BufRead,BufNewFile *.lpl setfiletype json
+
+  augroup END
+
+  " ─── theme settings ────────────────────────────────────────────────────
+
+  if isdirectory(expand("~/.config/vim/colors"))
+
+    " Theme
+    set cursorline
+    set termguicolors
+    silent! colorscheme catppuccin
+    silent! set laststatus=2
+
+  endif
+
+  " ─── statusline ────────────────────────────────────────────────────────
+
+  " mode() letter -> [label, highlight group]
+  let s:modes = {
+        \ 'n': ['NORMAL', 'StlNormal'],   'i': ['INSERT', 'StlInsert'],
+        \ 'v': ['VISUAL', 'StlVisual'],   'V': ['V-LINE', 'StlVisual'],
+        \ "\<C-v>": ['V-BLOCK', 'StlVisual'],
+        \ 's': ['SELECT', 'StlVisual'],   'S': ['S-LINE', 'StlVisual'],
+        \ "\<C-s>": ['S-BLOCK', 'StlVisual'],
+        \ 'R': ['REPLACE', 'StlReplace'], 'c': ['COMMAND', 'StlCommand'],
+        \ 't': ['TERMINAL', 'StlCommand'],
+        \ }
+
+  " Powerline separators [left, right] (needs a Nerd Font)
+  let s:sep = ["", ""]
+
+  " Build the statusline (active window gets mode + colors)
+  function! StatusLine() abort
+    if g:statusline_winid != win_getid()
+      return ' %<%f%( %m%r%)%= %l:%v '
+    endif
+    let [l:label, l:hl] = get(s:modes, mode(), ['NORMAL', 'StlNormal'])
+    let [l:left, l:right] = s:sep
+    return '%#' . l:hl . '# ' . l:label . ' '
+          \ . '%#' . l:hl . 'Sep#' . l:left
+          \ . '%#StlFile# %<%f%( %m%r%) '
+          \ . '%#StlFileSep#' . l:left
+          \ . '%*%='
+          \ . '%( %{&filetype} %#StlDim#·%*%) %{&fenc !=# "" ? &fenc : &enc} %#StlDim#·%* %{&ff} '
+          \ . '%#StlFileSep#' . l:right
+          \ . '%#StlFile# %3p%% '
+          \ . '%#' . l:hl . 'Sep#' . l:right
+          \ . '%#' . l:hl . '# %l:%v '
+  endfunction
+
+  " Mode colors per group [gui, cterm] (Catppuccin Mocha)
+  let s:mode_colors = {
+        \ 'StlNormal':  ['#89b4fa', 4], 'StlInsert':  ['#a6e3a1', 2],
+        \ 'StlVisual':  ['#cba6f7', 5], 'StlReplace': ['#f38ba8', 1],
+        \ 'StlCommand': ['#fab387', 3],
+        \ }
+
+  " Custom statusline with Catppuccin, Vim's default one otherwise
+  function! s:StatusSetup() abort
+    if get(g:, 'colors_name', '') !~# '^catppuccin'
+      set statusline& showmode
+      return
+    endif
+    set statusline=%!StatusLine()
+    set noshowmode              " Mode is already shown in the statusline
+    for [l:group, l:c] in items(s:mode_colors)
+      " Mode block, and its separator blending into the file block
+      exe printf('hi %s guifg=#1e1e2e guibg=%s gui=bold ctermfg=0 ctermbg=%d cterm=bold', l:group, l:c[0], l:c[1])
+      exe printf('hi %sSep guifg=%s guibg=#45475a gui=NONE ctermfg=%d ctermbg=8 cterm=NONE', l:group, l:c[0], l:c[1])
+    endfor
+    hi StlFile    guifg=#cdd6f4 guibg=#45475a gui=NONE ctermfg=15 ctermbg=8 cterm=NONE
+    hi StlFileSep guifg=#45475a guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
+    hi StlDim     guifg=#6c7086 guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
+    hi StatusLine   guifg=#cdd6f4 guibg=#313244 gui=NONE ctermfg=15 ctermbg=236 cterm=NONE
+    hi StatusLineNC guifg=#6c7086 guibg=#313244 gui=NONE ctermfg=8 ctermbg=236 cterm=NONE
+  endfunction
+  call s:StatusSetup()
+
+  augroup statusline
+    autocmd!
+    " Re-check after a colorscheme change
+    autocmd ColorScheme * call s:StatusSetup()
+    " Refresh mode label immediately (Vim 8.2.3430+)
+    if exists('##ModeChanged')
+      autocmd ModeChanged * redrawstatus
+    endif
+  augroup END
+
+endif
+
