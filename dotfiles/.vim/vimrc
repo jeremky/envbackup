@@ -34,8 +34,8 @@ silent! set mouse=              " Mouse off by default
 silent! set nobackup            " No backup files
 silent! set noswapfile          " No swap files
 
-" Basic mappings
-nnoremap <S-Tab> <C-w>w
+" History & marks in the config dir
+silent! set viminfofile=~/.vim/.viminfo
 
 " ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
 if 1
@@ -108,6 +108,9 @@ if 1
   " Manage plugins
   nnoremap <F7> <Cmd>PlugClean<CR>
   nnoremap <F8> <Cmd>PlugUpdate<CR>
+
+  " Switch between panes
+  nnoremap <S-Tab> <C-w>w
 
   " ─── plugins (vim-plug) ────────────────────────────────────────────────
 
