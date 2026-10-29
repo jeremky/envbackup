@@ -41,7 +41,7 @@ silent! set viminfofile=~/.config/vim/.viminfo
 if 1
 
   " Syntax & filetypes
-  syntax on
+  if !exists("g:syntax_on") | syntax enable | endif
   filetype plugin indent on
 
   " Display
