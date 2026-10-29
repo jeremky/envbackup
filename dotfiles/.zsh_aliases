@@ -56,7 +56,7 @@ command -v colordiff &>/dev/null && alias diff='colordiff'
 command -v duf &>/dev/null && alias df='duf -hide special'
 
 # dust: enhanced du
-command -v dust &>/dev/null && alias dust='dust -rb'
+command -v dust &>/dev/null && alias dus='dust -rb'
 
 # fzf: fuzzy finder with Catppuccin Mocha theme
 if command -v fzf &>/dev/null; then
