@@ -95,6 +95,20 @@ if 1
     call winrestview(l:view)
   endfunction
 
+  " Auto-close quotes, or skip over an existing closing one
+  function! AutoQuote(q)
+    let l:line = getline('.')
+    let l:before = strpart(l:line, 0, col('.') - 1)
+    if l:line[col('.') - 1] ==# a:q
+      return "\<Right>"
+    endif
+    " No pair for a Vim comment (" at line start) or an apostrophe (l'été)
+    if (a:q ==# '"' && l:before =~# '^\s*$') || (a:q ==# "'" && l:before !~# '\%(^\|\s\)$')
+      return a:q
+    endif
+    return a:q . a:q . "\<Left>"
+  endfunction
+
   " ─── mappings ──────────────────────────────────────────────────────────
 
   " Spell checker
@@ -119,6 +133,28 @@ if 1
   " Browse completion items when the menu is open
   inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+  " Auto-close braces, brackets and parentheses
+  inoremap { {}<Left>
+  inoremap [ []<Left>
+  inoremap ( ()<Left>
+
+  " Typing the closing char skips over an existing one
+  inoremap <expr> } getline('.')[col('.') - 1] ==# '}' ? "\<Right>" : '}'
+  inoremap <expr> ] getline('.')[col('.') - 1] ==# ']' ? "\<Right>" : ']'
+  inoremap <expr> ) getline('.')[col('.') - 1] ==# ')' ? "\<Right>" : ')'
+
+  " Auto-close quotes
+  inoremap <expr> " AutoQuote('"')
+  inoremap <expr> ' AutoQuote("'")
+
+  " Backspace inside an empty pair deletes both chars
+  inoremap <expr> <BS> index(['()', '[]', '{}', '""', "''"], strpart(getline('.'), col('.') - 2, 2)) >= 0
+        \ ? "\<BS>\<Del>" : "\<BS>"
+
+  " Enter between {} or [] opens an indented block
+  inoremap <expr> <CR> !pumvisible() && index(['{}', '[]'], strpart(getline('.'), col('.') - 2, 2)) >= 0
+        \ ? "\<CR>\<C-o>O" : "\<CR>"
 
   " ─── autocmds ──────────────────────────────────────────────────────────
 
@@ -153,14 +189,14 @@ if 1
 
   " ─── statusline ────────────────────────────────────────────────────────
 
-  " mode() letter -> [label, highlight group]
+  " mode() letter -> [label, highlight group] (command line stays blue)
   let s:modes = {
         \ 'n': ['NORMAL', 'StlNormal'],   'i': ['INSERT', 'StlInsert'],
         \ 'v': ['VISUAL', 'StlVisual'],   'V': ['V-LINE', 'StlVisual'],
         \ "\<C-v>": ['V-BLOCK', 'StlVisual'],
         \ 's': ['SELECT', 'StlVisual'],   'S': ['S-LINE', 'StlVisual'],
         \ "\<C-s>": ['S-BLOCK', 'StlVisual'],
-        \ 'R': ['REPLACE', 'StlReplace'], 'c': ['COMMAND', 'StlCommand'],
+        \ 'R': ['REPLACE', 'StlReplace'], 'c': ['COMMAND', 'StlNormal'],
         \ 't': ['TERMINAL', 'StlCommand'],
         \ }
 
@@ -179,7 +215,7 @@ if 1
           \ . '%#StlFile# %<%f%( %m%r%) '
           \ . '%#StlFileSep#' . l:left
           \ . '%*%='
-          \ . '%( %{&filetype} ·%) %{&fenc !=# "" ? &fenc : &enc} · %{&ff} '
+          \ . ' %{&ff} · %{&fenc !=# "" ? &fenc : &enc} · %{&filetype !=# "" ? &filetype : "no ft"} '
           \ . '%#StlPctSep#' . l:right
           \ . '%#StlPct# %3p%% '
           \ . '%#StlPosSep#' . l:right
