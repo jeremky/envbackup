@@ -152,7 +152,7 @@ if command -v zedit &>/dev/null; then
 fi
 
 # zoxide: enhanced cd
-if command -v zoxide &>/dev/null; then
+if [[ "$EUID" -ne 0 ]] && command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
 
