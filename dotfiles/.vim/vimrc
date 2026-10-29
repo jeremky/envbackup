@@ -40,10 +40,6 @@ silent! set viminfofile=~/.vim/.viminfo
 " ─── full Vim only (skipped by vim.tiny) ─────────────────────────────────
 if 1
 
-  " Syntax & filetypes
-  " syntax on
-  " filetype plugin indent on
-
   " Display
   silent! set linebreak         " Wrap at word boundaries
   silent! set breakindent       " Wrapped lines keep indentation
