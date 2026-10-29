@@ -189,7 +189,7 @@ if 1
 
   " ─── statusline ────────────────────────────────────────────────────────
 
-  " mode() letter -> [label, highlight group] (command line stays blue)
+  " mode() letter -> [label, highlight group]
   let s:modes = {
         \ 'n': ['NORMAL', 'StlNormal'],   'i': ['INSERT', 'StlInsert'],
         \ 'v': ['VISUAL', 'StlVisual'],   'V': ['V-LINE', 'StlVisual'],
@@ -200,10 +200,10 @@ if 1
         \ 't': ['TERMINAL', 'StlCommand'],
         \ }
 
-  " Powerline separators [left, right] (needs a Nerd Font)
+  " Powerline separators (needs a Nerd Font)
   let s:sep = ["", ""]
 
-  " Build the statusline (active window gets mode + colors)
+  " Build the statusline
   function! StatusLine() abort
     if g:statusline_winid != win_getid()
       return ' %<%f%( %m%r%)%= %3l:%-2v '
@@ -229,14 +229,14 @@ if 1
         \ 'StlCommand': ['#fab387', 3],
         \ }
 
-  " Custom statusline with Catppuccin, Vim's default one otherwise
+  " Custom statusline with Catppuccin
   function! s:StatusSetup() abort
     if get(g:, 'colors_name', '') !~# '^catppuccin'
       set statusline& showmode
       return
     endif
     set statusline=%!StatusLine()
-    set noshowmode              " Mode is already shown in the statusline
+    set noshowmode
     for [l:group, l:c] in items(s:mode_colors)
       " Mode block, and its separator blending into the file block
       exe printf('hi %s guifg=#1e1e2e guibg=%s gui=bold ctermfg=0 ctermbg=%d cterm=bold', l:group, l:c[0], l:c[1])
