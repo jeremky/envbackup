@@ -177,7 +177,7 @@ if 1
 
   " ─── theme settings ────────────────────────────────────────────────────
 
-  if isdirectory(expand("~/.config/vim/colors"))
+  if !empty(globpath(&runtimepath, 'colors/catppuccin.vim'))
 
     " Theme
     set cursorline
