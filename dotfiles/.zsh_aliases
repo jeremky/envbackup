@@ -124,7 +124,6 @@ fi
 
 if [[ $OSTYPE == darwin* ]]; then
 
-  alias top='top -o cpu -U $(whoami)'                 # top filtered to the current user
   alias speedtest='networkQuality'                    # Apple speed test
   alias locate='mdfind -name'                         # Search via Spotlight
   alias hide='chflags hidden'                         # Hide folder in Finder
