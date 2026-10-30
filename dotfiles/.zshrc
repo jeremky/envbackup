@@ -24,7 +24,7 @@ case $ID in
   PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
   ;;
   steamos)
-  PROMPT='%B%F{cyan}%n@%m%f%b:%B%F{blue}%~%f%b%(!.#.$) '
+  PROMPT='%B%F{cyan}%n@%m%f%b:%B%F{blue}%~ %(!.#.$)%f%b '
 esac
 
 # homebrew
