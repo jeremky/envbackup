@@ -12,6 +12,7 @@ setopt SHARE_HISTORY      # Share history between sessions
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
+[[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
 if [[ $OSTYPE == darwin* ]]; then
