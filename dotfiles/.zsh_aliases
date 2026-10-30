@@ -47,12 +47,21 @@ command -v duf &>/dev/null && alias df='duf -hide special'
 # dust: enhanced du
 command -v dust &>/dev/null && alias dus='dust -rb'
 
+# eopkg: Solus package manager
+if command -v eopkg &>/dev/null; then
+  alias eo='sudo eopkg'
+  alias upgrade='sudo eopkg up && sudo eopkg rmo'
+fi
+
+# fd: enhanced find
+if command -v fdfind &>/dev/null; then
+  alias fd='fd -HI'
+  export FZF_DEFAULT_COMMAND='fd -HI'
+fi
+
 # fzf: fuzzy finder with Catppuccin Mocha theme
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
-  if command -v fd &>/dev/null; then
-    export FZF_DEFAULT_COMMAND='fd'
-  fi
   export FZF_DEFAULT_OPTS=" \
     --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
     --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
@@ -67,10 +76,16 @@ command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 # rg: faster than grep
 command -v rg &>/dev/null && alias rg='rg -i'
 
+# zed: code editor
+command -v zedit &>/dev/null && alias zed='zedit'
+
 # zoxide: enhanced cd
 command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # ─── functions ───────────────────────────────────────────────────────────
+
+# convweb: convert png files to webp
+convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
 # cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
@@ -84,11 +99,14 @@ else
   tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 fi
 
+# webi: package manager
+webinstall() {
+  curl -sS https://webi.sh/webi | sh
+  source "$HOME/.config/envman/PATH.env"
+}
+
 # zipd: create one zip archive per file
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
-
-# convweb: convert png files to webp
-convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 
 # ─── scripts ─────────────────────────────────────────────────────────────
 
