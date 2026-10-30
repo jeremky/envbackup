@@ -68,11 +68,6 @@ if command -v colordiff &>/dev/null; then
   alias diff='colordiff'
 fi
 
-# curlie : better curl
-if command -v curlie &>/dev/null; then
-  alias curl='curlie'
-fi
-
 # dnf: rpm package manager
 if command -v dnf &>/dev/null; then
   alias dnf='sudo dnf'
@@ -146,11 +141,6 @@ if command -v vim.tiny &>/dev/null; then
   alias v='vim.tiny -O'
 fi
 
-# zed: code editor
-if command -v zedit &>/dev/null; then
-  alias e='zedit'
-fi
-
 # zoxide: enhanced cd
 if [[ "$EUID" -ne 0 ]] && command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
@@ -164,6 +154,12 @@ cleanlog() { [[ -n "$1" ]] && sudo journalctl --vacuum-time="${1}"d; }
 # cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
+# diskbench: test disk write speed
+diskbench() {
+  dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
+  rm testfile
+}
+
 # md5: MD5 hash of a string
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
@@ -176,29 +172,12 @@ else
   tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 fi
 
-# diskbench: test disk write speed
-diskbench() {
-  dd if=/dev/zero of=testfile bs=64M count=16 oflag=direct status=progress
-  rm testfile
-}
-
 # gencert: get let'encrypt certificate
 gencert() { sudo certbot --nginx -d "$1"; }
-
-# webi: package manager
-webinstall() {
-  curl -sS https://webi.sh/webi | sh
-  source "$HOME/.config/envman/PATH.env"
-}
 
 # zipd: create one zip archive per given file/directory
 if [[ -x /usr/bin/zip ]]; then
   zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
-fi
-
-# convweb: convert png files to webp
-if command -v cwebp &>/dev/null; then
-  convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm -- "$file"; done; }
 fi
 
 # ─── scripts ─────────────────────────────────────────────────────────────
