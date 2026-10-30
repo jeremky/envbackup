@@ -14,12 +14,18 @@ SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
 
 # prompt
-PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
+if [[ $OSTYPE == darwin* ]]; then
+  PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
+else
+  PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
+fi
 
 # homebrew
 if [[ -n $HOMEBREW_PREFIX ]]; then
   FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
+else
+  source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 fi
 
 # completion
@@ -33,9 +39,11 @@ zstyle ':completion:*' menu select
 # ls colors
 export CLICOLOR=1
 export LSCOLORS=ExfxbxdxCxegedabagacad
+unset LS_COLORS
+command -v dircolors &>/dev/null && eval "$(dircolors -b)"
 
 # completion colors
-export LS_COLORS="di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
+export LS_COLORS="${LS_COLORS:+$LS_COLORS:}di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # keybindings
@@ -46,6 +54,8 @@ if [[ -o interactive ]]; then
   bindkey "\e[3~" delete-char
 fi
 
+# envman
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
-
