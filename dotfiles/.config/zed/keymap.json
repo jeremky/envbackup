@@ -4,7 +4,7 @@
   {
     "context": "Editor",
     "bindings": {
-      "f2": "workspace::ToggleVimMode",
+      "f2": "workspace::ToggleHelixMode",
       "f3": "editor::SelectAllMatches",
       "f4": "editor::ToggleComments",
       "f5": "editor::Format",
