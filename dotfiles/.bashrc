@@ -40,19 +40,6 @@ fi
 # aliases
 [[ -f ~/.bash_aliases ]] && . "$HOME/.bash_aliases"
 
-case "$(cat /etc/hostname)" in
-  jpi)
-    PS1='\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-    ;;
-  jsolus)
-    . "/usr/share/defaults/etc/profile.d/50-prompt.sh"
-    ;;
-  jsteam)
-    __holo_prompt_command() { return; }
-    PS1='\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
-    ;;
-esac
-
 # prompt
 case "$TERM" in
   xterm* | rxvt*)
