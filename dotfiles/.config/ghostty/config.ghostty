@@ -23,7 +23,7 @@ window-padding-y = 15
 # appearance
 theme = Catppuccin Mocha
 unfocused-split-opacity = 1
-adjust-cell-height = 15%
+adjust-cell-height = 20%
 
 # font
 font-family = JetBrains Mono NL
