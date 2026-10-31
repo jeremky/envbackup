@@ -4,7 +4,7 @@
   "auto_update": true,
   "disable_ai": false,
   "suggest_extensions": false,
-  
+
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
@@ -132,7 +132,7 @@
       "formatter": {
         "external": {
           "command": "shfmt",
-          "arguments": ["-i", "2", "-ci", "-"],
+          "arguments": ["-i", "2", "-ci", "--filename", "{buffer_path}", "-"],
         },
       },
     },
