@@ -215,7 +215,7 @@ if 1
           \ . '%#StlFile# %<%f%( %m%r%) '
           \ . '%#StlFileSep#' . l:left
           \ . '%*%='
-          \ . ' %{&ff} · %{&fenc !=# "" ? &fenc : &enc} · %{&filetype !=# "" ? &filetype : "no ft"} '
+          \ . ' %{&ff} | %{&fenc !=# "" ? &fenc : &enc} | %{&filetype !=# "" ? &filetype : "no ft"} '
           \ . '%#StlPctSep#' . l:right
           \ . '%#StlPct# %3p%% '
           \ . '%#StlPosSep#' . l:right
