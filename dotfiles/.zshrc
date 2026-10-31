@@ -15,17 +15,19 @@ HISTFILE="$HOME/.local/share/zsh/history"
 [[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
-source /etc/os-release
-case $ID in
-  macos)
+if [[ "$(uname -s)" == "Darwin" ]]; then
   PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
-  ;;
-  solus)
-  PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
-  ;;
-  steamos)
-  PROMPT='%B%F{cyan}%n@%m%f%b:%B%F{blue}%~ %(!.#.$)%f%b '
-esac
+else
+  source /etc/os-release
+  case $ID in
+    solus)
+      PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
+      ;;
+    steamos)
+      PROMPT='%B%F{cyan}%n@%m%f%b:%B%F{blue}%~ %(!.#.$)%f%b '
+      ;;
+  esac
+fi
 
 # homebrew
 if [[ -n $HOMEBREW_PREFIX ]]; then
