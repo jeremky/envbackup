@@ -5,6 +5,7 @@ hidden=".gitignore .old"
 for file in $hidden; do
   export LS_COLORS="$LS_COLORS:*$file=00;90"
 done
+unset hidden file
 
 # options
 if [[ $- == *i* ]]; then
@@ -190,4 +191,5 @@ if [[ -d $scripts ]]; then
     # shellcheck disable=SC2139,SC2086
     [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
   done
+  unset scr i scripts
 fi
