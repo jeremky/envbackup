@@ -12,22 +12,22 @@ export LESSHISTFILE=/dev/null
 [[ $OSTYPE == linux* ]] && alias ls='ls --color=auto'
 
 # Aliases
-alias l='ls -lh'                                 # Detailed list
-alias la='ls -lhA'                               # List including hidden files
-alias lr='ls -lLhR'                              # Recursive list
-alias lra='ls -lhRA'                             # Recursive list including hidden files
-alias lrt='ls -lLhrt'                            # List by date
-alias lrta='ls -lLhrtA'                          # List by date including hidden files
-alias dus='du -sh * | sort -hr'                  # Sort by size
-alias grep='grep -i --color=auto'                # Case-insensitive grep
-alias zgrep='zgrep -i --color=auto'              # Grep in compressed files
-alias psp='ps -eaf | grep -v grep | grep'        # Search for a process (psp <name>)
-alias genkey='ssh-keygen -t ed25519 -a 100'      # Generate an ed25519 key
-alias pubip='curl -s -4 ipecho.net/plain ; echo' # Show public IP address
-alias df='df -PlH'                               # df without irrelevant mounts
-alias vi='vim -O'                                # vim with multiple files side by side
-alias halt='sudo shutdown -h'                    # System shutdown
-alias reboot='sudo reboot'                       # Reboot
+alias l='ls -lh'                                         # Detailed list
+alias la='ls -lhA'                                       # List including hidden files
+alias lr='ls -lLhR'                                      # Recursive list
+alias lra='ls -lhRA'                                     # Recursive list including hidden files
+alias lrt='ls -lLhrt'                                    # List by date
+alias lrta='ls -lLhrtA'                                  # List by date including hidden files
+alias dus='du -sh * | sort -hr'                          # Sort by size
+alias grep='grep -i --color=auto'                        # Case-insensitive grep
+alias zgrep='zgrep -i --color=auto'                      # Grep in compressed files
+alias psp='ps -eaf | grep -v grep | grep'                # Search for a process (psp <name>)
+alias genkey='ssh-keygen -t ed25519 -a 100'              # Generate an ed25519 key
+alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # Public IP
+alias df='df -PlH'                                       # df without irrelevant mounts
+alias vi='vim -O'                                        # vim with multiple files side by side
+alias halt='sudo shutdown -h now'                        # System shutdown
+alias reboot='sudo reboot'                               # Reboot
 
 # ─── optional applications ───────────────────────────────────────────────
 
