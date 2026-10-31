@@ -15,7 +15,7 @@ HISTFILE="$HOME/.local/share/zsh/history"
 [[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
 else
   source /etc/os-release
@@ -37,7 +37,6 @@ else
 fi
 
 # completion
-mkdir -p "$HOME/.local/share/zsh"
 autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.local/share/zsh/zcompcache"
@@ -63,7 +62,7 @@ if [[ -o interactive ]]; then
 fi
 
 # envman
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
 
 # aliases
 [[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
