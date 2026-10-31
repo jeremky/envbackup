@@ -8,7 +8,7 @@ message() { echo -e "\033[0;36m──────────\033[0m\n\033[0;32m
 warning() { echo -e "\033[0;33m❯ $*\033[0m\n\033[0;36m──────────\033[0m"; }
 
 # Detect OS/distribution
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   ID="macos"
 else
   if ! . /etc/os-release 2>/dev/null; then
