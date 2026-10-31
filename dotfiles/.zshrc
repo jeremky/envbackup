@@ -29,9 +29,8 @@ else
   esac
 fi
 
-# homebrew
+# autosuggestions
 if [[ -n $HOMEBREW_PREFIX ]]; then
-  FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 else
   source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
