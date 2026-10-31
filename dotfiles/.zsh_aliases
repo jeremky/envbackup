@@ -140,7 +140,7 @@ if [[ $OSTYPE == darwin* ]]; then
   alias unhide='chflags nohidden' # Unhide folder in Finder
 
   # netinfo: show network information
-  netinfo() { for service in "Ethernet" "Wi-Fi"; do
+  ifc() { for service in "Wi-Fi"; do
     echo "==> $service"
     networksetup -getinfo "$service"
     echo
