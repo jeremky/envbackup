@@ -30,6 +30,8 @@ alias df='df -PlH'                                    # df without irrelevant mo
 alias rmds='find . -name ".DS_Store" -type f -delete' # Recursively delete .DS_Store files
 alias rmdot="find . -name '._*' -type f -delete"      # Recursively delete ._ files
 alias vi='vim -O'                                     # vim with multiple files side by side
+alias halt='sudo halt -p'                             # System shutdown
+alias reboot='sudo reboot'                            # Reboot
 
 # ─── optional applications ───────────────────────────────────────────────
 
@@ -70,11 +72,19 @@ if command -v fzf &>/dev/null; then
     --color=border:#6C7086,label:#CDD6F4"
 fi
 
+# ip: ifconfig replacement
+if command -v ip &>/dev/null; then
+  alias ifc='ip -br -c addr | grep -vw lo'
+fi
+
 # ncdu: TreeSize equivalent
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
 
 # rg: faster than grep
 command -v rg &>/dev/null && alias rg='rg -i'
+
+# ssp: Search for a port (ssp <port>)
+command -v ss &>/dev/null && alias ssp='ss -tunlH | grep'
 
 # zed: code editor
 command -v zedit &>/dev/null && alias zed='zedit'
@@ -124,10 +134,12 @@ fi
 
 if [[ $OSTYPE == darwin* ]]; then
 
-  alias speedtest='networkQuality'                    # Apple speed test
-  alias locate='mdfind -name'                         # Search via Spotlight
-  alias hide='chflags hidden'                         # Hide folder in Finder
-  alias unhide='chflags nohidden'                     # Unhide folder in Finder
+  alias speedtest='networkQuality'                      # Apple speed test
+  alias locate='mdfind -name'                           # Search via Spotlight
+  alias hide='chflags hidden'                           # Hide folder in Finder
+  alias unhide='chflags nohidden'                       # Unhide folder in Finder
+  alias rmds='find . -name ".DS_Store" -type f -delete' # Recursively delete .DS_Store files
+  alias rmdot="find . -name '._*' -type f -delete"      # Recursively delete ._ files
 
   # homebrew
   if command -v brew &>/dev/null; then
