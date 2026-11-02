@@ -30,11 +30,8 @@ else
 fi
 
 # autosuggestions
-if [[ -n $HOMEBREW_PREFIX ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
-else
-  source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
-fi
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
+source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
 
 # completion
 autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
@@ -61,6 +58,8 @@ if [[ -o interactive ]]; then
   bindkey "\e[3~" delete-char
   bindkey '^[[1;5C' forward-word
   bindkey '^[[1;5D' backward-word
+  bindkey "\e[5~" history-beginning-search-backward
+  bindkey "\e[6~" history-beginning-search-forward
 fi
 
 # envman
