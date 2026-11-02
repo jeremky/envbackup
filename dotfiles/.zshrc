@@ -59,6 +59,8 @@ if [[ -o interactive ]]; then
   bindkey "\e[H" beginning-of-line
   bindkey "\e[F" end-of-line
   bindkey "\e[3~" delete-char
+  bindkey '^[[1;5C' forward-word
+  bindkey '^[[1;5D' backward-word
 fi
 
 # envman
