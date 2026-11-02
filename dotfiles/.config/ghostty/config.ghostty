@@ -55,5 +55,5 @@ keybind = alt+shift+up=resize_split:up,20
 keybind = alt+shift+right=resize_split:right,20
 
 # history
-keybind = page_up=jump_to_prompt:-1
-keybind = page_down=jump_to_prompt:1
+keybind = shift+page_up=jump_to_prompt:-1
+keybind = shift+page_down=jump_to_prompt:1
