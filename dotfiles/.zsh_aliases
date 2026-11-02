@@ -36,6 +36,12 @@ if command -v btop &>/dev/null; then
   alias top='btop'
 fi
 
+# chflags: macos tool
+if command -v chflags &>/dev/null; then
+  alias hide='chflags hidden'     # Hide folder in Finder
+  alias unhide='chflags nohidden' # Unhide folder in Finder
+fi
+
 # colordiff: diff with color
 command -v colordiff &>/dev/null && alias diff='colordiff'
 
@@ -104,6 +110,14 @@ convweb() { for file in "$@"; do cwebp -q 100 "$file" -o "${file%.*}.webp" && rm
 # cpsave: copy a file or directory with a .old suffix
 cpsave() { cp -Rp "$1" "${1%/}.old"; }
 
+jback() {
+  if [[ ! -z "$1" ]] && [[ ! -z "$2" ]]; then
+    rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" $1/ $2/
+  else
+    echo "No folder specified"
+  fi
+}
+
 # rmds: recursively remove .DS_Store and ._ files
 rmds() { find . \( -name '.DS_Store' -o -name '._*' \) -type f -delete; }
 
@@ -130,16 +144,4 @@ if [[ -d $scripts ]]; then
     [[ -f "$scripts/$scr/$scr.sh" ]] && alias $scr="$scripts/$scr/$scr.sh"
   done
   unset scr i scripts
-fi
-
-# ─── macos ───────────────────────────────────────────────────────────────
-
-if [[ $OSTYPE == darwin* ]]; then
-
-  alias hide='chflags hidden'     # Hide folder in Finder
-  alias unhide='chflags nohidden' # Unhide folder in Finder
-
-  # jback: local backup to an external drive
-  jback() { rsync -ah --no-perms --progress --exclude "._*" --exclude ".DS_Store" ~/Documents/ /Volumes/jdisk/Documents/; }
-
 fi
