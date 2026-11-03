@@ -90,12 +90,6 @@ if command -v dust &>/dev/null; then
   alias dus='dust -rb'
 fi
 
-# eopkg: Solus package manager
-if command -v eopkg &>/dev/null; then
-  alias eo='sudo eopkg'
-  alias upgrade='sudo eopkg up && sudo eopkg rmo'
-fi
-
 # fd: enhanced find
 if command -v fdfind &>/dev/null; then
   alias fd='fdfind -HI'
@@ -135,11 +129,6 @@ fi
 # vim: vi improved
 if command -v vim &>/dev/null; then
   alias vi='vim -O'
-fi
-
-# vim.tiny
-if command -v vim.tiny &>/dev/null; then
-  alias v='vim.tiny -O'
 fi
 
 # zoxide: enhanced cd
