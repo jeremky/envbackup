@@ -64,6 +64,11 @@ if command -v apt &>/dev/null; then
   alias upgrade='sudo apt update && sudo apt full-upgrade && sudo apt -y autoremove'
 fi
 
+# btop: better top
+if command -v btop &>/dev/null; then
+  alias top='btop'
+fi
+
 # colordiff : diff with color
 if command -v colordiff &>/dev/null; then
   alias diff='colordiff'
@@ -104,11 +109,6 @@ fi
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
   export FZF_DEFAULT_OPTS="--no-color"
-fi
-
-# htop: better top
-if command -v htop &>/dev/null; then
-  alias top='htop'
 fi
 
 # ncdu: TreeSize equivalent
