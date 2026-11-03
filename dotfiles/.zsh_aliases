@@ -36,10 +36,10 @@ if command -v btop &>/dev/null; then
   alias top='btop'
 fi
 
-# chflags: macos tool
+# chflags: hide folders in macos
 if command -v chflags &>/dev/null; then
-  alias hide='chflags hidden'     # Hide folder in Finder
-  alias unhide='chflags nohidden' # Unhide folder in Finder
+  alias hide='chflags hidden'
+  alias unhide='chflags nohidden'
 fi
 
 # colordiff: diff with color
