@@ -82,7 +82,7 @@ fi
 
 # duf: enhanced df
 if command -v duf &>/dev/null; then
-  alias df='duf -hide special --hide-mp /boot'
+  alias duf='duf -hide special --hide-mp /boot'
 fi
 
 # dust: enhanced du
