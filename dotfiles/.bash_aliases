@@ -161,20 +161,12 @@ diskbench() {
   rm testfile
 }
 
-# gencert: get let'encrypt certificate
-gencert() { sudo certbot --nginx -d "$1"; }
-
 # md5: MD5 hash of a string
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
-# tarc/tarx: create/extract tar.gz archives (pigz if available)
-if command -v pigz &>/dev/null; then
-  tarc() { for file in "$@"; do tar -I pigz -cvf "${file%/}.tar.gz" "$file"; done; }
-  tarx() { for file in "$@"; do tar -I pigz -xvf "$file"; done; }
-else
-  tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
-  tarx() { for file in "$@"; do tar xzvf "$file"; done; }
-fi
+# tarc/tarx: create/extract tar.gz archives
+tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
+tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
 # zipd: create one zip archive per given file/directory
 if [[ -x /usr/bin/zip ]]; then
