@@ -4,7 +4,6 @@ theme = "catppuccin_mocha"
 
 [editor]
 continue-comments = false
-default-yank-register = "+"
 cursorline = true
 true-color = true
 color-modes = true
@@ -35,7 +34,6 @@ enable = true
 
 [keys.normal]
 "del" = "delete_char_forward"
-"d"   = "delete_selection_noyank"
 "D"   = ["select_mode", "goto_line_end", "delete_selection"]
 "G"   = "goto_last_line"
 "$"   = "goto_line_end"
