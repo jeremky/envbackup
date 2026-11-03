@@ -161,6 +161,9 @@ diskbench() {
   rm testfile
 }
 
+# gencert: get let'encrypt certificate
+gencert() { sudo certbot --nginx -d "$1"; }
+
 # md5: MD5 hash of a string
 md5() { printf '%s' "$1" | md5sum | cut -d' ' -f1; }
 
@@ -172,9 +175,6 @@ else
   tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
   tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 fi
-
-# gencert: get let'encrypt certificate
-gencert() { sudo certbot --nginx -d "$1"; }
 
 # zipd: create one zip archive per given file/directory
 if [[ -x /usr/bin/zip ]]; then
