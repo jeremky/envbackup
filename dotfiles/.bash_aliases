@@ -30,24 +30,24 @@ export VISUAL=$EDITOR
 
 # ─── aliases ─────────────────────────────────────────────────────────────
 
-alias ls='ls --color=auto'                               # Add color
-alias l='ls -lh'                                         # Detailed list
-alias la='ls -lhA'                                       # List including hidden files
-alias lr='ls -lLhR'                                      # Recursive list
-alias lra='ls -lhRA'                                     # Recursive list including hidden files
-alias lrt='ls -lLhrt'                                    # List by date
-alias lrta='ls -lLhrtA'                                  # List by date including hidden files
-alias dus='du -sh * | sort -hr'                          # Sort by size
-alias grep='grep -i --color=auto'                        # Case-insensitive grep
-alias zgrep='zgrep -i --color=auto'                      # Grep in compressed files
-alias psp='ps -eaf | grep -v grep | grep'                # Search for a process (psp <name>)
-alias iostat='iostat -m --human'                         # Human-readable iostat
-alias ifc='ip -br -c addr | grep -vw lo'                 # IP addresses (ifconfig is deprecated)
-alias ssp='ss -tunlH | grep'                             # Search for a port (ssp <port>)
-alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # Public IP
-alias df='df -h -x tmpfs -x devtmpfs -x overlay'         # df without irrelevant mounts
-alias halt='sudo halt -p'                                # System shutdown
-alias reboot='sudo reboot'                               # Reboot
+alias ls='ls --color=auto'                                   # Add color
+alias l='ls -lh'                                             # Detailed list
+alias la='ls -lhA'                                           # List including hidden files
+alias lr='ls -lLhR'                                          # Recursive list
+alias lra='ls -lhRA'                                         # Recursive list including hidden files
+alias lrt='ls -lLhrt'                                        # List by date
+alias lrta='ls -lLhrtA'                                      # List by date including hidden files
+alias dus='du -sh * | sort -hr'                              # Sort by size
+alias grep='grep -i --color=auto'                            # Case-insensitive grep
+alias zgrep='zgrep -i --color=auto'                          # Grep in compressed files
+alias psp='ps -eaf | grep -v grep | grep'                    # Search for a process (psp <name>)
+alias iostat='iostat -m --human'                             # Human-readable iostat
+alias ifc='ip -br -c addr | grep -vw lo'                     # IP addresses (ifconfig is deprecated)
+alias ssp='ss -tunlH | grep'                                 # Search for a port (ssp <port>)
+alias pubip='curl -s -4 https://ipecho.net/plain ; echo'     # Public IP
+alias df='df -h -x tmpfs -x devtmpfs -x overlay -x efivarfs' # df without irrelevant mounts
+alias halt='sudo halt -p'                                    # System shutdown
+alias reboot='sudo reboot'                                   # Reboot
 
 # sudo
 [[ "$EUID" -ne 0 ]] && alias root='sudo -s'
