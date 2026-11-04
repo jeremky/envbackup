@@ -18,15 +18,7 @@ HISTFILE="$HOME/.local/share/zsh/history"
 if [[ "$OSTYPE" == darwin* ]]; then
   PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
 else
-  source /etc/os-release
-  case $ID in
-    solus)
-      PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
-      ;;
-    steamos)
-      PROMPT='%B%F{cyan}%n@%m%f%b:%B%F{blue}%~ %(!.#.$)%f%b '
-      ;;
-  esac
+  PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
 fi
 
 # autosuggestions
@@ -50,7 +42,14 @@ command -v dircolors &>/dev/null && eval "$(dircolors -b)"
 export LS_COLORS="${LS_COLORS:+$LS_COLORS:}di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# keybindings
+# envman
+[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
+
+# aliases
+[[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
+
+# ─── keybinding ──────────────────────────────────────────────────────────
+
 if [[ -o interactive ]]; then
   bindkey -e
   bindkey "\e[H" beginning-of-line
@@ -61,9 +60,3 @@ if [[ -o interactive ]]; then
   bindkey "\e[5~" history-beginning-search-backward
   bindkey "\e[6~" history-beginning-search-forward
 fi
-
-# envman
-[[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
-
-# aliases
-[[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
