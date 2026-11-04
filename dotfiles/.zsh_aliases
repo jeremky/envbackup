@@ -6,12 +6,12 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=vim
-export LESSHISTFILE=/dev/null
+export LESSHISTFILE=-
 
-# Add ls color
+# ls color
 [[ $OSTYPE == linux* ]] && alias ls='ls --color=auto'
 
-# Aliases
+# aliases
 alias l='ls -lh'                                         # Detailed list
 alias la='ls -lhA'                                       # List including hidden files
 alias lr='ls -lLhR'                                      # Recursive list
@@ -32,9 +32,7 @@ alias reboot='sudo reboot'                               # Reboot
 # ─── optional applications ───────────────────────────────────────────────
 
 # btop: enhanced top
-if command -v btop &>/dev/null; then
-  alias top='btop'
-fi
+command -v btop &>/dev/null && alias top='btop'
 
 # chflags: hide folders in macos
 if command -v chflags &>/dev/null; then
@@ -83,9 +81,7 @@ if command -v brew &>/dev/null; then
 fi
 
 # ip: ifconfig replacement
-if command -v ip &>/dev/null; then
-  alias ifc='ip -br -c addr | grep -vw lo'
-fi
+command -v ip &>/dev/null && alias ifc='ip -br -c addr | grep -vw lo'
 
 # ncdu: TreeSize equivalent
 command -v ncdu &>/dev/null && alias ncdu='ncdu --color dark'
