@@ -23,9 +23,11 @@ HISTFILE="$HOME/.local/share/zsh/history"
 
 # prompt
 if [[ "$OSTYPE" == darwin* ]]; then
-  PROMPT='%B%(?.%F{cyan}.%F{red})❱ %F{blue}%~ $ %f%b'
+  # catppuccin mocha : sky / red / blue
+  PROMPT='%B%(?.%F{#89dceb}.%F{#f38ba8})❱ %F{#89b4fa}%~ $ %f%b'
 else
-  PROMPT='%F{81}%n%F{245}@%F{206}%m %F{245}%~ %F{81}%(!.#.$) %f'
+  # catppuccin mocha : sapphire / overlay1 / mauve
+  PROMPT='%F{#74c7ec}%n%F{#7f849c}@%F{#cba6f7}%m %F{#7f849c}%~ %F{#74c7ec}%(!.#.$) %f'
 fi
 
 # autosuggestions
