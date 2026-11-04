@@ -2,19 +2,24 @@
 
 # shellcheck disable=all
 
-# zsh folder
-[[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
+# non-interactive shells: nothing to do
+[[ -o interactive ]] || return
 
 # options
-setopt HIST_IGNORE_DUPS   # Ignore duplicates in history
-setopt HIST_FIND_NO_DUPS  # Ignore duplicates when searching
-setopt HIST_IGNORE_SPACE  # Ignore commands starting with a space
-setopt SHARE_HISTORY      # Share history between sessions
+setopt HIST_IGNORE_DUPS   # ignore duplicates in history
+setopt HIST_FIND_NO_DUPS  # ignore duplicates when searching
+setopt HIST_IGNORE_SPACE  # ignore commands starting with a space
+setopt HIST_REDUCE_BLANKS # remove parasite spaces
+setopt SHARE_HISTORY      # share history between sessions
+setopt EXTENDED_HISTORY   # save each command date
 
 # history
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
+
+# zsh folder
+[[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -48,7 +53,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 [[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
 
 # aliases
-[[ -f ~/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
+[[ -f $HOME/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
 
 # ─── keybinding ──────────────────────────────────────────────────────────
 
