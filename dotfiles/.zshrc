@@ -2,6 +2,9 @@
 
 # shellcheck disable=all
 
+# zsh folder
+[[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
+
 # options
 setopt HIST_IGNORE_DUPS   # Ignore duplicates in history
 setopt HIST_FIND_NO_DUPS  # Ignore duplicates when searching
@@ -12,7 +15,6 @@ setopt SHARE_HISTORY      # Share history between sessions
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.local/share/zsh/history"
-[[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
 if [[ "$OSTYPE" == darwin* ]]; then
