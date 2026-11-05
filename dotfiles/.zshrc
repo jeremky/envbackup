@@ -2,7 +2,7 @@
 
 # shellcheck disable=all
 
-# non-interactive shells: nothing to do
+# non-interactive shells
 [[ -o interactive ]] || return
 
 # options
@@ -23,16 +23,17 @@ HISTFILE="$HOME/.local/share/zsh/history"
 
 # prompt
 if [[ "$OSTYPE" == darwin* ]]; then
-  # catppuccin mocha : sky / red / blue
   PROMPT='%B%(?.%F{#89dceb}.%F{#f38ba8})❱ %F{#89b4fa}%~ $ %f%b'
 else
-  # catppuccin mocha : sapphire / overlay1 / mauve
   PROMPT='%F{#74c7ec}%n%F{#7f849c}@%F{#cba6f7}%m %F{#7f849c}%~ %F{#74c7ec}%(!.#.$) %f'
 fi
 
 # autosuggestions
-source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
-source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" 2>/dev/null
+if [[ -d "$HOMEBREW_PREFIX" ]]; then
+  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+elif [[ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
 
 # completion
 autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
