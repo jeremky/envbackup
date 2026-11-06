@@ -22,11 +22,14 @@ HISTFILE="$HOME/.local/share/zsh/history"
 [[ -d ${HISTFILE:h} ]] || mkdir -p "${HISTFILE:h}"
 
 # prompt
+sky='#89dceb' red='#f38ba8' blue='#89b4fa'
+sapphire='#74c7ec' grey='#7f849c' mauve='#cba6f7'
 if [[ "$OSTYPE" == darwin* ]]; then
-  PROMPT='%B%(?.%F{#89dceb}.%F{#f38ba8})❱ %F{#89b4fa}%~ $ %f%b'
+  PROMPT="%B%(?.%F{$sky}.%F{$red})❱ %F{$blue}%~ $ %f%b"
 else
-  PROMPT='%F{#74c7ec}%n%F{#7f849c}@%F{#cba6f7}%m %F{#7f849c}%~ %F{#74c7ec}%(!.#.$) %f'
+  PROMPT="%F{$sapphire}%n%F{$grey}@%F{$mauve}%m %F{$grey}%~ %F{$sapphire}%(!.#.$) %f"
 fi
+unset sky red blue sapphire grey mauve
 
 # autosuggestions
 if [[ -d "$HOMEBREW_PREFIX" ]]; then
