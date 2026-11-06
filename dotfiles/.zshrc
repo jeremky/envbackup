@@ -11,7 +11,6 @@ setopt HIST_FIND_NO_DUPS  # ignore duplicates when searching
 setopt HIST_IGNORE_SPACE  # ignore commands starting with a space
 setopt HIST_REDUCE_BLANKS # remove parasite spaces
 setopt SHARE_HISTORY      # share history between sessions
-setopt EXTENDED_HISTORY   # save each command date
 
 # history
 HISTSIZE=10000
@@ -32,11 +31,8 @@ fi
 unset sky red blue sapphire grey mauve
 
 # autosuggestions
-if [[ -d "$HOMEBREW_PREFIX" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-elif [[ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+f=${HOMEBREW_PREFIX:-/usr}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f $f ]] && source $f; unset f
 
 # completion
 autoload -Uz compinit && compinit -d "$HOME/.local/share/zsh/zcompdump"
