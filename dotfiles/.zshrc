@@ -50,7 +50,7 @@ command -v dircolors &>/dev/null && eval "$(dircolors -b)"
 
 # completion colors
 export LS_COLORS="${LS_COLORS:+$LS_COLORS:}di=1;38;2;137;180;250:ln=38;2;203;166;247:ex=1;38;2;166;227;161"
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" 'ma=1;38;2;205;214;244;48;2;69;71;90'
 
 # envman
 [[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
@@ -60,13 +60,26 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # ─── keybinding ──────────────────────────────────────────────────────────
 
-if [[ -o interactive ]]; then
-  bindkey -e
-  bindkey "\e[H" beginning-of-line
-  bindkey "\e[F" end-of-line
-  bindkey "\e[3~" delete-char
-  bindkey '^[[1;5C' forward-word
-  bindkey '^[[1;5D' backward-word
-  bindkey "\e[5~" history-beginning-search-backward
-  bindkey "\e[6~" history-beginning-search-forward
-fi
+# keep the space after a completion
+ZLE_SPACE_SUFFIX_CHARS=$'&|'
+
+# emacs mode
+bindkey -e
+
+# move
+bindkey "\e[H"    beginning-of-line                 # Home
+bindkey "\e[F"    end-of-line                       # End
+bindkey '^[[1;5D' backward-word                     # Ctrl+Left
+bindkey '^[[1;5C' forward-word                      # Ctrl+Right
+
+# delete
+bindkey "\e[3~"   delete-char                       # Del
+bindkey '^H'      backward-kill-word                # Ctrl+Backspace
+bindkey '^[[3;5~' kill-word                         # Ctrl+Del
+
+# history
+bindkey "\e[5~"   history-beginning-search-backward # PgUp
+bindkey "\e[6~"   history-beginning-search-forward  # PgDn
+
+# completion
+bindkey '^[[Z'    reverse-menu-complete             # Shift+Tab
