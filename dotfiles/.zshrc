@@ -53,6 +53,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" 'ma=1;38;2;205;214;244;4
 
 # envman
 [[ -s "$HOME/.config/envman/load.sh" ]] && source "$HOME/.config/envman/load.sh"
+typeset -U path
 
 # aliases
 [[ -f $HOME/.zsh_aliases ]] && source "$HOME/.zsh_aliases"
