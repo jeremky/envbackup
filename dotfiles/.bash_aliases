@@ -40,7 +40,8 @@ alias lrta='ls -lLhrtA'                                      # List by date incl
 alias dus='du -sh * | sort -hr'                              # Sort by size
 alias grep='grep -i --color=auto'                            # Case-insensitive grep
 alias zgrep='zgrep -i --color=auto'                          # Grep in compressed files
-alias psp='ps -eaf | grep -v grep | grep'                    # Search for a process (psp <name>)
+alias psp='ps -eaf | grep -v grep | grep'                    # Search for a process
+alias pst='ps -o pid,etime,cmd -C'                           # Show time details for a process
 alias iostat='iostat -m --human'                             # Human-readable iostat
 alias ifc='ip -br -c addr | grep -vw lo'                     # IP addresses (ifconfig is deprecated)
 alias ssp='ss -tunlH | grep'                                 # Search for a port (ssp <port>)
