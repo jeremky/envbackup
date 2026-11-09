@@ -116,6 +116,11 @@ if command -v rg &>/dev/null; then
   alias rg='rg -i --no-ignore'
 fi
 
+# tty-clock: CLI clock
+if command -v tty-clock &>/dev/null; then
+  alias clock='tty-clock -c -f %d/%m/%Y'
+fi
+
 # ufw: uncomplicated firewall
 if command -v ufw &>/dev/null; then
   alias ufw='sudo ufw'
