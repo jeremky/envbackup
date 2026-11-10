@@ -88,7 +88,7 @@ if 1
     echo 'IDE mode ' . (l:on ? 'enabled' : 'disabled')
   endfunction
 
-  " Keep cursor position when indent
+  " Reindent the whole file, keep cursor position
   function! ReindentFile()
     let l:view = winsaveview()
     keepjumps normal! gg=G
@@ -171,47 +171,57 @@ if 1
 
   " ─── statusline ────────────────────────────────────────────────────────
 
-  " mode() letter -> [label, highlight group]
+  " mode() letter -> [label, color], as lightline's mode_map and fallbacks
   let s:modes = {
-        \ 'n': ['NORMAL', 'StlNormal'],   'i': ['INSERT', 'StlInsert'],
-        \ 'v': ['VISUAL', 'StlVisual'],   'V': ['V-LINE', 'StlVisual'],
-        \ "\<C-v>": ['V-BLOCK', 'StlVisual'],
-        \ 's': ['SELECT', 'StlVisual'],   'S': ['S-LINE', 'StlVisual'],
-        \ "\<C-s>": ['S-BLOCK', 'StlVisual'],
-        \ 'R': ['REPLACE', 'StlReplace'], 'c': ['COMMAND', 'StlNormal'],
-        \ 't': ['TERMINAL', 'StlCommand'],
+        \ 'n': ['NORMAL', 'blue'],   'i': ['INSERT', 'teal'],
+        \ 'v': ['VISUAL', 'mauve'],  'V': ['V-LINE', 'mauve'],
+        \ "\<C-v>": ['V-BLOCK', 'mauve'],
+        \ 's': ['SELECT', 'mauve'],  'S': ['S-LINE', 'mauve'],
+        \ "\<C-s>": ['S-BLOCK', 'mauve'],
+        \ 'R': ['REPLACE', 'red'],   'c': ['COMMAND', 'blue'],
+        \ 't': ['TERMINAL', 'teal'],
+        \ }
+
+  " Catppuccin Mocha colors
+  let s:c = {
+        \ 'blue': '#89b4fa', 'teal': '#94e2d5', 'mauve': '#cba6f7', 'red': '#f38ba8',
+        \ 'overlay0': '#6c7086', 'surface1': '#45475a', 'surface0': '#313244',
+        \ 'base': '#1e1e2e', 'mantle': '#181825',
         \ }
 
   " Powerline separators (needs a Nerd Font)
   let s:sep = ["", ""]
 
-  " Build the statusline
+  " Build the statusline (lightline's default components)
   function! StatusLine() abort
-    if g:statusline_winid != win_getid()
-      return ' %<%f%( %m%r%)%= %3l:%-2v '
-    endif
-    let [l:label, l:hl] = get(s:modes, mode(), ['NORMAL', 'StlNormal'])
     let [l:left, l:right] = s:sep
-    return '%#' . l:hl . '# ' . l:label . ' '
-          \ . '%#' . l:hl . 'Sep#' . l:left
-          \ . '%#StlFile# %<%f%( %m%r%) '
+    " Inactive window: everything on base, separators are invisible
+    if g:statusline_winid != win_getid()
+      return '%#StlInFile#%( %t %)%#StlInSep#' . l:left . '%#StlInMid#%='
+            \ . '%#StlInSep#' . l:right . '%#StlInPct#%( %3p%% %)'
+            \ . '%#StlInSep#' . l:right . '%#StlInPos#%( %3l:%-2v %)'
+    endif
+    let [l:label, l:color] = get(s:modes, mode(), ['', 'blue'])
+    let l:mode = 'StlMode_' . l:color
+    return '%#' . l:mode . '#' . (l:label !=# '' ? ' ' . l:label . ' ' : '')
+          \ . '%{&paste?"|":""}%( %{&paste?"PASTE":""} %)'
+          \ . '%#' . l:mode . 'Sep#' . l:left
+          \ . '%#StlFile#%( %R %)%{&readonly?"|":""}%( %t %)%{&modified||!&modifiable?"|":""}%( %M %)'
           \ . '%#StlFileSep#' . l:left
-          \ . '%*%='
-          \ . ' %{&ff} | %{&fenc !=# "" ? &fenc : &enc} | %{&filetype !=# "" ? &filetype : "no ft"} '
+          \ . '%#StlMid#%='
+          \ . '%#StlMidSep#' . l:right . '%#StlMid#%( %{&ff} %)|%( %{&fenc!=#""?&fenc:&enc} %)|%( %{&ft!=#""?&ft:"no ft"} %)'
           \ . '%#StlPctSep#' . l:right
-          \ . '%#StlPct# %3p%% '
+          \ . '%#StlPct#%( %3p%% %)'
           \ . '%#StlPosSep#' . l:right
-          \ . '%#StlPos# %3l:%-2v '
+          \ . '%#StlPos#%( %3l:%-2v %)'
   endfunction
 
-  " Mode colors per group [gui, cterm] (Catppuccin Mocha)
-  let s:mode_colors = {
-        \ 'StlNormal':  ['#89b4fa', 4], 'StlInsert':  ['#a6e3a1', 2],
-        \ 'StlVisual':  ['#cba6f7', 5], 'StlReplace': ['#f38ba8', 1],
-        \ 'StlCommand': ['#fab387', 3],
-        \ }
+  " Highlight a group with palette colors
+  function! s:Hi(group, fg, bg) abort
+    exe printf('hi %s guifg=%s guibg=%s gui=NONE', a:group, s:c[a:fg], s:c[a:bg])
+  endfunction
 
-  " Custom statusline with Catppuccin
+  " Custom statusline, copy of lightline's catppuccin theme
   function! s:StatusSetup() abort
     if get(g:, 'colors_name', '') !~# '^catppuccin'
       set statusline& showmode
@@ -219,21 +229,26 @@ if 1
     endif
     set statusline=%!StatusLine()
     set noshowmode
-    for [l:group, l:c] in items(s:mode_colors)
-      " Mode block, and its separator blending into the file block
-      exe printf('hi %s guifg=#1e1e2e guibg=%s gui=bold ctermfg=0 ctermbg=%d cterm=bold', l:group, l:c[0], l:c[1])
-      exe printf('hi %sSep guifg=%s guibg=#1e1e2e gui=NONE ctermfg=%d ctermbg=234 cterm=NONE', l:group, l:c[0], l:c[1])
+    " Mode blocks, and their separator blending into the file block
+    for l:color in uniq(sort(map(values(s:modes), 'v:val[1]')))
+      call s:Hi('StlMode_' . l:color, 'mantle', l:color)
+      call s:Hi('StlMode_' . l:color . 'Sep', l:color, 'base')
     endfor
-    " Blue text: center (surface1), file block (base) and percent block (surface0)
-    hi StatusLine   guifg=#89b4fa guibg=#45475a gui=NONE ctermfg=4 ctermbg=8 cterm=NONE
-    hi StatusLineNC guifg=#7f849c guibg=#45475a gui=NONE ctermfg=245 ctermbg=8 cterm=NONE
-    hi StlFile      guifg=#89b4fa guibg=#1e1e2e gui=NONE ctermfg=4 ctermbg=234 cterm=NONE
-    hi StlFileSep   guifg=#1e1e2e guibg=#45475a gui=NONE ctermfg=234 ctermbg=8 cterm=NONE
-    hi StlPct       guifg=#89b4fa guibg=#313244 gui=NONE ctermfg=4 ctermbg=236 cterm=NONE
-    hi StlPctSep    guifg=#313244 guibg=#45475a gui=NONE ctermfg=236 ctermbg=8 cterm=NONE
-    " Line:column block on Mocha's base background
-    hi StlPos       guifg=#7f849c guibg=#1e1e2e gui=NONE ctermfg=245 ctermbg=234 cterm=NONE
-    hi StlPosSep    guifg=#1e1e2e guibg=#313244 gui=NONE ctermfg=234 ctermbg=236 cterm=NONE
+    " Active window: file and position on base, center on mantle, percent on surface0
+    call s:Hi('StlFile',    'blue',     'base')
+    call s:Hi('StlFileSep', 'base',     'mantle')
+    call s:Hi('StlMid',     'blue',     'mantle')
+    call s:Hi('StlMidSep',  'mantle',   'mantle')
+    call s:Hi('StlPctSep',  'surface0', 'mantle')
+    call s:Hi('StlPct',     'blue',     'surface0')
+    call s:Hi('StlPosSep',  'base',     'surface0')
+    call s:Hi('StlPos',     'overlay0', 'base')
+    " Inactive windows
+    call s:Hi('StlInFile',  'blue',     'base')
+    call s:Hi('StlInSep',   'base',     'base')
+    call s:Hi('StlInMid',   'surface1', 'base')
+    call s:Hi('StlInPct',   'overlay0', 'base')
+    call s:Hi('StlInPos',   'surface1', 'base')
   endfunction
   call s:StatusSetup()
 
