@@ -22,6 +22,7 @@ alias dus='du -sh * | sort -hr'                          # Sort by size
 alias grep='grep -i --color=auto'                        # Case-insensitive grep
 alias zgrep='zgrep -i --color=auto'                      # Grep in compressed files
 alias psp='ps -eaf | grep -v grep | grep'                # Search for a process (psp <name>)
+alias pst='ps -o pid,etime,cmd -C'                       # Show time details for a process
 alias genkey='ssh-keygen -t ed25519 -a 100'              # Generate an ed25519 key
 alias pubip='curl -s -4 https://ipecho.net/plain ; echo' # Public IP
 alias df='df -PlH'                                       # df without irrelevant mounts
