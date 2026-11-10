@@ -121,14 +121,14 @@ if 1
   inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
   " Auto-close braces, brackets and parentheses
-  inoremap { {}<Left>
-  inoremap [ []<Left>
-  inoremap ( ()<Left>
+  inoremap { {}<C-g>U<Left>
+  inoremap [ []<C-g>U<Left>
+  inoremap ( ()<C-g>U<Left>
 
   " Typing the closing char skips over an existing one
-  inoremap <expr> } getline('.')[col('.') - 1] ==# '}' ? "\<Right>" : '}'
-  inoremap <expr> ] getline('.')[col('.') - 1] ==# ']' ? "\<Right>" : ']'
-  inoremap <expr> ) getline('.')[col('.') - 1] ==# ')' ? "\<Right>" : ')'
+  inoremap <expr> } getline('.')[col('.') - 1] ==# '}' ? "\<C-g>U\<Right>" : '}'
+  inoremap <expr> ] getline('.')[col('.') - 1] ==# ']' ? "\<C-g>U\<Right>" : ']'
+  inoremap <expr> ) getline('.')[col('.') - 1] ==# ')' ? "\<C-g>U\<Right>" : ')'
 
   " Backspace inside an empty pair deletes both chars
   inoremap <expr> <BS> index(['()', '[]', '{}'], strpart(getline('.'), col('.') - 2, 2)) >= 0
@@ -248,4 +248,3 @@ if 1
   augroup END
 
 endif
-
