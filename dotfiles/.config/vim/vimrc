@@ -221,7 +221,7 @@ if 1
     exe printf('hi %s guifg=%s guibg=%s gui=NONE', a:group, s:c[a:fg], s:c[a:bg])
   endfunction
 
-  " Custom statusline, copy of lightline's catppuccin theme
+  " Custom statusline, copy of lightline's catppuccin_mocha theme
   function! s:StatusSetup() abort
     if get(g:, 'colors_name', '') !~# '^catppuccin'
       set statusline& showmode
@@ -234,12 +234,12 @@ if 1
       call s:Hi('StlMode_' . l:color, 'mantle', l:color)
       call s:Hi('StlMode_' . l:color . 'Sep', l:color, 'base')
     endfor
-    " Active window: file and position on base, center on mantle, percent on surface0
+    " Active window: file and position on base, center on surface1, percent on surface0
     call s:Hi('StlFile',    'blue',     'base')
-    call s:Hi('StlFileSep', 'base',     'mantle')
-    call s:Hi('StlMid',     'blue',     'mantle')
-    call s:Hi('StlMidSep',  'mantle',   'mantle')
-    call s:Hi('StlPctSep',  'surface0', 'mantle')
+    call s:Hi('StlFileSep', 'base',     'surface1')
+    call s:Hi('StlMid',     'blue',     'surface1')
+    call s:Hi('StlMidSep',  'surface1', 'surface1')
+    call s:Hi('StlPctSep',  'surface0', 'surface1')
     call s:Hi('StlPct',     'blue',     'surface0')
     call s:Hi('StlPosSep',  'base',     'surface0')
     call s:Hi('StlPos',     'overlay0', 'base')
