@@ -11,6 +11,7 @@ warning() { echo -e "\033[0;33m❯ $*\033[0m\n\033[0;36m────────
 if [[ "$OSTYPE" == darwin* ]]; then
   ID="macos"
 else
+  # shellcheck disable=1091
   if ! . /etc/os-release 2>/dev/null; then
     error "File /etc/os-release not found, unable to detect the distribution!"
     exit 1
