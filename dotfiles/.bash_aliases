@@ -103,7 +103,12 @@ fi
 # fzf: fuzzy finder
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
-  export FZF_DEFAULT_OPTS="--no-color"
+  if fzf --color=base16 --version >/dev/null 2>&1; then
+      FZF_COLOR="base16"
+  else
+      FZF_COLOR="16"
+  fi
+  export FZF_DEFAULT_OPTS="--color=$FZF_COLOR"
 fi
 
 # ncdu: TreeSize equivalent
