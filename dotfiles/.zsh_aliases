@@ -93,6 +93,9 @@ command -v rg &>/dev/null && alias rg='rg -i'
 # ssp: Search for a port (ssp <port>)
 command -v ss &>/dev/null && alias ssp='ss -tunlH | grep'
 
+# yazi: file explorer
+command -v yazi &>/dev/null && alias x='yazi'
+
 # zed: code editor
 command -v zedit &>/dev/null && alias zed='zedit'
 
