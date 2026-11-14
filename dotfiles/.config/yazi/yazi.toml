@@ -7,12 +7,21 @@ linemode       = "size"
 scrolloff      = 5
 
 [opener]
-edit = [
+vim = [
+  { run = 'vim %s', block = true, desc = "Vim", for = "unix" },
+]
+helix = [
   { run = 'hx %s', block = true, desc = "Helix", for = "unix" },
+]
+zed = [
+  { run = 'zedit %s', orphan = true, desc = "Zed", for = "unix" },
 ]
 
 [open]
 prepend_rules = [
-  { mime = "text/*", use = "edit" },
-  { url = "*.{md,toml,yaml,yml,json,sh,lua,rs,py}", use = "edit" },
+  { mime = "text/*", use = ["vim", "helix", "zed"] },
+  { url = "*.{md,toml,yaml,yml,json,sh,lua,rs,py}", use = ["vim", "helix", "zed"] },
+  # Extensionless files that aren't detected as text: empty or unknown content
+  { mime = "inode/{empty,x-empty}", use = ["vim", "helix", "zed"] },
+  { mime = "application/octet-stream", use = ["vim", "helix", "zed"] },
 ]
