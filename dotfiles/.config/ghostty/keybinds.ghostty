@@ -16,3 +16,6 @@ keybind = alt+shift+right=resize_split:right,20
 # history
 keybind = shift+page_up=jump_to_prompt:-1
 keybind = shift+page_down=jump_to_prompt:1
+
+# yazi
+keybind = ctrl+x=text:yazi\r
