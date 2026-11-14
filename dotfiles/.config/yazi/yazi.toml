@@ -6,12 +6,6 @@ show_hidden    = true
 linemode       = "size"
 scrolloff      = 5
 
-[preview]
-max_width     = 2000
-max_height    = 2000
-image_filter  = "lanczos3"
-image_quality = 90
-
 [opener]
 vim = [
   { run = 'vim %s', block = true, desc = "Vim", for = "unix" },
@@ -26,7 +20,5 @@ zed = [
 [open]
 prepend_rules = [
   { mime = "text/*", use = ["vim", "helix", "zed"] },
-  { url = "*.{md,toml,yaml,yml,json,sh,lua,rs,py}", use = ["vim", "helix", "zed"] },
-  { mime = "inode/{empty,x-empty}", use = ["vim", "helix", "zed"] },
-  { mime = "application/octet-stream", use = ["vim", "helix", "zed"] },
+  { url = "*.{md,toml,yaml,yml,json,sh,py}", use = ["vim", "helix", "zed"] },
 ]
