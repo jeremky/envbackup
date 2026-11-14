@@ -1,0 +1,227 @@
+{
+  "float": [
+    {
+      "class": "org.gnome.Extensions"
+    },
+    {
+      "class": "org.gnome.Settings"
+    },
+    {
+      "class": "org.gnome.Software"
+    },
+    {
+      "class": "org.gnome.Nautilus"
+    },
+    {
+      "class": "discord"
+    },
+    {
+      "class": "steam"
+    },
+    {
+      "class": "proton.vpn.app.gtk"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false,
+  "_compiled_float": [
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": null,
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": null,
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": {}
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    }
+  ],
+  "_compiled_skip": [
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    },
+    {
+      "classRe": {},
+      "titleRe": null
+    }
+  ]
+}
