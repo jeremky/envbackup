@@ -1,5 +1,5 @@
 [mgr]
-ratio          = [1, 4, 3]
+ratio          = [1, 2, 4]
 sort_by        = "natural"
 sort_dir_first = true
 show_hidden    = true
@@ -21,7 +21,6 @@ zed = [
 prepend_rules = [
   { mime = "text/*", use = ["vim", "helix", "zed"] },
   { url = "*.{md,toml,yaml,yml,json,sh,lua,rs,py}", use = ["vim", "helix", "zed"] },
-  # Extensionless files that aren't detected as text: empty or unknown content
   { mime = "inode/{empty,x-empty}", use = ["vim", "helix", "zed"] },
   { mime = "application/octet-stream", use = ["vim", "helix", "zed"] },
 ]
