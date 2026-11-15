@@ -106,6 +106,11 @@ if command -v fzf &>/dev/null; then
   export FZF_DEFAULT_OPTS="--color=16"
 fi
 
+# htop: better top
+if command -v htop &>/dev/null; then
+  alias top='htop'
+fi
+
 # ncdu: TreeSize equivalent
 if command -v ncdu &>/dev/null; then
   alias ncdu='ncdu --color dark'
