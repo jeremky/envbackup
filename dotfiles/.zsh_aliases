@@ -125,12 +125,6 @@ rmds() { find . \( -name '.DS_Store' -o -name '._*' \) -type f -delete; }
 tarc() { for file in "$@"; do tar czvf "${file%/}.tar.gz" "$file"; done; }
 tarx() { for file in "$@"; do tar xzvf "$file"; done; }
 
-# webi: package manager
-webinstall() {
-  curl -sS https://webi.sh/webi | sh
-  source "$HOME/.config/envman/PATH.env"
-}
-
 # zipd: create one zip archive per file
 zipd() { for file in "$@"; do /usr/bin/zip -r "${file%/}.zip" "$file"; done; }
 
