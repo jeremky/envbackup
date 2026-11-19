@@ -1,6 +1,5 @@
-#!/bin/bash -e
-
-dir=$(dirname "$(realpath "$0")")
+#!/bin/bash
+set -e
 
 # Colored messages
 error() { echo -e "\033[0;31m❯ $*\033[0m"; }
@@ -17,6 +16,7 @@ else
     exit 1
   fi
 fi
+dir=$(dirname "$(realpath "$0")")
 list="$dir/config/$ID.cfg"
 
 # Check user
@@ -42,6 +42,16 @@ copy() {
   cp -Rpv "$src" "$dest"
 }
 
+# Check argument
+case "$1" in
+  r) mode="restore" ;;
+  "") mode="backup" ;;
+  *)
+    error "Usage: $0 [r]"
+    exit 1
+    ;;
+esac
+
 # Execution
 echo
 warning "Syncing files"
@@ -49,7 +59,7 @@ while read -r line || [[ -n "$line" ]]; do
   [[ -z "$line" || "$line" == \#* ]] && continue
   dotfile="$dir/dotfiles/$line"
   home="$HOME/$line"
-  if [[ "$1" = "r" ]]; then
+  if [[ "$mode" == "restore" ]]; then
     copy "$dotfile" "$home" 0
   else
     copy "$home" "$dotfile" 1
