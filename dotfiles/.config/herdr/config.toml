@@ -23,10 +23,6 @@ enabled = true
 
 [keys]
 prefix = "ctrl+space"
-previous_tab = "ctrl+w"
-next_tab = "ctrl+x"
-previous_workspace = "ctrl+q"
-next_workspace = "ctrl+s"
 new_workspace = "ctrl+shift+space"
 
 [session]
