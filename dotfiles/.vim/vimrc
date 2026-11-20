@@ -125,9 +125,7 @@ if 1
   " Editor
   Plug 'jiangmiao/auto-pairs'
   Plug 'vim-scripts/VimCompletesMe'
-
-  " Built-in commentary plugin on Vim 9.1+, vim-commentary otherwise
-  try | packadd! comment | catch | Plug 'tpope/vim-commentary' | endtry
+  Plug 'tpope/vim-commentary'
 
   call plug#end()
 
