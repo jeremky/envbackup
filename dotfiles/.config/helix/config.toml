@@ -41,3 +41,13 @@ enable = true
 "F2"  = ":toggle mouse"
 "F4"  = "toggle_comments"
 "F5"  = ":format"
+"S-up"   = "page_up"
+"S-down" = "page_down"
+
+[keys.insert]
+"S-up"   = "page_up"
+"S-down" = "page_down"
+
+[keys.select]
+"S-up"   = "page_up"
+"S-down" = "page_down"
