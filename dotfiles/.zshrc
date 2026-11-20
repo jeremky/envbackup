@@ -5,6 +5,9 @@
 # non-interactive shells
 [[ -o interactive ]] || return
 
+# herdr: force directory
+[[ $TERM_PROGRAM == herdr && $PWD == / ]] && cd ~
+
 # options
 setopt HIST_IGNORE_DUPS   # ignore duplicates in history
 setopt HIST_FIND_NO_DUPS  # ignore duplicates when searching
