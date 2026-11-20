@@ -30,6 +30,10 @@ else
 fi
 unset sky red blue sapphire grey mauve
 
+# terminal title
+preexec() { print -Pn "\e]0;${1%% *}\a" }
+precmd()  { print -Pn "\e]0;%~\a" }
+
 # autosuggestions
 f=${HOMEBREW_PREFIX:-/usr}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f $f ]] && source $f; unset f
