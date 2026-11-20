@@ -170,6 +170,9 @@ if 1
     set laststatus=2
     set noshowmode
 
+    " Auto-pairs
+    let g:AutoPairs = {'(':')', '[':']', '{':'}', '```':'```', '`':'`'}
+
   endif
 
 endif
