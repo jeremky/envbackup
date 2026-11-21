@@ -56,7 +56,7 @@ esac
 echo
 warning "Syncing files"
 while read -r line || [[ -n "$line" ]]; do
-  [[ -z "$line" || "$line" == \#* ]] && continue
+  [[ -z "$line" || "$line" == "#"* ]] && continue
   dotfile="$dir/dotfiles/$line"
   home="$HOME/$line"
   if [[ "$mode" == "restore" ]]; then
