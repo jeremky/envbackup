@@ -7,6 +7,9 @@ for file in $hidden; do
 done
 unset hidden file
 
+# 777 folders
+export LS_COLORS="$LS_COLORS:ow=01;34;48;2;69;71;90:tw=01;34;48;2;69;71;90:st=01;34"
+
 # options
 if [[ $- == *i* ]]; then
   bind 'set colored-stats on'          # Colors during completion
