@@ -155,6 +155,11 @@ if 1
     " syntax color for .lpl files
     autocmd BufRead,BufNewFile *.lpl setfiletype json
 
+    " Use shfmt for = on shell scripts
+    if executable('shfmt')
+      autocmd FileType sh setlocal equalprg=shfmt\ -i\ 2\ -ci\ -
+    endif
+
   augroup END
 
   " ─── theme settings ────────────────────────────────────────────────────
