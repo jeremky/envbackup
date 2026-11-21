@@ -20,11 +20,18 @@
     },
     {
       "class": "proton.vpn.app.gtk"
+    },
+    {
+      "class": "com.mitchellh.ghostty"
     }
   ],
   "skiptaskbarhidden": [],
   "log_on_focus": false,
   "_compiled_float": [
+    {
+      "classRe": {},
+      "titleRe": null
+    },
     {
       "classRe": {},
       "titleRe": null
