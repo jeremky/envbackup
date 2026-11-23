@@ -1,0 +1,812 @@
+{
+	"userHome": "/home/jeremky",
+	"language": "en",
+	"settings": {
+		"analyticsOptIn": false,
+		"checkUpdatesInterval": 10,
+		"enableUpdates": false,
+		"addDesktopShortcuts": false,
+		"addStartMenuShortcuts": false,
+		"autoInstallDxvk": true,
+		"autoInstallVkd3d": true,
+		"autoInstallDxvkNvapi": true,
+		"addSteamShortcuts": false,
+		"preferSystemLibs": false,
+		"checkForUpdatesOnStartup": true,
+		"autoUpdateGames": true,
+		"customWinePaths": [],
+		"defaultInstallPath": "/mnt/games/Heroic",
+		"libraryTopSection": "disabled",
+		"defaultSteamPath": "/home/jeremky/.steam/steam",
+		"defaultWinePrefix": "/home/jeremky/Games/Heroic/Prefixes",
+		"defaultWinePrefixDir": "/mnt/games/Heroic/Heroic/Prefixes",
+		"hideChangelogsOnStartup": false,
+		"language": "en",
+		"maxWorkers": 0,
+		"minimizeOnLaunch": false,
+		"nvidiaPrime": false,
+		"enviromentOptions": [],
+		"wrapperOptions": [],
+		"showFps": false,
+		"useGameMode": false,
+		"wineCrossoverBottle": "Heroic",
+		"winePrefix": "/home/jeremky/Games/Heroic/Prefixes/shared",
+		"wineVersion": {
+			"bin": "/home/jeremky/.config/heroic/tools/proton/Proton-CachyOS-latest/proton",
+			"name": "Proton-CachyOS-latest",
+			"type": "proton"
+		},
+		"enableEsync": true,
+		"enableFsync": true,
+		"enableMsync": false,
+		"enableWineWayland": false,
+		"enableHDR": false,
+		"enableWoW64": false,
+		"eacRuntime": true,
+		"gamepadRepeatDelay": 50,
+		"gamepadInitialRepeatDelay": 300,
+		"battlEyeRuntime": true,
+		"framelessWindow": false,
+		"hideWindowOnProtocolLaunch": false,
+		"beforeLaunchScriptPath": "",
+		"afterLaunchScriptPath": "",
+		"disableUMU": false,
+		"verboseLogs": true,
+		"downloadProtonToSteam": false,
+		"advertiseAvxForRosetta": false,
+		"noTrayIcon": false,
+		"showValveProton": false,
+		"steamGridDbApiKey": "",
+		"disableGOGPresence": false
+	},
+	"window-props": {
+		"x": 22,
+		"y": 19,
+		"width": 1760,
+		"height": 1032,
+		"maximized": false
+	},
+	"userInfo": {
+		"account_id": "0117d819fdb245c88d83dcb8e25cb681",
+		"displayName": "Jer3mKy",
+		"user": "jeremky"
+	},
+	"games": {
+		"hidden": [
+			{
+				"appName": "f0ac8218ef7d4b5aabec153e3f193db6",
+				"title": "Mortal Shell Tech Beta"
+			},
+			{
+				"appName": "8e29583ae4b44a21883038668f7e301e",
+				"title": "Moving Out"
+			},
+			{
+				"appName": "Hazelnut",
+				"title": "Limbo"
+			},
+			{
+				"appName": "Herring",
+				"title": "Hue"
+			},
+			{
+				"appName": "81ed1e946da54050af4b3be7774ea038",
+				"title": "Cyberpunk 2077 Bonus Content"
+			},
+			{
+				"appName": "e8bbb84be35640cda646233152ff3428",
+				"title": "Brotato"
+			},
+			{
+				"appName": "e1f0b4ad4b16426e991276aceb81bbe2",
+				"title": "Caravan SandWitch"
+			},
+			{
+				"appName": "Calluna",
+				"title": "Control"
+			},
+			{
+				"appName": "ca02598c9a5c4d5491d6431ce8e8d6e7",
+				"title": "Chivalry 2 - Public Testing"
+			},
+			{
+				"appName": "Crow",
+				"title": "Dead Island 2"
+			},
+			{
+				"appName": "65d73e3be8824829b5b788bd849b6559",
+				"title": "Death's Door"
+			},
+			{
+				"appName": "3223ccf6ac9b4189bd4e144c047d33fb",
+				"title": "KillingFloor2Beta"
+			},
+			{
+				"appName": "ee5c6a659d0f478fba0049fa44429a1f",
+				"title": "Mothergunship"
+			},
+			{
+				"appName": "9b48cbb1a0cf4a73b87ccbf4cde04b26",
+				"title": "Sable"
+			},
+			{
+				"appName": "bf363d9625a5406f904d925f3e613327",
+				"title": "Scourgebringer"
+			},
+			{
+				"appName": "78847ec04bb348ba83d00a44896b80a3",
+				"title": "Gravity Circuit"
+			},
+			{
+				"appName": "8032b75cf0914afa87c78d6914adc165",
+				"title": "Car Mechanic Simulator 2018"
+			},
+			{
+				"appName": "d578a8f36f8c49dc8c952c30f7dd049f",
+				"title": "AK-xolotl: Together"
+			},
+			{
+				"appName": "4656facc740742a39e265b026e13d075",
+				"title": "20 Minutes Till Dawn"
+			},
+			{
+				"appName": "ee96375fac2f47de978170a24398e581",
+				"title": "DARQ"
+			},
+			{
+				"appName": "923130ebb546417b9d3115507f752d34",
+				"title": "Darkwood"
+			},
+			{
+				"appName": "1e9c3a9a10c6463e9c065f371b8b42bf",
+				"title": "Duskers"
+			},
+			{
+				"appName": "70f92598b33d42e290e411f07397aeee",
+				"title": "Eximius: Seize the Frontline"
+			},
+			{
+				"appName": "6dfbeb5a6f2e42b5a6a5dcf7a8269e9c",
+				"title": "Rustler - Grand Theft Horse"
+			},
+			{
+				"appName": "2feb2f328922458e9f698f620fbddc13",
+				"title": "System Shock 2: 25th Anniversary Remaster"
+			},
+			{
+				"appName": "f8b6cc851ab34f5f9f07654426dc2429",
+				"title": "Sniper Ghost Warrior Contracts"
+			},
+			{
+				"appName": "a334978574a840d594c31521592925f3",
+				"title": "Shadow Tactics Blades of the Shogun"
+			},
+			{
+				"appName": "18a85afedeac4ea885b27fee3e0c81db",
+				"title": "Second Extinction™"
+			},
+			{
+				"appName": "ab277c0995e945d2b2c50c46883627f1",
+				"title": "PC Building Simulator"
+			},
+			{
+				"appName": "592c359fb0e0413fb46dee2d24448eb4",
+				"title": "Destiny 2"
+			},
+			{
+				"appName": "456f53b28c384f02865874299f956501",
+				"title": "Midnight Ghost Hunt"
+			},
+			{
+				"appName": "8c28826b510b40d0bd967b6fa011917e",
+				"title": "Once Human"
+			},
+			{
+				"appName": "6b994d7f4f2a4e85a54d5c2ede6d2fed",
+				"title": "Out of Line"
+			},
+			{
+				"appName": "963137e4c29d4c79a81323b8fab03a40",
+				"title": "Among Us"
+			},
+			{
+				"appName": "ba94c39030df477180e5141aadcc8b13",
+				"title": "Behind the Frame: The Finest Scenery"
+			},
+			{
+				"appName": "4a4ffcf1a8354008bcc3b28280dd2419",
+				"title": "EARTHLOCK"
+			},
+			{
+				"appName": "1fb35ad93dd64570a1a8b08525ea83de",
+				"title": "Godzilla Voxel Wars"
+			},
+			{
+				"appName": "Petrel",
+				"title": "Minit"
+			},
+			{
+				"appName": "487bfeacfebe4d2a921b0b1478ad6625",
+				"title": "Nova Lands"
+			},
+			{
+				"appName": "c2bbe19e0cfd4ae09a10d17c83f1c02a",
+				"title": "Oddsparks: An Automation Adventure"
+			},
+			{
+				"appName": "ad10e9b2f38d491499785412149cdc49",
+				"title": "Ogu et la Forêt secrète"
+			},
+			{
+				"appName": "280b22dbb7e24f7bada5520e9d38d3a2",
+				"title": "Paquerette Down the Bunburrows"
+			},
+			{
+				"appName": "Weaver",
+				"title": "Rebel Galaxy"
+			},
+			{
+				"appName": "Pewee",
+				"title": "Rogue Company"
+			},
+			{
+				"appName": "Cormorant",
+				"title": "Saints Row"
+			},
+			{
+				"appName": "Loon",
+				"title": "Saints Row The Third Remastered"
+			},
+			{
+				"appName": "74034e8449f2470d9f45115f3a49f9aa",
+				"title": "Fallout 2: A Post Nuclear Role Playing Game"
+			},
+			{
+				"appName": "908f75e7f1624819a70c27f543741dcd",
+				"title": "Fallout Tactics: Brotherhood of Steel"
+			},
+			{
+				"appName": "f8ef168f3522419caad27d82878e0329",
+				"title": "Fallout: A Post Nuclear Role Playing Game"
+			},
+			{
+				"appName": "ac8f20a7931e4d63a1db4dc1267ec3d1",
+				"title": "Ironcast"
+			},
+			{
+				"appName": "70883ed009994efe86d00a5fb8f2b52e",
+				"title": "Jurassic World Evolution 2"
+			},
+			{
+				"appName": "Kinglet",
+				"title": "Sid Meier's Civilization VI"
+			},
+			{
+				"appName": "3acb0920074446e8baaa4c249200d892",
+				"title": "Yoku's Island Express"
+			},
+			{
+				"appName": "888fabb7d07b430691ae22796f2cb530",
+				"title": "Arcade Paradise"
+			},
+			{
+				"appName": "61cc250618f94809a3ef6837c8d69445",
+				"title": "Garden Story"
+			},
+			{
+				"appName": "6d3e443c997b4ebdb61a299161b3367a",
+				"title": "SkyDrift Infinity"
+			},
+			{
+				"appName": "800ab4cd7b3b4b1cae4b5bff81cdfa1a",
+				"title": "Steelrising"
+			},
+			{
+				"appName": "582c8940f499450d9033840efe5937a6",
+				"title": "Terraforming Mars"
+			},
+			{
+				"appName": "0ad0ed7b851c46378f9fcac07b72b548",
+				"title": "Wildgate"
+			},
+			{
+				"appName": "a79746038c6948558274065d24f3faa3",
+				"title": "World of Warships"
+			},
+			{
+				"appName": "fdbd9987b8344d2ead326c7f18d6da0e",
+				"title": "Witch It"
+			},
+			{
+				"appName": "36b0e40890f147fbb1e3965f87369156",
+				"title": "Tyranny - Gold Edition"
+			},
+			{
+				"appName": "1812138501",
+				"title": "Planet of Lana"
+			},
+			{
+				"appName": "1441704824",
+				"title": "Quake II (Original)"
+			},
+			{
+				"appName": "1104084973",
+				"title": "Shogun Showdown"
+			},
+			{
+				"appName": "1435738629",
+				"title": "Saints Row®: The Third™ Remastered"
+			},
+			{
+				"appName": "1558688142",
+				"title": "XCOM: Enemy Unknown Complete Pack"
+			},
+			{
+				"appName": "1816059595",
+				"title": "Mafia II (Classic)"
+			},
+			{
+				"appName": "1449710114",
+				"title": "Mafia II: Definitive Edition"
+			},
+			{
+				"appName": "1578751750",
+				"title": "Mafia III: Definitive Edition"
+			},
+			{
+				"appName": "1207659088",
+				"title": "Legacy of Kain: Defiance (2003)"
+			},
+			{
+				"appName": "1207659101",
+				"title": "Legacy of Kain: Blood Omen 2"
+			},
+			{
+				"appName": "1806891286",
+				"title": "BioShock® 2"
+			},
+			{
+				"appName": "2022341186",
+				"title": "BioShock™"
+			},
+			{
+				"appName": "1837805079",
+				"title": "Blood Omen: Legacy of Kain"
+			},
+			{
+				"appName": "1242541569",
+				"title": "The Outer Worlds"
+			},
+			{
+				"appName": "1422286819",
+				"title": "STAR WARS™ Jedi Knight: Dark Forces II"
+			},
+			{
+				"appName": "1422285784",
+				"title": "STAR WARS™ Jedi Knight: Dark Forces II - Mysteries of the Sith"
+			},
+			{
+				"appName": "1207658890",
+				"title": "Neverwinter Nights Diamond"
+			},
+			{
+				"appName": "1440148836",
+				"title": "Fallout"
+			},
+			{
+				"appName": "1440151285",
+				"title": "Fallout 2"
+			},
+			{
+				"appName": "1454315831",
+				"title": "Fallout 3: Game of the Year Edition"
+			},
+			{
+				"appName": "1454587428",
+				"title": "Fallout: New Vegas Ultimate Edition"
+			},
+			{
+				"appName": "1482002159",
+				"title": "XCOM® 2"
+			},
+			{
+				"appName": "1921398290",
+				"title": "Gamedec - Definitive Edition"
+			},
+			{
+				"appName": "1485834662",
+				"title": "Ashworld"
+			},
+			{
+				"appName": "Pigeon",
+				"title": "Trackmania Starter Access"
+			},
+			{
+				"appName": "857848741a364bf8a838af91aae67700",
+				"title": "War Hospital"
+			},
+			{
+				"appName": "63a665088eb1480298f1e57943b225d8",
+				"title": "Marvel's Guardians of the Galaxy"
+			},
+			{
+				"appName": "cb3bf7ba89574a66ae3b795e039d4dbc",
+				"title": "The Outer Worlds: Spacer's Choice Edition"
+			},
+			{
+				"appName": "1986509485",
+				"title": "The Outer Worlds: Spacer’s Choice Edition"
+			},
+			{
+				"appName": "49550aa9fcd74552ae07c4e9f2c262fe",
+				"title": "Marvel's Midnight Suns"
+			},
+			{
+				"appName": "7763cb8916654651a50593a813ae7c38",
+				"title": "Kao the Kangaroo"
+			},
+			{
+				"appName": "a1e2ce30defe4a9187ebc14fc9d2bd8b",
+				"title": "Kerbal Space Program"
+			},
+			{
+				"appName": "6c227b0fac70445aae645f0d601dc5d2",
+				"title": "Phantasy Star Online 2"
+			},
+			{
+				"appName": "5daeb974a22a435988892319b3a4f476",
+				"title": "Fallout: New Vegas"
+			},
+			{
+				"appName": "25b902f42cf04b17bc8a3db2f7292d58",
+				"title": "Guacamelee! Super Turbo Championship Edition"
+			},
+			{
+				"appName": "2e26af55c1a146e7a939dcc1014fc9fd",
+				"title": "MORDHAU"
+			},
+			{
+				"appName": "Finch",
+				"title": "Killing Floor 2"
+			},
+			{
+				"appName": "ce2a78bf70b646e9b9f57c46dac99184",
+				"title": "Yooka-Laylee"
+			},
+			{
+				"appName": "769f2fee68e9477180da900ccccbbcf0",
+				"title": "Total War: THREE KINGDOMS"
+			},
+			{
+				"appName": "ab9bdfa5a0c945f69b9e7d651990cb14",
+				"title": "STALZONE"
+			},
+			{
+				"appName": "1549126051",
+				"title": "Sugardew Island"
+			},
+			{
+				"appName": "b3cb6e007019430ebb1dd87f6e8c87d3",
+				"title": "Bear and Breakfast"
+			},
+			{
+				"appName": "1207666373",
+				"title": "Baldur's Gate II: Enhanced Edition"
+			},
+			{
+				"appName": "1207666353",
+				"title": "Baldur's Gate: Enhanced Edition"
+			},
+			{
+				"appName": "Catnip",
+				"title": "Borderlands 3"
+			},
+			{
+				"appName": "0a20ccd3f1b3464da750a4dbf8c80d7c",
+				"title": "Breathedge"
+			},
+			{
+				"appName": "fe4168b810314c2fb93f1803e2fe431e",
+				"title": "Call of the Wild: The Angler™"
+			},
+			{
+				"appName": "d1df808b70104992a53512d64fae933c",
+				"title": "Castlevania Anniversary Collection"
+			},
+			{
+				"appName": "051eaac0842c46d7a5a62858ad534d5a",
+				"title": "Cat Quest"
+			},
+			{
+				"appName": "6a2cc8b03e684bbd9096a338f96a7ba2",
+				"title": "Cat Quest II"
+			},
+			{
+				"appName": "2eaba703e63e4ed8bd2919ed552021d6",
+				"title": "Deus Ex - Mankind Divided"
+			},
+			{
+				"appName": "1370227705",
+				"title": "Deus Ex: Human Revolution - Director’s Cut"
+			},
+			{
+				"appName": "Honeycreeper",
+				"title": "Diabotical"
+			},
+			{
+				"appName": "91e82f342ebf42309703e9ba363daedf",
+				"title": "Doors - Paradox"
+			},
+			{
+				"appName": "verdi",
+				"title": "Dragon Age : Inquisition - Édition Jeu de l'année"
+			},
+			{
+				"appName": "9c203b6ed35846e8a4a9ff1e314f6593",
+				"title": "Elite Dangerous"
+			},
+			{
+				"appName": "c95f2c3e2e8b41f1bb9de3036e53f319",
+				"title": "Freshly Frosted"
+			},
+			{
+				"appName": "4256d7c7170f4326a1a861d0b30f1af7",
+				"title": "Foretales"
+			},
+			{
+				"appName": "1654564600",
+				"title": "Fort Solis"
+			},
+			{
+				"appName": "9598a70268124b108d80af9d873917b5",
+				"title": "New Tales from the Borderlands"
+			},
+			{
+				"appName": "31d26cc98fcd4aa9920315f03b55ad0b",
+				"title": "Project Winter"
+			},
+			{
+				"appName": "e87a43f695bc409ca8858206678ac7e7",
+				"title": "shapez"
+			},
+			{
+				"appName": "19a750a7d7974f9291c0584feedb94b0",
+				"title": "The Silent Age"
+			},
+			{
+				"appName": "7786b355a13b47a6b3915335117cd0b2",
+				"title": "Bloons TD 6"
+			},
+			{
+				"appName": "7ec86711ef70447fbfd4370ba9f185c6",
+				"title": "Felix The Reaper"
+			},
+			{
+				"appName": "Wombat",
+				"title": "World War Z"
+			},
+			{
+				"appName": "Muscovy",
+				"title": "Surviving the Aftermath"
+			},
+			{
+				"appName": "c22fcf8eec61424b9901f2888843a25a",
+				"title": "Warhammer 40K Speed Freeks"
+			},
+			{
+				"appName": "f3a0b50da2dd4226b8308c7e5fa1fbb6",
+				"title": "Songs of Silence"
+			},
+			{
+				"appName": "1342466874",
+				"title": "GRIP"
+			},
+			{
+				"appName": "367b958278744d8c9f44dac339e5bd02",
+				"title": "Luftrausers"
+			},
+			{
+				"appName": "972f47c7ed8e4eeaae92cb6b8d5b3fd7",
+				"title": "River City Girls 2"
+			},
+			{
+				"appName": "588cec64448242d8b61188205d97f887",
+				"title": "River City Girls"
+			},
+			{
+				"appName": "39b13b169e1d4e798543f931bc3a95b4",
+				"title": "Road Redemption"
+			},
+			{
+				"appName": "1816031813",
+				"title": "Duck Paradox"
+			},
+			{
+				"appName": "1407750955",
+				"title": "Tomb Raider I-III Remastered Starring Lara Croft"
+			},
+			{
+				"appName": "41d39dac6c9d43f69a23d4dfca2aa0c0",
+				"title": "Tomb Raider IV-VI Remastered"
+			},
+			{
+				"appName": "1163487128",
+				"title": "The Coma: Recut"
+			},
+			{
+				"appName": "1785804341",
+				"title": "Close To The Sun"
+			},
+			{
+				"appName": "3e02273b543f4ff0a1c24d3b534a9ac3",
+				"title": "Hell Let Loose"
+			},
+			{
+				"appName": "1547269859",
+				"title": "Hero's Hour"
+			},
+			{
+				"appName": "01805192c8074820b1257fcfd97f2648",
+				"title": "art of rally Standard Edition"
+			},
+			{
+				"appName": "18fafa2d70d64831ab500a9d65ba9ab8",
+				"title": "Crying Suns"
+			},
+			{
+				"appName": "1974250642",
+				"title": "FRAMED Collection"
+			},
+			{
+				"appName": "11ba63f98ce94a38b631104a12c7adab",
+				"title": "Sail Forth"
+			},
+			{
+				"appName": "eccf14e21df84712a54d2b89b20d15f9",
+				"title": "Super Space Club"
+			},
+			{
+				"appName": "198fa31d58d344608a05cfd698482863",
+				"title": "OTXO"
+			},
+			{
+				"appName": "1603513052",
+				"title": "Jupiter Hell"
+			},
+			{
+				"appName": "4237ffc575c94a0e89ef9ab7dd884ad5",
+				"title": "Escape Academy"
+			},
+			{
+				"appName": "c91d192d42e84c37b2035c8a0b799313",
+				"title": "LONESTAR"
+			},
+			{
+				"appName": "aa78f7be2ee64193b6b6444c5fc50157",
+				"title": "Among the Sleep - Enhanced Edition"
+			},
+			{
+				"appName": "8935bb3e1420443a9789fe01758039a5",
+				"title": "Alien: Isolation"
+			},
+			{
+				"appName": "a64dcf9b711a4a60a3c0b6f052dfc7da",
+				"title": "Wolfenstein: The New Order"
+			},
+			{
+				"appName": "Speedwell",
+				"title": "Metro Last Light Redux"
+			},
+			{
+				"appName": "e1b0c0d3a2ed407bba6437842eb8f5ac",
+				"title": "Sol Cesto"
+			},
+			{
+				"appName": "bd60c8f307e24e70abf12938e606d0c9",
+				"title": "Vampire: The Masquerade - Reckoning of New York"
+			},
+			{
+				"appName": "1207658845",
+				"title": "Another World: 20th Anniversary Edition"
+			},
+			{
+				"appName": "1276268370",
+				"title": "Snake Core"
+			},
+			{
+				"appName": "4ec72fd8cbd94aa4acc61624c68fbc4f",
+				"title": "Epistory - Typing Chronicles"
+			}
+		],
+		"recent": [
+			{
+				"appName": "Sunbird",
+				"title": "The Bridge"
+			},
+			{
+				"appName": "1276268370",
+				"title": "Snake Core"
+			},
+			{
+				"appName": "f38de9fa4c6d43eabac080942cb394a1",
+				"title": "Never Alone (Kisima Ingitchuna)"
+			},
+			{
+				"appName": "6d49fdf92f6e4c558e1e1af0b0cfc993",
+				"title": "Moon Mystery"
+			},
+			{
+				"appName": "1566969207",
+				"title": "Death Squared"
+			},
+			{
+				"appName": "e1b0c0d3a2ed407bba6437842eb8f5ac",
+				"title": "Sol Cesto"
+			},
+			{
+				"appName": "2d9d7555ccdd4ceaa1b60e501ba0bacd",
+				"title": "Them's Fightin' Herds"
+			},
+			{
+				"appName": "7965f1986b164300886ff35757217f54",
+				"title": "ENDER LILIES: Quietus of the Knights"
+			},
+			{
+				"appName": "1538951699",
+				"title": "Space Grunts"
+			},
+			{
+				"appName": "1741027632",
+				"title": "Right and Down"
+			},
+			{
+				"appName": "4ec72fd8cbd94aa4acc61624c68fbc4f",
+				"title": "Epistory - Typing Chronicles"
+			},
+			{
+				"appName": "c91d192d42e84c37b2035c8a0b799313",
+				"title": "LONESTAR"
+			},
+			{
+				"appName": "1882554410",
+				"title": "Bō: Path of the Teal Lotus"
+			},
+			{
+				"appName": "1974250642",
+				"title": "FRAMED Collection"
+			},
+			{
+				"appName": "bb406082b69a47208489d3616b22b5c2",
+				"title": "Horizon Chase Turbo"
+			},
+			{
+				"appName": "1832934376",
+				"title": "EMPTY SHELL"
+			},
+			{
+				"appName": "8337d1f975514d35ad0c1176e8a29f26",
+				"title": "Snakebird Complete"
+			},
+			{
+				"appName": "01805192c8074820b1257fcfd97f2648",
+				"title": "art of rally Standard Edition"
+			},
+			{
+				"appName": "39b13b169e1d4e798543f931bc3a95b4",
+				"title": "Road Redemption"
+			},
+			{
+				"appName": "61cc250618f94809a3ef6837c8d69445",
+				"title": "Garden Story"
+			},
+			{
+				"appName": "6d3e443c997b4ebdb61a299161b3367a",
+				"title": "SkyDrift Infinity"
+			},
+			{
+				"appName": "23cbdd44de914e9caec216acefc51f9b",
+				"title": "Deadtime Defenders"
+			}
+		]
+	}
+}
