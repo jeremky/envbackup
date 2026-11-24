@@ -21,7 +21,7 @@
     "hideChangelogsOnStartup": false,
     "language": "fr",
     "maxWorkers": 0,
-    "minimizeOnLaunch": false,
+    "minimizeOnLaunch": true,
     "nvidiaPrime": false,
     "enviromentOptions": [],
     "wrapperOptions": [],
