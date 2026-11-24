@@ -23,7 +23,7 @@
 		"hideChangelogsOnStartup": false,
 		"language": "en",
 		"maxWorkers": 0,
-		"minimizeOnLaunch": false,
+		"minimizeOnLaunch": true,
 		"nvidiaPrime": false,
 		"enviromentOptions": [],
 		"wrapperOptions": [],
@@ -62,7 +62,7 @@
 	"window-props": {
 		"x": 22,
 		"y": 19,
-		"width": 1760,
+		"width": 860,
 		"height": 1032,
 		"maximized": false
 	},
@@ -784,6 +784,54 @@
 			{
 				"appName": "6d49fdf92f6e4c558e1e1af0b0cfc993",
 				"title": "Moon Mystery"
+			},
+			{
+				"appName": "1976780992",
+				"title": "Zoria: Age of Shattering"
+			},
+			{
+				"appName": "b979fad811c64939af282f5892049b50",
+				"title": "Sunless Skies: Sovereign Edition"
+			},
+			{
+				"appName": "dd75b5c168d546cc869582c0389f0a1d",
+				"title": "Train Sim World 2"
+			},
+			{
+				"appName": "0074f9a4082041f1869d9d6f26b99521",
+				"title": "Zero Hour"
+			},
+			{
+				"appName": "bcc75c246fe04e45b0c1f1c3fd52503a",
+				"title": "Pillars of Eternity - Definitive Edition"
+			},
+			{
+				"appName": "Sunbird",
+				"title": "The Bridge"
+			},
+			{
+				"appName": "9d943a160fa841859ac5c1f233789fcb",
+				"title": "Deliver Us Mars"
+			},
+			{
+				"appName": "ce3fb6fe8fdf4c9ba649abc3e407debf",
+				"title": "Machinarium"
+			},
+			{
+				"appName": "46a3c41a19ed4b1ea431483b4639c648",
+				"title": "Clash - Artifacts of Chaos"
+			},
+			{
+				"appName": "e75733d7dbb0463f9942ed6a2cd4acfb",
+				"title": "Tattoo Tycoon"
+			},
+			{
+				"appName": "amzn1.adg.product.09d91dff-0b7d-4aa8-b2e6-c4477254e8ca",
+				"title": "Naheulbeuk's Dungeon Master"
+			},
+			{
+				"appName": "3da2975945f34c27b536147685816607",
+				"title": "Definitely Not Fried Chicken"
 			}
 		],
 		"recent": [
@@ -900,5 +948,6 @@
 				"title": "Deadtime Defenders"
 			}
 		]
-	}
+	},
+	"theme": "nord-dark"
 }
