@@ -1,5 +1,5 @@
 {
-	"userHome": "/home/jeremky",
+  "userHome": "/home/jeremky",
   "theme": "nord-dark",
   "language": "en",
   "settings": {
@@ -833,6 +833,10 @@
       {
         "appName": "3da2975945f34c27b536147685816607",
         "title": "Definitely Not Fried Chicken"
+      },
+      {
+        "appName": "78903903b1f1419bae248467f27ff470",
+        "title": "INDUSTRIA"
       }
     ]
   }
