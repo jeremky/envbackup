@@ -23,11 +23,18 @@
     },
     {
       "class": "com.mitchellh.ghostty"
+    },
+    {
+      "class": "org.gnome.TextEditor"
     }
   ],
   "skiptaskbarhidden": [],
   "log_on_focus": false,
   "_compiled_float": [
+    {
+      "classRe": {},
+      "titleRe": null
+    },
     {
       "classRe": {},
       "titleRe": null
